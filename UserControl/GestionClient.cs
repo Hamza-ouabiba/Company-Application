@@ -7,11 +7,13 @@ namespace RNetApp
     public partial class GestionClient : UserControl
     {
         private static int position;
+        private static int position2 = -1;
         public GestionClient()
         {
             InitializeComponent();
         }
         AdoNet ado = new AdoNet();
+        AdoNet ado2 = new AdoNet();
         private void GestionClient_Load(object sender, EventArgs e)
         {
             ado.Cmd.CommandText = $"Select * from CLIENT";
@@ -119,7 +121,6 @@ namespace RNetApp
         //pour datagridview : 
         private void affichageGrid()
         {
-            dataGridView1.DataSource = ado.Dt;
             dataGridView1.Columns["IDCLIENT"].Visible = false;
             dataGridView1.Columns["NOM"].Width = 150;
             dataGridView1.Columns["MONTANT"].Width = 150;
@@ -147,10 +148,23 @@ namespace RNetApp
                     if(confirmation)
                     {
                         SqlCommandBuilder scb = new SqlCommandBuilder(ado.Adapter);
-                        ado.Dt.Rows[e.RowIndex].Delete();
-                        scb.GetDeleteCommand();
-                        ado.Adapter.Update(ado.Dt);
-                        nbreClt.Text = $"{ado.Dt.Rows.Count}";
+                        SqlCommandBuilder scb2 = new SqlCommandBuilder(ado2.Adapter);
+                        MessageBox.Show($"{position2}");
+                        if (position2 != -1)
+                        {
+                            scb2.GetDeleteCommand();
+                            ado2.Dt.Rows[position2].Delete();
+                            ado2.Adapter.Update(ado2.Dt);
+                            nbreClt.Text = $"{ado2.Dt.Rows.Count}";
+                            position2 = -1;
+                        } else
+                        {
+                            scb.GetDeleteCommand();
+                            ado.Dt.Rows[e.RowIndex].Delete();
+                            ado.Adapter.Update(ado.Dt);
+                            nbreClt.Text = $"{ado.Dt.Rows.Count}";
+                        }
+                        
                     }
                 } else if(colName == "edit")
                 {
@@ -158,6 +172,7 @@ namespace RNetApp
                     if(confirmation)
                     {
                         DataRow dr = ado.Dt.Rows[e.RowIndex];
+                        idClientT.Text = dr[0].ToString();
                         nomClt.Text = dr[1].ToString();
                         Montant.Text = dr[2].ToString();
                         totalRes.Text = dr[3].ToString();
@@ -189,23 +204,30 @@ namespace RNetApp
             SqlCommandBuilder scb = new SqlCommandBuilder(ado.Adapter);
             try
             {
-                ado.Dt.Rows[position]["NOM"] = nomClt.Text;
-                ado.Dt.Rows[position]["MONTANT"] = decimal.Parse(Montant.Text);
-                ado.Dt.Rows[position]["AVANCE"] = decimal.Parse(avance.Text);
-                ado.Dt.Rows[position]["TOTAL_REST"] = decimal.Parse(Montant.Text)- decimal.Parse(avance.Text);
-                if(cheque.Checked)
+                if(checkUserWithNoId(nomClt.Text,idClientT.Text))
                 {
-                    ado.Dt.Rows[position]["payE"] = false;
-                    ado.Dt.Rows[position]["payC"] = true;
-                } else
+                    MessageBox.Show("Ce client existe deja dans la base de donnée Pensez a saisir un nouveau nom");
+                } else if(checkUserWithId(nomClt.Text,idClientT.Text) || !checkClient(nomClt.Text))
                 {
-                    ado.Dt.Rows[position]["payE"] = true;
-                    ado.Dt.Rows[position]["payC"] = false;
+                    ado.Dt.Rows[position]["NOM"] = nomClt.Text;
+                    ado.Dt.Rows[position]["MONTANT"] = decimal.Parse(Montant.Text);
+                    ado.Dt.Rows[position]["AVANCE"] = decimal.Parse(avance.Text);
+                    ado.Dt.Rows[position]["TOTAL_REST"] = decimal.Parse(Montant.Text) - decimal.Parse(avance.Text);
+                    if (cheque.Checked)
+                    {
+                        ado.Dt.Rows[position]["payE"] = false;
+                        ado.Dt.Rows[position]["payC"] = true;
+                    }
+                    else
+                    {
+                        ado.Dt.Rows[position]["payE"] = true;
+                        ado.Dt.Rows[position]["payC"] = false;
+                    }
+                    scb.GetUpdateCommand();
+                    ado.Adapter.Update(ado.Dt);
+                    effacerTextBox();
+                    MessageBox.Show("modification avec succes");
                 }
-                scb.GetUpdateCommand();
-                ado.Adapter.Update(ado.Dt);
-                effacerTextBox();
-                MessageBox.Show("modification avec succes");
             } catch(Exception ex)
             {
                 MessageBox.Show(ex.Message);
@@ -213,20 +235,29 @@ namespace RNetApp
         }
         private void rechercher_Click(object sender, EventArgs e)
         {
-            AdoNet ado2 = new AdoNet();
             if (recherche.Text != "")
             {
+                ado2.Dt = new DataTable();
                 ado2.Cmd.CommandText = $"Select * from CLIENT where NOM like '{recherche.Text}'";
                 ado2.Cmd.Connection = ado2.Connection;
                 ado2.Adapter.SelectCommand = ado2.Cmd;
                 ado2.Adapter.Fill(ado2.Dt);
                 dataGridView1.DataSource = ado2.Dt;
+                MessageBox.Show($"{ado2.Dt.Rows.Count}");
+                for(int i=0;i<ado2.Dt.Rows.Count;i++)
+                {
+                    if(recherche.Text == ado2.Dt.Rows[i]["NOM"].ToString())
+                    {
+                        nbreClt.Text = $"{ado2.Dt.Rows.Count}";
+                        position2 = i;
+                        break;
+                    }
+                }
             }
             else
             {
-                dataGridView1.DataSource = null;
-                dataGridView1.Columns.Clear();
-                affichageGrid();
+                ado.Dt = new DataTable();
+                GestionClient_Load(sender, e);
             }
 
         }

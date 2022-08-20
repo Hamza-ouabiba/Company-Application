@@ -29,3 +29,4 @@ D:\projects\training\RNetApp\RNetApp\obj\Debug\net6.0-windows\RNetApp.Forms.menu
 D:\projects\training\RNetApp\RNetApp\obj\Debug\net6.0-windows\RNetApp.Properties.Resources.resources
 D:\projects\training\RNetApp\RNetApp\obj\Debug\net6.0-windows\RNetApp.GestionClient.resources
 D:\projects\training\RNetApp\RNetApp\obj\Debug\net6.0-windows\RNetApp.GestionFacture.resources
+D:\projects\training\RNetApp\RNetApp\obj\Debug\net6.0-windows\RNetApp.Forms.FactureForm.resources

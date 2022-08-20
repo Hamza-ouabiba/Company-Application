@@ -54,6 +54,7 @@
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
             this.rechercher = new FontAwesome.Sharp.IconButton();
+            this.idClientT = new System.Windows.Forms.TextBox();
             this.groupBox3.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -351,10 +352,19 @@
             this.rechercher.UseVisualStyleBackColor = false;
             this.rechercher.Click += new System.EventHandler(this.rechercher_Click);
             // 
+            // idClientT
+            // 
+            this.idClientT.Location = new System.Drawing.Point(112, 33);
+            this.idClientT.Name = "idClientT";
+            this.idClientT.Size = new System.Drawing.Size(125, 27);
+            this.idClientT.TabIndex = 71;
+            this.idClientT.Visible = false;
+            // 
             // GestionClient
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.idClientT);
             this.Controls.Add(this.rechercher);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.panel1);
@@ -400,5 +410,6 @@
         private RadioButton espece;
         private RadioButton cheque;
         private FontAwesome.Sharp.IconButton rechercher;
+        private TextBox idClientT;
     }
 }
