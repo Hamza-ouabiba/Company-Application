@@ -511,6 +511,7 @@
             this.enregistrer.TabIndex = 151;
             this.enregistrer.Text = "Enregistrer";
             this.enregistrer.UseVisualStyleBackColor = false;
+            this.enregistrer.Click += new System.EventHandler(this.enregistrer_Click);
             // 
             // FactureForm
             // 

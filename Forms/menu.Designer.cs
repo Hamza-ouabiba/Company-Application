@@ -35,7 +35,7 @@
             this.iconPictureBox1 = new FontAwesome.Sharp.IconPictureBox();
             this.label2 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.iconButton3 = new FontAwesome.Sharp.IconButton();
+            this.prixModBtn = new FontAwesome.Sharp.IconButton();
             this.iconButton2 = new FontAwesome.Sharp.IconButton();
             this.GestionEmp = new FontAwesome.Sharp.IconButton();
             this.FactureBtn = new FontAwesome.Sharp.IconButton();
@@ -59,7 +59,7 @@
             this.panelLeft.Controls.Add(this.iconPictureBox1);
             this.panelLeft.Controls.Add(this.label2);
             this.panelLeft.Controls.Add(this.pictureBox1);
-            this.panelLeft.Controls.Add(this.iconButton3);
+            this.panelLeft.Controls.Add(this.prixModBtn);
             this.panelLeft.Controls.Add(this.iconButton2);
             this.panelLeft.Controls.Add(this.GestionEmp);
             this.panelLeft.Controls.Add(this.FactureBtn);
@@ -135,23 +135,24 @@
             this.pictureBox1.TabIndex = 8;
             this.pictureBox1.TabStop = false;
             // 
-            // iconButton3
+            // prixModBtn
             // 
-            this.iconButton3.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.iconButton3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton3.ForeColor = System.Drawing.Color.Silver;
-            this.iconButton3.IconChar = FontAwesome.Sharp.IconChar.Cog;
-            this.iconButton3.IconColor = System.Drawing.Color.Silver;
-            this.iconButton3.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton3.IconSize = 30;
-            this.iconButton3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButton3.Location = new System.Drawing.Point(-7, 551);
-            this.iconButton3.Name = "iconButton3";
-            this.iconButton3.Padding = new System.Windows.Forms.Padding(7, 0, 0, 0);
-            this.iconButton3.Size = new System.Drawing.Size(238, 92);
-            this.iconButton3.TabIndex = 7;
-            this.iconButton3.Text = "Modification Prix";
-            this.iconButton3.UseVisualStyleBackColor = true;
+            this.prixModBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.prixModBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.prixModBtn.ForeColor = System.Drawing.Color.Silver;
+            this.prixModBtn.IconChar = FontAwesome.Sharp.IconChar.Cog;
+            this.prixModBtn.IconColor = System.Drawing.Color.Silver;
+            this.prixModBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.prixModBtn.IconSize = 30;
+            this.prixModBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.prixModBtn.Location = new System.Drawing.Point(-7, 551);
+            this.prixModBtn.Name = "prixModBtn";
+            this.prixModBtn.Padding = new System.Windows.Forms.Padding(7, 0, 0, 0);
+            this.prixModBtn.Size = new System.Drawing.Size(238, 92);
+            this.prixModBtn.TabIndex = 7;
+            this.prixModBtn.Text = "Modification Prix";
+            this.prixModBtn.UseVisualStyleBackColor = true;
+            this.prixModBtn.Click += new System.EventHandler(this.prixModBtn_Click);
             // 
             // iconButton2
             // 
@@ -315,7 +316,7 @@
         private FontAwesome.Sharp.IconPictureBox iconPictureBox1;
         private Label label2;
         private PictureBox pictureBox1;
-        private FontAwesome.Sharp.IconButton iconButton3;
+        private FontAwesome.Sharp.IconButton prixModBtn;
         private FontAwesome.Sharp.IconButton iconButton2;
         private FontAwesome.Sharp.IconButton GestionEmp;
         private FontAwesome.Sharp.IconButton FactureBtn;

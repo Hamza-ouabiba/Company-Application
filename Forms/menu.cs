@@ -65,5 +65,14 @@ namespace RNetApp.Forms
             facture.Dock = DockStyle.Fill;
             panelContent.Controls.Add(facture);
         }
+
+        private void prixModBtn_Click(object sender, EventArgs e)
+        {
+            ArticleMod article = new ArticleMod();
+            //afficher Le controleur d'utilisateur client : 
+            panelContent.Controls.Clear();
+            article.Dock = DockStyle.Fill;
+            panelContent.Controls.Add(article);
+        }
     }
 }
