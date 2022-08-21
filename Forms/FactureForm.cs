@@ -287,9 +287,5 @@ namespace RNetApp.Forms
             MessageBox.Show($"{ado.Ds.Tables["FACTURE"].Columns.Count}");
             ado.Adapter.Update(ado.Ds.Tables["FACTURE"]);
         }
-        private void update()
-        {
-           
-        }
     }
 }

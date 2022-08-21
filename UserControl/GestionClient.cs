@@ -164,7 +164,6 @@ namespace RNetApp
                             ado.Adapter.Update(ado.Dt);
                             nbreClt.Text = $"{ado.Dt.Rows.Count}";
                         }
-                        
                     }
                 } else if(colName == "edit")
                 {
