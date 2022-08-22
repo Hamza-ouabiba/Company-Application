@@ -47,6 +47,10 @@
             this.nomCltT = new System.Windows.Forms.TextBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
+            this.rechercher = new FontAwesome.Sharp.IconButton();
+            this.recherche = new System.Windows.Forms.TextBox();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.error = new System.Windows.Forms.Label();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -235,7 +239,7 @@
             dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(117)))), ((int)(((byte)(240)))));
             this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle4;
-            this.dataGridView1.Size = new System.Drawing.Size(924, 519);
+            this.dataGridView1.Size = new System.Drawing.Size(833, 457);
             this.dataGridView1.TabIndex = 12;
             this.dataGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellDoubleClick);
             // 
@@ -249,16 +253,71 @@
             this.label1.TabIndex = 11;
             this.label1.Text = "Gestion de Facture";
             // 
+            // rechercher
+            // 
+            this.rechercher.BackColor = System.Drawing.Color.Red;
+            this.rechercher.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.rechercher.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.rechercher.ForeColor = System.Drawing.Color.White;
+            this.rechercher.IconChar = FontAwesome.Sharp.IconChar.Search;
+            this.rechercher.IconColor = System.Drawing.Color.White;
+            this.rechercher.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.rechercher.IconSize = 27;
+            this.rechercher.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.rechercher.Location = new System.Drawing.Point(1103, 115);
+            this.rechercher.Name = "rechercher";
+            this.rechercher.Padding = new System.Windows.Forms.Padding(5);
+            this.rechercher.Size = new System.Drawing.Size(169, 43);
+            this.rechercher.TabIndex = 74;
+            this.rechercher.Text = "Rechercher";
+            this.rechercher.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.rechercher.UseVisualStyleBackColor = false;
+            this.rechercher.Click += new System.EventHandler(this.rechercher_Click);
+            // 
+            // recherche
+            // 
+            this.recherche.BackColor = System.Drawing.SystemColors.Control;
+            this.recherche.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.recherche.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.recherche.Location = new System.Drawing.Point(777, 124);
+            this.recherche.Name = "recherche";
+            this.recherche.PlaceholderText = "Rechercher un employé";
+            this.recherche.Size = new System.Drawing.Size(331, 27);
+            this.recherche.TabIndex = 73;
+            // 
+            // panel5
+            // 
+            this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(117)))), ((int)(((byte)(214)))));
+            this.panel5.Location = new System.Drawing.Point(777, 157);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(300, 1);
+            this.panel5.TabIndex = 75;
+            // 
+            // error
+            // 
+            this.error.AutoSize = true;
+            this.error.ForeColor = System.Drawing.Color.Red;
+            this.error.Location = new System.Drawing.Point(777, 103);
+            this.error.Name = "error";
+            this.error.Size = new System.Drawing.Size(50, 20);
+            this.error.TabIndex = 76;
+            this.error.Text = "label3";
+            this.error.Visible = false;
+            // 
             // GestionFacture
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.error);
+            this.Controls.Add(this.panel5);
+            this.Controls.Add(this.rechercher);
+            this.Controls.Add(this.recherche);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.label1);
             this.Name = "GestionFacture";
-            this.Size = new System.Drawing.Size(1329, 742);
+            this.Size = new System.Drawing.Size(1566, 742);
             this.Load += new System.EventHandler(this.GestionFacture_Load);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
@@ -287,5 +346,9 @@
         private TextBox nomCltT;
         private DataGridView dataGridView1;
         private Label label1;
+        private FontAwesome.Sharp.IconButton rechercher;
+        private TextBox recherche;
+        internal Panel panel5;
+        private Label error;
     }
 }

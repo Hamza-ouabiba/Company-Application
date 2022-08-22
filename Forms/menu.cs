@@ -74,5 +74,13 @@ namespace RNetApp.Forms
             article.Dock = DockStyle.Fill;
             panelContent.Controls.Add(article);
         }
+        private void GestionEmp_Click(object sender, EventArgs e)
+        {
+            GestionEmploye ge = new GestionEmploye();
+            //afficher le controleur de gestion des employées : 
+            panelContent.Controls.Clear();
+            ge.Dock = DockStyle.Fill;
+            panelContent.Controls.Add(ge);
+        }
     }
 }

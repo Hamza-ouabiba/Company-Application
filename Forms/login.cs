@@ -27,6 +27,7 @@ namespace RNetApp
                 {
                     idChef = Guid.Parse(dr["IDCHEF"].ToString());
                     menu.IdChef = idChef;
+                    GestionEmploye.IdChef = idChef;
                     flag = true;
                     break;
                 }

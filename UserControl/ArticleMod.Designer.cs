@@ -95,7 +95,7 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox1.Controls.Add(this.textBox35);
             this.groupBox1.Controls.Add(this.textBox34);
             this.groupBox1.Controls.Add(this.textBox33);
@@ -131,7 +131,7 @@
             this.groupBox1.Controls.Add(this.textBox3);
             this.groupBox1.Controls.Add(this.textBox2);
             this.groupBox1.Controls.Add(this.textBox1);
-            this.groupBox1.Location = new System.Drawing.Point(193, 225);
+            this.groupBox1.Location = new System.Drawing.Point(183, 182);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(1060, 579);
             this.groupBox1.TabIndex = 8;
@@ -436,7 +436,7 @@
             this.enreBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.enreBtn.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.enreBtn.ForeColor = System.Drawing.Color.Silver;
-            this.enreBtn.Location = new System.Drawing.Point(760, 852);
+            this.enreBtn.Location = new System.Drawing.Point(655, 811);
             this.enreBtn.Name = "enreBtn";
             this.enreBtn.Size = new System.Drawing.Size(301, 49);
             this.enreBtn.TabIndex = 11;

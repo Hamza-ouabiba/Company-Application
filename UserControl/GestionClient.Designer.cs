@@ -55,6 +55,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.rechercher = new FontAwesome.Sharp.IconButton();
             this.idClientT = new System.Windows.Forms.TextBox();
+            this.error = new System.Windows.Forms.Label();
             this.groupBox3.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -336,9 +337,9 @@
             this.rechercher.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(117)))), ((int)(((byte)(240)))));
             this.rechercher.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.rechercher.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.rechercher.ForeColor = System.Drawing.Color.Silver;
+            this.rechercher.ForeColor = System.Drawing.Color.White;
             this.rechercher.IconChar = FontAwesome.Sharp.IconChar.Search;
-            this.rechercher.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.rechercher.IconColor = System.Drawing.Color.White;
             this.rechercher.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.rechercher.IconSize = 27;
             this.rechercher.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -360,10 +361,21 @@
             this.idClientT.TabIndex = 71;
             this.idClientT.Visible = false;
             // 
+            // error
+            // 
+            this.error.AutoSize = true;
+            this.error.ForeColor = System.Drawing.Color.Red;
+            this.error.Location = new System.Drawing.Point(777, 96);
+            this.error.Name = "error";
+            this.error.Size = new System.Drawing.Size(0, 20);
+            this.error.TabIndex = 72;
+            this.error.Visible = false;
+            // 
             // GestionClient
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.error);
             this.Controls.Add(this.idClientT);
             this.Controls.Add(this.rechercher);
             this.Controls.Add(this.groupBox3);
@@ -411,5 +423,6 @@
         private RadioButton cheque;
         private FontAwesome.Sharp.IconButton rechercher;
         private TextBox idClientT;
+        private Label error;
     }
 }

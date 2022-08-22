@@ -190,6 +190,7 @@
             this.GestionEmp.TabIndex = 5;
             this.GestionEmp.Text = "      Gestion des Employées";
             this.GestionEmp.UseVisualStyleBackColor = true;
+            this.GestionEmp.Click += new System.EventHandler(this.GestionEmp_Click);
             // 
             // FactureBtn
             // 

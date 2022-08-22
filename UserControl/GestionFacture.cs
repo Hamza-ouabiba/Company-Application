@@ -8,6 +8,7 @@ namespace RNetApp
     {
         private Guid idClient;
         private string nomClient;
+        AdoNet ado = new AdoNet();
         public Guid IdClient { get => idClient; set => idClient = value; }
         public GestionFacture()
         {
@@ -15,7 +16,6 @@ namespace RNetApp
         }
         private void GestionFacture_Load(object sender, EventArgs e)
         {
-            AdoNet ado = new AdoNet();
             ado.Cmd.CommandText = $"Select * from CLIENT";
             ado.Cmd.Connection = ado.Connection;
             ado.Adapter.SelectCommand = ado.Cmd;
@@ -41,11 +41,6 @@ namespace RNetApp
         {
             if(e.RowIndex != -1)
             {
-                AdoNet ado = new AdoNet();
-                ado.Cmd.CommandText = $"Select * from CLIENT";
-                ado.Cmd.Connection = ado.Connection;
-                ado.Adapter.SelectCommand = ado.Cmd;
-                ado.Adapter.Fill(ado.Dt);
                 idCltT.Text = ado.Dt.Rows[e.RowIndex][0].ToString();
                 idClient = Guid.Parse(idCltT.Text);
                 nomClient = ado.Dt.Rows[e.RowIndex][1].ToString();
@@ -75,6 +70,40 @@ namespace RNetApp
             form.IdClient = IdClient;
             form.NameClient = nomClient;
             form.Show();
+        }
+        private bool checkClient(string nomClt)
+        {
+            foreach (DataRow row in ado.Dt.Rows)
+            {
+                if (row["NOM"].ToString().ToLower() == nomClt.ToLower())
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+        private void rechercher_Click(object sender, EventArgs e)
+        {
+            if (recherche.Text != "")
+            {
+                DataView dv = new DataView(ado.Dt);
+                if (checkClient(recherche.Text))
+                {
+                    error.Visible = false;
+                    dv.RowFilter = $"NOM like '{recherche.Text}'";
+                    dataGridView1.DataSource = dv;
+                }
+                else
+                {
+                    error.Visible = true;
+                    error.Text = "Ce client n'existe pas";
+                }
+            }
+            else
+            {
+                error.Visible = true;
+                error.Text = "Veuillez inserer quelque chose";
+            }
         }
     }
 }
