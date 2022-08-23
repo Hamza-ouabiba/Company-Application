@@ -75,6 +75,7 @@
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.enregistrer = new System.Windows.Forms.Button();
+            this.menuPrBtn = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -84,11 +85,12 @@
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(117)))), ((int)(((byte)(240)))));
+            this.panel1.Controls.Add(this.menuPrBtn);
             this.panel1.Controls.Add(this.exitBtn);
             this.panel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(117)))), ((int)(((byte)(240)))));
             this.panel1.Location = new System.Drawing.Point(-7, -7);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1421, 53);
+            this.panel1.Size = new System.Drawing.Size(1432, 47);
             this.panel1.TabIndex = 0;
             // 
             // exitBtn
@@ -101,7 +103,7 @@
             this.exitBtn.IconColor = System.Drawing.Color.Red;
             this.exitBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.exitBtn.IconSize = 40;
-            this.exitBtn.Location = new System.Drawing.Point(1358, 14);
+            this.exitBtn.Location = new System.Drawing.Point(1369, 8);
             this.exitBtn.Name = "exitBtn";
             this.exitBtn.Size = new System.Drawing.Size(41, 36);
             this.exitBtn.TabIndex = 4;
@@ -513,6 +515,18 @@
             this.enregistrer.UseVisualStyleBackColor = false;
             this.enregistrer.Click += new System.EventHandler(this.enregistrer_Click);
             // 
+            // menuPrBtn
+            // 
+            this.menuPrBtn.BackColor = System.Drawing.Color.Cyan;
+            this.menuPrBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.menuPrBtn.Location = new System.Drawing.Point(1116, 10);
+            this.menuPrBtn.Name = "menuPrBtn";
+            this.menuPrBtn.Size = new System.Drawing.Size(227, 32);
+            this.menuPrBtn.TabIndex = 5;
+            this.menuPrBtn.Text = "Revenir au Menu principal";
+            this.menuPrBtn.UseVisualStyleBackColor = false;
+            this.menuPrBtn.Click += new System.EventHandler(this.menuPrBtn_Click);
+            // 
             // FactureForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -617,5 +631,6 @@
         private TextBox textBox2;
         private TextBox textBox1;
         private Button enregistrer;
+        private Button menuPrBtn;
     }
 }

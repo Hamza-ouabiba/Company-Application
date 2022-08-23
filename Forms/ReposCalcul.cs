@@ -14,9 +14,10 @@ namespace RNetApp.Forms
         private void calcul_Click(object sender, EventArgs e)
         {
             DateTime now = DateTime.Now;
-            int jour = dateTimePicker1.Value.Day;
+            double d1 = (dateTimePicker1.Value.ToLocalTime() - new DateTime(1970, 1, 1)).TotalMilliseconds;
+            double d2 = (dateTimePicker2.Value.ToLocalTime() - new DateTime(1970, 1, 1)).TotalMilliseconds;
             nbreCon.Visible = true;
-            nbreCon.Text = $"{now.Day - jour} Jours";
+            nbreCon.Text = $"{Math.Round((d2 - d1) / (1000 * 3600 * 24))} Jours de repos ";
         }
     }
 }

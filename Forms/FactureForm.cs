@@ -287,5 +287,11 @@ namespace RNetApp.Forms
             MessageBox.Show($"{ado.Ds.Tables["FACTURE"].Columns.Count}");
             ado.Adapter.Update(ado.Ds.Tables["FACTURE"]);
         }
+        private void menuPrBtn_Click(object sender, EventArgs e)
+        {
+            menu m = new menu();
+            this.Hide();
+            m.Show();
+        }
     }
 }

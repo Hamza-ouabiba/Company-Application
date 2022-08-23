@@ -38,6 +38,8 @@
             this.nbreCon = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.calcul = new System.Windows.Forms.Button();
+            this.label5 = new System.Windows.Forms.Label();
+            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -94,7 +96,7 @@
             // dateTimePicker1
             // 
             this.dateTimePicker1.CalendarFont = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.dateTimePicker1.Location = new System.Drawing.Point(287, 167);
+            this.dateTimePicker1.Location = new System.Drawing.Point(323, 131);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(280, 27);
             this.dateTimePicker1.TabIndex = 1;
@@ -102,7 +104,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(67, 172);
+            this.label2.Location = new System.Drawing.Point(103, 136);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(176, 20);
             this.label2.TabIndex = 2;
@@ -112,7 +114,7 @@
             // 
             this.nbreCon.AutoSize = true;
             this.nbreCon.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.nbreCon.Location = new System.Drawing.Point(411, 325);
+            this.nbreCon.Location = new System.Drawing.Point(411, 350);
             this.nbreCon.Name = "nbreCon";
             this.nbreCon.Size = new System.Drawing.Size(62, 21);
             this.nbreCon.TabIndex = 3;
@@ -123,7 +125,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label4.Location = new System.Drawing.Point(150, 322);
+            this.label4.Location = new System.Drawing.Point(150, 347);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(189, 23);
             this.label4.TabIndex = 4;
@@ -133,7 +135,7 @@
             // 
             this.calcul.BackColor = System.Drawing.Color.Lime;
             this.calcul.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.calcul.Location = new System.Drawing.Point(249, 244);
+            this.calcul.Location = new System.Drawing.Point(246, 265);
             this.calcul.Name = "calcul";
             this.calcul.Size = new System.Drawing.Size(185, 49);
             this.calcul.TabIndex = 5;
@@ -141,11 +143,30 @@
             this.calcul.UseVisualStyleBackColor = false;
             this.calcul.Click += new System.EventHandler(this.calcul_Click);
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(103, 211);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(135, 20);
+            this.label5.TabIndex = 7;
+            this.label5.Text = "Date Fin de conger";
+            // 
+            // dateTimePicker2
+            // 
+            this.dateTimePicker2.CalendarFont = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.dateTimePicker2.Location = new System.Drawing.Point(323, 206);
+            this.dateTimePicker2.Name = "dateTimePicker2";
+            this.dateTimePicker2.Size = new System.Drawing.Size(280, 27);
+            this.dateTimePicker2.TabIndex = 6;
+            // 
             // ReposCalcul
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(713, 398);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.dateTimePicker2);
             this.Controls.Add(this.calcul);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.nbreCon);
@@ -174,5 +195,7 @@
         private Label nbreCon;
         private Label label4;
         private Button calcul;
+        private Label label5;
+        private DateTimePicker dateTimePicker2;
     }
 }

@@ -23,6 +23,7 @@ namespace RNetApp
             ado.Adapter.Fill(ado.Ds, "EMPLOYE");
             dataGridView1.DataSource = ado.Ds.Tables["EMPLOYE"];
             comboBox1.DataSource = ado.Ds.Tables["EMPLOYE"];
+            nbrEmp.Text = $"{ado.Ds.Tables["EMPLOYE"].Rows.Count}";
             comboBox1.DisplayMember = ado.Ds.Tables["EMPLOYE"].Columns["PRENOM"].ToString();
             comboBox1.ValueMember = ado.Ds.Tables["EMPLOYE"].Columns["IDEMPLOYE"].ToString();
             dataGridView1.Columns["IDEMPLOYE"].Visible = false;
@@ -48,7 +49,11 @@ namespace RNetApp
         }
         private void modifier_Click(object sender, EventArgs e)
         {
-            congerBtn.Visible = true;
+            congerBtn.Enabled = true;
+            if(checkEmpl(prenom.Text))
+            {
+
+            }
         }
 
         private void comboBox1_ValueMemberChanged(object sender, EventArgs e)
@@ -65,12 +70,16 @@ namespace RNetApp
         {
             foreach(DataRow row in ado.Ds.Tables["EMPLOYE"].Rows)
             {
-                if(row["PRENOM"].ToString() == prenom)
+                if (row["PRENOM"].ToString().ToLower() == prenom)
                 {
                     return true;
                 }
             }
             return false;
+        }
+        private bool checkInfo()
+        {
+            return nom.Text != "" && prenom.Text != "" && age.Text != "" && salaire.Text != "";
         }
         private void empBtn_Click(object sender, EventArgs e)
         {
@@ -78,22 +87,115 @@ namespace RNetApp
             SqlCommandBuilder sql = new SqlCommandBuilder(ado.Adapter);
             if(!checkEmpl(prenom.Text))
             {
-                affich.Visible = false;
-                dr = ado.Ds.Tables["EMPLOYE"].NewRow();
-                dr[1] = IdChef;
-                dr[2] = nom.Text;
-                dr[3] = prenom.Text;
-                dr[4] = age.Text;
-                dr[8] = decimal.Parse(avance.Text);
-                dr[9] = decimal.Parse(salaire.Text);
-                dr[10] = decimal.Parse(salaire.Text) - decimal.Parse(avance.Text);
-                ado.Ds.Tables["EMPLOYE"].Rows.Add(dr);
-                sql.GetInsertCommand();
-                ado.Adapter.Update(ado.Ds.Tables["EMPLOYE"]);
+                try
+                {
+                   if(checkInfo())
+                    {
+                        affich.Visible = false;
+                        dr = ado.Ds.Tables["EMPLOYE"].NewRow();
+                        dr[1] = IdChef;
+                        dr[2] = nom.Text;
+                        dr[3] = prenom.Text;
+                        dr[4] = age.Text;
+                        dr[8] = decimal.Parse(avance.Text);
+                        dr[9] = decimal.Parse(salaire.Text);
+                        dr[10] = decimal.Parse(salaire.Text) - decimal.Parse(avance.Text);
+                        //attendre les repos depuis le formulaire de calcule : 
+                        //
+                        ado.Ds.Tables["EMPLOYE"].Rows.Add(dr);
+                        sql.GetInsertCommand();
+                        ado.Adapter.Update(ado.Ds.Tables["EMPLOYE"]);
+                        ado = new AdoNet();
+                        GestionEmploye_Load(sender, e);
+                    } else
+                    {
+                        affich.Visible = true;
+                        affich.Text = "Veuillez remplir les champs requis";
+                    }
+                } catch(Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
             } else
             {
                 affich.Visible = true;
                 affich.Text = "Employée existe deja";
+            }
+        }
+
+        private void rechercher_Click(object sender, EventArgs e)
+        {
+            if (recherche.Text != "")
+            {
+                DataView dv = new DataView(ado.Ds.Tables["EMPLOYE"]);
+                if (checkEmpl(recherche.Text.ToLower()))
+                {
+                    error.Visible = false;
+                    dv.RowFilter = $"PRENOM like '{recherche.Text}'";
+                    dataGridView1.DataSource = dv;
+                }
+                else
+                {
+                    error.Visible = true;
+                    error.Text = "Cet employé n'existe pas";
+                }
+            }
+            else
+            {
+                error.Visible = true;
+                error.Text = "Veuillez inserer quelque chose";
+            }
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex != -1)
+            {
+                string colName = dataGridView1.Columns[e.ColumnIndex].Name;
+                if (colName == "delete")
+                {
+                    bool confirmation = Shared.showMessage("Voulez vous vraiment supprimer le client ?", "Confirmation de suppression");
+                    if (confirmation)
+                    {
+                        SqlCommandBuilder scb = new SqlCommandBuilder(ado.Adapter);
+                        scb.GetDeleteCommand();
+                        ado.Dt.Rows[e.RowIndex].Delete();
+                        ado.Adapter.Update(ado.Dt);
+                        nbrEmp.Text = $"{ado.Ds.Tables["EMPLOYE"].Rows.Count}";
+                    }
+                }
+                else if (colName == "edit")
+                {
+                    bool confirmation = Shared.showMessage("Voulez vous vraiment modifier le client ?", "Confirmation de modification");
+                    if (confirmation)
+                    {
+                        DataRow dr = ado.Ds.Tables["EMPLOYE"].Rows[e.RowIndex];
+                        nom.Text = dr[2].ToString();
+                        prenom.Text = dr[3].ToString();
+                        age.Text = dr[4].ToString();
+                        salaire.Text = dr[9].ToString();
+                        avance.Text = dr[10].ToString();
+                        empBtn.Enabled = false;
+                        modifier.Enabled = true;
+                        congerBtn.Enabled = true;
+                    }
+                }
+            }
+        }
+
+        private void dataGridView1_CellMouseEnter(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex != -1)
+            {
+                string colName = dataGridView1.Columns[e.ColumnIndex].Name;
+                if (colName != "delete" && colName != "edit")
+                {
+                    dataGridView1.Cursor = Cursors.Default;
+                }
+                else
+                {
+                    dataGridView1.Cursor = Cursors.Hand;
+                }
             }
         }
     }
