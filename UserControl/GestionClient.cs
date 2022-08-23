@@ -201,7 +201,7 @@ namespace RNetApp
             else
             {
                 error.Visible = true;
-                error.Text = "Veuillez inserer quelque chose";
+                error.Text = "Veuillez inseGrer quelque chose";
             }
         }
         private bool checkInfo()
@@ -240,6 +240,11 @@ namespace RNetApp
                 }
             }
             return false;
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
         }
     }
 }

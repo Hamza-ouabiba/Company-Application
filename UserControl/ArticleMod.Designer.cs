@@ -95,7 +95,7 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.groupBox1.Controls.Add(this.textBox35);
             this.groupBox1.Controls.Add(this.textBox34);
             this.groupBox1.Controls.Add(this.textBox33);
@@ -431,12 +431,12 @@
             // 
             // enreBtn
             // 
-            this.enreBtn.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.enreBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.enreBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(117)))), ((int)(((byte)(240)))));
             this.enreBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.enreBtn.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.enreBtn.ForeColor = System.Drawing.Color.Silver;
-            this.enreBtn.Location = new System.Drawing.Point(655, 811);
+            this.enreBtn.Location = new System.Drawing.Point(574, 822);
             this.enreBtn.Name = "enreBtn";
             this.enreBtn.Size = new System.Drawing.Size(301, 49);
             this.enreBtn.TabIndex = 11;

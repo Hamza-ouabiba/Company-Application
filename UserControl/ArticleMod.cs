@@ -5,13 +5,13 @@ namespace RNetApp
 {
     public partial class ArticleMod : UserControl
     {
-        AdoNet ado2 = new AdoNet();
         public ArticleMod()
         {
             InitializeComponent();
         }
         private void ArticleMod_Load(object sender, EventArgs e)
         {
+            AdoNet ado2 = new AdoNet();
             ado2.Cmd.CommandText = $"Select * from CLIENT";
             ado2.Cmd.Connection = ado2.Connection;
             ado2.Adapter.SelectCommand = ado2.Cmd;
@@ -203,7 +203,7 @@ namespace RNetApp
                 ado2.Dt.Rows.Add(dr);
                 dr = ado2.Dt.NewRow();
                 dr[1] = Guid.Parse(comboClt.SelectedValue.ToString());
-                dr[0] = "couette";
+                dr[0] = "lavette";
                 dr[2] = int.Parse(textBox35.Text);
                 ado2.Dt.Rows.Add(dr);
                 //mise a jour de la base de donnée : 
@@ -215,7 +215,13 @@ namespace RNetApp
             {
                 if (ex.ErrorCode == -2146232060)
                 {
-                    MessageBox.Show("Vous avez deja fixé les prix pour ce client");
+                    MessageBox.Show($"rows Here :  : {ado2.Dt.Rows.Count}");
+                    Shared.showMessage("Vous avez Deja fixer les prix pour ce client ! Voulez-vous Resaisir les prix ?", "confirmation de changement de prix");
+                    SqlCommandBuilder sqlBuilder = new SqlCommandBuilder(ado2.Adapter);
+                    ado2.Dt.Clear();
+                    sqlBuilder.GetDeleteCommand();
+                    ado2.Adapter.Update(ado2.Dt);
+                    MessageBox.Show($"rows left : {ado2.Dt.Rows.Count}");
                 }
             }
             catch (Exception ex)

@@ -9,6 +9,8 @@ namespace RNetApp
     {
         //récupération de l'id chef depuis le login page: 
         private static Guid idChef;
+        private string idEmp;
+        private int position;
         public GestionEmploye()
         {
             InitializeComponent();
@@ -30,6 +32,7 @@ namespace RNetApp
             dataGridView1.Columns["IDCHEF"].Visible = false;
             dataGridView1.Columns["DATE_DEPART"].Visible = false;
             dataGridView1.Columns["DATE_FIN"].Visible = false;
+            dataGridView1.Columns["AGE"].Visible = false;
             dataGridView1.Columns["PRENOM"].Width = 150;
             dataGridView1.Columns["SALAIRE"].Width = 150;
             dataGridView1.Columns["SALAIRE_RESTANT"].Width = 150;
@@ -45,17 +48,44 @@ namespace RNetApp
         private void congerBtn_Click(object sender, EventArgs e)
         {
             ReposCalcul rc = new ReposCalcul();
+            ReposCalcul.IdEmploye = Guid.Parse(ado.Ds.Tables["EMPLOYE"].Rows[position][0].ToString());
             rc.Show();
+        }
+        private bool checkEmpWithId(string nomEmp, string id)
+        {
+            foreach (DataRow row in ado.Ds.Tables["EMPLOYE"].Rows)
+            {
+                if (row["IDEMPLOYE"].ToString().ToLower() == id.ToLower() && row["PRENOM"].ToString().ToLower() == nomEmp.ToLower())
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+        private bool checkEmpWithNoId(string nomEmp, string id)
+        {
+            foreach (DataRow row in ado.Ds.Tables["EMPLOYE"].Rows)
+            {
+                if (row["IDEMPLOYE"].ToString().ToLower() != id.ToLower() && row["PRENOM"].ToString().ToLower() == nomEmp.ToLower())
+                {
+                    return true;
+                }
+            }
+            return false;
         }
         private void modifier_Click(object sender, EventArgs e)
         {
             congerBtn.Enabled = true;
-            if(checkEmpl(prenom.Text))
+            MessageBox.Show($"Hadi l ID 9bel mansift fonction : {idEmp}");
+            checkEmpWithNoId(prenom.Text, idEmp);
+            if (checkEmpWithNoId(prenom.Text,idEmp))
             {
-
+                MessageBox.Show("Employé deja existant dans la base : ");
+            } else if(checkEmpWithId(prenom.Text,idEmp) || !checkEmpl(prenom.Text))
+            {
+                MessageBox.Show("Vous pouvez modifier : ");
             }
         }
-
         private void comboBox1_ValueMemberChanged(object sender, EventArgs e)
         {
         }
@@ -70,7 +100,7 @@ namespace RNetApp
         {
             foreach(DataRow row in ado.Ds.Tables["EMPLOYE"].Rows)
             {
-                if (row["PRENOM"].ToString().ToLower() == prenom)
+                if (row["PRENOM"].ToString().ToLower() == prenom.ToLower())
                 {
                     return true;
                 }
@@ -105,9 +135,14 @@ namespace RNetApp
                         ado.Ds.Tables["EMPLOYE"].Rows.Add(dr);
                         sql.GetInsertCommand();
                         ado.Adapter.Update(ado.Ds.Tables["EMPLOYE"]);
-                        ado = new AdoNet();
-                        GestionEmploye_Load(sender, e);
-                    } else
+                        ado.Ds.Tables["EMPLOYE"].Clear();
+                        ado.Cmd.CommandText = "Select * from EMPLOYE";
+                        ado.Cmd.Connection = ado.Connection;
+                        ado.Adapter.SelectCommand = ado.Cmd;
+                        ado.Adapter.Fill(ado.Ds, "EMPLOYE");
+                        dataGridView1.DataSource = ado.Ds.Tables["EMPLOYE"];
+                    }
+                    else
                     {
                         affich.Visible = true;
                         affich.Text = "Veuillez remplir les champs requis";
@@ -122,7 +157,6 @@ namespace RNetApp
                 affich.Text = "Employée existe deja";
             }
         }
-
         private void rechercher_Click(object sender, EventArgs e)
         {
             if (recherche.Text != "")
@@ -146,7 +180,6 @@ namespace RNetApp
                 error.Text = "Veuillez inserer quelque chose";
             }
         }
-
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.ColumnIndex != -1)
@@ -159,8 +192,8 @@ namespace RNetApp
                     {
                         SqlCommandBuilder scb = new SqlCommandBuilder(ado.Adapter);
                         scb.GetDeleteCommand();
-                        ado.Dt.Rows[e.RowIndex].Delete();
-                        ado.Adapter.Update(ado.Dt);
+                        ado.Ds.Tables["EMPLOYE"].Rows[e.RowIndex].Delete();
+                        ado.Adapter.Update(ado.Ds.Tables["EMPLOYE"]) ;
                         nbrEmp.Text = $"{ado.Ds.Tables["EMPLOYE"].Rows.Count}";
                     }
                 }
@@ -174,15 +207,16 @@ namespace RNetApp
                         prenom.Text = dr[3].ToString();
                         age.Text = dr[4].ToString();
                         salaire.Text = dr[9].ToString();
-                        avance.Text = dr[10].ToString();
+                        avance.Text = dr[8].ToString();
                         empBtn.Enabled = false;
                         modifier.Enabled = true;
                         congerBtn.Enabled = true;
+                        position = e.RowIndex;
+                        idEmp = dr[0].ToString();
                     }
                 }
             }
         }
-
         private void dataGridView1_CellMouseEnter(object sender, DataGridViewCellEventArgs e)
         {
             if (e.ColumnIndex != -1)
@@ -197,6 +231,13 @@ namespace RNetApp
                     dataGridView1.Cursor = Cursors.Hand;
                 }
             }
+        }
+
+        private void filtreBtn_Click(object sender, EventArgs e)
+        {
+            DataView dv = new DataView(ado.Ds.Tables["EMPLOYE"]);
+            dv.Sort = "NOM";
+            dataGridView1.DataSource = dv;
         }
     }
 }

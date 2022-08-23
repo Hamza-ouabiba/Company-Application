@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.menuPrBtn = new System.Windows.Forms.Button();
             this.exitBtn = new FontAwesome.Sharp.IconButton();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.ice = new System.Windows.Forms.Label();
@@ -75,7 +76,6 @@
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.enregistrer = new System.Windows.Forms.Button();
-            this.menuPrBtn = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -92,6 +92,19 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1432, 47);
             this.panel1.TabIndex = 0;
+            // 
+            // menuPrBtn
+            // 
+            this.menuPrBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.menuPrBtn.BackColor = System.Drawing.Color.Cyan;
+            this.menuPrBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.menuPrBtn.Location = new System.Drawing.Point(1116, 10);
+            this.menuPrBtn.Name = "menuPrBtn";
+            this.menuPrBtn.Size = new System.Drawing.Size(227, 32);
+            this.menuPrBtn.TabIndex = 5;
+            this.menuPrBtn.Text = "Revenir au Menu principal";
+            this.menuPrBtn.UseVisualStyleBackColor = false;
+            this.menuPrBtn.Click += new System.EventHandler(this.menuPrBtn_Click);
             // 
             // exitBtn
             // 
@@ -514,18 +527,6 @@
             this.enregistrer.Text = "Enregistrer";
             this.enregistrer.UseVisualStyleBackColor = false;
             this.enregistrer.Click += new System.EventHandler(this.enregistrer_Click);
-            // 
-            // menuPrBtn
-            // 
-            this.menuPrBtn.BackColor = System.Drawing.Color.Cyan;
-            this.menuPrBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.menuPrBtn.Location = new System.Drawing.Point(1116, 10);
-            this.menuPrBtn.Name = "menuPrBtn";
-            this.menuPrBtn.Size = new System.Drawing.Size(227, 32);
-            this.menuPrBtn.TabIndex = 5;
-            this.menuPrBtn.Text = "Revenir au Menu principal";
-            this.menuPrBtn.UseVisualStyleBackColor = false;
-            this.menuPrBtn.Click += new System.EventHandler(this.menuPrBtn_Click);
             // 
             // FactureForm
             // 

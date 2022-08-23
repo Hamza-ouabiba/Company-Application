@@ -22,11 +22,20 @@ namespace RNetApp
             nom.Text = ado.Dt.Rows[0]["NOM"].ToString();
             age.Text = ado.Dt.Rows[0]["AGE"].ToString();
             prenom.Text = ado.Dt.Rows[0]["PRENOM"].ToString();
-            repos.Text = ado.Dt.Rows[0]["REPOS"].ToString();
+            if (ado.Dt.Rows[0]["REPOS"].ToString() != "")
+                repos.Text = ado.Dt.Rows[0]["REPOS"].ToString();
+            else
+                repos.Text = "Aucun Repos";
             Avance.Text = ado.Dt.Rows[0]["AVANCE"].ToString();
             salaire.Text = ado.Dt.Rows[0]["SALAIRE"].ToString();
-            SalaireRes.Text = ado.Dt.Rows[0]["SALAIRE_RESTANT"].ToString();
-            absc.Text = ado.Dt.Rows[0]["ABSCENCE"].ToString();
+            if (ado.Dt.Rows[0]["SALAIRE_RESTANT"].ToString() != "")
+                SalaireRes.Text = ado.Dt.Rows[0]["SALAIRE_RESTANT"].ToString();
+            else
+                SalaireRes.Text = "Aucun reste";
+            if (ado.Dt.Rows[0]["ABSCENCE"].ToString() != "")
+                absc.Text = ado.Dt.Rows[0]["ABSCENCE"].ToString();
+            else
+                absc.Text = "Aucun abscence";   
         }
     }
 }
