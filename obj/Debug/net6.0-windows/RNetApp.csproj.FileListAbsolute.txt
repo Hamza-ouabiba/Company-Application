@@ -34,3 +34,4 @@ D:\projects\training\RNetApp\RNetApp\obj\Debug\net6.0-windows\RNetApp.ArticleMod
 D:\projects\training\RNetApp\RNetApp\obj\Debug\net6.0-windows\RNetApp.GestionEmploye.resources
 D:\projects\training\RNetApp\RNetApp\obj\Debug\net6.0-windows\RNetApp.Forms.ReposCalcul.resources
 D:\projects\training\RNetApp\RNetApp\obj\Debug\net6.0-windows\RNetApp.FichierEmpl.resources
+D:\projects\training\RNetApp\RNetApp\obj\Debug\net6.0-windows\RNetApp.ficheClt.resources

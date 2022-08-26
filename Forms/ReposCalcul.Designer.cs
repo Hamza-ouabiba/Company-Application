@@ -135,7 +135,7 @@
             // 
             this.calcul.BackColor = System.Drawing.Color.Lime;
             this.calcul.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.calcul.Location = new System.Drawing.Point(246, 265);
+            this.calcul.Location = new System.Drawing.Point(260, 268);
             this.calcul.Name = "calcul";
             this.calcul.Size = new System.Drawing.Size(185, 49);
             this.calcul.TabIndex = 5;

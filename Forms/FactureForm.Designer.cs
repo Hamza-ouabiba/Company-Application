@@ -76,6 +76,7 @@
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.enregistrer = new System.Windows.Forms.Button();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.panel1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -528,11 +529,21 @@
             this.enregistrer.UseVisualStyleBackColor = false;
             this.enregistrer.Click += new System.EventHandler(this.enregistrer_Click);
             // 
+            // groupBox1
+            // 
+            this.groupBox1.Location = new System.Drawing.Point(1025, 584);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(347, 217);
+            this.groupBox1.TabIndex = 152;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "groupBox1";
+            // 
             // FactureForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1404, 1016);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.enregistrer);
             this.Controls.Add(this.textBox35);
             this.Controls.Add(this.textBox34);
@@ -633,5 +644,6 @@
         private TextBox textBox1;
         private Button enregistrer;
         private Button menuPrBtn;
+        private GroupBox groupBox1;
     }
 }

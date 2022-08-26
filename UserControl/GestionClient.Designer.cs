@@ -56,6 +56,9 @@
             this.rechercher = new FontAwesome.Sharp.IconButton();
             this.idClientT = new System.Windows.Forms.TextBox();
             this.error = new System.Windows.Forms.Label();
+            this.ficheBtn = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.groupBox3.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -372,10 +375,44 @@
             this.error.TabIndex = 72;
             this.error.Visible = false;
             // 
+            // ficheBtn
+            // 
+            this.ficheBtn.BackColor = System.Drawing.Color.Yellow;
+            this.ficheBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ficheBtn.Location = new System.Drawing.Point(1442, 25);
+            this.ficheBtn.Name = "ficheBtn";
+            this.ficheBtn.Size = new System.Drawing.Size(136, 46);
+            this.ficheBtn.TabIndex = 81;
+            this.ficheBtn.Text = "Voir Fiche";
+            this.ficheBtn.UseVisualStyleBackColor = false;
+            this.ficheBtn.Click += new System.EventHandler(this.ficheBtn_Click);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(889, 40);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(158, 20);
+            this.label3.TabIndex = 80;
+            this.label3.Text = "Fiche de chaque Client";
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(1103, 34);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(293, 28);
+            this.comboBox1.TabIndex = 79;
+            // 
             // GestionClient
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.ficheBtn);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.error);
             this.Controls.Add(this.idClientT);
             this.Controls.Add(this.rechercher);
@@ -425,5 +462,8 @@
         private FontAwesome.Sharp.IconButton rechercher;
         private TextBox idClientT;
         private Label error;
+        private Button ficheBtn;
+        private Label label3;
+        private ComboBox comboBox1;
     }
 }

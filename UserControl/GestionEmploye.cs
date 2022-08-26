@@ -75,15 +75,22 @@ namespace RNetApp
         }
         private void modifier_Click(object sender, EventArgs e)
         {
+            SqlCommandBuilder scb = new SqlCommandBuilder(ado.Adapter);
             congerBtn.Enabled = true;
-            MessageBox.Show($"Hadi l ID 9bel mansift fonction : {idEmp}");
             checkEmpWithNoId(prenom.Text, idEmp);
             if (checkEmpWithNoId(prenom.Text,idEmp))
             {
                 MessageBox.Show("Employé deja existant dans la base : ");
             } else if(checkEmpWithId(prenom.Text,idEmp) || !checkEmpl(prenom.Text))
             {
-                MessageBox.Show("Vous pouvez modifier : ");
+                ado.Ds.Tables["EMPLOYE"].Rows[position]["NOM"] = nom.Text;
+                ado.Ds.Tables["EMPLOYE"].Rows[position]["PRENOM"] = prenom.Text;
+                ado.Ds.Tables["EMPLOYE"].Rows[position]["SALAIRE"] = decimal.Parse(salaire.Text);
+                ado.Ds.Tables["EMPLOYE"].Rows[position]["AVANCE"] = decimal.Parse(avance.Text);
+                ado.Ds.Tables["EMPLOYE"].Rows[position]["SALAIRE_RESTANT"] = decimal.Parse(salaire.Text) - decimal.Parse(avance.Text);
+                scb.GetUpdateCommand();
+                ado.Adapter.Update(ado.Ds.Tables["EMPLOYE"]);
+                MessageBox.Show("modification avec succes");
             }
         }
         private void comboBox1_ValueMemberChanged(object sender, EventArgs e)

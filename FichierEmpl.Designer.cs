@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.absc = new System.Windows.Forms.Label();
             this.SalaireRes = new System.Windows.Forms.Label();
             this.salaire = new System.Windows.Forms.Label();
             this.Avance = new System.Windows.Forms.Label();
@@ -36,26 +35,14 @@
             this.age = new System.Windows.Forms.Label();
             this.prenom = new System.Windows.Forms.Label();
             this.nom = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.groupBox1.SuspendLayout();
+            this.label8 = new System.Windows.Forms.Label();
+            this.absc = new System.Windows.Forms.Label();
             this.SuspendLayout();
-            // 
-            // absc
-            // 
-            this.absc.AutoSize = true;
-            this.absc.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(29)))), ((int)(((byte)(30)))));
-            this.absc.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(117)))), ((int)(((byte)(240)))));
-            this.absc.Location = new System.Drawing.Point(208, 441);
-            this.absc.Name = "absc";
-            this.absc.Size = new System.Drawing.Size(79, 20);
-            this.absc.TabIndex = 39;
-            this.absc.Text = "Abscence :";
             // 
             // SalaireRes
             // 
@@ -117,7 +104,7 @@
             this.prenom.AutoSize = true;
             this.prenom.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.prenom.ForeColor = System.Drawing.Color.Silver;
-            this.prenom.Location = new System.Drawing.Point(34, 57);
+            this.prenom.Location = new System.Drawing.Point(188, 50);
             this.prenom.Name = "prenom";
             this.prenom.Size = new System.Drawing.Size(84, 23);
             this.prenom.TabIndex = 33;
@@ -128,22 +115,11 @@
             this.nom.AutoSize = true;
             this.nom.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.nom.ForeColor = System.Drawing.Color.Silver;
-            this.nom.Location = new System.Drawing.Point(34, 23);
+            this.nom.Location = new System.Drawing.Point(58, 50);
             this.nom.Name = "nom";
             this.nom.Size = new System.Drawing.Size(57, 23);
             this.nom.TabIndex = 32;
             this.nom.Text = "Nom";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label8.ForeColor = System.Drawing.Color.Silver;
-            this.label8.Location = new System.Drawing.Point(56, 441);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(113, 21);
-            this.label8.TabIndex = 31;
-            this.label8.Text = "Abscence :";
             // 
             // label7
             // 
@@ -200,16 +176,27 @@
             this.label3.TabIndex = 26;
             this.label3.Text = "Age :";
             // 
-            // groupBox1
+            // label8
             // 
-            this.groupBox1.Controls.Add(this.prenom);
-            this.groupBox1.Controls.Add(this.nom);
-            this.groupBox1.ForeColor = System.Drawing.Color.Gray;
-            this.groupBox1.Location = new System.Drawing.Point(56, -1);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(216, 96);
-            this.groupBox1.TabIndex = 40;
-            this.groupBox1.TabStop = false;
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label8.ForeColor = System.Drawing.Color.Silver;
+            this.label8.Location = new System.Drawing.Point(56, 441);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(113, 21);
+            this.label8.TabIndex = 31;
+            this.label8.Text = "Abscence :";
+            // 
+            // absc
+            // 
+            this.absc.AutoSize = true;
+            this.absc.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(29)))), ((int)(((byte)(30)))));
+            this.absc.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(117)))), ((int)(((byte)(240)))));
+            this.absc.Location = new System.Drawing.Point(208, 441);
+            this.absc.Name = "absc";
+            this.absc.Size = new System.Drawing.Size(79, 20);
+            this.absc.TabIndex = 39;
+            this.absc.Text = "Abscence :";
             // 
             // FichierEmpl
             // 
@@ -217,7 +204,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(29)))), ((int)(((byte)(30)))));
             this.ClientSize = new System.Drawing.Size(351, 541);
-            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.prenom);
+            this.Controls.Add(this.nom);
             this.Controls.Add(this.absc);
             this.Controls.Add(this.SalaireRes);
             this.Controls.Add(this.salaire);
@@ -236,16 +224,12 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FichierEmpl";
             this.Load += new System.EventHandler(this.FichierEmpl_Load);
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private Label absc;
         private Label SalaireRes;
         private Label salaire;
         private Label Avance;
@@ -253,12 +237,12 @@
         private Label age;
         private Label prenom;
         private Label nom;
-        private Label label8;
         private Label label7;
         private Label label6;
         private Label label5;
         private Label label4;
         private Label label3;
-        private GroupBox groupBox1;
+        private Label label8;
+        private Label absc;
     }
 }

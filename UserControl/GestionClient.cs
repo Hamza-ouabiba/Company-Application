@@ -21,6 +21,9 @@ namespace RNetApp
             nbreClt.Text = ado.Dt.Rows.Count.ToString();
             dataGridView1.Columns.Clear();
             dataGridView1.DataSource = ado.Dt;
+            comboBox1.DataSource = ado.Dt;
+            comboBox1.DisplayMember = ado.Dt.Columns["NOM"].ToString();
+            comboBox1.ValueMember = ado.Dt.Columns["IDCLIENT"].ToString();
             affichageGrid();
         }
         //Methode pour verifier les champs :
@@ -245,6 +248,14 @@ namespace RNetApp
         private void groupBox1_Enter(object sender, EventArgs e)
         {
 
+        }
+
+        private void ficheBtn_Click(object sender, EventArgs e)
+        {
+            ficheClt clt = new ficheClt();
+            ficheClt.IdClient = Guid.Parse(comboBox1.SelectedValue.ToString());
+            clt.Show();
+            
         }
     }
 }
