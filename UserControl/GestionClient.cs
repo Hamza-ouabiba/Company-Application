@@ -145,18 +145,9 @@ namespace RNetApp
                     if(confirmation)
                     {
                         DataRow dr = ado.Dt.Rows[e.RowIndex];
-                        idClientT.Text = dr[0].ToString();
-                        nomClt.Text = dr[1].ToString();
-                        Montant.Text = dr[2].ToString();
-                        totalRes.Text = dr[3].ToString();
-                        avance.Text = dr[4].ToString();
-                        enregBtn.Enabled = false;
-                        modifierBtn.Enabled = true;
-                        position = e.RowIndex;
                         ModifierClient mc = new ModifierClient();
                         ModifierClient.IdClient = Guid.Parse(dr[0].ToString());
                         mc.Show();
-                        
                     }
                 }
             }
@@ -176,40 +167,7 @@ namespace RNetApp
                 }
             }
         }
-        private void modifierBtn_Click(object sender, EventArgs e)
-        {
-            SqlCommandBuilder scb = new SqlCommandBuilder(ado.Adapter);
-            try
-            {
-                if(checkClientWithNoId(nomClt.Text,idClientT.Text))
-                {
-                    MessageBox.Show("Ce client existe deja dans la base de donnée Pensez a saisir un nouveau nom");
-                } else if(checkClientWithId(nomClt.Text,idClientT.Text) || !checkClient(nomClt.Text))
-                {
-                    ado.Dt.Rows[position]["NOM"] = nomClt.Text;
-                    ado.Dt.Rows[position]["MONTANT"] = decimal.Parse(Montant.Text);
-                    ado.Dt.Rows[position]["AVANCE"] = decimal.Parse(avance.Text);
-                    ado.Dt.Rows[position]["TOTAL_REST"] = decimal.Parse(Montant.Text) - decimal.Parse(avance.Text);
-                    if (cheque.Checked)
-                    {
-                        ado.Dt.Rows[position]["payE"] = false;
-                        ado.Dt.Rows[position]["payC"] = true;
-                    }
-                    else
-                    {
-                        ado.Dt.Rows[position]["payE"] = true;
-                        ado.Dt.Rows[position]["payC"] = false;
-                    }
-                    scb.GetUpdateCommand();
-                    ado.Adapter.Update(ado.Dt);
-                    effacerTextBox();
-                    MessageBox.Show("modification avec succes");
-                }
-            } catch(Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
+        
         private void rechercher_Click(object sender, EventArgs e)
         {
             if (recherche.Text != "")
