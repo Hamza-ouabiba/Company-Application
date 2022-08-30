@@ -82,5 +82,13 @@ namespace RNetApp.Forms
             ge.Dock = DockStyle.Fill;
             panelContent.Controls.Add(ge);
         }
+
+        private void tacheBtn_Click(object sender, EventArgs e)
+        {
+            Tache t = new Tache();
+            panelContent.Controls.Clear();
+            t.Dock = DockStyle.Fill;    
+            panelContent.Controls.Add(t);
+        }
     }
 }

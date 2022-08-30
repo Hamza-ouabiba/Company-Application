@@ -96,7 +96,6 @@ namespace RNetApp
         private void comboBox1_ValueMemberChanged(object sender, EventArgs e)
         {
         }
-
         private void ficheBtn_Click(object sender, EventArgs e)
         {
             FichierEmpl emp = new FichierEmpl();
@@ -239,7 +238,6 @@ namespace RNetApp
                 }
             }
         }
-
         private void filtreBtn_Click(object sender, EventArgs e)
         {
             DataView dv = new DataView(ado.Ds.Tables["EMPLOYE"]);

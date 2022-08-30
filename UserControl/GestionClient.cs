@@ -2,6 +2,7 @@
 using System.Data;
 using System.Data.SqlClient;
 using System.Windows.Forms;
+using RNetApp.Forms;
 namespace RNetApp
 {
     public partial class GestionClient : UserControl
@@ -18,13 +19,32 @@ namespace RNetApp
             ado.Cmd.Connection = ado.Connection;
             ado.Adapter.SelectCommand = ado.Cmd;
             ado.Adapter.Fill(ado.Dt);
+            videError.Visible = false;
+            videBase();
             nbreClt.Text = ado.Dt.Rows.Count.ToString();
             dataGridView1.Columns.Clear();
             dataGridView1.DataSource = ado.Dt;
             comboBox1.DataSource = ado.Dt;
             comboBox1.DisplayMember = ado.Dt.Columns["NOM"].ToString();
             comboBox1.ValueMember = ado.Dt.Columns["IDCLIENT"].ToString();
+            testCombo();
             affichageGrid();
+        }
+        private void testCombo()
+        {
+            if (comboBox1.Items.Count > 0)
+            {
+                ficheBtn.Enabled = true;
+            }
+            else ficheBtn.Enabled = false;
+        }
+        private void videBase()
+        {
+            if (ado.Dt.Rows.Count == 0)
+            {
+                videError.Visible = true;
+                videError.Text = "Base de donnée vide veuillez insérer un client";
+            }
         }
         //Methode pour verifier les champs :
         private void effacerTextBox()
@@ -116,6 +136,8 @@ namespace RNetApp
                         ado.Dt.Rows[e.RowIndex].Delete();
                         ado.Adapter.Update(ado.Dt);
                         nbreClt.Text = $"{ado.Dt.Rows.Count}";
+                        videBase();
+                        testCombo();
                     }
                 } else if(colName == "edit")
                 {
@@ -131,6 +153,10 @@ namespace RNetApp
                         enregBtn.Enabled = false;
                         modifierBtn.Enabled = true;
                         position = e.RowIndex;
+                        ModifierClient mc = new ModifierClient();
+                        ModifierClient.IdClient = Guid.Parse(dr[0].ToString());
+                        mc.Show();
+                        
                     }
                 }
             }
@@ -253,9 +279,9 @@ namespace RNetApp
         private void ficheBtn_Click(object sender, EventArgs e)
         {
             ficheClt clt = new ficheClt();
+            MessageBox.Show($"{comboBox1.Items.Count}");
             ficheClt.IdClient = Guid.Parse(comboBox1.SelectedValue.ToString());
             clt.Show();
-            
         }
     }
 }

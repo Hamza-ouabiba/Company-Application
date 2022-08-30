@@ -37,5 +37,10 @@ namespace RNetApp
             else
                 absc.Text = "Aucun abscence";   
         }
+
+        private void exitBtn_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+        }
     }
 }

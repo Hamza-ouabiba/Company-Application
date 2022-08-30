@@ -7,6 +7,9 @@
     <Compile Update="FichierEmpl.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Forms\ModifierClient.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Forms\ReposCalcul.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -21,6 +24,9 @@
     </Compile>
     <Compile Update="Forms\menu.cs">
       <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Tache.cs">
+      <SubType>UserControl</SubType>
     </Compile>
     <Compile Update="UserControl\ArticleMod.cs">
       <SubType>UserControl</SubType>

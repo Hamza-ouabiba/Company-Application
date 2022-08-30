@@ -26,5 +26,10 @@ namespace RNetApp
             SalaireRes.Text = ado.Dt.Rows[0]["TOTAL_REST"].ToString();
             Avance.Text = ado.Dt.Rows[0]["AVANCE"].ToString();
         }
+
+        private void exitBtn_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+        }
     }
 }

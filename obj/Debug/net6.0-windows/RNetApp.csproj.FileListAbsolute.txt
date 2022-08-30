@@ -35,3 +35,5 @@ D:\projects\training\RNetApp\RNetApp\obj\Debug\net6.0-windows\RNetApp.GestionEmp
 D:\projects\training\RNetApp\RNetApp\obj\Debug\net6.0-windows\RNetApp.Forms.ReposCalcul.resources
 D:\projects\training\RNetApp\RNetApp\obj\Debug\net6.0-windows\RNetApp.FichierEmpl.resources
 D:\projects\training\RNetApp\RNetApp\obj\Debug\net6.0-windows\RNetApp.ficheClt.resources
+D:\projects\training\RNetApp\RNetApp\obj\Debug\net6.0-windows\RNetApp.Tache.resources
+D:\projects\training\RNetApp\RNetApp\obj\Debug\net6.0-windows\RNetApp.Forms.ModifierClient.resources

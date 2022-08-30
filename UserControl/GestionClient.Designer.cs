@@ -59,6 +59,7 @@
             this.ficheBtn = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.videError = new System.Windows.Forms.Label();
             this.groupBox3.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -378,6 +379,7 @@
             // ficheBtn
             // 
             this.ficheBtn.BackColor = System.Drawing.Color.Yellow;
+            this.ficheBtn.Enabled = false;
             this.ficheBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ficheBtn.Location = new System.Drawing.Point(1442, 25);
             this.ficheBtn.Name = "ficheBtn";
@@ -406,10 +408,23 @@
             this.comboBox1.Size = new System.Drawing.Size(293, 28);
             this.comboBox1.TabIndex = 79;
             // 
+            // videError
+            // 
+            this.videError.AutoSize = true;
+            this.videError.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.videError.ForeColor = System.Drawing.Color.Red;
+            this.videError.Location = new System.Drawing.Point(612, 170);
+            this.videError.Name = "videError";
+            this.videError.Size = new System.Drawing.Size(59, 25);
+            this.videError.TabIndex = 82;
+            this.videError.Text = "label6";
+            this.videError.Visible = false;
+            // 
             // GestionClient
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.videError);
             this.Controls.Add(this.ficheBtn);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.comboBox1);
@@ -465,5 +480,6 @@
         private Button ficheBtn;
         private Label label3;
         private ComboBox comboBox1;
+        private Label videError;
     }
 }

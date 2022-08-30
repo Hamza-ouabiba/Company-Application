@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.panelLeft = new System.Windows.Forms.Panel();
-            this.iconButton1 = new FontAwesome.Sharp.IconButton();
+            this.tacheBtn = new FontAwesome.Sharp.IconButton();
             this.label1 = new System.Windows.Forms.Label();
             this.date = new System.Windows.Forms.Label();
             this.utilisateurEn = new System.Windows.Forms.Label();
@@ -54,7 +54,7 @@
             // panelLeft
             // 
             this.panelLeft.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(29)))), ((int)(((byte)(30)))));
-            this.panelLeft.Controls.Add(this.iconButton1);
+            this.panelLeft.Controls.Add(this.tacheBtn);
             this.panelLeft.Controls.Add(this.label1);
             this.panelLeft.Controls.Add(this.date);
             this.panelLeft.Controls.Add(this.utilisateurEn);
@@ -74,23 +74,24 @@
             this.panelLeft.Size = new System.Drawing.Size(227, 837);
             this.panelLeft.TabIndex = 1;
             // 
-            // iconButton1
+            // tacheBtn
             // 
-            this.iconButton1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.iconButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton1.ForeColor = System.Drawing.Color.Silver;
-            this.iconButton1.IconChar = FontAwesome.Sharp.IconChar.TasksAlt;
-            this.iconButton1.IconColor = System.Drawing.Color.Silver;
-            this.iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton1.IconSize = 30;
-            this.iconButton1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButton1.Location = new System.Drawing.Point(-8, 641);
-            this.iconButton1.Name = "iconButton1";
-            this.iconButton1.Padding = new System.Windows.Forms.Padding(7, 0, 0, 0);
-            this.iconButton1.Size = new System.Drawing.Size(246, 90);
-            this.iconButton1.TabIndex = 12;
-            this.iconButton1.Text = "Gestion des Taches";
-            this.iconButton1.UseVisualStyleBackColor = true;
+            this.tacheBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.tacheBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.tacheBtn.ForeColor = System.Drawing.Color.Silver;
+            this.tacheBtn.IconChar = FontAwesome.Sharp.IconChar.TasksAlt;
+            this.tacheBtn.IconColor = System.Drawing.Color.Silver;
+            this.tacheBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.tacheBtn.IconSize = 30;
+            this.tacheBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.tacheBtn.Location = new System.Drawing.Point(-8, 641);
+            this.tacheBtn.Name = "tacheBtn";
+            this.tacheBtn.Padding = new System.Windows.Forms.Padding(7, 0, 0, 0);
+            this.tacheBtn.Size = new System.Drawing.Size(246, 90);
+            this.tacheBtn.TabIndex = 12;
+            this.tacheBtn.Text = "Gestion des Taches";
+            this.tacheBtn.UseVisualStyleBackColor = true;
+            this.tacheBtn.Click += new System.EventHandler(this.tacheBtn_Click);
             // 
             // label1
             // 
@@ -347,6 +348,6 @@
         private FontAwesome.Sharp.IconButton DeconBtn;
         private Label label1;
         private Panel panelContent;
-        private FontAwesome.Sharp.IconButton iconButton1;
+        private FontAwesome.Sharp.IconButton tacheBtn;
     }
 }
