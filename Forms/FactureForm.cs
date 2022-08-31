@@ -7,7 +7,8 @@ namespace RNetApp.Forms
 {
     public partial class FactureForm : Form
     {
-        private int[] prix = new int[35];
+        private const decimal tva_ = (decimal)0.2;
+        private decimal[] prix = new decimal[35];
         private Guid idClient;
         private int idFacture;
         private int position;
@@ -28,20 +29,21 @@ namespace RNetApp.Forms
             this.MaximizedBounds = Screen.FromHandle(this.Handle).WorkingArea;
             this.WindowState = FormWindowState.Maximized;
             DateTime date = DateTime.Now;
-            ado.Cmd.CommandText = $"Select * from FACTURE where IDCLIENT = '{IdClient}'";
+            ado.Cmd.CommandText = $"Select * from FACTURE where idClient = '{IdClient}'";
             ado.Cmd.Connection = ado.Connection;
             ado.Adapter.SelectCommand = ado.Cmd;
             ado.Adapter.Fill(ado.Ds, "FACTURE");
             nomCl.Text = nameClient;
             for (int i = 0; i < ado.Ds.Tables["FACTURE"].Rows.Count; i++)
             {
+                MessageBox.Show(ado.Ds.Tables["FACTURE"].Rows[i]["fac_n_o"].ToString());
                 if (ado.Ds.Tables["FACTURE"].Rows[i]["fac_n_o"].ToString() == "0")
                 {
-                    MessageBox.Show("oui");
                     position = i;
-                    idFacture = int.Parse(ado.Ds.Tables["FACTURE"].Rows[i]["IDFACTURE"].ToString());
+                    idFacture = int.Parse(ado.Ds.Tables["FACTURE"].Rows[i]["idFacture"].ToString());
                     dateNow.Text = $"{date.Day}/{date.Month}/{date.Year}";
-                    facturNum.Text = $"{ado.Ds.Tables["FACTURE"].Rows[i]["IDFACTURE"].ToString()}/{date.Year}";
+                    MessageBox.Show(ado.Ds.Tables["FACTURE"].Rows[i]["idFacture"].ToString());
+                    facturNum.Text = $"{ado.Ds.Tables["FACTURE"].Rows[i]["idFacture"].ToString()}/{date.Year}";
                     break;
                 }
             }
@@ -51,7 +53,7 @@ namespace RNetApp.Forms
         {
             SqlCommandBuilder sql = new SqlCommandBuilder(ado.Adapter);
             AdoNet ado2 = new AdoNet();
-            float total = 0.0f;
+            decimal total = 0;
             MessageBox.Show($"{IdClient}");
             try
             {
@@ -62,15 +64,18 @@ namespace RNetApp.Forms
                 MessageBox.Show($"{ado2.Ds.Tables["changer"].Rows.Count}");
                 for (int i = 0; i < ado2.Ds.Tables["changer"].Rows.Count; i++)
                 {
-                    prix[i] = int.Parse(ado2.Ds.Tables["changer"].Rows[i][2].ToString());
+                    prix[i] = decimal.Parse(ado2.Ds.Tables["changer"].Rows[i][2].ToString());
                 }
                 AdoNet ado3 = new AdoNet();
-                ado3.Cmd.CommandText = $"Select * from AVOIR where IDFACTURE = '{idFacture}'";
+                ado3.Cmd.CommandText = $"Select * from AVOIR";
                 ado3.Cmd.Connection = ado3.Connection;
                 ado3.Adapter.SelectCommand = ado3.Cmd;
                 ado3.Adapter.Fill(ado3.Ds, "avoir");
+                MessageBox.Show($"{ado2.Ds.Tables["changer"].Rows.Count}");
                 DataRow dr = ado3.Ds.Tables["avoir"].NewRow();
                 MessageBox.Show(facturNum.Text);
+
+
                 dr[0] = idFacture;
                 dr[1] = "draps_double";
                 dr[2] = int.Parse(textBox1.Text);
@@ -287,12 +292,15 @@ namespace RNetApp.Forms
                 //mise a jour de la table facture : 
                 ado.Ds.Tables["FACTURE"].Rows[position]["fac_n_o"] = 1;
                 ado.Ds.Tables["FACTURE"].Rows[position]["total_ht"] = total;
-                ado.Ds.Tables["FACTURE"].Rows[position]["total_ttc"] = total * 0.2 + total;
+                ado.Ds.Tables["FACTURE"].Rows[position]["total_ttc"] = (total * tva_) + total;
                 MessageBox.Show($"{total}");
                 ado.Adapter.Update(ado.Ds.Tables["FACTURE"]);
+                pht.Visible = true;
+                tva.Visible = true;
+                pttc.Visible = true;
                 pht.Text = $"{total}";
-                tva.Text = $"{total * 0.2}";
-                pttc.Text = $"{total + total * 0.2}";
+                tva.Text = $"{total * tva_}";
+                pttc.Text = $"{total + total * 0,2}";
             } catch (SqlException ex)
             {
                 MessageBox.Show(ex.Message);

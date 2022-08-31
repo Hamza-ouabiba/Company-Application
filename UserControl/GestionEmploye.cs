@@ -44,6 +44,14 @@ namespace RNetApp
             dataGridView1.Columns["SALAIRE"].HeaderText = "Salaire";
             dataGridView1.Columns["SALAIRE_RESTANT"].HeaderText = "Salaire Restant";
             dataGridView1.Columns["AVANCE"].HeaderText = "Avance";
+            for (int i = 0; i < dataGridView1.Rows.Count; i++)
+            {
+                if (decimal.Parse(dataGridView1.Rows[i].Cells["SALAIRE_RESTANT"].Value.ToString()) ==  0)
+                {
+                    dataGridView1.Rows[i].DefaultCellStyle.BackColor = Color.Lime;
+                }
+                else dataGridView1.Rows[i].DefaultCellStyle.BackColor = Color.Orange;
+            }
         }
         private void congerBtn_Click(object sender, EventArgs e)
         {
@@ -243,6 +251,17 @@ namespace RNetApp
             DataView dv = new DataView(ado.Ds.Tables["EMPLOYE"]);
             dv.Sort = "NOM";
             dataGridView1.DataSource = dv;
+        }
+
+        private void dataGridView1_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            for(int i=0;i<dataGridView1.Rows.Count;i++)
+            {
+                if(decimal.Parse(dataGridView1.Rows[i].Cells["SALAIRE_RESTANT"].Value.ToString()) == 0)
+                {
+                    dataGridView1.Rows[i].DefaultCellStyle.BackColor = Color.Lime;
+                } else dataGridView1.Rows[i].DefaultCellStyle.BackColor = Color.Orange;
+            }
         }
     }
 }

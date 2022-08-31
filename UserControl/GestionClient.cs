@@ -27,6 +27,7 @@ namespace RNetApp
             comboBox1.DataSource = ado.Dt;
             comboBox1.DisplayMember = ado.Dt.Columns["NOM"].ToString();
             comboBox1.ValueMember = ado.Dt.Columns["IDCLIENT"].ToString();
+            
             testCombo();
             affichageGrid();
         }
@@ -109,7 +110,7 @@ namespace RNetApp
             dataGridView1.Columns["NOM"].Width = 150;
             dataGridView1.Columns["MONTANT"].Width = 150;
             dataGridView1.Columns["TOTAL_REST"].Width = 150;
-            dataGridView1.Columns["Avance"].Width = 150;
+            dataGridView1.Columns["AVANCE"].Width = 150;
             dataGridView1.RowTemplate.Height = 50;
             dataGridView1.RowHeadersVisible = false;
             Shared.addCol(dataGridView1, "delete", "delete", "supprimer");
@@ -117,7 +118,7 @@ namespace RNetApp
             dataGridView1.Columns["NOM"].HeaderText = "Nom client";
             dataGridView1.Columns["MONTANT"].HeaderText = "Montant Par mois";
             dataGridView1.Columns["TOTAL_REST"].HeaderText = "Total Restant";
-            dataGridView1.Columns["Avance"].HeaderText = "Avance";
+            dataGridView1.Columns["AVANCE"].HeaderText = "Avance";
             dataGridView1.Columns["payE"].HeaderText = "Payé par espèce";
             dataGridView1.Columns["payC"].HeaderText = "Payé par chèque";
         }
@@ -144,9 +145,9 @@ namespace RNetApp
                     bool confirmation = Shared.showMessage("Voulez vous vraiment modifier le client ?", "Confirmation de modification");
                     if(confirmation)
                     {
-                        DataRow dr = ado.Dt.Rows[e.RowIndex];
                         ModifierClient mc = new ModifierClient();
-                        ModifierClient.IdClient = Guid.Parse(dr[0].ToString());
+                        MessageBox.Show(dataGridView1.Rows[e.RowIndex].Cells["IDCLIENT"].Value.ToString());
+                        ModifierClient.IdClient = Guid.Parse(dataGridView1.Rows[e.RowIndex].Cells["IDCLIENT"].Value.ToString());
                         mc.Show();
                     }
                 }
@@ -240,6 +241,17 @@ namespace RNetApp
             MessageBox.Show($"{comboBox1.Items.Count}");
             ficheClt.IdClient = Guid.Parse(comboBox1.SelectedValue.ToString());
             clt.Show();
+        }
+
+        private void dataGridView1_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            /*for (int i = 0; i < dataGridView1.Rows.Count; i++)
+            {
+                if (i % 2 == 0)
+                {
+                    dataGridView1.Rows[i].DefaultCellStyle.BackColor = Color.Silver;
+                }
+            }*/
         }
     }
 }

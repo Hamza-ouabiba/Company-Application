@@ -10,11 +10,16 @@ using System.Windows.Forms;
 
 namespace RNetApp
 {
-    public partial class Tache : UserControl
+    public partial class ChequeFacture : Form
     {
-        public Tache()
+        public ChequeFacture()
         {
             InitializeComponent();
+        }
+
+        private void ChequeFacture_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

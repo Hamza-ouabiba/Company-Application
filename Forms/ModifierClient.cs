@@ -1,14 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-
 namespace RNetApp.Forms
 {
     public partial class ModifierClient : Form
@@ -25,15 +18,22 @@ namespace RNetApp.Forms
 
         private void ModifierClient_Load(object sender, EventArgs e)
         {
-            ado.Cmd.CommandText = $"Select * from CLIENT where IDCLIENT = '{IdClient}'";
+            ado.Cmd.CommandText = $"Select * from CLIENT";
             ado.Cmd.Connection = ado.Connection;
             ado.Adapter.SelectCommand = ado.Cmd;
             ado.Adapter.Fill(ado.Dt);
-            idClientT.Text = ado.Dt.Rows[0]["IDCLIENT"].ToString();
-            nomClt.Text = ado.Dt.Rows[0]["NOM"].ToString();
-            Montant.Text = ado.Dt.Rows[0]["MONTANT"].ToString();
-            avance.Text = ado.Dt.Rows[0]["AVANCE"].ToString();
-            totalRes.Text = ado.Dt.Rows[0]["TOTAL_REST"].ToString();
+            for(int i=0;i<ado.Dt.Rows.Count;i++)
+            {
+                if(IdClient == Guid.Parse(ado.Dt.Rows[i]["IDCLIENT"].ToString()))
+                {
+                    idClientT.Text = ado.Dt.Rows[i]["IDCLIENT"].ToString();
+                    nomClt.Text = ado.Dt.Rows[i]["NOM"].ToString();
+                    Montant.Text = ado.Dt.Rows[i]["MONTANT"].ToString();
+                    avance.Text = ado.Dt.Rows[i]["AVANCE"].ToString();
+                    totalRes.Text = ado.Dt.Rows[i]["TOTAL_REST"].ToString();
+                    break;
+                }
+            }
         }
 
         private void exitBtn_Click(object sender, EventArgs e)
@@ -53,6 +53,7 @@ namespace RNetApp.Forms
         }
         private bool checkClientWithId(string nomClt, string id)
         {
+            
             foreach (DataRow row in ado.Dt.Rows)
             {
                 if (row["IDCLIENT"].ToString().ToLower() == id.ToLower() && row["NOM"].ToString().ToLower() == nomClt.ToLower())

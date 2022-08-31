@@ -77,12 +77,12 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.enregistrer = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.pht = new System.Windows.Forms.Label();
-            this.tva = new System.Windows.Forms.Label();
             this.pttc = new System.Windows.Forms.Label();
+            this.tva = new System.Windows.Forms.Label();
+            this.pht = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -104,8 +104,9 @@
             // menuPrBtn
             // 
             this.menuPrBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.menuPrBtn.BackColor = System.Drawing.Color.Cyan;
+            this.menuPrBtn.BackColor = System.Drawing.Color.Red;
             this.menuPrBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.menuPrBtn.ForeColor = System.Drawing.Color.White;
             this.menuPrBtn.Location = new System.Drawing.Point(1367, 10);
             this.menuPrBtn.Name = "menuPrBtn";
             this.menuPrBtn.Size = new System.Drawing.Size(227, 32);
@@ -550,23 +551,35 @@
             this.groupBox1.TabIndex = 152;
             this.groupBox1.TabStop = false;
             // 
-            // label2
+            // pttc
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(43, 39);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(36, 20);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "PHT";
+            this.pttc.AutoSize = true;
+            this.pttc.Location = new System.Drawing.Point(143, 160);
+            this.pttc.Name = "pttc";
+            this.pttc.Size = new System.Drawing.Size(50, 20);
+            this.pttc.TabIndex = 5;
+            this.pttc.Text = "label9";
+            this.pttc.Visible = false;
             // 
-            // label3
+            // tva
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(43, 157);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(41, 20);
-            this.label3.TabIndex = 1;
-            this.label3.Text = "PTTC";
+            this.tva.AutoSize = true;
+            this.tva.Location = new System.Drawing.Point(143, 95);
+            this.tva.Name = "tva";
+            this.tva.Size = new System.Drawing.Size(50, 20);
+            this.tva.TabIndex = 4;
+            this.tva.Text = "label8";
+            this.tva.Visible = false;
+            // 
+            // pht
+            // 
+            this.pht.AutoSize = true;
+            this.pht.Location = new System.Drawing.Point(143, 39);
+            this.pht.Name = "pht";
+            this.pht.Size = new System.Drawing.Size(50, 20);
+            this.pht.TabIndex = 3;
+            this.pht.Text = "label5";
+            this.pht.Visible = false;
             // 
             // label4
             // 
@@ -578,32 +591,23 @@
             this.label4.Text = "TVA(20%)";
             this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
-            // pht
+            // label3
             // 
-            this.pht.AutoSize = true;
-            this.pht.Location = new System.Drawing.Point(143, 39);
-            this.pht.Name = "pht";
-            this.pht.Size = new System.Drawing.Size(50, 20);
-            this.pht.TabIndex = 3;
-            this.pht.Text = "label5";
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(43, 157);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(41, 20);
+            this.label3.TabIndex = 1;
+            this.label3.Text = "PTTC";
             // 
-            // tva
+            // label2
             // 
-            this.tva.AutoSize = true;
-            this.tva.Location = new System.Drawing.Point(143, 95);
-            this.tva.Name = "tva";
-            this.tva.Size = new System.Drawing.Size(50, 20);
-            this.tva.TabIndex = 4;
-            this.tva.Text = "label8";
-            // 
-            // pttc
-            // 
-            this.pttc.AutoSize = true;
-            this.pttc.Location = new System.Drawing.Point(143, 160);
-            this.pttc.Name = "pttc";
-            this.pttc.Size = new System.Drawing.Size(50, 20);
-            this.pttc.TabIndex = 5;
-            this.pttc.Text = "label9";
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(43, 39);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(36, 20);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "PHT";
             // 
             // FactureForm
             // 

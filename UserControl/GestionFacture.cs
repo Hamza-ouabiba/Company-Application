@@ -8,6 +8,7 @@ namespace RNetApp
     {
         private Guid idClient;
         private string nomClient;
+        private int position = -1;
         AdoNet ado = new AdoNet();
         public Guid IdClient { get => idClient; set => idClient = value; }
         public GestionFacture()
@@ -19,36 +20,46 @@ namespace RNetApp
             ado.Cmd.CommandText = $"Select * from CLIENT";
             ado.Cmd.Connection = ado.Connection;
             ado.Adapter.SelectCommand = ado.Cmd;
-            ado.Adapter.Fill(ado.Dt);
-            nbreClt.Text = ado.Dt.Rows.Count.ToString();
-            dataGridView1.DataSource = ado.Dt;
-            dataGridView1.Columns["IDCLIENT"].Visible = false;
-            dataGridView1.Columns["NOM"].Width = 150;
-            dataGridView1.Columns["MONTANT"].Width = 150;
-            dataGridView1.Columns["TOTAL_REST"].Width = 150;
-            dataGridView1.Columns["Avance"].Width = 150;
+            ado.Adapter.Fill(ado.Ds,"client");
+            comboBox1.DataSource = ado.Ds.Tables["client"];
+            comboBox1.DisplayMember = "NOM";
+            comboBox1.ValueMember = "IDCLIENT";
+            ado.Cmd.CommandText = $"Select * from FACTURE";
+            ado.Cmd.Connection = ado.Connection;
+            ado.Adapter.SelectCommand = ado.Cmd;
+            ado.Adapter.Fill(ado.Ds, "facture");
+            nbrefac.Text = ado.Ds.Tables["FACTURE"].Rows.Count.ToString();
+            dataGridView1.DataSource = ado.Ds.Tables["facture"];
+            dataGridView1.Columns["idcheque"].Visible = false;
+            dataGridView1.Columns["idfacture"].Width = 200;
+            dataGridView1.Columns["idclient"].Visible = false;
+            dataGridView1.Columns["DATE_"].Width = 200;
+            dataGridView1.Columns["total_ttc"].Width = 200;
+            dataGridView1.Columns["total_ht"].Width = 200;
+            dataGridView1.Columns["fac_n_o"].Visible = false;
             dataGridView1.RowTemplate.Height = 50;
             dataGridView1.RowHeadersVisible = false;
-            dataGridView1.Columns["NOM"].HeaderText = "Nom client";
-            dataGridView1.Columns["MONTANT"].HeaderText = "Montant Par mois";
-            dataGridView1.Columns["TOTAL_REST"].HeaderText = "Total Restant";
-            dataGridView1.Columns["Avance"].HeaderText = "Avance";
-            dataGridView1.Columns["payE"].HeaderText = "Payé par espèce";
-            dataGridView1.Columns["payC"].HeaderText = "Payé par chèque";
+            //changer le nom du headertext : 
+            dataGridView1.Columns["idfacture"].HeaderText = "Numéro de facture";
+            dataGridView1.Columns["DATE_"].HeaderText = "Date de Création de facture";
+            dataGridView1.Columns["total_ttc"].HeaderText = "Total TTC";
+            dataGridView1.Columns["total_ht"].HeaderText = "Total Hors-Taxe";
+           
         }
 
         private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            if(e.RowIndex != -1)
-            {
-                idCltT.Text = ado.Dt.Rows[e.RowIndex][0].ToString();
-                idClient = Guid.Parse(idCltT.Text);
-                nomClient = ado.Dt.Rows[e.RowIndex][1].ToString();
-                nomCltT.Text = ado.Dt.Rows[e.RowIndex][1].ToString();
-                Montant.Text = ado.Dt.Rows[e.RowIndex][2].ToString();
-                totalRes.Text = ado.Dt.Rows[e.RowIndex][3].ToString();
-                factureBtn.Enabled = true;
-            }
+         
+                for (int j = 0; j < ado.Ds.Tables["client"].Rows.Count; j++)
+                {
+                    if (dataGridView1.Rows[e.RowIndex].Cells["IDCLIENT"].Value.ToString() == ado.Ds.Tables["client"].Rows[j]["IDCLIENT"].ToString())
+                    {
+                        idCltT.Text = dataGridView1.Rows[e.RowIndex].Cells["IDFACTURE"].Value.ToString();
+                        nomCltT.Text = ado.Ds.Tables["client"].Rows[j]["NOM"].ToString();
+                    totalTtc.Text = dataGridView1.Rows[e.RowIndex].Cells["total_ttc"].Value.ToString();
+                    totalHt.Text = dataGridView1.Rows[e.RowIndex].Cells["total_ht"].Value.ToString();
+                    }
+                }
         }
         private void factureBtn_Click(object sender, EventArgs e)
         {
@@ -59,14 +70,14 @@ namespace RNetApp
             ado.Cmd.CommandText = $"Select * from FACTURE";
             ado.Cmd.Connection = ado.Connection;
             ado.Adapter.SelectCommand = ado.Cmd;
-            ado.Adapter.Fill(ado.Dt);
-            DataRow dr = ado.Dt.NewRow();
+            ado.Adapter.Fill(ado.Ds,"facture");
+            DataRow dr = ado.Ds.Tables["facture"].NewRow();
             dr[1] = Guid.Parse(idCltT.Text);
-            dr[2] = dt;
-            dr[5] = 0;
+            dr[3] = dt;
+            dr[6] = 0;
             ado.Dt.Rows.Add(dr);
             sql.GetInsertCommand();
-            ado.Adapter.Update(ado.Dt);
+            ado.Adapter.Update(ado.Ds.Tables["facture"]);
             form.IdClient = IdClient;
             form.NameClient = nomClient;
             form.Show();
@@ -86,7 +97,7 @@ namespace RNetApp
         {
             if (recherche.Text != "")
             {
-                DataView dv = new DataView(ado.Dt);
+                DataView dv = new DataView(ado.Ds.Tables["facture"]);
                 if (checkClient(recherche.Text))
                 {
                     error.Visible = false;
@@ -104,6 +115,21 @@ namespace RNetApp
                 error.Visible = true;
                 error.Text = "Veuillez inserer quelque chose";
             }
+        }
+
+        private void dataGridView1_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            
+        }
+
+        private void ficheBtn_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void chequeBtn_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
