@@ -36,25 +36,21 @@
             this.label2 = new System.Windows.Forms.Label();
             this.nbrefac = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.espece = new System.Windows.Forms.RadioButton();
+            this.cheque = new System.Windows.Forms.RadioButton();
+            this.chequeBtn = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.panel3 = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.Panel2 = new System.Windows.Forms.Panel();
-            this.idCltT = new System.Windows.Forms.TextBox();
-            this.factureBtn = new System.Windows.Forms.Button();
-            this.totalHt = new System.Windows.Forms.TextBox();
-            this.totalTtc = new System.Windows.Forms.TextBox();
+            this.numFac = new System.Windows.Forms.TextBox();
             this.nomCltT = new System.Windows.Forms.TextBox();
+            this.factureBtn = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
             this.rechercher = new FontAwesome.Sharp.IconButton();
-            this.recherche = new System.Windows.Forms.TextBox();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.error = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.chequeBtn = new System.Windows.Forms.Button();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -93,21 +89,67 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.textBox1);
+            this.groupBox1.Controls.Add(this.espece);
+            this.groupBox1.Controls.Add(this.cheque);
             this.groupBox1.Controls.Add(this.chequeBtn);
             this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.panel4);
-            this.groupBox1.Controls.Add(this.panel3);
             this.groupBox1.Controls.Add(this.panel1);
             this.groupBox1.Controls.Add(this.Panel2);
-            this.groupBox1.Controls.Add(this.idCltT);
-            this.groupBox1.Controls.Add(this.totalHt);
-            this.groupBox1.Controls.Add(this.totalTtc);
+            this.groupBox1.Controls.Add(this.numFac);
             this.groupBox1.Controls.Add(this.nomCltT);
             this.groupBox1.Location = new System.Drawing.Point(95, 194);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(393, 430);
+            this.groupBox1.Size = new System.Drawing.Size(393, 450);
             this.groupBox1.TabIndex = 13;
             this.groupBox1.TabStop = false;
+            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
+            // 
+            // textBox1
+            // 
+            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textBox1.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.textBox1.Location = new System.Drawing.Point(103, 289);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.PlaceholderText = "Montant Versée";
+            this.textBox1.Size = new System.Drawing.Size(183, 31);
+            this.textBox1.TabIndex = 68;
+            this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // espece
+            // 
+            this.espece.AutoSize = true;
+            this.espece.Location = new System.Drawing.Point(103, 232);
+            this.espece.Name = "espece";
+            this.espece.Size = new System.Drawing.Size(76, 24);
+            this.espece.TabIndex = 67;
+            this.espece.TabStop = true;
+            this.espece.Text = "Espèce";
+            this.espece.UseVisualStyleBackColor = true;
+            this.espece.CheckedChanged += new System.EventHandler(this.espece_CheckedChanged);
+            // 
+            // cheque
+            // 
+            this.cheque.AutoSize = true;
+            this.cheque.Location = new System.Drawing.Point(209, 232);
+            this.cheque.Name = "cheque";
+            this.cheque.Size = new System.Drawing.Size(80, 24);
+            this.cheque.TabIndex = 66;
+            this.cheque.TabStop = true;
+            this.cheque.Text = "Chèque";
+            this.cheque.UseVisualStyleBackColor = true;
+            this.cheque.CheckedChanged += new System.EventHandler(this.cheque_CheckedChanged);
+            // 
+            // chequeBtn
+            // 
+            this.chequeBtn.Enabled = false;
+            this.chequeBtn.Location = new System.Drawing.Point(103, 348);
+            this.chequeBtn.Name = "chequeBtn";
+            this.chequeBtn.Size = new System.Drawing.Size(185, 45);
+            this.chequeBtn.TabIndex = 65;
+            this.chequeBtn.Text = "Ajouter Un chèque";
+            this.chequeBtn.UseVisualStyleBackColor = true;
+            this.chequeBtn.Click += new System.EventHandler(this.chequeBtn_Click);
             // 
             // label4
             // 
@@ -120,26 +162,10 @@
             this.label4.TabIndex = 64;
             this.label4.Text = "Information Sur Le client";
             // 
-            // panel4
-            // 
-            this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(117)))), ((int)(((byte)(214)))));
-            this.panel4.Location = new System.Drawing.Point(94, 306);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(200, 1);
-            this.panel4.TabIndex = 63;
-            // 
-            // panel3
-            // 
-            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(117)))), ((int)(((byte)(214)))));
-            this.panel3.Location = new System.Drawing.Point(94, 241);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(200, 1);
-            this.panel3.TabIndex = 62;
-            // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(117)))), ((int)(((byte)(214)))));
-            this.panel1.Location = new System.Drawing.Point(94, 181);
+            this.panel1.Location = new System.Drawing.Point(103, 181);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(200, 1);
             this.panel1.TabIndex = 61;
@@ -147,21 +173,32 @@
             // Panel2
             // 
             this.Panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(117)))), ((int)(((byte)(214)))));
-            this.Panel2.Location = new System.Drawing.Point(94, 124);
+            this.Panel2.Location = new System.Drawing.Point(103, 124);
             this.Panel2.Name = "Panel2";
             this.Panel2.Size = new System.Drawing.Size(200, 1);
             this.Panel2.TabIndex = 60;
             // 
-            // idCltT
+            // numFac
             // 
-            this.idCltT.BackColor = System.Drawing.SystemColors.Control;
-            this.idCltT.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.idCltT.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.idCltT.Location = new System.Drawing.Point(94, 98);
-            this.idCltT.Name = "idCltT";
-            this.idCltT.PlaceholderText = "Numéro de Facture";
-            this.idCltT.Size = new System.Drawing.Size(177, 24);
-            this.idCltT.TabIndex = 14;
+            this.numFac.BackColor = System.Drawing.SystemColors.Control;
+            this.numFac.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.numFac.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.numFac.Location = new System.Drawing.Point(103, 98);
+            this.numFac.Name = "numFac";
+            this.numFac.PlaceholderText = "Numéro de Facture";
+            this.numFac.Size = new System.Drawing.Size(177, 24);
+            this.numFac.TabIndex = 14;
+            // 
+            // nomCltT
+            // 
+            this.nomCltT.BackColor = System.Drawing.SystemColors.Control;
+            this.nomCltT.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.nomCltT.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.nomCltT.Location = new System.Drawing.Point(103, 155);
+            this.nomCltT.Name = "nomCltT";
+            this.nomCltT.PlaceholderText = "Nom Du Client";
+            this.nomCltT.Size = new System.Drawing.Size(177, 24);
+            this.nomCltT.TabIndex = 0;
             // 
             // factureBtn
             // 
@@ -169,46 +206,13 @@
             this.factureBtn.Enabled = false;
             this.factureBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.factureBtn.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.factureBtn.Location = new System.Drawing.Point(1373, 30);
+            this.factureBtn.Location = new System.Drawing.Point(1140, 31);
             this.factureBtn.Name = "factureBtn";
             this.factureBtn.Size = new System.Drawing.Size(185, 42);
             this.factureBtn.TabIndex = 10;
             this.factureBtn.Text = "Ajouter une Facture";
             this.factureBtn.UseVisualStyleBackColor = false;
             this.factureBtn.Click += new System.EventHandler(this.factureBtn_Click);
-            // 
-            // totalHt
-            // 
-            this.totalHt.BackColor = System.Drawing.SystemColors.Control;
-            this.totalHt.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.totalHt.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.totalHt.Location = new System.Drawing.Point(94, 276);
-            this.totalHt.Name = "totalHt";
-            this.totalHt.PlaceholderText = "Total Hors-Taxe";
-            this.totalHt.Size = new System.Drawing.Size(177, 24);
-            this.totalHt.TabIndex = 2;
-            // 
-            // totalTtc
-            // 
-            this.totalTtc.BackColor = System.Drawing.SystemColors.Control;
-            this.totalTtc.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.totalTtc.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.totalTtc.Location = new System.Drawing.Point(94, 208);
-            this.totalTtc.Name = "totalTtc";
-            this.totalTtc.PlaceholderText = "Total TTC";
-            this.totalTtc.Size = new System.Drawing.Size(177, 24);
-            this.totalTtc.TabIndex = 1;
-            // 
-            // nomCltT
-            // 
-            this.nomCltT.BackColor = System.Drawing.SystemColors.Control;
-            this.nomCltT.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.nomCltT.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.nomCltT.Location = new System.Drawing.Point(94, 155);
-            this.nomCltT.Name = "nomCltT";
-            this.nomCltT.PlaceholderText = "Nom Du Client";
-            this.nomCltT.Size = new System.Drawing.Size(177, 24);
-            this.nomCltT.TabIndex = 0;
             // 
             // dataGridView1
             // 
@@ -281,7 +285,7 @@
             this.rechercher.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.rechercher.IconSize = 27;
             this.rechercher.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.rechercher.Location = new System.Drawing.Point(1103, 115);
+            this.rechercher.Location = new System.Drawing.Point(1331, 31);
             this.rechercher.Name = "rechercher";
             this.rechercher.Padding = new System.Windows.Forms.Padding(5);
             this.rechercher.Size = new System.Drawing.Size(169, 43);
@@ -291,40 +295,10 @@
             this.rechercher.UseVisualStyleBackColor = false;
             this.rechercher.Click += new System.EventHandler(this.rechercher_Click);
             // 
-            // recherche
-            // 
-            this.recherche.BackColor = System.Drawing.SystemColors.Control;
-            this.recherche.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.recherche.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.recherche.Location = new System.Drawing.Point(777, 124);
-            this.recherche.Name = "recherche";
-            this.recherche.PlaceholderText = "Rechercher un employé";
-            this.recherche.Size = new System.Drawing.Size(331, 27);
-            this.recherche.TabIndex = 73;
-            // 
-            // panel5
-            // 
-            this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(117)))), ((int)(((byte)(214)))));
-            this.panel5.Location = new System.Drawing.Point(777, 157);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(300, 1);
-            this.panel5.TabIndex = 75;
-            // 
-            // error
-            // 
-            this.error.AutoSize = true;
-            this.error.ForeColor = System.Drawing.Color.Red;
-            this.error.Location = new System.Drawing.Point(777, 103);
-            this.error.Name = "error";
-            this.error.Size = new System.Drawing.Size(50, 20);
-            this.error.TabIndex = 76;
-            this.error.Text = "label3";
-            this.error.Visible = false;
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(889, 40);
+            this.label3.Location = new System.Drawing.Point(656, 41);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(159, 20);
             this.label3.TabIndex = 83;
@@ -335,20 +309,10 @@
             this.comboBox1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(1063, 37);
+            this.comboBox1.Location = new System.Drawing.Point(830, 38);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(293, 28);
             this.comboBox1.TabIndex = 82;
-            // 
-            // chequeBtn
-            // 
-            this.chequeBtn.Location = new System.Drawing.Point(104, 353);
-            this.chequeBtn.Name = "chequeBtn";
-            this.chequeBtn.Size = new System.Drawing.Size(185, 45);
-            this.chequeBtn.TabIndex = 65;
-            this.chequeBtn.Text = "Ajouter Un chèque";
-            this.chequeBtn.UseVisualStyleBackColor = true;
-            this.chequeBtn.Click += new System.EventHandler(this.chequeBtn_Click);
             // 
             // GestionFacture
             // 
@@ -356,10 +320,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.label3);
             this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.error);
-            this.Controls.Add(this.panel5);
             this.Controls.Add(this.rechercher);
-            this.Controls.Add(this.recherche);
             this.Controls.Add(this.factureBtn);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
@@ -384,24 +345,20 @@
         private Label label2;
         private Label nbrefac;
         private GroupBox groupBox1;
-        internal Panel panel4;
-        internal Panel panel3;
         internal Panel panel1;
         internal Panel Panel2;
-        private TextBox idCltT;
+        private TextBox numFac;
         private Button factureBtn;
-        private TextBox totalHt;
-        private TextBox totalTtc;
         private TextBox nomCltT;
         private DataGridView dataGridView1;
         private Label label1;
         private FontAwesome.Sharp.IconButton rechercher;
-        private TextBox recherche;
-        internal Panel panel5;
-        private Label error;
         private Label label3;
         private ComboBox comboBox1;
         private Label label4;
         private Button chequeBtn;
+        private TextBox textBox1;
+        private RadioButton espece;
+        private RadioButton cheque;
     }
 }
