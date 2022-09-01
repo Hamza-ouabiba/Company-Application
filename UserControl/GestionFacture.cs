@@ -17,13 +17,12 @@ namespace RNetApp
         }
         private void GestionFacture_Load(object sender, EventArgs e)
         {
+            SqlCommandBuilder scb = new SqlCommandBuilder(ado.Adapter);
             ado.Cmd.CommandText = $"Select * from CLIENT";
             ado.Cmd.Connection = ado.Connection;
             ado.Adapter.SelectCommand = ado.Cmd;
             ado.Adapter.Fill(ado.Ds,"client");
-            DataRow dr = ado.Ds.Tables["CLIENT"].NewRow();
-            dr[1] = "TOUS";
-            ado.Ds.Tables["client"].Rows.Add(dr);
+            ado.Adapter.Update(ado.Ds.Tables["CLIENT"]);
             comboBox1.DataSource = ado.Ds.Tables["client"];
             comboBox1.DisplayMember = "NOM";
             comboBox1.ValueMember = "IDCLIENT";
@@ -95,16 +94,28 @@ namespace RNetApp
         }
         private void rechercher_Click(object sender, EventArgs e)
         {
+            DataView dv = new DataView(ado.Ds.Tables["facture_inner"]);
             if (comboBox1.SelectedValue.ToString() != "")
             {
-                    DataView dv = new DataView(ado.Ds.Tables["facture_inner"]);
+                MessageBox.Show(comboBox1.SelectedValue.ToString());
+                if (comboBox1.GetItemText(comboBox1.SelectedItem) != "TOUS")
+                {
                     dv.RowFilter = $"IDCLIENT = '{comboBox1.SelectedValue}'";
-                    dataGridView1.DataSource = dv;
+                }else
+                {
+                }
+                dataGridView1.DataSource = dv;
             }
         }
         private void dataGridView1_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
         {
-            
+            for(int i=0;i<dataGridView1.Rows.Count;i++)
+            {
+                if(dataGridView1.Rows[i].Cells["IDCHEQUE"].Value.ToString() != "")
+                {
+                    dataGridView1.Rows[i].Cells["IDCHEQUE"].Style.BackColor = Color.Lime;
+                }
+            }
         }
 
         private void ficheBtn_Click(object sender, EventArgs e)
@@ -140,6 +151,7 @@ namespace RNetApp
         {
             if(espece.Checked)
             {
+                chequeBtn.Enabled = false;
                 MessageBox.Show("Inserer le montant ");
             }
         }

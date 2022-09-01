@@ -29,8 +29,6 @@ namespace RNetApp.Forms
                     idClientT.Text = ado.Dt.Rows[i]["IDCLIENT"].ToString();
                     nomClt.Text = ado.Dt.Rows[i]["NOM"].ToString();
                     Montant.Text = ado.Dt.Rows[i]["MONTANT"].ToString();
-                    avance.Text = ado.Dt.Rows[i]["AVANCE"].ToString();
-                    totalRes.Text = ado.Dt.Rows[i]["TOTAL_REST"].ToString();
                     break;
                 }
             }
@@ -85,18 +83,11 @@ namespace RNetApp.Forms
                 }
                 else if (checkClientWithId(nomClt.Text, idClientT.Text) || !checkClient(nomClt.Text))
                 {
-                    if (float.Parse(avance.Text) <= float.Parse(Montant.Text))
-                    {
                         ado.Dt.Rows[0]["NOM"] = nomClt.Text;
                         ado.Dt.Rows[0]["MONTANT"] = decimal.Parse(Montant.Text);
-                        ado.Dt.Rows[0]["AVANCE"] = decimal.Parse(avance.Text);
-                        ado.Dt.Rows[0]["TOTAL_REST"] = decimal.Parse(Montant.Text) - decimal.Parse(avance.Text);
                         scb.GetUpdateCommand();
                         ado.Adapter.Update(ado.Dt);
                         MessageBox.Show("modification avec succes");
-                    }
-                    else MessageBox.Show("C'est illogique d'avoir l'avance plus que le montant ");
-                    
                 }
             }
             catch (Exception ex)

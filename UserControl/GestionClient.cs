@@ -27,7 +27,6 @@ namespace RNetApp
             comboBox1.DataSource = ado.Dt;
             comboBox1.DisplayMember = ado.Dt.Columns["NOM"].ToString();
             comboBox1.ValueMember = ado.Dt.Columns["IDCLIENT"].ToString();
-            
             testCombo();
             affichageGrid();
         }
@@ -51,11 +50,7 @@ namespace RNetApp
         private void effacerTextBox()
         {
             nomClt.Clear();
-            avance.Clear(); 
             Montant.Clear();
-            totalRes.Clear();
-            cheque.Checked = false;
-            espece.Checked = false;
         }
         private void enregBtn_Click(object sender, EventArgs e)
         {
@@ -66,25 +61,11 @@ namespace RNetApp
             {
                 try
                 {
-                    if (float.Parse(avance.Text) <= float.Parse(Montant.Text))
-                    {
                         if (!checkClient(nomClt.Text))
                         {
                             dr = ado.Dt.NewRow();
                             dr[1] = nomClt.Text;
                             dr[2] = float.Parse(Montant.Text);
-                            dr[4] = float.Parse(avance.Text);
-                            dr[3] = float.Parse(Montant.Text) - float.Parse(avance.Text);
-                            if (cheque.Checked)
-                            {
-                                dr[6] = true;
-                                dr[5] = false;
-                            }
-                            else if(espece.Checked)
-                            {
-                                dr[6] = false;
-                                dr[5] = true;
-                            }
                             ado.Dt.Rows.Add(dr);
                             sql.GetInsertCommand();
                             ado.Adapter.Update(ado.Dt);
@@ -95,8 +76,6 @@ namespace RNetApp
                             MessageBox.Show("Client Ajoutée avec succés","",MessageBoxButtons.OK,MessageBoxIcon.Asterisk);
                         }
                         else {MessageBox.Show("Ce client existe deja dans la base de donnée pensez a resaisir un autre"); effacerTextBox(); }
-                    }
-                    else MessageBox.Show("c'est illogique d'avoir l'avance plus que le montant");
                 } catch(Exception ex)
                 {
                     MessageBox.Show(ex.Message);
@@ -107,20 +86,14 @@ namespace RNetApp
         private void affichageGrid()
         {
             dataGridView1.Columns["IDCLIENT"].Visible = false;
-            dataGridView1.Columns["NOM"].Width = 150;
-            dataGridView1.Columns["MONTANT"].Width = 150;
-            dataGridView1.Columns["TOTAL_REST"].Width = 150;
-            dataGridView1.Columns["AVANCE"].Width = 150;
+            dataGridView1.Columns["NOM"].Width = 300;
+            dataGridView1.Columns["MONTANT"].Width = 300;
             dataGridView1.RowTemplate.Height = 50;
             dataGridView1.RowHeadersVisible = false;
             Shared.addCol(dataGridView1, "delete", "delete", "supprimer");
             Shared.addCol(dataGridView1, "edit", "edit", "modifier");
             dataGridView1.Columns["NOM"].HeaderText = "Nom client";
             dataGridView1.Columns["MONTANT"].HeaderText = "Montant Par mois";
-            dataGridView1.Columns["TOTAL_REST"].HeaderText = "Total Restant";
-            dataGridView1.Columns["AVANCE"].HeaderText = "Avance";
-            dataGridView1.Columns["payE"].HeaderText = "Payé par espèce";
-            dataGridView1.Columns["payC"].HeaderText = "Payé par chèque";
         }
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -194,7 +167,7 @@ namespace RNetApp
         }
         private bool checkInfo()
         {
-            return nomClt.Text != "" && Montant.Text != "" && avance.Text != "";
+            return nomClt.Text != "" && Montant.Text != "";
         }
         private bool checkClient(string nomClt)
         {

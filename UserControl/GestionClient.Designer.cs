@@ -37,17 +37,10 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.recherche = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.espece = new System.Windows.Forms.RadioButton();
-            this.cheque = new System.Windows.Forms.RadioButton();
-            this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.panel6 = new System.Windows.Forms.Panel();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.avance = new System.Windows.Forms.TextBox();
             this.panel4 = new System.Windows.Forms.Panel();
             this.enregBtn = new System.Windows.Forms.Button();
             this.Panel2 = new System.Windows.Forms.Panel();
-            this.totalRes = new System.Windows.Forms.TextBox();
             this.Montant = new System.Windows.Forms.TextBox();
             this.nomClt = new System.Windows.Forms.TextBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
@@ -116,93 +109,28 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.espece);
-            this.groupBox1.Controls.Add(this.cheque);
-            this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.panel6);
-            this.groupBox1.Controls.Add(this.panel5);
-            this.groupBox1.Controls.Add(this.avance);
             this.groupBox1.Controls.Add(this.panel4);
             this.groupBox1.Controls.Add(this.enregBtn);
             this.groupBox1.Controls.Add(this.Panel2);
-            this.groupBox1.Controls.Add(this.totalRes);
             this.groupBox1.Controls.Add(this.Montant);
             this.groupBox1.Controls.Add(this.nomClt);
             this.groupBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.groupBox1.Location = new System.Drawing.Point(95, 194);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(406, 490);
+            this.groupBox1.Size = new System.Drawing.Size(406, 334);
             this.groupBox1.TabIndex = 65;
             this.groupBox1.TabStop = false;
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
-            // espece
-            // 
-            this.espece.AutoSize = true;
-            this.espece.Location = new System.Drawing.Point(232, 337);
-            this.espece.Name = "espece";
-            this.espece.Size = new System.Drawing.Size(76, 24);
-            this.espece.TabIndex = 68;
-            this.espece.TabStop = true;
-            this.espece.Text = "Espèce";
-            this.espece.UseVisualStyleBackColor = true;
-            // 
-            // cheque
-            // 
-            this.cheque.AutoSize = true;
-            this.cheque.Location = new System.Drawing.Point(116, 337);
-            this.cheque.Name = "cheque";
-            this.cheque.Size = new System.Drawing.Size(80, 24);
-            this.cheque.TabIndex = 67;
-            this.cheque.TabStop = true;
-            this.cheque.Text = "Chèque";
-            this.cheque.UseVisualStyleBackColor = true;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(305, 259);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(43, 20);
-            this.label5.TabIndex = 66;
-            this.label5.Text = "MAD";
-            // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(304, 193);
+            this.label4.Location = new System.Drawing.Point(300, 124);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(43, 20);
             this.label4.TabIndex = 65;
             this.label4.Text = "MAD";
-            // 
-            // panel6
-            // 
-            this.panel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(117)))), ((int)(((byte)(214)))));
-            this.panel6.Location = new System.Drawing.Point(92, 218);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(200, 1);
-            this.panel6.TabIndex = 64;
-            // 
-            // panel5
-            // 
-            this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(117)))), ((int)(((byte)(214)))));
-            this.panel5.Location = new System.Drawing.Point(92, 286);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(200, 1);
-            this.panel5.TabIndex = 61;
-            // 
-            // avance
-            // 
-            this.avance.BackColor = System.Drawing.SystemColors.Control;
-            this.avance.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.avance.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.avance.Location = new System.Drawing.Point(92, 185);
-            this.avance.Name = "avance";
-            this.avance.PlaceholderText = "Avance";
-            this.avance.Size = new System.Drawing.Size(251, 23);
-            this.avance.TabIndex = 62;
             // 
             // panel4
             // 
@@ -218,7 +146,7 @@
             this.enregBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.enregBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.enregBtn.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.enregBtn.Location = new System.Drawing.Point(35, 401);
+            this.enregBtn.Location = new System.Drawing.Point(36, 221);
             this.enregBtn.Name = "enregBtn";
             this.enregBtn.Size = new System.Drawing.Size(337, 46);
             this.enregBtn.TabIndex = 6;
@@ -233,18 +161,6 @@
             this.Panel2.Name = "Panel2";
             this.Panel2.Size = new System.Drawing.Size(200, 1);
             this.Panel2.TabIndex = 59;
-            // 
-            // totalRes
-            // 
-            this.totalRes.BackColor = System.Drawing.SystemColors.Control;
-            this.totalRes.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.totalRes.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.totalRes.Location = new System.Drawing.Point(92, 255);
-            this.totalRes.Name = "totalRes";
-            this.totalRes.PlaceholderText = "Total restant";
-            this.totalRes.ReadOnly = true;
-            this.totalRes.Size = new System.Drawing.Size(176, 23);
-            this.totalRes.TabIndex = 2;
             // 
             // Montant
             // 
@@ -444,21 +360,14 @@
         internal Panel panel1;
         private TextBox recherche;
         private GroupBox groupBox1;
-        internal Panel panel5;
         internal Panel panel4;
         private Button enregBtn;
         internal Panel Panel2;
-        private TextBox totalRes;
         private TextBox Montant;
         private TextBox nomClt;
         private DataGridView dataGridView1;
         private Label label1;
-        internal Panel panel6;
-        private TextBox avance;
-        private Label label5;
         private Label label4;
-        private RadioButton espece;
-        private RadioButton cheque;
         private FontAwesome.Sharp.IconButton rechercher;
         private TextBox idClientT;
         private Label error;
