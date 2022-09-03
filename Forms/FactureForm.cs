@@ -34,6 +34,7 @@ namespace RNetApp.Forms
             ado.Adapter.SelectCommand = ado.Cmd;
             ado.Adapter.Fill(ado.Ds, "FACTURE");
             nomCl.Text = nameClient;
+            MessageBox.Show(ado.Ds.Tables["facture"].Rows.Count.ToString());
             for (int i = 0; i < ado.Ds.Tables["FACTURE"].Rows.Count; i++)
             {
                 MessageBox.Show(ado.Ds.Tables["FACTURE"].Rows[i]["fac_n_o"].ToString());
@@ -74,8 +75,6 @@ namespace RNetApp.Forms
                 MessageBox.Show($"{ado2.Ds.Tables["changer"].Rows.Count}");
                 DataRow dr = ado3.Ds.Tables["avoir"].NewRow();
                 MessageBox.Show(facturNum.Text);
-
-
                 dr[0] = idFacture;
                 dr[1] = "draps_double";
                 dr[2] = int.Parse(textBox1.Text);
@@ -295,12 +294,10 @@ namespace RNetApp.Forms
                 ado.Ds.Tables["FACTURE"].Rows[position]["total_ttc"] = (total * tva_) + total;
                 MessageBox.Show($"{total}");
                 ado.Adapter.Update(ado.Ds.Tables["FACTURE"]);
-                pht.Visible = true;
-                tva.Visible = true;
-                pttc.Visible = true;
+                pht.Visible = tva.Visible = pttc.Visible = true;
                 pht.Text = $"{total}";
                 tva.Text = $"{total * tva_}";
-                pttc.Text = $"{total + total * 0,2}";
+                pttc.Text = $"{(total * tva_) + total}";
             } catch (SqlException ex)
             {
                 MessageBox.Show(ex.Message);

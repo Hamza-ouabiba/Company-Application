@@ -38,3 +38,4 @@ D:\projects\training\RNetApp\RNetApp\obj\Debug\net6.0-windows\RNetApp.ficheClt.r
 D:\projects\training\RNetApp\RNetApp\obj\Debug\net6.0-windows\RNetApp.Tache.resources
 D:\projects\training\RNetApp\RNetApp\obj\Debug\net6.0-windows\RNetApp.Forms.ModifierClient.resources
 D:\projects\training\RNetApp\RNetApp\obj\Debug\net6.0-windows\RNetApp.ChequeFacture.resources
+D:\projects\training\RNetApp\RNetApp\obj\Debug\net6.0-windows\RNetApp.GestionCheque.resources

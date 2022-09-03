@@ -42,7 +42,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.absc = new System.Windows.Forms.Label();
-            this.exitBtn = new FontAwesome.Sharp.IconButton();
             this.SuspendLayout();
             // 
             // SalaireRes
@@ -105,7 +104,7 @@
             this.prenom.AutoSize = true;
             this.prenom.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.prenom.ForeColor = System.Drawing.Color.Silver;
-            this.prenom.Location = new System.Drawing.Point(188, 50);
+            this.prenom.Location = new System.Drawing.Point(181, 50);
             this.prenom.Name = "prenom";
             this.prenom.Size = new System.Drawing.Size(84, 23);
             this.prenom.TabIndex = 33;
@@ -116,7 +115,7 @@
             this.nom.AutoSize = true;
             this.nom.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.nom.ForeColor = System.Drawing.Color.Silver;
-            this.nom.Location = new System.Drawing.Point(58, 50);
+            this.nom.Location = new System.Drawing.Point(56, 50);
             this.nom.Name = "nom";
             this.nom.Size = new System.Drawing.Size(57, 23);
             this.nom.TabIndex = 32;
@@ -199,30 +198,12 @@
             this.absc.TabIndex = 39;
             this.absc.Text = "Abscence :";
             // 
-            // exitBtn
-            // 
-            this.exitBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.exitBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(29)))), ((int)(((byte)(30)))));
-            this.exitBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.exitBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(29)))), ((int)(((byte)(30)))));
-            this.exitBtn.IconChar = FontAwesome.Sharp.IconChar.XmarkCircle;
-            this.exitBtn.IconColor = System.Drawing.Color.Red;
-            this.exitBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.exitBtn.IconSize = 38;
-            this.exitBtn.Location = new System.Drawing.Point(300, 5);
-            this.exitBtn.Name = "exitBtn";
-            this.exitBtn.Size = new System.Drawing.Size(41, 36);
-            this.exitBtn.TabIndex = 54;
-            this.exitBtn.UseVisualStyleBackColor = false;
-            this.exitBtn.Click += new System.EventHandler(this.exitBtn_Click);
-            // 
             // FichierEmpl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(29)))), ((int)(((byte)(30)))));
-            this.ClientSize = new System.Drawing.Size(351, 541);
-            this.Controls.Add(this.exitBtn);
+            this.ClientSize = new System.Drawing.Size(351, 521);
             this.Controls.Add(this.prenom);
             this.Controls.Add(this.nom);
             this.Controls.Add(this.absc);
@@ -238,7 +219,6 @@
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.ForeColor = System.Drawing.Color.Gray;
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MaximizeBox = false;
             this.Name = "FichierEmpl";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -264,6 +244,5 @@
         private Label label3;
         private Label label8;
         private Label absc;
-        private FontAwesome.Sharp.IconButton exitBtn;
     }
 }

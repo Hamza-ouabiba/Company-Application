@@ -37,7 +37,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.prixModBtn = new FontAwesome.Sharp.IconButton();
-            this.iconButton2 = new FontAwesome.Sharp.IconButton();
+            this.GestionChequeBtn = new FontAwesome.Sharp.IconButton();
             this.GestionEmp = new FontAwesome.Sharp.IconButton();
             this.FactureBtn = new FontAwesome.Sharp.IconButton();
             this.ClientBtn = new FontAwesome.Sharp.IconButton();
@@ -62,7 +62,7 @@
             this.panelLeft.Controls.Add(this.label2);
             this.panelLeft.Controls.Add(this.pictureBox1);
             this.panelLeft.Controls.Add(this.prixModBtn);
-            this.panelLeft.Controls.Add(this.iconButton2);
+            this.panelLeft.Controls.Add(this.GestionChequeBtn);
             this.panelLeft.Controls.Add(this.GestionEmp);
             this.panelLeft.Controls.Add(this.FactureBtn);
             this.panelLeft.Controls.Add(this.ClientBtn);
@@ -175,23 +175,25 @@
             this.prixModBtn.UseVisualStyleBackColor = true;
             this.prixModBtn.Click += new System.EventHandler(this.prixModBtn_Click);
             // 
-            // iconButton2
+            // GestionChequeBtn
             // 
-            this.iconButton2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.iconButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton2.ForeColor = System.Drawing.Color.Silver;
-            this.iconButton2.IconChar = FontAwesome.Sharp.IconChar.ChartSimple;
-            this.iconButton2.IconColor = System.Drawing.Color.Silver;
-            this.iconButton2.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton2.IconSize = 30;
-            this.iconButton2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButton2.Location = new System.Drawing.Point(-7, 463);
-            this.iconButton2.Name = "iconButton2";
-            this.iconButton2.Padding = new System.Windows.Forms.Padding(7, 0, 0, 0);
-            this.iconButton2.Size = new System.Drawing.Size(238, 89);
-            this.iconButton2.TabIndex = 6;
-            this.iconButton2.Text = "Statistique";
-            this.iconButton2.UseVisualStyleBackColor = true;
+            this.GestionChequeBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.GestionChequeBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.GestionChequeBtn.ForeColor = System.Drawing.Color.Silver;
+            this.GestionChequeBtn.IconChar = FontAwesome.Sharp.IconChar.MoneyCheckDollar;
+            this.GestionChequeBtn.IconColor = System.Drawing.Color.Silver;
+            this.GestionChequeBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.GestionChequeBtn.IconSize = 30;
+            this.GestionChequeBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.GestionChequeBtn.Location = new System.Drawing.Point(-8, 463);
+            this.GestionChequeBtn.Margin = new System.Windows.Forms.Padding(6, 3, 3, 3);
+            this.GestionChequeBtn.Name = "GestionChequeBtn";
+            this.GestionChequeBtn.Padding = new System.Windows.Forms.Padding(5);
+            this.GestionChequeBtn.Size = new System.Drawing.Size(263, 89);
+            this.GestionChequeBtn.TabIndex = 6;
+            this.GestionChequeBtn.Text = "Gestion Des Chèques";
+            this.GestionChequeBtn.UseVisualStyleBackColor = true;
+            this.GestionChequeBtn.Click += new System.EventHandler(this.GestionChequeBtn_Click);
             // 
             // GestionEmp
             // 
@@ -305,7 +307,9 @@
             // 
             this.panelContent.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelContent.Location = new System.Drawing.Point(227, 44);
+            this.panelContent.Margin = new System.Windows.Forms.Padding(7, 0, 0, 0);
             this.panelContent.Name = "panelContent";
+            this.panelContent.Padding = new System.Windows.Forms.Padding(7, 0, 0, 0);
             this.panelContent.Size = new System.Drawing.Size(1085, 793);
             this.panelContent.TabIndex = 3;
             // 
@@ -339,7 +343,7 @@
         private Label label2;
         private PictureBox pictureBox1;
         private FontAwesome.Sharp.IconButton prixModBtn;
-        private FontAwesome.Sharp.IconButton iconButton2;
+        private FontAwesome.Sharp.IconButton GestionChequeBtn;
         private FontAwesome.Sharp.IconButton GestionEmp;
         private FontAwesome.Sharp.IconButton FactureBtn;
         private FontAwesome.Sharp.IconButton ClientBtn;

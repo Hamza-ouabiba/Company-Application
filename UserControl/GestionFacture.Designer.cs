@@ -36,10 +36,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.nbrefac = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.espece = new System.Windows.Forms.RadioButton();
-            this.cheque = new System.Windows.Forms.RadioButton();
-            this.chequeBtn = new System.Windows.Forms.Button();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.nbreCheque = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.Panel2 = new System.Windows.Forms.Panel();
@@ -51,6 +49,7 @@
             this.rechercher = new FontAwesome.Sharp.IconButton();
             this.label3 = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.verifierBtn = new System.Windows.Forms.Button();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -89,10 +88,8 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.textBox1);
-            this.groupBox1.Controls.Add(this.espece);
-            this.groupBox1.Controls.Add(this.cheque);
-            this.groupBox1.Controls.Add(this.chequeBtn);
+            this.groupBox1.Controls.Add(this.panel3);
+            this.groupBox1.Controls.Add(this.nbreCheque);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.panel1);
             this.groupBox1.Controls.Add(this.Panel2);
@@ -100,56 +97,29 @@
             this.groupBox1.Controls.Add(this.nomCltT);
             this.groupBox1.Location = new System.Drawing.Point(95, 194);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(393, 450);
+            this.groupBox1.Size = new System.Drawing.Size(393, 325);
             this.groupBox1.TabIndex = 13;
             this.groupBox1.TabStop = false;
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
-            // textBox1
+            // panel3
             // 
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox1.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox1.Location = new System.Drawing.Point(103, 289);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.PlaceholderText = "Montant Versée";
-            this.textBox1.Size = new System.Drawing.Size(183, 31);
-            this.textBox1.TabIndex = 68;
-            this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(117)))), ((int)(((byte)(214)))));
+            this.panel3.Location = new System.Drawing.Point(103, 253);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(200, 1);
+            this.panel3.TabIndex = 71;
             // 
-            // espece
+            // nbreCheque
             // 
-            this.espece.AutoSize = true;
-            this.espece.Location = new System.Drawing.Point(103, 232);
-            this.espece.Name = "espece";
-            this.espece.Size = new System.Drawing.Size(76, 24);
-            this.espece.TabIndex = 67;
-            this.espece.TabStop = true;
-            this.espece.Text = "Espèce";
-            this.espece.UseVisualStyleBackColor = true;
-            this.espece.CheckedChanged += new System.EventHandler(this.espece_CheckedChanged);
-            // 
-            // cheque
-            // 
-            this.cheque.AutoSize = true;
-            this.cheque.Location = new System.Drawing.Point(209, 232);
-            this.cheque.Name = "cheque";
-            this.cheque.Size = new System.Drawing.Size(80, 24);
-            this.cheque.TabIndex = 66;
-            this.cheque.TabStop = true;
-            this.cheque.Text = "Chèque";
-            this.cheque.UseVisualStyleBackColor = true;
-            this.cheque.CheckedChanged += new System.EventHandler(this.cheque_CheckedChanged);
-            // 
-            // chequeBtn
-            // 
-            this.chequeBtn.Enabled = false;
-            this.chequeBtn.Location = new System.Drawing.Point(103, 348);
-            this.chequeBtn.Name = "chequeBtn";
-            this.chequeBtn.Size = new System.Drawing.Size(185, 45);
-            this.chequeBtn.TabIndex = 65;
-            this.chequeBtn.Text = "Ajouter Un chèque";
-            this.chequeBtn.UseVisualStyleBackColor = true;
-            this.chequeBtn.Click += new System.EventHandler(this.chequeBtn_Click);
+            this.nbreCheque.BackColor = System.Drawing.SystemColors.Control;
+            this.nbreCheque.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.nbreCheque.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.nbreCheque.Location = new System.Drawing.Point(103, 223);
+            this.nbreCheque.Name = "nbreCheque";
+            this.nbreCheque.PlaceholderText = "Nombre de cheque";
+            this.nbreCheque.Size = new System.Drawing.Size(177, 24);
+            this.nbreCheque.TabIndex = 70;
             // 
             // label4
             // 
@@ -203,7 +173,6 @@
             // factureBtn
             // 
             this.factureBtn.BackColor = System.Drawing.Color.Yellow;
-            this.factureBtn.Enabled = false;
             this.factureBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.factureBtn.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.factureBtn.Location = new System.Drawing.Point(1140, 31);
@@ -241,7 +210,7 @@
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridView1.EnableHeadersVisualStyles = false;
-            this.dataGridView1.Location = new System.Drawing.Point(627, 204);
+            this.dataGridView1.Location = new System.Drawing.Point(627, 194);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -259,7 +228,7 @@
             dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(117)))), ((int)(((byte)(240)))));
             this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle4;
-            this.dataGridView1.Size = new System.Drawing.Size(791, 457);
+            this.dataGridView1.Size = new System.Drawing.Size(791, 416);
             this.dataGridView1.TabIndex = 12;
             this.dataGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellDoubleClick);
             this.dataGridView1.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dataGridView1_DataBindingComplete);
@@ -314,10 +283,21 @@
             this.comboBox1.Size = new System.Drawing.Size(293, 28);
             this.comboBox1.TabIndex = 82;
             // 
+            // verifierBtn
+            // 
+            this.verifierBtn.Location = new System.Drawing.Point(1374, 98);
+            this.verifierBtn.Name = "verifierBtn";
+            this.verifierBtn.Size = new System.Drawing.Size(173, 29);
+            this.verifierBtn.TabIndex = 84;
+            this.verifierBtn.Text = "verifier les factures";
+            this.verifierBtn.UseVisualStyleBackColor = true;
+            this.verifierBtn.Click += new System.EventHandler(this.verifierBtn_Click);
+            // 
             // GestionFacture
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.verifierBtn);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.rechercher);
@@ -327,7 +307,7 @@
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.label1);
             this.Name = "GestionFacture";
-            this.Size = new System.Drawing.Size(1566, 742);
+            this.Size = new System.Drawing.Size(1566, 854);
             this.Load += new System.EventHandler(this.GestionFacture_Load);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
@@ -356,9 +336,8 @@
         private Label label3;
         private ComboBox comboBox1;
         private Label label4;
-        private Button chequeBtn;
-        private TextBox textBox1;
-        private RadioButton espece;
-        private RadioButton cheque;
+        internal Panel panel3;
+        private TextBox nbreCheque;
+        private Button verifierBtn;
     }
 }

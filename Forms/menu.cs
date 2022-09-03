@@ -90,5 +90,13 @@ namespace RNetApp.Forms
             t.Dock = DockStyle.Fill;    
             panelContent.Controls.Add(t);
         }
+
+        private void GestionChequeBtn_Click(object sender, EventArgs e)
+        {
+            GestionCheque gc = new GestionCheque();
+            panelContent.Controls.Clear();
+            gc.Dock = DockStyle.Fill;
+            panelContent.Controls.Add(gc);
+        }
     }
 }
