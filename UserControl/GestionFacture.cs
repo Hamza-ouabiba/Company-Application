@@ -82,14 +82,15 @@ namespace RNetApp
             FactureForm form = new FactureForm();   
             SqlCommandBuilder sql = new SqlCommandBuilder(ado.Adapter);
             DataRow dr = ado.Ds.Tables["facture"].NewRow();
-            dr[1] = Guid.Parse(comboBox1.SelectedValue.ToString());
-            dr[2] = dt;
+            dr[1] = dt;
+            dr[4] = 0;
             dr[5] = 0;
+            dr[6] = Guid.Parse(comboBox1.SelectedValue.ToString());
             ado.Ds.Tables["facture"].Rows.Add(dr);
             sql.GetInsertCommand();
             ado.Adapter.Update(ado.Ds.Tables["facture"]);
             form.IdClient = Guid.Parse(comboBox1.SelectedValue.ToString());
-            form.NameClient = nomClient;
+            form.NameClient = comboBox1.Text;
             form.Show();
         }
         private bool checkClient(string nomClt)

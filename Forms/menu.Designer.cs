@@ -31,23 +31,21 @@
             this.panelLeft = new System.Windows.Forms.Panel();
             this.tacheBtn = new FontAwesome.Sharp.IconButton();
             this.label1 = new System.Windows.Forms.Label();
-            this.date = new System.Windows.Forms.Label();
             this.utilisateurEn = new System.Windows.Forms.Label();
             this.iconPictureBox1 = new FontAwesome.Sharp.IconPictureBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.prixModBtn = new FontAwesome.Sharp.IconButton();
             this.GestionChequeBtn = new FontAwesome.Sharp.IconButton();
             this.GestionEmp = new FontAwesome.Sharp.IconButton();
             this.FactureBtn = new FontAwesome.Sharp.IconButton();
             this.ClientBtn = new FontAwesome.Sharp.IconButton();
+            this.date = new System.Windows.Forms.Label();
             this.panelTop = new System.Windows.Forms.Panel();
             this.DeconBtn = new FontAwesome.Sharp.IconButton();
             this.exitBtn = new FontAwesome.Sharp.IconButton();
             this.panelContent = new System.Windows.Forms.Panel();
             this.panelLeft.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panelTop.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -56,11 +54,9 @@
             this.panelLeft.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(29)))), ((int)(((byte)(30)))));
             this.panelLeft.Controls.Add(this.tacheBtn);
             this.panelLeft.Controls.Add(this.label1);
-            this.panelLeft.Controls.Add(this.date);
             this.panelLeft.Controls.Add(this.utilisateurEn);
             this.panelLeft.Controls.Add(this.iconPictureBox1);
             this.panelLeft.Controls.Add(this.label2);
-            this.panelLeft.Controls.Add(this.pictureBox1);
             this.panelLeft.Controls.Add(this.prixModBtn);
             this.panelLeft.Controls.Add(this.GestionChequeBtn);
             this.panelLeft.Controls.Add(this.GestionEmp);
@@ -102,18 +98,6 @@
             this.label1.TabIndex = 11;
             this.label1.UseWaitCursor = true;
             // 
-            // date
-            // 
-            this.date.AutoSize = true;
-            this.date.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(117)))), ((int)(((byte)(240)))));
-            this.date.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.date.ForeColor = System.Drawing.Color.Silver;
-            this.date.Location = new System.Drawing.Point(13, 7);
-            this.date.Name = "date";
-            this.date.Size = new System.Drawing.Size(65, 28);
-            this.date.TabIndex = 2;
-            this.date.Text = "label3";
-            // 
             // utilisateurEn
             // 
             this.utilisateurEn.AutoSize = true;
@@ -140,21 +124,12 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(28, 99);
+            this.label2.Location = new System.Drawing.Point(27, 70);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(173, 38);
             this.label2.TabIndex = 0;
             this.label2.Text = "R-NET PLUS";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(117)))), ((int)(((byte)(240)))));
-            this.pictureBox1.Location = new System.Drawing.Point(-7, -14);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(234, 58);
-            this.pictureBox1.TabIndex = 8;
-            this.pictureBox1.TabStop = false;
             // 
             // prixModBtn
             // 
@@ -253,9 +228,22 @@
             this.ClientBtn.UseVisualStyleBackColor = true;
             this.ClientBtn.Click += new System.EventHandler(this.ClientBtn_Click);
             // 
+            // date
+            // 
+            this.date.AutoSize = true;
+            this.date.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(117)))), ((int)(((byte)(240)))));
+            this.date.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.date.ForeColor = System.Drawing.Color.Silver;
+            this.date.Location = new System.Drawing.Point(18, 6);
+            this.date.Name = "date";
+            this.date.Size = new System.Drawing.Size(65, 28);
+            this.date.TabIndex = 13;
+            this.date.Text = "label3";
+            // 
             // panelTop
             // 
             this.panelTop.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(117)))), ((int)(((byte)(240)))));
+            this.panelTop.Controls.Add(this.date);
             this.panelTop.Controls.Add(this.DeconBtn);
             this.panelTop.Controls.Add(this.exitBtn);
             this.panelTop.Dock = System.Windows.Forms.DockStyle.Top;
@@ -328,8 +316,8 @@
             this.panelLeft.ResumeLayout(false);
             this.panelLeft.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panelTop.ResumeLayout(false);
+            this.panelTop.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -337,11 +325,9 @@
         #endregion
 
         private Panel panelLeft;
-        private Label date;
         private Label utilisateurEn;
         private FontAwesome.Sharp.IconPictureBox iconPictureBox1;
         private Label label2;
-        private PictureBox pictureBox1;
         private FontAwesome.Sharp.IconButton prixModBtn;
         private FontAwesome.Sharp.IconButton GestionChequeBtn;
         private FontAwesome.Sharp.IconButton GestionEmp;
@@ -353,5 +339,6 @@
         private Label label1;
         private Panel panelContent;
         private FontAwesome.Sharp.IconButton tacheBtn;
+        private Label date;
     }
 }
