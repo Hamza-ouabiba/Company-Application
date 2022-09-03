@@ -308,9 +308,7 @@ namespace RNetApp.Forms
         }
         private void menuPrBtn_Click(object sender, EventArgs e)
         {
-            menu m = new menu();
-            this.Hide();
-            m.Show();
+            this.Close();
         }
 
         private void label4_Click(object sender, EventArgs e)
