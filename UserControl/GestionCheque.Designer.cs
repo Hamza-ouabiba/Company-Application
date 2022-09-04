@@ -42,6 +42,7 @@
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.nvChequeBtn = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.montantChe = new System.Windows.Forms.TextBox();
             this.panel3 = new System.Windows.Forms.Panel();
@@ -53,7 +54,6 @@
             this.numCheq = new System.Windows.Forms.TextBox();
             this.Panel2 = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
-            this.nvChequeBtn = new System.Windows.Forms.Button();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -223,6 +223,19 @@
             this.groupBox1.TabIndex = 92;
             this.groupBox1.TabStop = false;
             // 
+            // nvChequeBtn
+            // 
+            this.nvChequeBtn.BackColor = System.Drawing.Color.Cyan;
+            this.nvChequeBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.nvChequeBtn.ForeColor = System.Drawing.Color.Black;
+            this.nvChequeBtn.Location = new System.Drawing.Point(215, 420);
+            this.nvChequeBtn.Name = "nvChequeBtn";
+            this.nvChequeBtn.Size = new System.Drawing.Size(264, 45);
+            this.nvChequeBtn.TabIndex = 107;
+            this.nvChequeBtn.Text = "Ajouter un nouveau chèque";
+            this.nvChequeBtn.UseVisualStyleBackColor = false;
+            this.nvChequeBtn.Click += new System.EventHandler(this.nvChequeBtn_Click);
+            // 
             // label5
             // 
             this.label5.AutoSize = true;
@@ -335,17 +348,6 @@
             this.label4.Size = new System.Drawing.Size(299, 31);
             this.label4.TabIndex = 65;
             this.label4.Text = "Information Sur Le chèque";
-            // 
-            // nvChequeBtn
-            // 
-            this.nvChequeBtn.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.nvChequeBtn.Location = new System.Drawing.Point(215, 420);
-            this.nvChequeBtn.Name = "nvChequeBtn";
-            this.nvChequeBtn.Size = new System.Drawing.Size(264, 45);
-            this.nvChequeBtn.TabIndex = 107;
-            this.nvChequeBtn.Text = "Ajouter un nouveau chèque";
-            this.nvChequeBtn.UseVisualStyleBackColor = true;
-            this.nvChequeBtn.Click += new System.EventHandler(this.nvChequeBtn_Click);
             // 
             // GestionCheque
             // 

@@ -93,6 +93,7 @@ namespace RNetApp
             form.NameClient = comboBox1.Text;
             form.Show();
         }
+
         private bool checkClient(string nomClt)
         {
             foreach (DataRow row in ado.Dt.Rows)
@@ -112,16 +113,10 @@ namespace RNetApp
         {
             
         }
-
-        private void ficheBtn_Click(object sender, EventArgs e)
-        {
-
-        }
         private void groupBox1_Enter(object sender, EventArgs e)
         {
             
         }
-
         private void verifierBtn_Click(object sender, EventArgs e)
         {
             SqlCommandBuilder scb = new SqlCommandBuilder(ado.Adapter);

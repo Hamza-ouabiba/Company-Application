@@ -128,9 +128,9 @@
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(117)))), ((int)(((byte)(240)))));
             this.label4.Location = new System.Drawing.Point(58, 35);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(282, 31);
+            this.label4.Size = new System.Drawing.Size(295, 31);
             this.label4.TabIndex = 64;
-            this.label4.Text = "Information Sur Le client";
+            this.label4.Text = "Information Sur la Facture";
             // 
             // panel1
             // 

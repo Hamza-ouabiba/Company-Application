@@ -300,7 +300,13 @@ namespace RNetApp.Forms
                 pttc.Text = $"{(total * tva_) + total}";
             } catch (SqlException ex)
             {
-                MessageBox.Show(ex.Message);
+                if (ex.Number == 2627)
+                {
+                    MessageBox.Show("deja fait");
+                } else
+                {
+                    MessageBox.Show(ex.Message);
+                }
             } catch(Exception ex)
             {
                 MessageBox.Show(ex.Message);

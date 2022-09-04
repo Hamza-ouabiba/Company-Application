@@ -98,5 +98,13 @@ namespace RNetApp.Forms
             gc.Dock = DockStyle.Fill;
             panelContent.Controls.Add(gc);
         }
+
+        private void GestionEspece_Click(object sender, EventArgs e)
+        {
+            GestionEspece ge = new GestionEspece();
+            panelContent.Controls.Clear();
+            ge.Dock = DockStyle.Fill;
+            panelContent.Controls.Add(ge);
+        }
     }
 }

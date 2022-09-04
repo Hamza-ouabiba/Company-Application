@@ -41,6 +41,7 @@
             this.nomClient = new System.Windows.Forms.TextBox();
             this.panel4 = new System.Windows.Forms.Panel();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.error = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -171,12 +172,24 @@
             this.comboBox1.TabIndex = 101;
             this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
+            // error
+            // 
+            this.error.AutoSize = true;
+            this.error.ForeColor = System.Drawing.Color.Red;
+            this.error.Location = new System.Drawing.Point(279, 58);
+            this.error.Name = "error";
+            this.error.Size = new System.Drawing.Size(50, 20);
+            this.error.TabIndex = 102;
+            this.error.Text = "label5";
+            this.error.Visible = false;
+            // 
             // ChequeFacture
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(29)))), ((int)(((byte)(30)))));
             this.ClientSize = new System.Drawing.Size(827, 536);
+            this.Controls.Add(this.error);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.nomClient);
@@ -214,5 +227,6 @@
         private TextBox nomClient;
         internal Panel panel4;
         private ComboBox comboBox1;
+        private Label error;
     }
 }

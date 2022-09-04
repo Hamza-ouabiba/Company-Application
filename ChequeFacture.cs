@@ -32,16 +32,22 @@ namespace RNetApp
 
         private void enrBtn_Click(object sender, EventArgs e)
         {
-            SqlCommandBuilder scb = new SqlCommandBuilder(ado.Adapter);
-            DataRow dr = ado.Ds.Tables["cheque"].NewRow();
-            dr[0] = int.Parse(numCheq.Text);
-            dr[1] = int.Parse(comboBox1.Text);
-            dr[2] = Guid.Parse(comboBox1.SelectedValue.ToString());
+            try
+            {
+                SqlCommandBuilder scb = new SqlCommandBuilder(ado.Adapter);
+                DataRow dr = ado.Ds.Tables["cheque"].NewRow();
+                dr[0] = int.Parse(numCheq.Text);
+                dr[1] = int.Parse(comboBox1.Text);
+                dr[2] = Guid.Parse(comboBox1.SelectedValue.ToString());
 
-            dr[3] = decimal.Parse(montantChe.Text);
-            ado.Ds.Tables["cheque"].Rows.Add(dr);
-            scb.GetInsertCommand();
-            ado.Adapter.Update(ado.Ds.Tables["cheque"]);
+                dr[3] = decimal.Parse(montantChe.Text);
+                ado.Ds.Tables["cheque"].Rows.Add(dr);
+                scb.GetInsertCommand();
+                ado.Adapter.Update(ado.Ds.Tables["cheque"]);
+            } catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -53,10 +59,14 @@ namespace RNetApp
                 //verifier la facture : 
                 if (dr_facture["pay_o_n"].ToString() == "True")
                 {
-                    MessageBox.Show("facture deja payee");
+                    error.Visible = true;
+                    error.Text = "Facture deja payée";
+                    enrBtn.Enabled = false;
                 }
                 else
                 {
+                    enrBtn.Enabled = true;
+                    error.Visible = false;
                     DataRow[] dr = ado.Ds.Tables["client"].Select($"idclient = '{Guid.Parse(comboBox1.SelectedValue.ToString())}'");
                     foreach (DataRow dr2 in dr)
                     {
