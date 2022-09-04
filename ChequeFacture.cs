@@ -44,6 +44,16 @@ namespace RNetApp
                 ado.Ds.Tables["cheque"].Rows.Add(dr);
                 scb.GetInsertCommand();
                 ado.Adapter.Update(ado.Ds.Tables["cheque"]);
+            } catch(SqlException ex)
+            {
+                if (ex.Number == 2627)
+                {
+                    MessageBox.Show("deja fait");
+                }
+                else
+                {
+                    MessageBox.Show(ex.Message);
+                }
             } catch(Exception ex)
             {
                 MessageBox.Show(ex.Message);
