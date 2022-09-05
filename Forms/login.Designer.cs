@@ -48,7 +48,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(117)))), ((int)(((byte)(240)))));
-            this.label2.Location = new System.Drawing.Point(66, 58);
+            this.label2.Location = new System.Drawing.Point(74, 62);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(231, 50);
             this.label2.TabIndex = 29;
@@ -70,7 +70,7 @@
             // Panel3
             // 
             this.Panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(117)))), ((int)(((byte)(214)))));
-            this.Panel3.Location = new System.Drawing.Point(53, 312);
+            this.Panel3.Location = new System.Drawing.Point(64, 312);
             this.Panel3.Name = "Panel3";
             this.Panel3.Size = new System.Drawing.Size(260, 1);
             this.Panel3.TabIndex = 27;
@@ -79,7 +79,7 @@
             // 
             this.Panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(117)))), ((int)(((byte)(214)))));
             this.Panel2.ImeMode = System.Windows.Forms.ImeMode.On;
-            this.Panel2.Location = new System.Drawing.Point(53, 220);
+            this.Panel2.Location = new System.Drawing.Point(64, 220);
             this.Panel2.Name = "Panel2";
             this.Panel2.Size = new System.Drawing.Size(260, 1);
             this.Panel2.TabIndex = 26;
@@ -114,7 +114,7 @@
             this.pass.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.pass.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.pass.ForeColor = System.Drawing.SystemColors.Control;
-            this.pass.Location = new System.Drawing.Point(79, 284);
+            this.pass.Location = new System.Drawing.Point(90, 284);
             this.pass.Name = "pass";
             this.pass.PlaceholderText = "Mot de Passe";
             this.pass.Size = new System.Drawing.Size(207, 21);
@@ -127,7 +127,7 @@
             this.userName.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.userName.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.userName.ForeColor = System.Drawing.SystemColors.Control;
-            this.userName.Location = new System.Drawing.Point(79, 189);
+            this.userName.Location = new System.Drawing.Point(90, 189);
             this.userName.Name = "userName";
             this.userName.PlaceholderText = "Nom Utilisateur";
             this.userName.Size = new System.Drawing.Size(207, 21);
@@ -141,7 +141,7 @@
             this.iconPictureBox1.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(117)))), ((int)(((byte)(240)))));
             this.iconPictureBox1.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconPictureBox1.IconSize = 23;
-            this.iconPictureBox1.Location = new System.Drawing.Point(50, 189);
+            this.iconPictureBox1.Location = new System.Drawing.Point(61, 189);
             this.iconPictureBox1.Name = "iconPictureBox1";
             this.iconPictureBox1.Size = new System.Drawing.Size(23, 25);
             this.iconPictureBox1.TabIndex = 30;
@@ -155,7 +155,7 @@
             this.iconPictureBox2.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(117)))), ((int)(((byte)(240)))));
             this.iconPictureBox2.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconPictureBox2.IconSize = 21;
-            this.iconPictureBox2.Location = new System.Drawing.Point(50, 284);
+            this.iconPictureBox2.Location = new System.Drawing.Point(61, 284);
             this.iconPictureBox2.Name = "iconPictureBox2";
             this.iconPictureBox2.Size = new System.Drawing.Size(23, 21);
             this.iconPictureBox2.TabIndex = 31;

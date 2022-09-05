@@ -30,7 +30,6 @@
         {
             this.label1 = new System.Windows.Forms.Label();
             this.enrBtn = new System.Windows.Forms.Button();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.numCheq = new System.Windows.Forms.TextBox();
             this.Panel2 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
@@ -48,7 +47,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.ForeColor = System.Drawing.Color.Silver;
-            this.label1.Location = new System.Drawing.Point(218, 231);
+            this.label1.Location = new System.Drawing.Point(222, 172);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(136, 20);
             this.label1.TabIndex = 85;
@@ -59,7 +58,7 @@
             this.enrBtn.BackColor = System.Drawing.Color.Red;
             this.enrBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.enrBtn.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.enrBtn.Location = new System.Drawing.Point(291, 425);
+            this.enrBtn.Location = new System.Drawing.Point(291, 364);
             this.enrBtn.Name = "enrBtn";
             this.enrBtn.Size = new System.Drawing.Size(225, 53);
             this.enrBtn.TabIndex = 77;
@@ -67,21 +66,13 @@
             this.enrBtn.UseVisualStyleBackColor = false;
             this.enrBtn.Click += new System.EventHandler(this.enrBtn_Click);
             // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(117)))), ((int)(((byte)(240)))));
-            this.panel1.Location = new System.Drawing.Point(-30, -45);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(860, 84);
-            this.panel1.TabIndex = 73;
-            // 
             // numCheq
             // 
             this.numCheq.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(29)))), ((int)(((byte)(30)))));
             this.numCheq.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.numCheq.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.numCheq.ForeColor = System.Drawing.Color.White;
-            this.numCheq.Location = new System.Drawing.Point(224, 254);
+            this.numCheq.Location = new System.Drawing.Point(228, 195);
             this.numCheq.Name = "numCheq";
             this.numCheq.Size = new System.Drawing.Size(251, 23);
             this.numCheq.TabIndex = 74;
@@ -89,7 +80,7 @@
             // Panel2
             // 
             this.Panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(117)))), ((int)(((byte)(214)))));
-            this.Panel2.Location = new System.Drawing.Point(224, 287);
+            this.Panel2.Location = new System.Drawing.Point(228, 228);
             this.Panel2.Name = "Panel2";
             this.Panel2.Size = new System.Drawing.Size(400, 1);
             this.Panel2.TabIndex = 78;
@@ -98,7 +89,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.ForeColor = System.Drawing.Color.Silver;
-            this.label3.Location = new System.Drawing.Point(218, 312);
+            this.label3.Location = new System.Drawing.Point(222, 253);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(138, 20);
             this.label3.TabIndex = 96;
@@ -110,7 +101,7 @@
             this.montantChe.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.montantChe.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.montantChe.ForeColor = System.Drawing.Color.White;
-            this.montantChe.Location = new System.Drawing.Point(224, 335);
+            this.montantChe.Location = new System.Drawing.Point(228, 276);
             this.montantChe.Name = "montantChe";
             this.montantChe.Size = new System.Drawing.Size(251, 23);
             this.montantChe.TabIndex = 94;
@@ -118,7 +109,7 @@
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(117)))), ((int)(((byte)(214)))));
-            this.panel3.Location = new System.Drawing.Point(224, 368);
+            this.panel3.Location = new System.Drawing.Point(228, 309);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(400, 1);
             this.panel3.TabIndex = 95;
@@ -128,7 +119,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label2.ForeColor = System.Drawing.Color.Silver;
-            this.label2.Location = new System.Drawing.Point(142, 81);
+            this.label2.Location = new System.Drawing.Point(154, 49);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(130, 23);
             this.label2.TabIndex = 90;
@@ -138,7 +129,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.ForeColor = System.Drawing.Color.Silver;
-            this.label4.Location = new System.Drawing.Point(212, 158);
+            this.label4.Location = new System.Drawing.Point(216, 99);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(47, 20);
             this.label4.TabIndex = 100;
@@ -150,7 +141,7 @@
             this.nomClient.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.nomClient.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.nomClient.ForeColor = System.Drawing.Color.White;
-            this.nomClient.Location = new System.Drawing.Point(218, 181);
+            this.nomClient.Location = new System.Drawing.Point(222, 122);
             this.nomClient.Name = "nomClient";
             this.nomClient.Size = new System.Drawing.Size(251, 23);
             this.nomClient.TabIndex = 98;
@@ -158,7 +149,7 @@
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(117)))), ((int)(((byte)(214)))));
-            this.panel4.Location = new System.Drawing.Point(218, 214);
+            this.panel4.Location = new System.Drawing.Point(222, 155);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(400, 1);
             this.panel4.TabIndex = 99;
@@ -166,7 +157,7 @@
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(279, 81);
+            this.comboBox1.Location = new System.Drawing.Point(291, 49);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(345, 28);
             this.comboBox1.TabIndex = 101;
@@ -176,7 +167,7 @@
             // 
             this.error.AutoSize = true;
             this.error.ForeColor = System.Drawing.Color.Red;
-            this.error.Location = new System.Drawing.Point(279, 58);
+            this.error.Location = new System.Drawing.Point(291, 21);
             this.error.Name = "error";
             this.error.Size = new System.Drawing.Size(50, 20);
             this.error.TabIndex = 102;
@@ -188,7 +179,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(29)))), ((int)(((byte)(30)))));
-            this.ClientSize = new System.Drawing.Size(827, 536);
+            this.ClientSize = new System.Drawing.Size(827, 463);
             this.Controls.Add(this.error);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.label4);
@@ -200,10 +191,11 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.enrBtn);
-            this.Controls.Add(this.panel1);
             this.Controls.Add(this.numCheq);
             this.Controls.Add(this.Panel2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "ChequeFacture";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ChequeFacture";
@@ -216,7 +208,6 @@
         #endregion
         private Label label1;
         private Button enrBtn;
-        private Panel panel1;
         private TextBox numCheq;
         internal Panel Panel2;
         private Label label3;

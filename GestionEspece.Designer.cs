@@ -38,6 +38,7 @@
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.error = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
             this.Montant = new System.Windows.Forms.TextBox();
@@ -46,7 +47,8 @@
             this.enrBtn = new System.Windows.Forms.Button();
             this.Panel2 = new System.Windows.Forms.Panel();
             this.nomClt = new System.Windows.Forms.TextBox();
-            this.error = new System.Windows.Forms.Label();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.numEsp = new System.Windows.Forms.TextBox();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -142,6 +144,8 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.panel3);
+            this.groupBox1.Controls.Add(this.numEsp);
             this.groupBox1.Controls.Add(this.error);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.panel4);
@@ -154,9 +158,19 @@
             this.groupBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.groupBox1.Location = new System.Drawing.Point(95, 184);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(406, 399);
+            this.groupBox1.Size = new System.Drawing.Size(406, 501);
             this.groupBox1.TabIndex = 92;
             this.groupBox1.TabStop = false;
+            // 
+            // error
+            // 
+            this.error.AutoSize = true;
+            this.error.ForeColor = System.Drawing.Color.Red;
+            this.error.Location = new System.Drawing.Point(64, 23);
+            this.error.Name = "error";
+            this.error.Size = new System.Drawing.Size(50, 20);
+            this.error.TabIndex = 69;
+            this.error.Text = "label5";
             // 
             // label4
             // 
@@ -210,12 +224,13 @@
             this.enrBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.enrBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.enrBtn.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.enrBtn.Location = new System.Drawing.Point(52, 302);
+            this.enrBtn.Location = new System.Drawing.Point(52, 397);
             this.enrBtn.Name = "enrBtn";
             this.enrBtn.Size = new System.Drawing.Size(308, 46);
             this.enrBtn.TabIndex = 6;
             this.enrBtn.Text = "Enregistrer";
             this.enrBtn.UseVisualStyleBackColor = false;
+            this.enrBtn.Click += new System.EventHandler(this.enrBtn_Click);
             // 
             // Panel2
             // 
@@ -236,15 +251,24 @@
             this.nomClt.Size = new System.Drawing.Size(251, 23);
             this.nomClt.TabIndex = 0;
             // 
-            // error
+            // panel3
             // 
-            this.error.AutoSize = true;
-            this.error.ForeColor = System.Drawing.Color.Red;
-            this.error.Location = new System.Drawing.Point(64, 23);
-            this.error.Name = "error";
-            this.error.Size = new System.Drawing.Size(50, 20);
-            this.error.TabIndex = 69;
-            this.error.Text = "label5";
+            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(117)))), ((int)(((byte)(214)))));
+            this.panel3.Location = new System.Drawing.Point(101, 310);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(200, 1);
+            this.panel3.TabIndex = 71;
+            // 
+            // numEsp
+            // 
+            this.numEsp.BackColor = System.Drawing.SystemColors.Control;
+            this.numEsp.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.numEsp.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.numEsp.Location = new System.Drawing.Point(101, 277);
+            this.numEsp.Name = "numEsp";
+            this.numEsp.PlaceholderText = "Numéro espèce";
+            this.numEsp.Size = new System.Drawing.Size(251, 23);
+            this.numEsp.TabIndex = 70;
             // 
             // GestionEspece
             // 
@@ -284,5 +308,7 @@
         internal Panel panel4;
         private TextBox Montant;
         private Label error;
+        internal Panel panel3;
+        private TextBox numEsp;
     }
 }

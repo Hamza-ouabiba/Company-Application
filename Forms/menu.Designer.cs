@@ -82,10 +82,10 @@
             this.GestionEspece.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.GestionEspece.IconSize = 30;
             this.GestionEspece.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.GestionEspece.Location = new System.Drawing.Point(-8, 530);
+            this.GestionEspece.Location = new System.Drawing.Point(-8, 572);
             this.GestionEspece.Name = "GestionEspece";
             this.GestionEspece.Padding = new System.Windows.Forms.Padding(7, 0, 0, 0);
-            this.GestionEspece.Size = new System.Drawing.Size(246, 84);
+            this.GestionEspece.Size = new System.Drawing.Size(238, 95);
             this.GestionEspece.TabIndex = 8;
             this.GestionEspece.Text = "Gestion des éspèces";
             this.GestionEspece.UseVisualStyleBackColor = true;
@@ -101,10 +101,10 @@
             this.tacheBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.tacheBtn.IconSize = 30;
             this.tacheBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.tacheBtn.Location = new System.Drawing.Point(-8, 612);
+            this.tacheBtn.Location = new System.Drawing.Point(-7, 666);
             this.tacheBtn.Name = "tacheBtn";
             this.tacheBtn.Padding = new System.Windows.Forms.Padding(7, 0, 0, 0);
-            this.tacheBtn.Size = new System.Drawing.Size(246, 84);
+            this.tacheBtn.Size = new System.Drawing.Size(238, 95);
             this.tacheBtn.TabIndex = 12;
             this.tacheBtn.Text = "Gestion des Taches";
             this.tacheBtn.UseVisualStyleBackColor = true;
@@ -122,7 +122,7 @@
             // utilisateurEn
             // 
             this.utilisateurEn.AutoSize = true;
-            this.utilisateurEn.Location = new System.Drawing.Point(62, 850);
+            this.utilisateurEn.Location = new System.Drawing.Point(73, 916);
             this.utilisateurEn.Name = "utilisateurEn";
             this.utilisateurEn.Size = new System.Drawing.Size(0, 23);
             this.utilisateurEn.TabIndex = 10;
@@ -135,7 +135,7 @@
             this.iconPictureBox1.IconColor = System.Drawing.Color.Lime;
             this.iconPictureBox1.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconPictureBox1.IconSize = 25;
-            this.iconPictureBox1.Location = new System.Drawing.Point(27, 850);
+            this.iconPictureBox1.Location = new System.Drawing.Point(38, 916);
             this.iconPictureBox1.Name = "iconPictureBox1";
             this.iconPictureBox1.Size = new System.Drawing.Size(29, 25);
             this.iconPictureBox1.TabIndex = 9;
@@ -162,10 +162,10 @@
             this.prixModBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.prixModBtn.IconSize = 30;
             this.prixModBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.prixModBtn.Location = new System.Drawing.Point(-7, 691);
+            this.prixModBtn.Location = new System.Drawing.Point(-7, 760);
             this.prixModBtn.Name = "prixModBtn";
             this.prixModBtn.Padding = new System.Windows.Forms.Padding(7, 0, 0, 0);
-            this.prixModBtn.Size = new System.Drawing.Size(238, 88);
+            this.prixModBtn.Size = new System.Drawing.Size(238, 95);
             this.prixModBtn.TabIndex = 7;
             this.prixModBtn.Text = "Modification Prix";
             this.prixModBtn.UseVisualStyleBackColor = true;
@@ -181,11 +181,11 @@
             this.GestionChequeBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.GestionChequeBtn.IconSize = 30;
             this.GestionChequeBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.GestionChequeBtn.Location = new System.Drawing.Point(-8, 448);
+            this.GestionChequeBtn.Location = new System.Drawing.Point(-8, 478);
             this.GestionChequeBtn.Margin = new System.Windows.Forms.Padding(6, 3, 3, 3);
             this.GestionChequeBtn.Name = "GestionChequeBtn";
             this.GestionChequeBtn.Padding = new System.Windows.Forms.Padding(5);
-            this.GestionChequeBtn.Size = new System.Drawing.Size(263, 89);
+            this.GestionChequeBtn.Size = new System.Drawing.Size(265, 95);
             this.GestionChequeBtn.TabIndex = 6;
             this.GestionChequeBtn.Text = "Gestion Des Chèques";
             this.GestionChequeBtn.UseVisualStyleBackColor = true;
@@ -201,11 +201,11 @@
             this.GestionEmp.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.GestionEmp.IconSize = 30;
             this.GestionEmp.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.GestionEmp.Location = new System.Drawing.Point(-7, 359);
+            this.GestionEmp.Location = new System.Drawing.Point(-7, 384);
             this.GestionEmp.Margin = new System.Windows.Forms.Padding(6, 3, 3, 3);
             this.GestionEmp.Name = "GestionEmp";
             this.GestionEmp.Padding = new System.Windows.Forms.Padding(6, 0, 0, 0);
-            this.GestionEmp.Size = new System.Drawing.Size(237, 101);
+            this.GestionEmp.Size = new System.Drawing.Size(238, 95);
             this.GestionEmp.TabIndex = 5;
             this.GestionEmp.Text = "      Gestion des Employées";
             this.GestionEmp.UseVisualStyleBackColor = true;
@@ -221,10 +221,10 @@
             this.FactureBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.FactureBtn.IconSize = 30;
             this.FactureBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.FactureBtn.Location = new System.Drawing.Point(-7, 281);
+            this.FactureBtn.Location = new System.Drawing.Point(-8, 290);
             this.FactureBtn.Name = "FactureBtn";
             this.FactureBtn.Padding = new System.Windows.Forms.Padding(7, 0, 0, 0);
-            this.FactureBtn.Size = new System.Drawing.Size(245, 88);
+            this.FactureBtn.Size = new System.Drawing.Size(238, 95);
             this.FactureBtn.TabIndex = 4;
             this.FactureBtn.Text = "Gestion de Facture";
             this.FactureBtn.UseVisualStyleBackColor = true;
@@ -240,10 +240,10 @@
             this.ClientBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.ClientBtn.IconSize = 30;
             this.ClientBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.ClientBtn.Location = new System.Drawing.Point(-7, 192);
+            this.ClientBtn.Location = new System.Drawing.Point(-7, 196);
             this.ClientBtn.Name = "ClientBtn";
             this.ClientBtn.Padding = new System.Windows.Forms.Padding(7, 0, 0, 0);
-            this.ClientBtn.Size = new System.Drawing.Size(251, 100);
+            this.ClientBtn.Size = new System.Drawing.Size(248, 95);
             this.ClientBtn.TabIndex = 3;
             this.ClientBtn.Text = "Gestion Des Clients";
             this.ClientBtn.UseVisualStyleBackColor = true;

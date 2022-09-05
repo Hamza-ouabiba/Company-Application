@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Data;
+using System.Data.SqlClient;
 using System.Windows.Forms;
 namespace RNetApp
 {
     public partial class GestionEspece : UserControl
     {
         AdoNet ado = new AdoNet();
+        AdoNet ado2 = new AdoNet();
         public GestionEspece()
         {
             InitializeComponent();
@@ -20,11 +22,14 @@ namespace RNetApp
             ado.Ds.Tables[0].TableName = "facture";
             ado.Ds.Tables[1].TableName = "client";
             ado.Ds.Tables[2].TableName = "cheque";
-            ado.Ds.Tables[3].TableName = "espece";
-            dataGridView1.DataSource = ado.Ds.Tables["espece"];
+            ado2.Cmd.CommandText = "SELECT * from ESPECE";
+            ado2.Cmd.Connection = ado2.Connection;
+            ado2.Adapter.SelectCommand = ado2.Cmd;
+            ado2.Adapter.Fill(ado2.Dt) ;
+            dataGridView1.DataSource = ado2.Dt;
             //fill the combobox : 
             comboBox1.DisplayMember = ado.Ds.Tables["facture"].Columns["idfacture"].ToString();
-            comboBox1.ValueMember = ado.Ds.Tables["facture"].Columns["idfacture"].ToString();
+            comboBox1.ValueMember = ado.Ds.Tables["client"].Columns["idclient"].ToString();
             comboBox1.DataSource = ado.Ds.Tables["facture"];
             nbrefac.Text = $"{ado.Ds.Tables["facture"].Rows.Count}";
             dataGridView1.Columns["IDCLIENT"].Visible = false;
@@ -57,6 +62,20 @@ namespace RNetApp
                     nomClt.Text = dr_client["nom"].ToString();
                 }
             }
+        }
+
+        private void enrBtn_Click(object sender, EventArgs e)
+        {
+            SqlCommandBuilder scb = new SqlCommandBuilder(ado.Adapter);
+            DataRow dr = ado.Dt.NewRow();
+            dr[0] = int.Parse(numEsp.Text);
+            dr[1] = int.Parse(comboBox1.Text);
+            dr[2] = Guid.Parse(comboBox1.SelectedValue.ToString());
+            dr[3] = decimal.Parse(Montant.Text);
+            ado.Ds.Tables["espece"].Rows.Add(dr);
+            scb.GetInsertCommand();
+            MessageBox.Show($"{ado.Dt.Rows.Count}");
+            ado.Adapter.Update(ado.Dt);
         }
     }
 }
