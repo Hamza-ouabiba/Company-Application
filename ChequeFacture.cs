@@ -29,35 +29,39 @@ namespace RNetApp
             comboBox1.DataSource = ado.Ds.Tables["facture"];
            
         }
-
+        private bool chercherCheque(int numeroCheque)
+        {
+            foreach(DataRow dr in ado.Ds.Tables["cheque"].Rows)
+            {
+                if(numeroCheque == int.Parse(dr["idcheque"].ToString()))
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
         private void enrBtn_Click(object sender, EventArgs e)
         {
+            int flag = 0;
             try
             {
                 SqlCommandBuilder scb = new SqlCommandBuilder(ado.Adapter);
-                DataRow dr = ado.Ds.Tables["cheque"].NewRow();
-                dr[0] = int.Parse(numCheq.Text);
-                dr[1] = int.Parse(comboBox1.Text);
-                dr[2] = Guid.Parse(comboBox1.SelectedValue.ToString());
-
-                dr[3] = decimal.Parse(montantChe.Text);
-                ado.Ds.Tables["cheque"].Rows.Add(dr);
-                scb.GetInsertCommand();
-                ado.Adapter.Update(ado.Ds.Tables["cheque"]);
+                if (!chercherCheque(int.Parse(numCheq.Text)))
+                {
+                    DataRow dr = ado.Ds.Tables["cheque"].NewRow();
+                    dr[0] = int.Parse(numCheq.Text);
+                    dr[1] = int.Parse(comboBox1.Text);
+                    dr[2] = Guid.Parse(comboBox1.SelectedValue.ToString());
+                    dr[3] = decimal.Parse(montantChe.Text);
+                    ado.Ds.Tables["cheque"].Rows.Add(dr);
+                    scb.GetInsertCommand();
+                    ado.Adapter.Update(ado.Ds.Tables["cheque"]);
+                }
+                else MessageBox.Show("ce numero de cheque existe deja ");
             } catch(SqlException ex)
             {
-                if (ex.Number == 2627)
-                {
-                    MessageBox.Show("deja fait");
-                }
-                else
-                {
-                    MessageBox.Show(ex.Message);
-                }
-            } catch(Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+                MessageBox.Show(ex.Message);    
+            } 
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
