@@ -43,7 +43,8 @@ namespace RNetApp
                 {
                     DataRow dr = ado.Ds.Tables["changer"].NewRow();
                     //insertion des 35 lignes dans la dataTable changer  :
-                    //insertion des 35 lignes dans la dataTable changer  :
+                    //insertion des 35
+                    //lignes dans la dataTable changer  :
                     dr[1] = Guid.Parse(comboClt.SelectedValue.ToString());
                     dr[0] = "draps_double";
                     dr[2] = int.Parse(textBox1.Text);

@@ -43,6 +43,7 @@ namespace RNetApp
             ado.Ds.Tables[1].TableName = "client";
             ado.Ds.Tables[2].TableName = "cheque";
             ado.Ds.Tables[3].TableName = "espece";
+            ado.Ds.Tables[4].TableName = "changer";
             dataGridView1.DataSource = ado.Ds.Tables["facture"];
             //fill the combobox : 
             comboBox1.DataSource = ado.Ds.Tables["client"];
@@ -76,22 +77,37 @@ namespace RNetApp
                     }
                 }
         }
+        private bool verificationClientPrix(Guid idclient)
+        {
+            foreach(DataRow row in ado.Ds.Tables["changer"].Rows)
+            {
+                if(Guid.Parse(row["idclient"].ToString()) == Guid.Parse(comboBox1.SelectedValue.ToString()))
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
         private void factureBtn_Click(object sender, EventArgs e)
         {
             DateTime dt = DateTime.Now;
             FactureForm form = new FactureForm();   
             SqlCommandBuilder sql = new SqlCommandBuilder(ado.Adapter);
-            DataRow dr = ado.Ds.Tables["facture"].NewRow();
-            dr[1] = dt;
-            dr[4] = 0;
-            dr[5] = 0;
-            dr[6] = Guid.Parse(comboBox1.SelectedValue.ToString());
-            ado.Ds.Tables["facture"].Rows.Add(dr);
-            sql.GetInsertCommand();
-            ado.Adapter.Update(ado.Ds.Tables["facture"]);
-            form.IdClient = Guid.Parse(comboBox1.SelectedValue.ToString());
-            form.NameClient = comboBox1.Text;
-            form.Show();
+            if (verificationClientPrix(Guid.Parse(comboBox1.SelectedValue.ToString())))
+            {
+                DataRow dr = ado.Ds.Tables["facture"].NewRow();
+                dr[1] = dt;
+                dr[4] = 0;
+                dr[5] = 0;
+                dr[6] = Guid.Parse(comboBox1.SelectedValue.ToString());
+                ado.Ds.Tables["facture"].Rows.Add(dr);
+                sql.GetInsertCommand();
+                ado.Adapter.Update(ado.Ds.Tables["facture"]);
+                form.IdClient = Guid.Parse(comboBox1.SelectedValue.ToString());
+                form.NameClient = comboBox1.Text;
+                form.Show();
+            }
+            else MessageBox.Show("voud devez d'abord fixer les prix pour ce client : ");
         }
 
         private bool checkClient(string nomClt)

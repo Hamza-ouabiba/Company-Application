@@ -50,6 +50,17 @@ namespace RNetApp.Forms
             }
            
         }
+        private bool verificationClientPrix(DataSet ds,Guid idclient)
+        {
+            foreach(DataRow dr in ds.Tables["changer"].Rows)
+            {
+                if(Guid.Parse(dr["idclient"].ToString()) == idclient)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
         private void enregistrer_Click(object sender, EventArgs e)
         {
             SqlCommandBuilder sql = new SqlCommandBuilder(ado.Adapter);
@@ -62,7 +73,6 @@ namespace RNetApp.Forms
                 ado2.Cmd.Connection = ado2.Connection;
                 ado2.Adapter.SelectCommand = ado2.Cmd;
                 ado2.Adapter.Fill(ado2.Ds, "changer");
-                MessageBox.Show($"{ado2.Ds.Tables["changer"].Rows.Count}");
                 for (int i = 0; i < ado2.Ds.Tables["changer"].Rows.Count; i++)
                 {
                     prix[i] = decimal.Parse(ado2.Ds.Tables["changer"].Rows[i][2].ToString());
