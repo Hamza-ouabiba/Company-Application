@@ -19,5 +19,10 @@ namespace RNetApp
             ado.Adapter.Fill(ado.Dt);
             dataGridView1.DataSource = ado.Dt;
         }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

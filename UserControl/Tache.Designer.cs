@@ -32,56 +32,17 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.tacheBtn = new FontAwesome.Sharp.IconButton();
-            this.iconButton1 = new FontAwesome.Sharp.IconButton();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.button4 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
+            this.button6 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // tacheBtn
-            // 
-            this.tacheBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.tacheBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(117)))), ((int)(((byte)(240)))));
-            this.tacheBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.tacheBtn.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.tacheBtn.ForeColor = System.Drawing.Color.White;
-            this.tacheBtn.IconChar = FontAwesome.Sharp.IconChar.PlusCircle;
-            this.tacheBtn.IconColor = System.Drawing.Color.White;
-            this.tacheBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.tacheBtn.IconSize = 35;
-            this.tacheBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.tacheBtn.Location = new System.Drawing.Point(929, 27);
-            this.tacheBtn.Name = "tacheBtn";
-            this.tacheBtn.Padding = new System.Windows.Forms.Padding(5);
-            this.tacheBtn.Size = new System.Drawing.Size(204, 51);
-            this.tacheBtn.TabIndex = 0;
-            this.tacheBtn.Text = "Ajouter une tache";
-            this.tacheBtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.tacheBtn.UseVisualStyleBackColor = false;
-            // 
-            // iconButton1
-            // 
-            this.iconButton1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.iconButton1.BackColor = System.Drawing.Color.Red;
-            this.iconButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton1.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.iconButton1.ForeColor = System.Drawing.Color.White;
-            this.iconButton1.IconChar = FontAwesome.Sharp.IconChar.Trash;
-            this.iconButton1.IconColor = System.Drawing.Color.White;
-            this.iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton1.IconSize = 30;
-            this.iconButton1.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.iconButton1.Location = new System.Drawing.Point(1139, 27);
-            this.iconButton1.Name = "iconButton1";
-            this.iconButton1.Padding = new System.Windows.Forms.Padding(5);
-            this.iconButton1.Size = new System.Drawing.Size(143, 51);
-            this.iconButton1.TabIndex = 2;
-            this.iconButton1.Text = "Supprimer";
-            this.iconButton1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButton1.UseVisualStyleBackColor = false;
             // 
             // dataGridView1
             // 
@@ -128,27 +89,91 @@
             dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(117)))), ((int)(((byte)(240)))));
             this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle4;
-            this.dataGridView1.Size = new System.Drawing.Size(968, 537);
+            this.dataGridView1.Size = new System.Drawing.Size(1163, 537);
             this.dataGridView1.TabIndex = 68;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // panel1
             // 
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(29)))), ((int)(((byte)(30)))));
-            this.panel1.Controls.Add(this.textBox1);
-            this.panel1.Location = new System.Drawing.Point(1, -10);
+            this.panel1.Controls.Add(this.button6);
+            this.panel1.Controls.Add(this.button5);
+            this.panel1.Controls.Add(this.button4);
+            this.panel1.Controls.Add(this.button3);
+            this.panel1.Controls.Add(this.button2);
+            this.panel1.Controls.Add(this.button1);
+            this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(279, 698);
+            this.panel1.Size = new System.Drawing.Size(1628, 66);
             this.panel1.TabIndex = 69;
             // 
-            // textBox1
+            // button4
             // 
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox1.Location = new System.Drawing.Point(25, 50);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.PlaceholderText = "Chercher une tache";
-            this.textBox1.Size = new System.Drawing.Size(237, 27);
-            this.textBox1.TabIndex = 0;
+            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button4.ForeColor = System.Drawing.Color.White;
+            this.button4.Location = new System.Drawing.Point(781, -6);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(215, 72);
+            this.button4.TabIndex = 72;
+            this.button4.Text = "button4";
+            this.button4.UseVisualStyleBackColor = true;
+            // 
+            // button3
+            // 
+            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button3.ForeColor = System.Drawing.Color.White;
+            this.button3.Location = new System.Drawing.Point(523, -6);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(265, 72);
+            this.button3.TabIndex = 71;
+            this.button3.Text = "button3";
+            this.button3.UseVisualStyleBackColor = true;
+            // 
+            // button2
+            // 
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.ForeColor = System.Drawing.Color.White;
+            this.button2.Location = new System.Drawing.Point(262, -6);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(265, 72);
+            this.button2.TabIndex = 70;
+            this.button2.Text = "button2";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // button1
+            // 
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.ForeColor = System.Drawing.Color.White;
+            this.button1.Location = new System.Drawing.Point(-33, -6);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(298, 72);
+            this.button1.TabIndex = 0;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // button5
+            // 
+            this.button5.BackColor = System.Drawing.Color.Yellow;
+            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button5.Location = new System.Drawing.Point(1089, 13);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(178, 35);
+            this.button5.TabIndex = 73;
+            this.button5.Text = "button5";
+            this.button5.UseVisualStyleBackColor = false;
+            // 
+            // button6
+            // 
+            this.button6.BackColor = System.Drawing.Color.Red;
+            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button6.Location = new System.Drawing.Point(1294, 13);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(161, 35);
+            this.button6.TabIndex = 74;
+            this.button6.Text = "button6";
+            this.button6.UseVisualStyleBackColor = false;
             // 
             // Tache
             // 
@@ -156,23 +181,23 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.iconButton1);
-            this.Controls.Add(this.tacheBtn);
             this.Name = "Tache";
-            this.Size = new System.Drawing.Size(1311, 688);
+            this.Size = new System.Drawing.Size(1506, 688);
             this.Load += new System.EventHandler(this.Tache_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-        private FontAwesome.Sharp.IconButton tacheBtn;
-        private FontAwesome.Sharp.IconButton iconButton1;
         private DataGridView dataGridView1;
         private Panel panel1;
-        private TextBox textBox1;
+        private Button button4;
+        private Button button3;
+        private Button button2;
+        private Button button1;
+        private Button button6;
+        private Button button5;
     }
 }

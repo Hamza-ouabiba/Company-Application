@@ -66,16 +66,16 @@ namespace RNetApp
 
         private void enrBtn_Click(object sender, EventArgs e)
         {
-            SqlCommandBuilder scb = new SqlCommandBuilder(ado.Adapter);
-            DataRow dr = ado.Dt.NewRow();
-            dr[0] = int.Parse(numEsp.Text);
-            dr[1] = int.Parse(comboBox1.Text);
+            SqlCommandBuilder scb = new SqlCommandBuilder(ado2.Adapter);
+            DataRow dr = ado2.Dt.NewRow();
+            MessageBox.Show((comboBox1.Text + "du client :: " + comboBox1.SelectedValue.ToString()));
+            dr[1]  = int.Parse(comboBox1.Text);
             dr[2] = Guid.Parse(comboBox1.SelectedValue.ToString());
             dr[3] = decimal.Parse(Montant.Text);
-            ado.Ds.Tables["espece"].Rows.Add(dr);
+            ado2.Dt.Rows.Add(dr);
             scb.GetInsertCommand();
-            MessageBox.Show($"{ado.Dt.Rows.Count}");
-            ado.Adapter.Update(ado.Dt);
+            MessageBox.Show($"{ado2.Dt.Rows.Count}");
+            ado2.Adapter.Update(ado2.Dt);
         }
     }
 }
