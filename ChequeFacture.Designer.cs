@@ -41,6 +41,10 @@
             this.panel4 = new System.Windows.Forms.Panel();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.error = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.montRest = new System.Windows.Forms.Label();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -58,7 +62,7 @@
             this.enrBtn.BackColor = System.Drawing.Color.Red;
             this.enrBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.enrBtn.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.enrBtn.Location = new System.Drawing.Point(291, 364);
+            this.enrBtn.Location = new System.Drawing.Point(650, 369);
             this.enrBtn.Name = "enrBtn";
             this.enrBtn.Size = new System.Drawing.Size(225, 53);
             this.enrBtn.TabIndex = 77;
@@ -174,12 +178,42 @@
             this.error.Text = "label5";
             this.error.Visible = false;
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.label5.Location = new System.Drawing.Point(21, 20);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(125, 20);
+            this.label5.TabIndex = 103;
+            this.label5.Text = "Montant Restant :";
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.montRest);
+            this.groupBox1.Controls.Add(this.label5);
+            this.groupBox1.Location = new System.Drawing.Point(99, 358);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(325, 52);
+            this.groupBox1.TabIndex = 104;
+            this.groupBox1.TabStop = false;
+            // 
+            // montRest
+            // 
+            this.montRest.AutoSize = true;
+            this.montRest.ForeColor = System.Drawing.Color.Cyan;
+            this.montRest.Location = new System.Drawing.Point(173, 20);
+            this.montRest.Name = "montRest";
+            this.montRest.Size = new System.Drawing.Size(0, 20);
+            this.montRest.TabIndex = 105;
+            // 
             // ChequeFacture
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(29)))), ((int)(((byte)(30)))));
-            this.ClientSize = new System.Drawing.Size(827, 463);
+            this.ClientSize = new System.Drawing.Size(914, 463);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.error);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.label4);
@@ -200,6 +234,8 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ChequeFacture";
             this.Load += new System.EventHandler(this.ChequeFacture_Load);
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -219,5 +255,8 @@
         internal Panel panel4;
         private ComboBox comboBox1;
         private Label error;
+        private Label label5;
+        private GroupBox groupBox1;
+        private Label montRest;
     }
 }

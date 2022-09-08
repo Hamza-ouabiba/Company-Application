@@ -15,19 +15,24 @@ namespace RNetApp
 
         private void ChequeFacture_Load(object sender, EventArgs e)
         {
-            ado.Cmd.CommandText = "chequetables";
+            ado.Cmd.CommandText = "gettables";
             ado.Cmd.CommandType = CommandType.StoredProcedure;
             ado.Cmd.Connection = ado.Connection;
             ado.Adapter.SelectCommand = ado.Cmd;
             ado.Adapter.Fill(ado.Ds);
             /*factuNu*/
-            ado.Ds.Tables[0].TableName = "cheque";
-            ado.Ds.Tables[1].TableName = "facture";
-            ado.Ds.Tables[2].TableName = "client";
+            ado.Ds.Tables[0].TableName = "facture";
+            ado.Ds.Tables[1].TableName = "client";
+            ado.Ds.Tables[2].TableName = "cheque";
+            ado.Ds.Tables[3].TableName = "espece";
             comboBox1.DisplayMember = ado.Ds.Tables["facture"].Columns["idfacture"].ToString();
             comboBox1.ValueMember = ado.Ds.Tables["facture"].Columns["idclient"].ToString();
             comboBox1.DataSource = ado.Ds.Tables["facture"];
-           
+            MessageBox.Show($"{ado.Ds.Tables["cheque"].Columns.Count}");
+            foreach(DataRow row in ado.Ds.Tables["cheque"].Rows)
+            {
+                MessageBox.Show(row["idcheque"].ToString());
+            }
         }
         private bool chercherCheque(int numeroCheque)
         {
@@ -45,9 +50,10 @@ namespace RNetApp
             int flag = 0;
             try
             {
-                SqlCommandBuilder scb = new SqlCommandBuilder(ado.Adapter);
                 if (!chercherCheque(int.Parse(numCheq.Text)))
                 {
+                    SqlDataAdapter adapter = new SqlDataAdapter("select * from cheque",ado.Connection);
+                    SqlCommandBuilder scb = new SqlCommandBuilder(adapter);
                     DataRow dr = ado.Ds.Tables["cheque"].NewRow();
                     dr[0] = int.Parse(numCheq.Text);
                     dr[1] = int.Parse(comboBox1.Text);
@@ -55,7 +61,7 @@ namespace RNetApp
                     dr[3] = decimal.Parse(montantChe.Text);
                     ado.Ds.Tables["cheque"].Rows.Add(dr);
                     scb.GetInsertCommand();
-                    ado.Adapter.Update(ado.Ds.Tables["cheque"]);
+                    adapter.Update(ado.Ds.Tables["cheque"]);
                 }
                 else MessageBox.Show("ce numero de cheque existe deja ");
             } catch(SqlException ex)
@@ -63,7 +69,23 @@ namespace RNetApp
                 MessageBox.Show(ex.Message);    
             } 
         }
-
+        private decimal calculTotal(int idfacture)
+        {
+            decimal total = 0;
+            DataRow[] dr_cheque;
+            DataRow[] dr_montant;
+            dr_cheque = ado.Ds.Tables["cheque"].Select($"idfacture = '{idfacture}'");
+            dr_montant = ado.Ds.Tables["espece"].Select($"idfacture = '{idfacture}'");
+            foreach (DataRow dr2 in dr_cheque)
+            {
+                total += decimal.Parse(dr2["montant"].ToString());
+            }
+            foreach (DataRow dr2 in dr_montant)
+            {
+                total += decimal.Parse(dr2["montant"].ToString());
+            }
+            return total;
+        }
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             if(comboBox1.SelectedIndex != -1)
@@ -81,6 +103,8 @@ namespace RNetApp
                 {
                     enrBtn.Enabled = true;
                     error.Visible = false;
+                    MessageBox.Show((dr_facture["idfacture"].ToString()));
+                    montRest.Text = $"{decimal.Parse(dr_facture["total_ttc"].ToString()) - calculTotal(int.Parse(comboBox1.Text))}";
                     DataRow[] dr = ado.Ds.Tables["client"].Select($"idclient = '{Guid.Parse(comboBox1.SelectedValue.ToString())}'");
                     foreach (DataRow dr2 in dr)
                     {
