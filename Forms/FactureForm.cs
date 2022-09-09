@@ -302,6 +302,7 @@ namespace RNetApp.Forms
                 ado.Ds.Tables["FACTURE"].Rows[position]["fac_n_o"] = 1;
                 ado.Ds.Tables["FACTURE"].Rows[position]["total_ht"] = total;
                 ado.Ds.Tables["FACTURE"].Rows[position]["total_ttc"] = (total * tva_) + total;
+                ado.Ds.Tables["FACTURE"].Rows[position]["total_rest"] = (total * tva_) + total;
                 MessageBox.Show($"{total}");
                 ado.Adapter.Update(ado.Ds.Tables["FACTURE"]);
                 pht.Visible = tva.Visible = pttc.Visible = true;

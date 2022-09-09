@@ -8,6 +8,7 @@ namespace RNetApp
     public partial class ChequeFacture : Form
     {
         AdoNet ado = new AdoNet();
+        DataRow factureActurel;
         public ChequeFacture()
         {
             InitializeComponent();
@@ -28,11 +29,6 @@ namespace RNetApp
             comboBox1.DisplayMember = ado.Ds.Tables["facture"].Columns["idfacture"].ToString();
             comboBox1.ValueMember = ado.Ds.Tables["facture"].Columns["idclient"].ToString();
             comboBox1.DataSource = ado.Ds.Tables["facture"];
-            MessageBox.Show($"{ado.Ds.Tables["cheque"].Columns.Count}");
-            foreach(DataRow row in ado.Ds.Tables["cheque"].Rows)
-            {
-                MessageBox.Show(row["idcheque"].ToString());
-            }
         }
         private bool chercherCheque(int numeroCheque)
         {
@@ -52,16 +48,30 @@ namespace RNetApp
             {
                 if (!chercherCheque(int.Parse(numCheq.Text)))
                 {
-                    SqlDataAdapter adapter = new SqlDataAdapter("select * from cheque",ado.Connection);
-                    SqlCommandBuilder scb = new SqlCommandBuilder(adapter);
-                    DataRow dr = ado.Ds.Tables["cheque"].NewRow();
-                    dr[0] = int.Parse(numCheq.Text);
-                    dr[1] = int.Parse(comboBox1.Text);
-                    dr[2] = Guid.Parse(comboBox1.SelectedValue.ToString());
-                    dr[3] = decimal.Parse(montantChe.Text);
-                    ado.Ds.Tables["cheque"].Rows.Add(dr);
-                    scb.GetInsertCommand();
-                    adapter.Update(ado.Ds.Tables["cheque"]);
+                    if (decimal.Parse(montantChe.Text) <= decimal.Parse(factureActurel["total_rest"].ToString()))
+                        {
+                            SqlDataAdapter adapter = new SqlDataAdapter("select * from facture",ado.Connection);
+                            SqlDataAdapter adapter2 = new SqlDataAdapter("select * from cheque", ado.Connection);
+                            SqlCommandBuilder scb = new SqlCommandBuilder(adapter);
+                            SqlCommandBuilder scb2 = new SqlCommandBuilder(adapter2);
+                            scb.GetUpdateCommand();
+                            factureActurel.BeginEdit();
+                            factureActurel["total_rest"] = decimal.Parse(factureActurel["total_rest"].ToString()) - decimal.Parse(montantChe.Text);
+                            factureActurel.EndEdit();
+                            adapter.Update(ado.Ds.Tables["facture"]);
+                            DataRow dr = ado.Ds.Tables["cheque"].NewRow();
+                            dr[0] = int.Parse(numCheq.Text);
+                            dr[1] = int.Parse(comboBox1.Text);
+                            dr[2] = Guid.Parse(comboBox1.SelectedValue.ToString());
+                            dr[3] = decimal.Parse(montantChe.Text);
+                            ado.Ds.Tables["cheque"].Rows.Add(dr);
+                            scb2.GetInsertCommand();
+                            adapter2.Update(ado.Ds.Tables["cheque"]);
+                    } else MessageBox.Show("Inserer un montant qui <= au montant de la facture");
+                    SqlDataAdapter d = new SqlDataAdapter();
+                    SqlCommandBuilder f = new SqlCommandBuilder(d);
+                   
+                    d.Update(ado.Ds, "facture");
                 }
                 else MessageBox.Show("ce numero de cheque existe deja ");
             } catch(SqlException ex)
@@ -88,32 +98,41 @@ namespace RNetApp
         }
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if(comboBox1.SelectedIndex != -1)
+            try
             {
-                ado.Ds.Tables["facture"].PrimaryKey = new DataColumn[] { ado.Ds.Tables["facture"].Columns["idfacture"] };
-                DataRow dr_facture = ado.Ds.Tables["facture"].Rows.Find(int.Parse(comboBox1.Text));
-                //verifier la facture : 
-                if (dr_facture["pay_o_n"].ToString() == "True")
+                if (comboBox1.SelectedIndex != -1)
                 {
-                    error.Visible = true;
-                    error.Text = "Facture deja payée";
-                    enrBtn.Enabled = false;
-                }
-                else
-                {
-                    enrBtn.Enabled = true;
-                    error.Visible = false;
-                    MessageBox.Show((dr_facture["idfacture"].ToString()));
-                    montRest.Text = $"{decimal.Parse(dr_facture["total_ttc"].ToString()) - calculTotal(int.Parse(comboBox1.Text))}";
-                    DataRow[] dr = ado.Ds.Tables["client"].Select($"idclient = '{Guid.Parse(comboBox1.SelectedValue.ToString())}'");
-                    foreach (DataRow dr2 in dr)
+                    ado.Ds.Tables["facture"].PrimaryKey = new DataColumn[] { ado.Ds.Tables["facture"].Columns["idfacture"] };
+                    DataRow dr_facture = ado.Ds.Tables["facture"].Rows.Find(int.Parse(comboBox1.Text));
+                    factureActurel = dr_facture;
+                    //verifier la facture : 
+                    if (dr_facture["pay_o_n"].ToString() == "True")
                     {
-                        nomClient.ReadOnly = true;
-                        nomClient.Text = dr2["nom"].ToString();
+                        error.Visible = true;
+                        error.Text = "Facture deja payée";
+                        enrBtn.Enabled = false;
+                        montRest.Text = "0";
+                    }
+                    else
+                    {
+                        enrBtn.Enabled = true;
+                        error.Visible = false;
+                        DataRow[] dr = ado.Ds.Tables["client"].Select($"idclient = '{Guid.Parse(comboBox1.SelectedValue.ToString())}'");
+                        foreach (DataRow dr2 in dr)
+                        {
+                            nomClient.ReadOnly = true;
+                            nomClient.Text = dr2["nom"].ToString();
+                        }
+                        montRest.Text = dr_facture["total_rest"].ToString();
                     }
                 }
+            } catch(SqlException ex)
+            {
+                MessageBox.Show(ex.Message);
+            } catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
-
         }
     }
 }
