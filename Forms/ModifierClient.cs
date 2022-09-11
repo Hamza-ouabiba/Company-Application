@@ -8,14 +8,11 @@ namespace RNetApp.Forms
     {
         AdoNet ado = new AdoNet();
         private static Guid idClient;
-
         public static Guid IdClient { get => idClient; set => idClient = value; }
-
         public ModifierClient()
         {
             InitializeComponent();
         }
-
         private void ModifierClient_Load(object sender, EventArgs e)
         {
             ado.Cmd.CommandText = $"Select * from CLIENT";
@@ -33,7 +30,6 @@ namespace RNetApp.Forms
                 }
             }
         }
-
         private void exitBtn_Click(object sender, EventArgs e)
         {
             this.Hide();
