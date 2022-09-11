@@ -38,6 +38,8 @@
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.montRes = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.numEsp = new System.Windows.Forms.TextBox();
             this.error = new System.Windows.Forms.Label();
@@ -144,6 +146,8 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.montRes);
+            this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.panel3);
             this.groupBox1.Controls.Add(this.numEsp);
             this.groupBox1.Controls.Add(this.error);
@@ -161,6 +165,26 @@
             this.groupBox1.Size = new System.Drawing.Size(406, 501);
             this.groupBox1.TabIndex = 92;
             this.groupBox1.TabStop = false;
+            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
+            // 
+            // montRes
+            // 
+            this.montRes.AutoSize = true;
+            this.montRes.ForeColor = System.Drawing.Color.Red;
+            this.montRes.Location = new System.Drawing.Point(201, 356);
+            this.montRes.Name = "montRes";
+            this.montRes.Size = new System.Drawing.Size(29, 20);
+            this.montRes.TabIndex = 73;
+            this.montRes.Text = "DZ";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(65, 356);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(121, 20);
+            this.label5.TabIndex = 72;
+            this.label5.Text = "Montant restant :";
             // 
             // panel3
             // 
@@ -310,5 +334,7 @@
         private Label error;
         internal Panel panel3;
         private TextBox numEsp;
+        private Label montRes;
+        private Label label5;
     }
 }

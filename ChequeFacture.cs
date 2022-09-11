@@ -50,6 +50,7 @@ namespace RNetApp
                 {
                     if (decimal.Parse(montantChe.Text) <= decimal.Parse(factureActurel["total_rest"].ToString()))
                         {
+
                             SqlDataAdapter adapter = new SqlDataAdapter("select * from facture",ado.Connection);
                             SqlDataAdapter adapter2 = new SqlDataAdapter("select * from cheque", ado.Connection);
                             SqlCommandBuilder scb = new SqlCommandBuilder(adapter);
@@ -68,12 +69,7 @@ namespace RNetApp
                             scb2.GetInsertCommand();
                             adapter2.Update(ado.Ds.Tables["cheque"]);
                     } else MessageBox.Show("Inserer un montant qui <= au montant de la facture");
-                    SqlDataAdapter d = new SqlDataAdapter();
-                    SqlCommandBuilder f = new SqlCommandBuilder(d);
-                   
-                    d.Update(ado.Ds, "facture");
-                }
-                else MessageBox.Show("ce numero de cheque existe deja ");
+                } else MessageBox.Show("ce numero de cheque existe deja ");
             } catch(SqlException ex)
             {
                 MessageBox.Show(ex.Message);    
