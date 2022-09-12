@@ -51,6 +51,8 @@
             this.enrBtn = new System.Windows.Forms.Button();
             this.Panel2 = new System.Windows.Forms.Panel();
             this.nomClt = new System.Windows.Forms.TextBox();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -294,10 +296,31 @@
             this.nomClt.Size = new System.Drawing.Size(251, 23);
             this.nomClt.TabIndex = 0;
             // 
+            // comboBox2
+            // 
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Location = new System.Drawing.Point(1192, 51);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(306, 28);
+            this.comboBox2.TabIndex = 93;
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.Cyan;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Location = new System.Drawing.Point(1523, 51);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(119, 29);
+            this.button1.TabIndex = 94;
+            this.button1.Text = "lister";
+            this.button1.UseVisualStyleBackColor = false;
+            // 
             // GestionEspece
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.comboBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.dataGridView1);
@@ -336,5 +359,7 @@
         private TextBox numEsp;
         private Label montRes;
         private Label label5;
+        private ComboBox comboBox2;
+        private Button button1;
     }
 }

@@ -13,7 +13,7 @@ namespace RNetApp
         {
             InitializeComponent();
         }
-        private void GestionEspece_Load(object sender, EventArgs e)
+        void loadData()
         {
             ado.Cmd.CommandText = "GETTABLES";
             ado.Cmd.CommandType = CommandType.StoredProcedure;
@@ -26,12 +26,15 @@ namespace RNetApp
             ado2.Cmd.CommandText = "SELECT * from ESPECE";
             ado2.Cmd.Connection = ado2.Connection;
             ado2.Adapter.SelectCommand = ado2.Cmd;
-            ado2.Adapter.Fill(ado2.Dt) ;
+            ado2.Adapter.Fill(ado2.Dt);
+        }
+        private void GestionEspece_Load(object sender, EventArgs e)
+        {
+            loadData();
             dataGridView1.DataSource = ado2.Dt;
             //fill the combobox : 
-            comboBox1.DisplayMember = ado.Ds.Tables["facture"].Columns["idfacture"].ToString();
-            comboBox1.ValueMember = ado.Ds.Tables["client"].Columns["idclient"].ToString();
-            comboBox1.DataSource = ado.Ds.Tables["facture"];
+            loadCombo(comboBox1,ado.Ds.Tables["facture"].Columns["idfacture"], ado.Ds.Tables["client"].Columns["idclient"],ado.Ds.Tables["facture"]);
+            loadCombo(comboBox2, ado.Ds.Tables["client"].Columns["nom"], ado.Ds.Tables["client"].Columns["idclient"],ado.Ds.Tables["client"]);
             nbrefac.Text = $"{ado.Ds.Tables["facture"].Rows.Count}";
             dataGridView1.Columns["IDCLIENT"].Visible = false;
             dataGridView1.Columns["idfacture"].Width = 200;
@@ -66,6 +69,12 @@ namespace RNetApp
                     nomClt.Text = dr_client["nom"].ToString();
                 }
             }
+        }
+        void loadCombo(ComboBox comboBox,DataColumn display,DataColumn value,DataTable dataSource)
+        {
+            comboBox.DisplayMember = display.ToString();
+            comboBox.ValueMember = value.ToString();
+            comboBox.DataSource = dataSource;
         }
         private void enrBtn_Click(object sender, EventArgs e)
         {

@@ -46,9 +46,10 @@ namespace RNetApp
             ado.Ds.Tables[4].TableName = "changer";
             dataGridView1.DataSource = ado.Ds.Tables["facture"];
             //fill the combobox : 
-            comboBox1.DataSource = ado.Ds.Tables["client"];
             comboBox1.DisplayMember = ado.Ds.Tables["client"].Columns["nom"].ToString();
-            comboBox1.ValueMember = ado.Ds.Tables["client"].Columns["idclient"].ToString();
+            comboBox1.ValueMember = ado.Ds.Tables["client"].Columns["idclient"].ToString(); 
+            comboBox1.DataSource = ado.Ds.Tables["client"];
+            
             nbrefac.Text = $"{ado.Ds.Tables["facture"].Rows.Count}";
             dataGridView1.Columns["IDCLIENT"].Visible = false;
             dataGridView1.Columns["fac_n_o"].Visible = false;
@@ -123,7 +124,10 @@ namespace RNetApp
         }
         private void rechercher_Click(object sender, EventArgs e)
         {
-          
+            DataView dv = new DataView(ado.Ds.Tables["facture"]);
+            MessageBox.Show(comboBox1.SelectedValue.ToString());
+            dv.RowFilter = $"idclient = '{Guid.Parse(comboBox1.SelectedValue.ToString())}'";
+            dataGridView1.DataSource = dv;
         }
         private void dataGridView1_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
         {

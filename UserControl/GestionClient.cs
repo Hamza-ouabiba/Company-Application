@@ -15,7 +15,8 @@ namespace RNetApp
         }
         private void GestionClient_Load(object sender, EventArgs e)
         {
-            ado.Cmd.CommandText = $"Select * from CLIENT";
+            DataView dv = new DataView(ado.Dt);
+            ado.Cmd.CommandText = $"SELECT * from client";
             ado.Cmd.Connection = ado.Connection;
             ado.Adapter.SelectCommand = ado.Cmd;
             ado.Adapter.Fill(ado.Dt);
@@ -23,7 +24,8 @@ namespace RNetApp
             videBase();
             nbreClt.Text = ado.Dt.Rows.Count.ToString();
             dataGridView1.Columns.Clear();
-            dataGridView1.DataSource = ado.Dt;
+            dv.RowFilter = "nom not like 'Tous'";
+            dataGridView1.DataSource = dv;
             comboBox1.DataSource = ado.Dt;
             comboBox1.DisplayMember = ado.Dt.Columns["NOM"].ToString();
             comboBox1.ValueMember = ado.Dt.Columns["IDCLIENT"].ToString();

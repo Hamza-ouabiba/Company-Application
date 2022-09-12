@@ -10,36 +10,37 @@ namespace RNetApp
             InitializeComponent();
         }
         AdoNet ado = new AdoNet();
-        private void cnxBtn_Click(object sender, EventArgs e)
+        void loadData(string query)
         {
-            Guid idChef ;
-            bool flag = false;
-            string query = "SELECT * from CHEF";
             ado.Cmd.CommandText = query;
             ado.Cmd.Connection = ado.Connection;
             ado.Adapter.SelectCommand = ado.Cmd;
             ado.Adapter.Fill(ado.Dt);
             ado.Dt.TableName = "CHEF";
+        }
+        bool testDataTable(DataTable dt)
+        {
+            bool flag = false;
+            return dt.Rows.Count > 0;
+        }
+        private void cnxBtn_Click(object sender, EventArgs e)
+        {
+            Guid idChef ;
+            bool flag = false;
+            string query = $"SELECT * from CHEF where login = '{userName.Text}' and mot_passe = '{pass.Text}' ";
+            loadData(query);
             //tester sur le login :
-            foreach (DataRow dr in ado.Dt.Rows)
+            if (testDataTable(ado.Dt))
             {
-                if(userName.Text == dr["LOGIN"].ToString() && pass.Text == dr["MOT_PASSE"].ToString())
-                {
-                    idChef = Guid.Parse(dr["IDCHEF"].ToString());
-                    menu.IdChef = idChef;
-                    GestionEmploye.IdChef = idChef;
-                    flag = true;
-                    break;
-                }
-            }
-            if (!flag) MessageBox.Show("Login ou mot de passe erronée");
-            else
-            {
+                MessageBox.Show("Connexion reussie");
+                idChef = Guid.Parse(ado.Dt.Rows[0]["idchef"].ToString());
                 menu m = new menu();
+                menu.IdChef = idChef;
+                GestionEmploye.IdChef = idChef;
                 this.Hide();
                 m.Show();
-                MessageBox.Show("Connexion Reussie");
             }
+            else MessageBox.Show("veuillez reessayer");
         }
         //Quitter l'application
         private void exitBtn_Click(object sender, EventArgs e)

@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.rechercher = new FontAwesome.Sharp.IconButton();
             this.panel7 = new System.Windows.Forms.Panel();
             this.recherche = new System.Windows.Forms.TextBox();
@@ -62,6 +62,7 @@
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
             this.ficheBtn = new System.Windows.Forms.Button();
+            this.filtreNnPai = new FontAwesome.Sharp.IconButton();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -78,7 +79,7 @@
             this.rechercher.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.rechercher.IconSize = 27;
             this.rechercher.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.rechercher.Location = new System.Drawing.Point(1103, 115);
+            this.rechercher.Location = new System.Drawing.Point(946, 117);
             this.rechercher.Name = "rechercher";
             this.rechercher.Padding = new System.Windows.Forms.Padding(5);
             this.rechercher.Size = new System.Drawing.Size(169, 43);
@@ -91,7 +92,7 @@
             // panel7
             // 
             this.panel7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(117)))), ((int)(((byte)(214)))));
-            this.panel7.Location = new System.Drawing.Point(777, 157);
+            this.panel7.Location = new System.Drawing.Point(622, 157);
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(300, 1);
             this.panel7.TabIndex = 71;
@@ -101,7 +102,7 @@
             this.recherche.BackColor = System.Drawing.SystemColors.Control;
             this.recherche.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.recherche.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.recherche.Location = new System.Drawing.Point(777, 124);
+            this.recherche.Location = new System.Drawing.Point(620, 124);
             this.recherche.Name = "recherche";
             this.recherche.PlaceholderText = "Rechercher un employé";
             this.recherche.Size = new System.Drawing.Size(331, 27);
@@ -343,11 +344,11 @@
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.AllowUserToResizeColumns = false;
             this.dataGridView1.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(117)))), ((int)(((byte)(240)))));
-            this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(117)))), ((int)(((byte)(240)))));
+            this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
             this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -355,33 +356,33 @@
             this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridView1.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(117)))), ((int)(((byte)(240)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(117)))), ((int)(((byte)(240)))));
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle6;
             this.dataGridView1.EnableHeadersVisualStyles = false;
             this.dataGridView1.Location = new System.Drawing.Point(587, 204);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(117)))), ((int)(((byte)(240)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(117)))), ((int)(((byte)(240)))));
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.RowHeadersWidth = 51;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(117)))), ((int)(((byte)(240)))));
-            this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(117)))), ((int)(((byte)(240)))));
+            this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle8;
             this.dataGridView1.Size = new System.Drawing.Size(975, 456);
             this.dataGridView1.TabIndex = 67;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
@@ -400,21 +401,21 @@
             // 
             // filtreBtn
             // 
-            this.filtreBtn.BackColor = System.Drawing.Color.Blue;
+            this.filtreBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.filtreBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.filtreBtn.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.filtreBtn.ForeColor = System.Drawing.Color.Silver;
+            this.filtreBtn.ForeColor = System.Drawing.Color.Black;
             this.filtreBtn.IconChar = FontAwesome.Sharp.IconChar.FilterCircleDollar;
-            this.filtreBtn.IconColor = System.Drawing.Color.White;
+            this.filtreBtn.IconColor = System.Drawing.Color.Black;
             this.filtreBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.filtreBtn.IconSize = 27;
             this.filtreBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.filtreBtn.Location = new System.Drawing.Point(1293, 115);
+            this.filtreBtn.Location = new System.Drawing.Point(1144, 117);
             this.filtreBtn.Name = "filtreBtn";
             this.filtreBtn.Padding = new System.Windows.Forms.Padding(5);
-            this.filtreBtn.Size = new System.Drawing.Size(207, 43);
+            this.filtreBtn.Size = new System.Drawing.Size(218, 43);
             this.filtreBtn.TabIndex = 74;
-            this.filtreBtn.Text = "Filtrer par avance";
+            this.filtreBtn.Text = "Filtrer par paiement";
             this.filtreBtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.filtreBtn.UseVisualStyleBackColor = false;
             this.filtreBtn.Click += new System.EventHandler(this.filtreBtn_Click);
@@ -461,10 +462,32 @@
             this.ficheBtn.UseVisualStyleBackColor = false;
             this.ficheBtn.Click += new System.EventHandler(this.ficheBtn_Click);
             // 
+            // filtreNnPai
+            // 
+            this.filtreNnPai.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.filtreNnPai.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.filtreNnPai.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.filtreNnPai.ForeColor = System.Drawing.Color.Black;
+            this.filtreNnPai.IconChar = FontAwesome.Sharp.IconChar.FilterCircleDollar;
+            this.filtreNnPai.IconColor = System.Drawing.Color.Black;
+            this.filtreNnPai.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.filtreNnPai.IconSize = 27;
+            this.filtreNnPai.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.filtreNnPai.Location = new System.Drawing.Point(1392, 116);
+            this.filtreNnPai.Name = "filtreNnPai";
+            this.filtreNnPai.Padding = new System.Windows.Forms.Padding(5);
+            this.filtreNnPai.Size = new System.Drawing.Size(186, 62);
+            this.filtreNnPai.TabIndex = 79;
+            this.filtreNnPai.Text = "Filtrer par non paiement";
+            this.filtreNnPai.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.filtreNnPai.UseVisualStyleBackColor = false;
+            this.filtreNnPai.Click += new System.EventHandler(this.filtreNnPai_Click);
+            // 
             // GestionEmploye
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.filtreNnPai);
             this.Controls.Add(this.ficheBtn);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.comboBox1);
@@ -521,5 +544,6 @@
         private Label label5;
         private Button ficheBtn;
         private Label affich;
+        private FontAwesome.Sharp.IconButton filtreNnPai;
     }
 }

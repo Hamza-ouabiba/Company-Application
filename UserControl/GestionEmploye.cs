@@ -249,7 +249,7 @@ namespace RNetApp
         private void filtreBtn_Click(object sender, EventArgs e)
         {
             DataView dv = new DataView(ado.Ds.Tables["EMPLOYE"]);
-            dv.Sort = "NOM";
+            dv.RowFilter = $"salaire_restant = {0}";
             dataGridView1.DataSource = dv;
         }
 
@@ -262,6 +262,13 @@ namespace RNetApp
                     dataGridView1.Rows[i].DefaultCellStyle.BackColor = Color.Lime;
                 } else dataGridView1.Rows[i].DefaultCellStyle.BackColor = Color.Orange;
             }
+        }
+
+        private void filtreNnPai_Click(object sender, EventArgs e)
+        {
+            DataView dv = new DataView(ado.Ds.Tables["EMPLOYE"]);
+            dv.RowFilter = $"salaire_restant > {0}";
+            dataGridView1.DataSource = dv;
         }
     }
 }

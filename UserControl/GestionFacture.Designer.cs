@@ -210,7 +210,7 @@
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridView1.EnableHeadersVisualStyles = false;
-            this.dataGridView1.Location = new System.Drawing.Point(627, 194);
+            this.dataGridView1.Location = new System.Drawing.Point(524, 194);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -228,7 +228,7 @@
             dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(117)))), ((int)(((byte)(240)))));
             this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle4;
-            this.dataGridView1.Size = new System.Drawing.Size(791, 416);
+            this.dataGridView1.Size = new System.Drawing.Size(1023, 416);
             this.dataGridView1.TabIndex = 12;
             this.dataGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellDoubleClick);
             this.dataGridView1.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dataGridView1_DataBindingComplete);
@@ -285,12 +285,15 @@
             // 
             // verifierBtn
             // 
-            this.verifierBtn.Location = new System.Drawing.Point(1374, 98);
+            this.verifierBtn.BackColor = System.Drawing.Color.Blue;
+            this.verifierBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.verifierBtn.ForeColor = System.Drawing.Color.White;
+            this.verifierBtn.Location = new System.Drawing.Point(1310, 98);
             this.verifierBtn.Name = "verifierBtn";
-            this.verifierBtn.Size = new System.Drawing.Size(173, 29);
+            this.verifierBtn.Size = new System.Drawing.Size(237, 53);
             this.verifierBtn.TabIndex = 84;
             this.verifierBtn.Text = "verifier les factures";
-            this.verifierBtn.UseVisualStyleBackColor = true;
+            this.verifierBtn.UseVisualStyleBackColor = false;
             this.verifierBtn.Click += new System.EventHandler(this.verifierBtn_Click);
             // 
             // GestionFacture

@@ -221,7 +221,7 @@
             dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(117)))), ((int)(((byte)(240)))));
             this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle3;
-            this.dataGridView1.Size = new System.Drawing.Size(833, 457);
+            this.dataGridView1.Size = new System.Drawing.Size(1010, 457);
             this.dataGridView1.TabIndex = 64;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             this.dataGridView1.CellMouseEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellMouseEnter);
@@ -340,7 +340,7 @@
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.label1);
             this.Name = "GestionClient";
-            this.Size = new System.Drawing.Size(1525, 757);
+            this.Size = new System.Drawing.Size(1702, 757);
             this.Load += new System.EventHandler(this.GestionClient_Load);
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
