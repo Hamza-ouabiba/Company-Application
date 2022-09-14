@@ -35,7 +35,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.rechercher = new FontAwesome.Sharp.IconButton();
-            this.factureBtn = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label2 = new System.Windows.Forms.Label();
             this.nbrefac = new System.Windows.Forms.Label();
@@ -62,18 +61,18 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(656, 41);
+            this.label3.Location = new System.Drawing.Point(780, 41);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(159, 20);
+            this.label3.Size = new System.Drawing.Size(213, 20);
             this.label3.TabIndex = 91;
-            this.label3.Text = "Ajout de Facture Client";
+            this.label3.Text = "Chercher un cheque par client$";
             // 
             // comboBox1
             // 
             this.comboBox1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(830, 38);
+            this.comboBox1.Location = new System.Drawing.Point(1011, 38);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(293, 28);
             this.comboBox1.TabIndex = 90;
@@ -97,19 +96,7 @@
             this.rechercher.Text = "Rechercher";
             this.rechercher.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.rechercher.UseVisualStyleBackColor = false;
-            // 
-            // factureBtn
-            // 
-            this.factureBtn.BackColor = System.Drawing.Color.Yellow;
-            this.factureBtn.Enabled = false;
-            this.factureBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.factureBtn.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.factureBtn.Location = new System.Drawing.Point(1140, 31);
-            this.factureBtn.Name = "factureBtn";
-            this.factureBtn.Size = new System.Drawing.Size(185, 42);
-            this.factureBtn.TabIndex = 84;
-            this.factureBtn.Text = "Ajouter une Facture";
-            this.factureBtn.UseVisualStyleBackColor = false;
+            this.rechercher.Click += new System.EventHandler(this.rechercher_Click);
             // 
             // groupBox2
             // 
@@ -357,7 +344,6 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.rechercher);
-            this.Controls.Add(this.factureBtn);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.label1);
@@ -379,7 +365,6 @@
         private Label label3;
         private ComboBox comboBox1;
         private FontAwesome.Sharp.IconButton rechercher;
-        private Button factureBtn;
         private GroupBox groupBox2;
         private Label label2;
         private Label nbrefac;

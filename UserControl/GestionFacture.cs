@@ -125,9 +125,14 @@ namespace RNetApp
         private void rechercher_Click(object sender, EventArgs e)
         {
             DataView dv = new DataView(ado.Ds.Tables["facture"]);
-            MessageBox.Show(comboBox1.SelectedValue.ToString());
-            dv.RowFilter = $"idclient = '{Guid.Parse(comboBox1.SelectedValue.ToString())}'";
-            dataGridView1.DataSource = dv;
+            if(comboBox1.Text != "Tous")
+            {
+                dv.RowFilter = $"idclient = '{Guid.Parse(comboBox1.SelectedValue.ToString())}'";
+                dataGridView1.DataSource = dv;
+            } else
+            {
+                dataGridView1.DataSource = ado.Ds.Tables["facture"];
+            }
         }
         private void dataGridView1_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
         {

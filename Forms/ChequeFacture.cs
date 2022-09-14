@@ -130,5 +130,18 @@ namespace RNetApp
                 MessageBox.Show(ex.Message);
             }
         }
+
+        private void comboBox1_Validating(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+        }
+
+        private void comboBox1_TextChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void comboBox1_CausesValidationChanged(object sender, EventArgs e)
+        {
+        }
     }
 }
