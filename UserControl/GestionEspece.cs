@@ -106,5 +106,20 @@ namespace RNetApp
         {
 
         }
+
+        private void lister_Click(object sender, EventArgs e)
+        {
+            DataView dv = new DataView(ado2.Dt);
+            dv.RowFilter = $"idclient = '{Guid.Parse(comboBox2.SelectedValue.ToString())}'";
+            MessageBox.Show(comboBox2.SelectedValue.ToString());
+            if (comboBox2.Text != "Tous")
+            {
+                dataGridView1.DataSource = dv;
+            }
+            else
+            {
+                dataGridView1.DataSource = ado2.Dt;
+            }
+        }
     }
 }
