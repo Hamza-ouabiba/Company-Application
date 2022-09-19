@@ -32,6 +32,22 @@ namespace RNetApp
             }
             return total;
         }
+        void setDataGridView()
+        {
+            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.None;
+            dataGridView1.Columns["IDCLIENT"].Visible = false;
+            dataGridView1.Columns["fac_n_o"].Visible = false;
+            dataGridView1.Columns["idfacture"].Width = 100;
+            dataGridView1.Columns["total_ttc"].Width = 300;
+            dataGridView1.Columns["total_ht"].Width = 300;
+            dataGridView1.Columns["total_ht"].HeaderText = "Total hors taxe";
+            dataGridView1.Columns["idfacture"].HeaderText = "N°Facture";
+            dataGridView1.Columns["total_ttc"].HeaderText = "total ttc";
+            dataGridView1.Columns["pay_o_n"].HeaderText = "etat de facture";
+            dataGridView1.Columns["date_"].HeaderText = "Date de facture";
+            dataGridView1.Columns["total_rest"].HeaderText = "Total restant";
+            dataGridView1.RowTemplate.Height = 40;
+        }
         private void GestionFacture_Load(object sender, EventArgs e)
         {
             ado.Cmd.CommandText = "GETTABLES";
@@ -49,16 +65,10 @@ namespace RNetApp
             comboBox1.DisplayMember = ado.Ds.Tables["client"].Columns["nom"].ToString();
             comboBox1.ValueMember = ado.Ds.Tables["client"].Columns["idclient"].ToString(); 
             comboBox1.DataSource = ado.Ds.Tables["client"];
-            
+            setDataGridView();
+           
             nbrefac.Text = $"{ado.Ds.Tables["facture"].Rows.Count}";
-            dataGridView1.Columns["IDCLIENT"].Visible = false;
-            dataGridView1.Columns["fac_n_o"].Visible = false;
-            dataGridView1.Columns["idfacture"].Width = 200;
-            dataGridView1.Columns["total_ttc"].Width = 200;
-            dataGridView1.Columns["total_ht"].Width = 200;
-            dataGridView1.RowTemplate.Height = 50;
-            dataGridView1.RowHeadersVisible = false;
-            Shared.addCol(dataGridView1, "but", "voir", "");
+            
         }
         private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -157,11 +167,29 @@ namespace RNetApp
                 }
                 else
                 {
-
                     ado.Ds.Tables["facture"].Rows[i]["pay_o_n"] = 0;
                     dataGridView1.Rows[i].Cells["pay_o_n"].Style.BackColor = Color.Red;
                 }
             }
+        }
+        private void dataGridView1_CellDoubleClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+            if(e.RowIndex != -1)
+            {
+                ado.Ds.Tables["facture"].PrimaryKey = new DataColumn[] { ado.Ds.Tables["facture"].Columns["idfacture"] };
+                DataRow dr = ado.Ds.Tables["facture"].Rows.Find(int.Parse(dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString()));
+                DataRow[] cheque_facture= ado.Ds.Tables["cheque"].Select($"idfacture = {int.Parse(dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString())}");
+                DataRow[] espece_facture = ado.Ds.Tables["espece"].Select($"idfacture = {int.Parse(dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString())}");
+                if (dr != null)
+                {
+                    infoFacture ifa = new infoFacture();
+                    infoFacture.Facture = dr;
+                    infoFacture.Client = ado.Ds.Tables["client"];
+                    infoFacture.NombreCheque = cheque_facture.Length;
+                    infoFacture.NombreEspece = espece_facture.Length;
+                    ifa.Show();
+                }
+            } 
         }
     }
 }

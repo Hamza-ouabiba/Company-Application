@@ -62,7 +62,7 @@
             this.enrBtn.BackColor = System.Drawing.Color.Red;
             this.enrBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.enrBtn.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.enrBtn.Location = new System.Drawing.Point(650, 369);
+            this.enrBtn.Location = new System.Drawing.Point(630, 369);
             this.enrBtn.Name = "enrBtn";
             this.enrBtn.Size = new System.Drawing.Size(225, 53);
             this.enrBtn.TabIndex = 77;

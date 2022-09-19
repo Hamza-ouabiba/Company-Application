@@ -40,3 +40,4 @@ D:\projects\training\RNetApp\RNetApp\obj\Debug\net6.0-windows\RNetApp.Forms.Modi
 D:\projects\training\RNetApp\RNetApp\obj\Debug\net6.0-windows\RNetApp.ChequeFacture.resources
 D:\projects\training\RNetApp\RNetApp\obj\Debug\net6.0-windows\RNetApp.GestionCheque.resources
 D:\projects\training\RNetApp\RNetApp\obj\Debug\net6.0-windows\RNetApp.GestionEspece.resources
+D:\projects\training\RNetApp\RNetApp\obj\Debug\net6.0-windows\RNetApp.infoFacture.resources
