@@ -60,7 +60,6 @@ namespace RNetApp
             ChequeFacture cf = new ChequeFacture();
             cf.Show();
         }
-
         private void rechercher_Click(object sender, EventArgs e)
         {
             DataView dv = new DataView(ado.Ds.Tables["cheque"]);

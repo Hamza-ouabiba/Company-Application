@@ -72,21 +72,7 @@ namespace RNetApp
         }
         private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-                if(e.RowIndex != -1)
-                {
-                DataRow[] dr = ado.Ds.Tables["cheque"].Select($"idfacture = '{int.Parse(dataGridView1.Rows[e.RowIndex].Cells["idfacture"].Value.ToString())}'");
-                    for (int j = 0; j < ado.Ds.Tables["client"].Rows.Count; j++)
-                    {
-                        if (dataGridView1.Rows[e.RowIndex].Cells["IDCLIENT"].Value.ToString() == ado.Ds.Tables["client"].Rows[j]["IDCLIENT"].ToString())
-                        {
-                            numFac.Text = dataGridView1.Rows[e.RowIndex].Cells["IDFACTURE"].Value.ToString();
-                            nomCltT.Text = ado.Ds.Tables["client"].Rows[j]["NOM"].ToString();
-                            nbreCheque.Text = $"{dr.Length}";
-                            position = e.RowIndex;
-                            break;
-                        }
-                    }
-                }
+               
         }
         private bool verificationClientPrix(Guid idclient)
         {
@@ -109,8 +95,8 @@ namespace RNetApp
                 DataRow dr = ado.Ds.Tables["facture"].NewRow();
                 dr[1] = dt;
                 dr[4] = 0;
-                dr[5] = 0;
-                dr[6] = Guid.Parse(comboBox1.SelectedValue.ToString());
+                dr[7] = Guid.Parse(comboBox1.SelectedValue.ToString());
+                dr[6] = 0;
                 ado.Ds.Tables["facture"].Rows.Add(dr);
                 sql.GetInsertCommand();
                 ado.Adapter.Update(ado.Ds.Tables["facture"]);

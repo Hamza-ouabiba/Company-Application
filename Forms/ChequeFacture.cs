@@ -13,7 +13,6 @@ namespace RNetApp
         {
             InitializeComponent();
         }
-
         private void ChequeFacture_Load(object sender, EventArgs e)
         {
             ado.Cmd.CommandText = "gettables";
@@ -47,11 +46,12 @@ namespace RNetApp
             try
             {
                 if (!chercherCheque(int.Parse(numCheq.Text)))
-                {
-                    if (decimal.Parse(montantChe.Text) <= decimal.Parse(factureActurel["total_rest"].ToString()))
+                 {
+                    if (decimal.Parse(factureActurel["total_rest"].ToString()) != 0)
+                    {
+                        if (decimal.Parse(montantChe.Text) <= decimal.Parse(factureActurel["total_rest"].ToString()))
                         {
-
-                            SqlDataAdapter adapter = new SqlDataAdapter("select * from facture",ado.Connection);
+                            SqlDataAdapter adapter = new SqlDataAdapter("select * from facture", ado.Connection);
                             SqlDataAdapter adapter2 = new SqlDataAdapter("select * from cheque", ado.Connection);
                             SqlCommandBuilder scb = new SqlCommandBuilder(adapter);
                             SqlCommandBuilder scb2 = new SqlCommandBuilder(adapter2);
@@ -68,12 +68,22 @@ namespace RNetApp
                             ado.Ds.Tables["cheque"].Rows.Add(dr);
                             scb2.GetInsertCommand();
                             adapter2.Update(ado.Ds.Tables["cheque"]);
-                    } else MessageBox.Show("Inserer un montant qui <= au montant de la facture");
-                } else MessageBox.Show("ce numero de cheque existe deja ");
+                            //etat de la facture : 
+                        }
+                        else MessageBox.Show("Inserer un montant qui <= au montant de la facture");
+                    }
+                    else
+                    {
+                        MessageBox.Show("paiement effectuée deja");
+                    }
+                 } else MessageBox.Show("ce numero de cheque existe deja ");
             } catch(SqlException ex)
             {
                 MessageBox.Show(ex.Message);    
-            } 
+            } catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
         private decimal calculTotal(int idfacture)
         {
@@ -120,6 +130,10 @@ namespace RNetApp
                             nomClient.Text = dr2["nom"].ToString();
                         }
                         montRest.Text = dr_facture["total_rest"].ToString();
+                        if (decimal.Parse(factureActurel["total_rest"].ToString()) == 0)
+                        {
+                            factureActurel["pay_o_n"] = 1;
+                        }
                     }
                 }
             } catch(SqlException ex)

@@ -24,7 +24,6 @@ namespace RNetApp
         public static DataTable Client { get => client; set => client = value; }
         public static int NombreCheque { get => nombreCheque; set => nombreCheque = value; }
         public static int NombreEspece { get => nombreEspece; set => nombreEspece = value; }
-
         private void infoFacture_Load(object sender, EventArgs e)
         {
             if(Facture != null)

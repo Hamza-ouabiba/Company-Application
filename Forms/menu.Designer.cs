@@ -69,7 +69,7 @@
             this.panelLeft.ForeColor = System.Drawing.Color.Gray;
             this.panelLeft.Location = new System.Drawing.Point(0, 0);
             this.panelLeft.Name = "panelLeft";
-            this.panelLeft.Size = new System.Drawing.Size(227, 967);
+            this.panelLeft.Size = new System.Drawing.Size(221, 967);
             this.panelLeft.TabIndex = 1;
             // 
             // GestionEspece
@@ -268,9 +268,9 @@
             this.panelTop.Controls.Add(this.DeconBtn);
             this.panelTop.Controls.Add(this.exitBtn);
             this.panelTop.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelTop.Location = new System.Drawing.Point(227, 0);
+            this.panelTop.Location = new System.Drawing.Point(221, 0);
             this.panelTop.Name = "panelTop";
-            this.panelTop.Size = new System.Drawing.Size(1085, 44);
+            this.panelTop.Size = new System.Drawing.Size(1091, 44);
             this.panelTop.TabIndex = 2;
             // 
             // DeconBtn
@@ -285,7 +285,7 @@
             this.DeconBtn.IconFont = FontAwesome.Sharp.IconFont.Solid;
             this.DeconBtn.IconSize = 20;
             this.DeconBtn.ImageAlign = System.Drawing.ContentAlignment.BottomRight;
-            this.DeconBtn.Location = new System.Drawing.Point(850, 6);
+            this.DeconBtn.Location = new System.Drawing.Point(856, 6);
             this.DeconBtn.Name = "DeconBtn";
             this.DeconBtn.Padding = new System.Windows.Forms.Padding(3, 0, 0, 0);
             this.DeconBtn.Size = new System.Drawing.Size(145, 31);
@@ -305,7 +305,7 @@
             this.exitBtn.IconColor = System.Drawing.Color.Red;
             this.exitBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.exitBtn.IconSize = 40;
-            this.exitBtn.Location = new System.Drawing.Point(1032, 5);
+            this.exitBtn.Location = new System.Drawing.Point(1038, 5);
             this.exitBtn.Name = "exitBtn";
             this.exitBtn.Size = new System.Drawing.Size(41, 36);
             this.exitBtn.TabIndex = 3;
@@ -315,11 +315,11 @@
             // panelContent
             // 
             this.panelContent.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelContent.Location = new System.Drawing.Point(227, 44);
+            this.panelContent.Location = new System.Drawing.Point(221, 44);
             this.panelContent.Margin = new System.Windows.Forms.Padding(7, 0, 0, 0);
             this.panelContent.Name = "panelContent";
             this.panelContent.Padding = new System.Windows.Forms.Padding(7, 0, 0, 0);
-            this.panelContent.Size = new System.Drawing.Size(1085, 923);
+            this.panelContent.Size = new System.Drawing.Size(1091, 923);
             this.panelContent.TabIndex = 3;
             // 
             // menu
