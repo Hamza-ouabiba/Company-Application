@@ -14,7 +14,13 @@ namespace RNetApp
         }
         private void Tache_Load(object sender, EventArgs e)
         {
-            
+            ado.Cmd.CommandText = "gestiontache";
+            ado.Cmd.CommandType = CommandType.StoredProcedure;
+            ado.Cmd.Connection = ado.Connection;
+            ado.Adapter.SelectCommand = ado.Cmd;
+            ado.Adapter.Fill(ado.Ds);
+            ado.Ds.Tables[0].TableName = "tache";
+            ado.Ds.Tables[1].TableName = "categorie";
             important_Click(sender, e);
         }
         private bool testPage(string namePage)
@@ -78,6 +84,57 @@ namespace RNetApp
                 tabControl1.TabPages.Add(tabPage);
             }
             else MessageBox.Show("deja existant");
+        }
+        private Button[] insertingButtons()
+        {
+            int position = 0;
+            int i = 0;
+            Button[] btn = new Button[ado.Ds.Tables["categorie"].Rows.Count];
+            foreach (DataRow row in ado.Ds.Tables["categorie"].Rows)
+            {
+                Button button = new Button();
+                button.Location = new Point(341, 547 + position);
+                button.Height = ajouTache.Height;
+                button.Width = ajouTache.Width;
+                button.Text = row["nomcategorie"].ToString();
+                button.Visible = true;
+                position += 30;
+                btn[i++] = button;
+            }
+            return btn;
+        }
+        private void subMenus_Click(object sender, EventArgs e)
+        {
+            Button[] btn = insertingButtons();
+            if (subMenus.BackColor == Control.DefaultBackColor)
+            {
+                foreach (Button button in btn)
+                {
+                    this.Controls.Add(button);
+                }
+                subMenus.BackColor = Color.Wheat;
+            }
+            else
+            {
+                foreach (Button button in btn)
+                {
+                    this.Controls.Remove(button);
+                }
+                subMenus.BackColor = Control.DefaultBackColor;
+            }
+        }
+        private void subMenus_DragEnter(object sender, DragEventArgs e)
+        {
+            MessageBox.Show("ll");
+        }
+        private void subMenus_MouseEnter(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void subMenus_MouseLeave(object sender, EventArgs e)
+        {
+            
         }
     }
 }

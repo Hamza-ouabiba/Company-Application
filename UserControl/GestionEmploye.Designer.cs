@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.rechercher = new FontAwesome.Sharp.IconButton();
             this.panel7 = new System.Windows.Forms.Panel();
             this.recherche = new System.Windows.Forms.TextBox();
@@ -39,13 +39,13 @@
             this.label2 = new System.Windows.Forms.Label();
             this.nbrEmp = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.affich = new System.Windows.Forms.Label();
-            this.congerBtn = new FontAwesome.Sharp.IconButton();
             this.avance = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
-            this.modifier = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -63,6 +63,8 @@
             this.label5 = new System.Windows.Forms.Label();
             this.ficheBtn = new System.Windows.Forms.Button();
             this.filtreNnPai = new FontAwesome.Sharp.IconButton();
+            this.abscence = new System.Windows.Forms.TextBox();
+            this.panel6 = new System.Windows.Forms.Panel();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -79,10 +81,11 @@
             this.rechercher.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.rechercher.IconSize = 27;
             this.rechercher.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.rechercher.Location = new System.Drawing.Point(946, 117);
+            this.rechercher.Location = new System.Drawing.Point(946, 116);
+            this.rechercher.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.rechercher.Name = "rechercher";
             this.rechercher.Padding = new System.Windows.Forms.Padding(5);
-            this.rechercher.Size = new System.Drawing.Size(169, 43);
+            this.rechercher.Size = new System.Drawing.Size(169, 44);
             this.rechercher.TabIndex = 72;
             this.rechercher.Text = "Rechercher";
             this.rechercher.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -92,9 +95,10 @@
             // panel7
             // 
             this.panel7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(117)))), ((int)(((byte)(214)))));
-            this.panel7.Location = new System.Drawing.Point(622, 157);
+            this.panel7.Location = new System.Drawing.Point(622, 156);
+            this.panel7.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(300, 1);
+            this.panel7.Size = new System.Drawing.Size(299, 1);
             this.panel7.TabIndex = 71;
             // 
             // recherche
@@ -102,7 +106,8 @@
             this.recherche.BackColor = System.Drawing.SystemColors.Control;
             this.recherche.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.recherche.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.recherche.Location = new System.Drawing.Point(620, 124);
+            this.recherche.Location = new System.Drawing.Point(619, 124);
+            this.recherche.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.recherche.Name = "recherche";
             this.recherche.PlaceholderText = "Rechercher un employé";
             this.recherche.Size = new System.Drawing.Size(331, 27);
@@ -113,7 +118,9 @@
             this.groupBox2.Controls.Add(this.label2);
             this.groupBox2.Controls.Add(this.nbrEmp);
             this.groupBox2.Location = new System.Drawing.Point(95, 126);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupBox2.Size = new System.Drawing.Size(384, 52);
             this.groupBox2.TabIndex = 69;
             this.groupBox2.TabStop = false;
@@ -141,13 +148,15 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.abscence);
+            this.groupBox1.Controls.Add(this.panel6);
+            this.groupBox1.Controls.Add(this.label6);
+            this.groupBox1.Controls.Add(this.dateTimePicker1);
             this.groupBox1.Controls.Add(this.affich);
-            this.groupBox1.Controls.Add(this.congerBtn);
             this.groupBox1.Controls.Add(this.avance);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.panel5);
-            this.groupBox1.Controls.Add(this.modifier);
             this.groupBox1.Controls.Add(this.panel4);
             this.groupBox1.Controls.Add(this.panel3);
             this.groupBox1.Controls.Add(this.panel1);
@@ -159,49 +168,49 @@
             this.groupBox1.Controls.Add(this.prenom);
             this.groupBox1.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.groupBox1.Location = new System.Drawing.Point(95, 194);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(431, 548);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.groupBox1.Size = new System.Drawing.Size(462, 658);
             this.groupBox1.TabIndex = 68;
             this.groupBox1.TabStop = false;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(126, 484);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(200, 21);
+            this.label6.TabIndex = 80;
+            this.label6.Text = "Date début de travail";
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Location = new System.Drawing.Point(95, 522);
+            this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(289, 30);
+            this.dateTimePicker1.TabIndex = 79;
             // 
             // affich
             // 
             this.affich.AutoSize = true;
             this.affich.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.affich.ForeColor = System.Drawing.Color.Red;
-            this.affich.Location = new System.Drawing.Point(40, 43);
+            this.affich.Location = new System.Drawing.Point(103, 37);
             this.affich.Name = "affich";
             this.affich.Size = new System.Drawing.Size(200, 20);
             this.affich.TabIndex = 78;
             this.affich.Text = "Fiche de chaque Employé";
             this.affich.Visible = false;
             // 
-            // congerBtn
-            // 
-            this.congerBtn.BackColor = System.Drawing.Color.Lime;
-            this.congerBtn.Enabled = false;
-            this.congerBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.congerBtn.IconChar = FontAwesome.Sharp.IconChar.Calendar;
-            this.congerBtn.IconColor = System.Drawing.Color.Black;
-            this.congerBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.congerBtn.IconSize = 27;
-            this.congerBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.congerBtn.Location = new System.Drawing.Point(107, 394);
-            this.congerBtn.Name = "congerBtn";
-            this.congerBtn.Padding = new System.Windows.Forms.Padding(3, 0, 0, 0);
-            this.congerBtn.Size = new System.Drawing.Size(210, 44);
-            this.congerBtn.TabIndex = 72;
-            this.congerBtn.Text = "Calcul de Repos";
-            this.congerBtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.congerBtn.UseVisualStyleBackColor = false;
-            this.congerBtn.Click += new System.EventHandler(this.congerBtn_Click);
-            // 
             // avance
             // 
             this.avance.BackColor = System.Drawing.SystemColors.Control;
             this.avance.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.avance.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.avance.Location = new System.Drawing.Point(107, 330);
+            this.avance.Location = new System.Drawing.Point(107, 329);
+            this.avance.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.avance.Name = "avance";
             this.avance.PlaceholderText = "Avance";
             this.avance.Size = new System.Drawing.Size(177, 24);
@@ -229,29 +238,16 @@
             // 
             this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(117)))), ((int)(((byte)(214)))));
             this.panel5.Location = new System.Drawing.Point(107, 360);
+            this.panel5.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(200, 1);
             this.panel5.TabIndex = 65;
-            // 
-            // modifier
-            // 
-            this.modifier.BackColor = System.Drawing.Color.Orange;
-            this.modifier.Enabled = false;
-            this.modifier.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.modifier.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.modifier.ForeColor = System.Drawing.Color.Black;
-            this.modifier.Location = new System.Drawing.Point(222, 464);
-            this.modifier.Name = "modifier";
-            this.modifier.Size = new System.Drawing.Size(162, 49);
-            this.modifier.TabIndex = 68;
-            this.modifier.Text = "Modifier";
-            this.modifier.UseVisualStyleBackColor = false;
-            this.modifier.Click += new System.EventHandler(this.modifier_Click);
             // 
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(117)))), ((int)(((byte)(214)))));
             this.panel4.Location = new System.Drawing.Point(107, 292);
+            this.panel4.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(200, 1);
             this.panel4.TabIndex = 63;
@@ -260,6 +256,7 @@
             // 
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(117)))), ((int)(((byte)(214)))));
             this.panel3.Location = new System.Drawing.Point(107, 227);
+            this.panel3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(200, 1);
             this.panel3.TabIndex = 62;
@@ -268,6 +265,7 @@
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(117)))), ((int)(((byte)(214)))));
             this.panel1.Location = new System.Drawing.Point(107, 167);
+            this.panel1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(200, 1);
             this.panel1.TabIndex = 61;
@@ -275,7 +273,8 @@
             // Panel2
             // 
             this.Panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(117)))), ((int)(((byte)(214)))));
-            this.Panel2.Location = new System.Drawing.Point(107, 110);
+            this.Panel2.Location = new System.Drawing.Point(107, 111);
+            this.Panel2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Panel2.Name = "Panel2";
             this.Panel2.Size = new System.Drawing.Size(200, 1);
             this.Panel2.TabIndex = 60;
@@ -286,6 +285,7 @@
             this.nom.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.nom.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.nom.Location = new System.Drawing.Point(107, 80);
+            this.nom.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.nom.Name = "nom";
             this.nom.PlaceholderText = "Nom Employé";
             this.nom.Size = new System.Drawing.Size(177, 24);
@@ -297,6 +297,7 @@
             this.salaire.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.salaire.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.salaire.Location = new System.Drawing.Point(107, 262);
+            this.salaire.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.salaire.Name = "salaire";
             this.salaire.PlaceholderText = "Salaire";
             this.salaire.Size = new System.Drawing.Size(177, 24);
@@ -304,13 +305,14 @@
             // 
             // empBtn
             // 
-            this.empBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(117)))), ((int)(((byte)(240)))));
+            this.empBtn.BackColor = System.Drawing.Color.Red;
             this.empBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.empBtn.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.empBtn.ForeColor = System.Drawing.Color.Black;
-            this.empBtn.Location = new System.Drawing.Point(40, 464);
+            this.empBtn.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.empBtn.ForeColor = System.Drawing.Color.Transparent;
+            this.empBtn.Location = new System.Drawing.Point(126, 583);
+            this.empBtn.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.empBtn.Name = "empBtn";
-            this.empBtn.Size = new System.Drawing.Size(162, 49);
+            this.empBtn.Size = new System.Drawing.Size(219, 49);
             this.empBtn.TabIndex = 10;
             this.empBtn.Text = "Enregistrer";
             this.empBtn.UseVisualStyleBackColor = false;
@@ -322,6 +324,7 @@
             this.age.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.age.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.age.Location = new System.Drawing.Point(107, 194);
+            this.age.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.age.Name = "age";
             this.age.PlaceholderText = "Age";
             this.age.Size = new System.Drawing.Size(177, 24);
@@ -332,7 +335,8 @@
             this.prenom.BackColor = System.Drawing.SystemColors.Control;
             this.prenom.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.prenom.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.prenom.Location = new System.Drawing.Point(105, 137);
+            this.prenom.Location = new System.Drawing.Point(105, 136);
+            this.prenom.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.prenom.Name = "prenom";
             this.prenom.PlaceholderText = "Prénom";
             this.prenom.Size = new System.Drawing.Size(177, 24);
@@ -344,11 +348,11 @@
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.AllowUserToResizeColumns = false;
             this.dataGridView1.AllowUserToResizeRows = false;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(117)))), ((int)(((byte)(240)))));
-            this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(117)))), ((int)(((byte)(240)))));
+            this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -356,34 +360,35 @@
             this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridView1.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(117)))), ((int)(((byte)(240)))));
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(117)))), ((int)(((byte)(240)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridView1.EnableHeadersVisualStyles = false;
             this.dataGridView1.Location = new System.Drawing.Point(587, 204);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(117)))), ((int)(((byte)(240)))));
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(117)))), ((int)(((byte)(240)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.RowHeadersWidth = 51;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(117)))), ((int)(((byte)(240)))));
-            this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle8;
-            this.dataGridView1.Size = new System.Drawing.Size(975, 456);
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(117)))), ((int)(((byte)(240)))));
+            this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            this.dataGridView1.Size = new System.Drawing.Size(975, 552);
             this.dataGridView1.TabIndex = 67;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             this.dataGridView1.CellMouseEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellMouseEnter);
@@ -410,10 +415,11 @@
             this.filtreBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.filtreBtn.IconSize = 27;
             this.filtreBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.filtreBtn.Location = new System.Drawing.Point(1144, 117);
+            this.filtreBtn.Location = new System.Drawing.Point(1144, 116);
+            this.filtreBtn.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.filtreBtn.Name = "filtreBtn";
             this.filtreBtn.Padding = new System.Windows.Forms.Padding(5);
-            this.filtreBtn.Size = new System.Drawing.Size(218, 43);
+            this.filtreBtn.Size = new System.Drawing.Size(218, 44);
             this.filtreBtn.TabIndex = 74;
             this.filtreBtn.Text = "Filtrer par paiement";
             this.filtreBtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -424,7 +430,7 @@
             // 
             this.error.AutoSize = true;
             this.error.ForeColor = System.Drawing.Color.Red;
-            this.error.Location = new System.Drawing.Point(777, 103);
+            this.error.Location = new System.Drawing.Point(777, 104);
             this.error.Name = "error";
             this.error.Size = new System.Drawing.Size(0, 20);
             this.error.TabIndex = 75;
@@ -435,6 +441,7 @@
             this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Location = new System.Drawing.Point(1103, 34);
+            this.comboBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(293, 28);
             this.comboBox1.TabIndex = 76;
@@ -455,6 +462,7 @@
             this.ficheBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.ficheBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ficheBtn.Location = new System.Drawing.Point(1442, 25);
+            this.ficheBtn.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.ficheBtn.Name = "ficheBtn";
             this.ficheBtn.Size = new System.Drawing.Size(136, 46);
             this.ficheBtn.TabIndex = 78;
@@ -474,6 +482,7 @@
             this.filtreNnPai.IconSize = 27;
             this.filtreNnPai.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.filtreNnPai.Location = new System.Drawing.Point(1392, 116);
+            this.filtreNnPai.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.filtreNnPai.Name = "filtreNnPai";
             this.filtreNnPai.Padding = new System.Windows.Forms.Padding(5);
             this.filtreNnPai.Size = new System.Drawing.Size(186, 62);
@@ -482,6 +491,27 @@
             this.filtreNnPai.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.filtreNnPai.UseVisualStyleBackColor = false;
             this.filtreNnPai.Click += new System.EventHandler(this.filtreNnPai_Click);
+            // 
+            // abscence
+            // 
+            this.abscence.BackColor = System.Drawing.SystemColors.Control;
+            this.abscence.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.abscence.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.abscence.Location = new System.Drawing.Point(107, 407);
+            this.abscence.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.abscence.Name = "abscence";
+            this.abscence.PlaceholderText = "Abscence";
+            this.abscence.Size = new System.Drawing.Size(177, 24);
+            this.abscence.TabIndex = 83;
+            // 
+            // panel6
+            // 
+            this.panel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(117)))), ((int)(((byte)(214)))));
+            this.panel6.Location = new System.Drawing.Point(107, 438);
+            this.panel6.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(200, 1);
+            this.panel6.TabIndex = 81;
             // 
             // GestionEmploye
             // 
@@ -500,8 +530,9 @@
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.label1);
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "GestionEmploye";
-            this.Size = new System.Drawing.Size(1592, 786);
+            this.Size = new System.Drawing.Size(1592, 882);
             this.Load += new System.EventHandler(this.GestionEmploye_Load);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
@@ -524,7 +555,6 @@
         private TextBox avance;
         private Label label4;
         private Label label3;
-        private Button modifier;
         internal Panel panel5;
         internal Panel panel4;
         internal Panel panel3;
@@ -539,11 +569,14 @@
         private Label label1;
         private FontAwesome.Sharp.IconButton filtreBtn;
         private Label error;
-        private FontAwesome.Sharp.IconButton congerBtn;
         private ComboBox comboBox1;
         private Label label5;
         private Button ficheBtn;
         private Label affich;
         private FontAwesome.Sharp.IconButton filtreNnPai;
+        private Label label6;
+        private DateTimePicker dateTimePicker1;
+        private TextBox abscence;
+        internal Panel panel6;
     }
 }

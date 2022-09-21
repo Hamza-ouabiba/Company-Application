@@ -33,13 +33,17 @@ namespace RNetApp
             dataGridView1.Columns["DATE_DEPART"].Visible = false;
             dataGridView1.Columns["DATE_FIN"].Visible = false;
             dataGridView1.Columns["AGE"].Visible = false;
-            dataGridView1.Columns["PRENOM"].Width = 150;
-            dataGridView1.Columns["SALAIRE"].Width = 150;
+            dataGridView1.Columns["PRENOM"].Width = 100;
+            dataGridView1.Columns["PRENOM"].Width = 100;
+            dataGridView1.Columns["SALAIRE"].Width = 100;
             dataGridView1.Columns["SALAIRE_RESTANT"].Width = 150;
+            dataGridView1.Columns["repos"].Width = 100;
+            dataGridView1.Columns["abscence"].Width = 100;
             dataGridView1.RowTemplate.Height = 50;
             dataGridView1.RowHeadersVisible = false;
             Shared.addCol(dataGridView1, "delete", "delete","supprimer");
             Shared.addCol(dataGridView1, "edit", "edit","modifier");
+            Shared.addCol(dataGridView1, "calendar", "repos","") ;
             dataGridView1.Columns["PRENOM"].HeaderText = "Prénom";
             dataGridView1.Columns["SALAIRE"].HeaderText = "Salaire";
             dataGridView1.Columns["SALAIRE_RESTANT"].HeaderText = "Salaire Restant";
@@ -59,7 +63,7 @@ namespace RNetApp
             ReposCalcul.IdEmploye = Guid.Parse(ado.Ds.Tables["EMPLOYE"].Rows[position][0].ToString());
             rc.Show();
         }
-        private bool checkEmpWithId(string nomEmp, string id)
+       /* private bool checkEmpWithId(string nomEmp, string id)
         {
             foreach (DataRow row in ado.Ds.Tables["EMPLOYE"].Rows)
             {
@@ -80,27 +84,7 @@ namespace RNetApp
                 }
             }
             return false;
-        }
-        private void modifier_Click(object sender, EventArgs e)
-        {
-            SqlCommandBuilder scb = new SqlCommandBuilder(ado.Adapter);
-            congerBtn.Enabled = true;
-            checkEmpWithNoId(prenom.Text, idEmp);
-            if (checkEmpWithNoId(prenom.Text,idEmp))
-            {
-                MessageBox.Show("Employé deja existant dans la base : ");
-            } else if(checkEmpWithId(prenom.Text,idEmp) || !checkEmpl(prenom.Text))
-            {
-                ado.Ds.Tables["EMPLOYE"].Rows[position]["NOM"] = nom.Text;
-                ado.Ds.Tables["EMPLOYE"].Rows[position]["PRENOM"] = prenom.Text;
-                ado.Ds.Tables["EMPLOYE"].Rows[position]["SALAIRE"] = decimal.Parse(salaire.Text);
-                ado.Ds.Tables["EMPLOYE"].Rows[position]["AVANCE"] = decimal.Parse(avance.Text);
-                ado.Ds.Tables["EMPLOYE"].Rows[position]["SALAIRE_RESTANT"] = decimal.Parse(salaire.Text) - decimal.Parse(avance.Text);
-                scb.GetUpdateCommand();
-                ado.Adapter.Update(ado.Ds.Tables["EMPLOYE"]);
-                MessageBox.Show("modification avec succes");
-            }
-        }
+        }*/
         private void comboBox1_ValueMemberChanged(object sender, EventArgs e)
         {
         }
@@ -141,9 +125,11 @@ namespace RNetApp
                         dr[2] = nom.Text;
                         dr[3] = prenom.Text;
                         dr[4] = age.Text;
+                        dr[5] = dateTimePicker1.Value;
                         dr[8] = decimal.Parse(avance.Text);
                         dr[9] = decimal.Parse(salaire.Text);
                         dr[10] = decimal.Parse(salaire.Text) - decimal.Parse(avance.Text);
+                        dr[11] = int.Parse(abscence.Text);
                         //attendre les repos depuis le formulaire de calcule : 
                         //
                         ado.Ds.Tables["EMPLOYE"].Rows.Add(dr);
@@ -216,18 +202,16 @@ namespace RNetApp
                     bool confirmation = Shared.showMessage("Voulez vous vraiment modifier le client ?", "Confirmation de modification");
                     if (confirmation)
                     {
+                        ModifierEmploye me = new ModifierEmploye();
                         DataRow dr = ado.Ds.Tables["EMPLOYE"].Rows[e.RowIndex];
-                        nom.Text = dr[2].ToString();
-                        prenom.Text = dr[3].ToString();
-                        age.Text = dr[4].ToString();
-                        salaire.Text = dr[9].ToString();
-                        avance.Text = dr[8].ToString();
-                        empBtn.Enabled = false;
-                        modifier.Enabled = true;
-                        congerBtn.Enabled = true;
-                        position = e.RowIndex;
-                        idEmp = dr[0].ToString();
+                        me.Employe = dr;
+                        me.Show();
                     }
+                } else if(colName == "calendar")
+                {
+                    ReposCalcul rc = new ReposCalcul();
+                    ReposCalcul.IdEmploye = Guid.Parse(dataGridView1.Rows[e.RowIndex].Cells["idemploye"].Value.ToString());
+                    rc.Show();
                 }
             }
         }

@@ -33,10 +33,9 @@
             this.important = new FontAwesome.Sharp.IconButton();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.ajouTache = new System.Windows.Forms.Button();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.tache_ = new FontAwesome.Sharp.IconButton();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.groupBox1.SuspendLayout();
+            this.tache_ = new FontAwesome.Sharp.IconButton();
+            this.subMenus = new FontAwesome.Sharp.IconButton();
             this.SuspendLayout();
             // 
             // termine
@@ -45,7 +44,7 @@
             this.termine.IconChar = FontAwesome.Sharp.IconChar.None;
             this.termine.IconColor = System.Drawing.Color.Black;
             this.termine.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.termine.Location = new System.Drawing.Point(-24, 281);
+            this.termine.Location = new System.Drawing.Point(19, 406);
             this.termine.Name = "termine";
             this.termine.Size = new System.Drawing.Size(433, 68);
             this.termine.TabIndex = 2;
@@ -59,9 +58,9 @@
             this.planifie.IconChar = FontAwesome.Sharp.IconChar.None;
             this.planifie.IconColor = System.Drawing.Color.Black;
             this.planifie.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.planifie.Location = new System.Drawing.Point(-29, 214);
+            this.planifie.Location = new System.Drawing.Point(19, 339);
             this.planifie.Name = "planifie";
-            this.planifie.Size = new System.Drawing.Size(440, 68);
+            this.planifie.Size = new System.Drawing.Size(433, 68);
             this.planifie.TabIndex = 1;
             this.planifie.Text = "Planifié";
             this.planifie.UseVisualStyleBackColor = true;
@@ -73,9 +72,9 @@
             this.important.IconChar = FontAwesome.Sharp.IconChar.None;
             this.important.IconColor = System.Drawing.Color.Black;
             this.important.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.important.Location = new System.Drawing.Point(-22, 151);
+            this.important.Location = new System.Drawing.Point(19, 275);
             this.important.Name = "important";
-            this.important.Size = new System.Drawing.Size(429, 68);
+            this.important.Size = new System.Drawing.Size(433, 68);
             this.important.TabIndex = 0;
             this.important.Text = "Important";
             this.important.UseVisualStyleBackColor = true;
@@ -100,18 +99,15 @@
             this.ajouTache.UseVisualStyleBackColor = true;
             this.ajouTache.Click += new System.EventHandler(this.ajouTache_Click);
             // 
-            // groupBox1
+            // textBox1
             // 
-            this.groupBox1.Controls.Add(this.tache_);
-            this.groupBox1.Controls.Add(this.textBox1);
-            this.groupBox1.Controls.Add(this.planifie);
-            this.groupBox1.Controls.Add(this.termine);
-            this.groupBox1.Controls.Add(this.important);
-            this.groupBox1.Location = new System.Drawing.Point(23, 174);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(373, 459);
-            this.groupBox1.TabIndex = 4;
-            this.groupBox1.TabStop = false;
+            this.textBox1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.textBox1.Location = new System.Drawing.Point(73, 195);
+            this.textBox1.Multiline = true;
+            this.textBox1.Name = "textBox1";
+            this.textBox1.PlaceholderText = "Chercher une tache";
+            this.textBox1.Size = new System.Drawing.Size(308, 39);
+            this.textBox1.TabIndex = 4;
             // 
             // tache_
             // 
@@ -119,36 +115,46 @@
             this.tache_.IconChar = FontAwesome.Sharp.IconChar.None;
             this.tache_.IconColor = System.Drawing.Color.Black;
             this.tache_.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.tache_.Location = new System.Drawing.Point(-19, 343);
+            this.tache_.Location = new System.Drawing.Point(19, 473);
             this.tache_.Name = "tache_";
             this.tache_.Size = new System.Drawing.Size(433, 68);
             this.tache_.TabIndex = 5;
-            this.tache_.Text = "Tache";
+            this.tache_.Text = "Par catégorie";
             this.tache_.UseVisualStyleBackColor = true;
             // 
-            // textBox1
+            // subMenus
             // 
-            this.textBox1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox1.Location = new System.Drawing.Point(36, 57);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.PlaceholderText = "Chercher une tache";
-            this.textBox1.Size = new System.Drawing.Size(308, 39);
-            this.textBox1.TabIndex = 4;
+            this.subMenus.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.subMenus.IconColor = System.Drawing.Color.Black;
+            this.subMenus.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.subMenus.Location = new System.Drawing.Point(341, 493);
+            this.subMenus.Name = "subMenus";
+            this.subMenus.Size = new System.Drawing.Size(94, 29);
+            this.subMenus.TabIndex = 7;
+            this.subMenus.Text = ">";
+            this.subMenus.UseVisualStyleBackColor = true;
+            this.subMenus.Click += new System.EventHandler(this.subMenus_Click);
+            this.subMenus.DragEnter += new System.Windows.Forms.DragEventHandler(this.subMenus_DragEnter);
+            this.subMenus.MouseEnter += new System.EventHandler(this.subMenus_MouseEnter);
+            this.subMenus.MouseLeave += new System.EventHandler(this.subMenus_MouseLeave);
             // 
             // Tache
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.subMenus);
+            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.tache_);
+            this.Controls.Add(this.planifie);
             this.Controls.Add(this.ajouTache);
+            this.Controls.Add(this.termine);
             this.Controls.Add(this.tabControl1);
+            this.Controls.Add(this.important);
             this.Name = "Tache";
             this.Size = new System.Drawing.Size(1506, 906);
             this.Load += new System.EventHandler(this.Tache_Load);
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -158,8 +164,8 @@
         private FontAwesome.Sharp.IconButton important;
         private TabControl tabControl1;
         private Button ajouTache;
-        private GroupBox groupBox1;
         private TextBox textBox1;
         private FontAwesome.Sharp.IconButton tache_;
+        private FontAwesome.Sharp.IconButton subMenus;
     }
 }

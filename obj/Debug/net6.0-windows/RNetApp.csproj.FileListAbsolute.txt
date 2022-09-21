@@ -45,3 +45,4 @@ D:\projects\training\RNetApp\RNetApp\obj\Debug\net6.0-windows\RNetApp.TacheAjout
 D:\projects\training\RNetApp\RNetApp\obj\Debug\net6.0-windows\RNetApp.important.resources
 D:\projects\training\RNetApp\RNetApp\obj\Debug\net6.0-windows\RNetApp.planifie.resources
 D:\projects\training\RNetApp\RNetApp\obj\Debug\net6.0-windows\RNetApp.termine.resources
+D:\projects\training\RNetApp\RNetApp\obj\Debug\net6.0-windows\RNetApp.ModifierEmploye.resources

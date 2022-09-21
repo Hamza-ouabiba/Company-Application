@@ -31,7 +31,13 @@
     <Compile Update="Forms\infoFacture.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="termine.cs">
+    <Compile Update="Forms\ModifierEmploye.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="UserControl\Tache.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="UserControl\termine.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Update="UserControl\important.cs">
@@ -47,9 +53,6 @@
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Update="UserControl\GestionCheque.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Update="UserControl\Tache.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Update="UserControl\ArticleMod.cs">

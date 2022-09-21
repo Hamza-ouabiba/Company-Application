@@ -93,6 +93,16 @@ namespace RNetApp.Properties {
         /// <summary>
         ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap repos {
+            get {
+                object obj = ResourceManager.GetObject("repos", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap voir {
             get {
                 object obj = ResourceManager.GetObject("voir", resourceCulture);

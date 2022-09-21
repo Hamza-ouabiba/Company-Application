@@ -32,6 +32,8 @@ namespace RNetApp
             comboBox1.ValueMember = ado.Ds.Tables["client"].Columns["idclient"].ToString();
             comboBox1.DataSource = ado.Ds.Tables["client"];
             Shared.addCol(dataGridView1, "but", "voir", "");
+            Shared.addCol(dataGridView1, "but", "edit", "");
+            Shared.addCol(dataGridView1, "but", "delete", "");
         }
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {

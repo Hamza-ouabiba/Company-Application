@@ -16,11 +16,11 @@ namespace RNetApp.Forms
         {
             DateTime now = DateTime.Now;
             DataRow dr;
-            GestionClient client = new GestionClient();
+            GestionEmploye employe = new GestionEmploye();
             //afficher Le controleur d'utilisateur client : 
             panelContent.Controls.Clear();
-            client.Dock = DockStyle.Fill;
-            panelContent.Controls.Add(client);
+            employe.Dock = DockStyle.Fill;
+            panelContent.Controls.Add(employe);
             //
             this.MaximizedBounds = Screen.FromHandle(this.Handle).WorkingArea;
             this.WindowState = FormWindowState.Maximized;
