@@ -26,6 +26,7 @@ namespace RNetApp.Forms
                     idClientT.Text = ado.Dt.Rows[i]["IDCLIENT"].ToString();
                     nomClt.Text = ado.Dt.Rows[i]["NOM"].ToString();
                     Montant.Text = ado.Dt.Rows[i]["MONTANT"].ToString();
+                    telClient.Text = ado.Dt.Rows[i]["tel_client"].ToString();
                     break;
                 }
             }
