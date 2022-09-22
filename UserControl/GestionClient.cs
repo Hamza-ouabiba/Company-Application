@@ -50,71 +50,20 @@ namespace RNetApp
                 videError.Text = "Base de donnée vide veuillez insérer un client";
             }
         }
-        //Methode pour verifier les champs :
-        /*private void enregBtn_Click(object sender, EventArgs e)
-        {
-            //instancier une nouvelle ligne  : 
-            DataRow dr;
-            SqlCommandBuilder sql = new SqlCommandBuilder(ado.Adapter);
-            if (checkInfo())
-            {
-                try
-                {
-                        if (!checkClient(nomClt.Text))
-                        {
-                            dr = ado.Dt.NewRow();
-                            dr[1] = nomClt.Text;
-                            dr[2] = float.Parse(Montant.Text);
-                            ado.Dt.Rows.Add(dr);
-                            sql.GetInsertCommand();
-                            ado.Adapter.Update(ado.Dt);
-                            effacerTextBox();
-                            ado.Dt = new DataTable();
-                            GestionClient_Load(sender, e);
-                            nbreClt.Text = $"{ado.Dt.Rows.Count}";
-                            MessageBox.Show("Client Ajoutée avec succés","",MessageBoxButtons.OK,MessageBoxIcon.Asterisk);
-                        }
-                        else {MessageBox.Show("Ce client existe deja dans la base de donnée pensez a resaisir un autre"); effacerTextBox(); }
-                } catch(Exception ex)
-                {
-                    MessageBox.Show(ex.Message);
-                }
-            } else MessageBox.Show("Veuillez saisir les champs requies");
-        }*/
         //pour datagridview : 
         private void affichageGrid()
         {
             dataGridView1.Columns["IDCLIENT"].Visible = false;
-            dataGridView1.RowTemplate.Height = 50;
+            dataGridView1.Columns["NOM"].HeaderText = "Nom client";
+            dataGridView1.Columns["MONTANT"].HeaderText = "Montant Par mois";
             Shared.addCol(dataGridView1, "delete", "delete", "supprimer");
             Shared.addCol(dataGridView1, "edit", "edit", "modifier");
             Shared.addCol(dataGridView1, "voir", "voir", "voir client");
-            dataGridView1.Columns["NOM"].HeaderText = "Nom client";
-            dataGridView1.Columns["MONTANT"].HeaderText = "Montant Par mois";
+            dataGridView1.Columns["edit"].Width = 40;
+            dataGridView1.Columns["delete"].Width = 40;
+            dataGridView1.Columns["voir"].Width = 50;
+            dataGridView1.RowTemplate.Height = 50;
         }
-        /*private void rechercher_Click(object sender, EventArgs e)
-        {
-            if (recherche.Text != "")
-            {
-                DataView dv = new DataView(ado.Dt);
-                if (checkClient(recherche.Text))
-                {
-                    error.Visible = false;
-                    dv.RowFilter = $"NOM like '{recherche.Text}'";
-                    dataGridView1.DataSource = dv;
-                }
-                else
-                {
-                    error.Visible = true;
-                    error.Text = "Ce client n'existe pas";
-                }
-            }
-            else
-            {
-                error.Visible = true;
-                error.Text = "Veuillez inseGrer quelque chose";
-            }
-        }*/
         private bool checkClient(string nomClt)
         {
             foreach (DataRow row in ado.Dt.Rows)
@@ -206,7 +155,7 @@ namespace RNetApp
                 } else if(colName == "voir")
                 {
                     ficheClt clt = new ficheClt();
-                    ficheClt.IdClient = Guid.Parse(clientCombo.SelectedValue.ToString());
+                    ficheClt.IdClient = Guid.Parse(dataGridView1.Rows[e.RowIndex].Cells["IDCLIENT"].Value.ToString());
                     clt.Show();
                 }
             }
@@ -227,7 +176,6 @@ namespace RNetApp
                 }
             }
         }
-
         private void AjoutClient_Click(object sender, EventArgs e)
         {
             AjoutClient form_client = new AjoutClient();

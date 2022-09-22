@@ -32,21 +32,34 @@ namespace RNetApp
             }
             return total;
         }
-        private void fillCombo(ComboBox comb, string[] names,string value)
+        private void fillCombo(ComboBox comb, string[] names)
         {
             comb.Items.Clear();
             names[0] = "Tous";
             comb.Items.AddRange(names);
-            comb.ValueMember = value;
         }
-        private string[] retrievingNum(DataTable dt)
+        private string[] retrievingNum(DataTable dt,Guid comboid)
         {
-            string[] ret = new string[dt.Rows.Count+1];
-            for (int i = 1; i < ret.Length; i++)
+            //retrieving numbers for each client : 
+            if (comboid != Guid.Empty)
             {
-                ret[i] = dt.Rows[i - 1]["idfacture"].ToString();
+                DataRow[] dataRows = dt.Select($"idclient = '{comboid}'");
+                string[] ret = new string[dataRows.Length + 1];
+                for (int i = 1; i < ret.Length; i++)
+                {
+                    ret[i] = dataRows[i - 1]["idfacture"].ToString();
+                }
+                return ret;
             }
-            return ret;
+            else
+            {
+                string[] ret = new string[dt.Rows.Count+ 1];
+                for (int i = 1; i < ret.Length; i++)
+                {
+                    ret[i] = dt.Rows[i - 1]["idfacture"].ToString();
+                }
+                return ret;
+            }
         }
         private string[] retrievingClients(DataTable dt)
         {
@@ -85,8 +98,7 @@ namespace RNetApp
             ado.Ds.Tables[4].TableName = "changer";
             dataGridView1.DataSource = ado.Ds.Tables["facture"];
             //fill the combobox : 
-            fillCombo(comboBox1, retrievingClients(ado.Ds.Tables["client"]),ado.Ds.Tables["client"].Columns["idclient"].ToString());
-            fillCombo(comboBox2, retrievingNum(ado.Ds.Tables["facture"]),"");
+            fillCombo(comboBox1, retrievingClients(ado.Ds.Tables["client"]));
             comboBox3.DisplayMember = ado.Ds.Tables["client"].Columns["nom"].ToString();
             comboBox3.ValueMember = ado.Ds.Tables["client"].Columns["idclient"].ToString();
             comboBox3.DataSource = ado.Ds.Tables["client"];
@@ -101,18 +113,13 @@ namespace RNetApp
         {
             foreach(DataRow row in ado.Ds.Tables["changer"].Rows)
             {
-                if(Guid.Parse(row["idclient"].ToString()) == Guid.Parse(comboBox1.SelectedValue.ToString()))
+                if(Guid.Parse(row["idclient"].ToString()) == Guid.Parse(comboBox3.SelectedValue.ToString()))
                 {
                     return true;
                 }
             }
             return false;
         }
-        private void factureBtn_Click(object sender, EventArgs e)
-        {
-            
-        }
-
         private bool checkClient(string nomClt)
         {
             foreach (DataRow row in ado.Dt.Rows)
@@ -135,10 +142,6 @@ namespace RNetApp
             {
                 dataGridView1.DataSource = ado.Ds.Tables["facture"];
             }
-        }
-        private void groupBox1_Enter(object sender, EventArgs e)
-        {
-            
         }
         private void verifierBtn_Click(object sender, EventArgs e)
         {
@@ -208,21 +211,37 @@ namespace RNetApp
                 }
             }
         }
-
+        //search for client with name and return its id :
+        private Guid searchClientCombo(string nom)
+        {
+            for(int i=0;i<ado.Ds.Tables["client"].Rows.Count;i++)
+            {
+                if (nom == ado.Ds.Tables["client"].Rows[i]["nom"].ToString())
+                {
+                    return Guid.Parse(ado.Ds.Tables["client"].Rows[i]["idclient"].ToString());
+                }
+            }
+            return Guid.Empty;
+        }
         private void comboBox1_SelectedValueChanged(object sender, EventArgs e)
         {
             DataView dv = new DataView(ado.Ds.Tables["facture"]);
             if (comboBox1.Text != "Tous" && comboBox1.Text != "")
             {
-                dv.RowFilter = $"idclient= '{comboBox1.SelectedValue}'";
-                dataGridView1.DataSource = dv;
+                if(searchClientCombo(comboBox1.Text) != Guid.Empty)
+                {
+                    fillCombo(comboBox2, retrievingNum(ado.Ds.Tables["facture"],searchClientCombo(comboBox1.Text)));
+                    dv.RowFilter = $"idclient = '{searchClientCombo(comboBox1.Text)}'";
+                    dataGridView1.DataSource = dv;
+                }
             }
             else if (comboBox1.Text == "Tous" && comboBox1.Text != "")
             {
+                comboBox2.Items.Clear();
+                fillCombo(comboBox2, retrievingNum(ado.Ds.Tables["facture"], searchClientCombo(comboBox1.Text)));
                 dataGridView1.DataSource = ado.Ds.Tables["facture"];
             }
         }
-
         private void comboBox2_SelectedValueChanged(object sender, EventArgs e)
         {
             DataView dv = new DataView(ado.Ds.Tables["facture"]);
@@ -231,9 +250,16 @@ namespace RNetApp
                 dv.RowFilter = $"idfacture = '{comboBox2.Text}'";
                 dataGridView1.DataSource = dv;
             }
-            else
+            else if (comboBox2.Text == "Tous")
             {
-                dataGridView1.DataSource = ado.Ds.Tables["facture"];
+                if(searchClientCombo(comboBox1.Text) != Guid.Empty)
+                {
+                    dv.RowFilter = $"idclient = '{searchClientCombo(comboBox1.Text)}'";
+                    dataGridView1.DataSource = dv;
+                } else
+                {
+                    dataGridView1.DataSource = ado.Ds.Tables["facture"];
+                }
             }
         }
 
