@@ -105,10 +105,6 @@ namespace RNetApp
             setDataGridView();
             nbrefac.Text = $"{ado.Ds.Tables["facture"].Rows.Count}";
         }
-        private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
-        {
-               
-        }
         private bool verificationClientPrix(Guid idclient)
         {
             foreach(DataRow row in ado.Ds.Tables["changer"].Rows)
