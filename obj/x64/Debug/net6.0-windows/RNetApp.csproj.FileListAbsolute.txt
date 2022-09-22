@@ -52,3 +52,5 @@ D:\projects\training\RNetApp\RNetApp\obj\x64\Debug\net6.0-windows\RNetApp.import
 D:\projects\training\RNetApp\RNetApp\obj\x64\Debug\net6.0-windows\RNetApp.planifie.resources
 D:\projects\training\RNetApp\RNetApp\obj\x64\Debug\net6.0-windows\RNetApp.termine.resources
 D:\projects\training\RNetApp\RNetApp\obj\x64\Debug\net6.0-windows\RNetApp.AjoutEmploye.resources
+D:\projects\training\RNetApp\RNetApp\obj\x64\Debug\net6.0-windows\RNetApp.ChequeInfo.resources
+D:\projects\training\RNetApp\RNetApp\obj\x64\Debug\net6.0-windows\RNetApp.ModifierCheque.resources

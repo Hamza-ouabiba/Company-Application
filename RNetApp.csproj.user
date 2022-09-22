@@ -7,6 +7,12 @@
     <Compile Update="AjoutEmploye.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="ChequeInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="ModifierCheque.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="UserControl\Calendar\BlankUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
