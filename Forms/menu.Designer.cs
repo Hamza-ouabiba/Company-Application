@@ -85,7 +85,7 @@
             this.GestionEspece.Location = new System.Drawing.Point(-8, 572);
             this.GestionEspece.Name = "GestionEspece";
             this.GestionEspece.Padding = new System.Windows.Forms.Padding(7, 0, 0, 0);
-            this.GestionEspece.Size = new System.Drawing.Size(238, 95);
+            this.GestionEspece.Size = new System.Drawing.Size(229, 95);
             this.GestionEspece.TabIndex = 8;
             this.GestionEspece.Text = "Gestion des éspèces";
             this.GestionEspece.UseVisualStyleBackColor = true;
@@ -104,7 +104,7 @@
             this.tacheBtn.Location = new System.Drawing.Point(-7, 666);
             this.tacheBtn.Name = "tacheBtn";
             this.tacheBtn.Padding = new System.Windows.Forms.Padding(7, 0, 0, 0);
-            this.tacheBtn.Size = new System.Drawing.Size(238, 95);
+            this.tacheBtn.Size = new System.Drawing.Size(228, 95);
             this.tacheBtn.TabIndex = 12;
             this.tacheBtn.Text = "Gestion des Taches";
             this.tacheBtn.UseVisualStyleBackColor = true;
@@ -165,7 +165,7 @@
             this.prixModBtn.Location = new System.Drawing.Point(-7, 760);
             this.prixModBtn.Name = "prixModBtn";
             this.prixModBtn.Padding = new System.Windows.Forms.Padding(7, 0, 0, 0);
-            this.prixModBtn.Size = new System.Drawing.Size(238, 95);
+            this.prixModBtn.Size = new System.Drawing.Size(228, 95);
             this.prixModBtn.TabIndex = 7;
             this.prixModBtn.Text = "Modification Prix";
             this.prixModBtn.UseVisualStyleBackColor = true;
@@ -205,7 +205,7 @@
             this.GestionEmp.Margin = new System.Windows.Forms.Padding(6, 3, 3, 3);
             this.GestionEmp.Name = "GestionEmp";
             this.GestionEmp.Padding = new System.Windows.Forms.Padding(6, 0, 0, 0);
-            this.GestionEmp.Size = new System.Drawing.Size(238, 95);
+            this.GestionEmp.Size = new System.Drawing.Size(228, 95);
             this.GestionEmp.TabIndex = 5;
             this.GestionEmp.Text = "      Gestion des Employées";
             this.GestionEmp.UseVisualStyleBackColor = true;
@@ -224,7 +224,7 @@
             this.FactureBtn.Location = new System.Drawing.Point(-8, 290);
             this.FactureBtn.Name = "FactureBtn";
             this.FactureBtn.Padding = new System.Windows.Forms.Padding(7, 0, 0, 0);
-            this.FactureBtn.Size = new System.Drawing.Size(238, 95);
+            this.FactureBtn.Size = new System.Drawing.Size(229, 95);
             this.FactureBtn.TabIndex = 4;
             this.FactureBtn.Text = "Gestion de Facture";
             this.FactureBtn.UseVisualStyleBackColor = true;
@@ -243,7 +243,7 @@
             this.ClientBtn.Location = new System.Drawing.Point(-7, 196);
             this.ClientBtn.Name = "ClientBtn";
             this.ClientBtn.Padding = new System.Windows.Forms.Padding(7, 0, 0, 0);
-            this.ClientBtn.Size = new System.Drawing.Size(248, 95);
+            this.ClientBtn.Size = new System.Drawing.Size(228, 95);
             this.ClientBtn.TabIndex = 3;
             this.ClientBtn.Text = "Gestion Des Clients";
             this.ClientBtn.UseVisualStyleBackColor = true;

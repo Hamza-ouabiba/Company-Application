@@ -32,6 +32,7 @@
 
   <ItemGroup>
     <Folder Include="Icons\" />
+    <Folder Include="UserControl\Calendar\" />
   </ItemGroup>
 
 </Project>

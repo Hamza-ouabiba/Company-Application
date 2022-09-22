@@ -1,6 +1,7 @@
 ﻿using RNetApp.Properties;
 using System;
 using System.Data;
+using System.Globalization;
 using System.Resources;
 using System.Windows.Forms;
 namespace RNetApp
@@ -8,12 +9,49 @@ namespace RNetApp
     public partial class Tache : UserControl
     {
         AdoNet ado = new AdoNet();
+        static string catego_choix = null;
+        TabPage page;
+        int month, year,day;
+        public static string Catego_choix { get => catego_choix; set => catego_choix = value; }
+        public  TabPage Page { get => page; set => page = value; }
         public Tache()
         {
             InitializeComponent();
         }
+        private void DisplayDays()
+        {
+            DateTime now = DateTime.Now;
+            month = now.Month;
+            year = now.Year;
+            string nomMois = DateTimeFormatInfo.CurrentInfo.GetMonthName(month);
+            Mois.Text = nomMois + "" + year;
+            //get the first day of the month : 
+            DateTime firstOfMonth = new DateTime(year, month, 1);
+            //get the count of days in month : 
+            int days = DateTime.DaysInMonth(year,month);
+            //get the count of days in week : 
+            int daysofWeek = Convert.ToInt32(firstOfMonth.DayOfWeek.ToString("d"))+1;
+            for (int i = 1; i < daysofWeek; i++)
+            {
+                BlankUserControl blank = new BlankUserControl();
+                dayContainer.Controls.Add(blank);
+            }
+            //display days : 
+            for (int i = 1; i <= days; i++)
+            {
+                DaysUserControl day = new DaysUserControl();
+                day.Days(i);
+                dayContainer.Controls.Add(day);
+            }
+            if (month == 12)
+            {
+                month = 1;
+                year++;
+            } 
+        }
         private void Tache_Load(object sender, EventArgs e)
         {
+            DisplayDays();
             ado.Cmd.CommandText = "gestiontache";
             ado.Cmd.CommandType = CommandType.StoredProcedure;
             ado.Cmd.Connection = ado.Connection;
@@ -22,8 +60,9 @@ namespace RNetApp
             ado.Ds.Tables[0].TableName = "tache";
             ado.Ds.Tables[1].TableName = "categorie";
             important_Click(sender, e);
+           
         }
-        private bool testPage(string namePage)
+        public bool testPage(string namePage)
         {
             foreach (TabPage tabPage in tabControl1.TabPages)
             {
@@ -103,38 +142,102 @@ namespace RNetApp
             }
             return btn;
         }
-        private void subMenus_Click(object sender, EventArgs e)
+        private void next_Click(object sender, EventArgs e)
         {
-            Button[] btn = insertingButtons();
-            if (subMenus.BackColor == Control.DefaultBackColor)
+            month++;
+
+            if (month == 13)
             {
-                foreach (Button button in btn)
-                {
-                    this.Controls.Add(button);
-                }
-                subMenus.BackColor = Color.Wheat;
-            }
-            else
+                month = 1;
+                year++;
+            } 
+            MessageBox.Show($"month = {month}");
+            dayContainer.Controls.Clear();
+            DateTime firstOfMonth = new DateTime(year, month, 1);
+            int days = DateTime.DaysInMonth(year, month);
+            //get the count of days in week : 
+            int daysofWeek = Convert.ToInt32(firstOfMonth.DayOfWeek.ToString("d"));
+            if(daysofWeek == 0)
             {
-                foreach (Button button in btn)
-                {
-                    this.Controls.Remove(button);
-                }
-                subMenus.BackColor = Control.DefaultBackColor;
+                daysofWeek = 7;
             }
-        }
-        private void subMenus_DragEnter(object sender, DragEventArgs e)
-        {
-            MessageBox.Show("ll");
-        }
-        private void subMenus_MouseEnter(object sender, EventArgs e)
-        {
-           
+            MessageBox.Show($"days of week {daysofWeek}");
+            string nomMois = DateTimeFormatInfo.CurrentInfo.GetMonthName(month);
+            Mois.Text = nomMois + "" + year;
+            for (int i = 1; i < daysofWeek; i++)
+            {
+                BlankUserControl blank = new BlankUserControl();
+                dayContainer.Controls.Add(blank);
+            }
+            //display days : 
+            for (int i = 1; i <= days; i++)
+            {
+                DaysUserControl day = new DaysUserControl();
+                day.Days(i);
+                dayContainer.Controls.Add(day);
+            }
+            MessageBox.Show($"days {days}");
+            if (month == 12)
+            {
+                month = 0;
+                year++;
+            }
         }
 
-        private void subMenus_MouseLeave(object sender, EventArgs e)
+        private void previous_Click(object sender, EventArgs e)
         {
+            month--;
+            if (month == 0)
+            {
+                month = 12;
+                year--;
+            }
+            dayContainer.Controls.Clear();
+            DateTime firstOfMonth = new DateTime(year, month, 1);
+            int days = DateTime.DaysInMonth(year, month);
+            //get the count of days in week : 
+            int daysofWeek = Convert.ToInt32(firstOfMonth.DayOfWeek.ToString("d"));
+            MessageBox.Show($"days of week {daysofWeek}");
+            string nomMois = DateTimeFormatInfo.CurrentInfo.GetMonthName(month);
+            Mois.Text = nomMois + "" + year;
+            if (daysofWeek == 0)
+            {
+                daysofWeek = 7;
+            }
+            for (int i = 1; i < daysofWeek; i++)
+            {
+                BlankUserControl blank = new BlankUserControl();
+                dayContainer.Controls.Add(blank);
+            }
+            //display days : 
+            for (int i = 1; i <= days; i++)
+            {
+                DaysUserControl day = new DaysUserControl();
+                day.Days(i);
+                dayContainer.Controls.Add(day);
+            }
+            MessageBox.Show($"days {days}");
             
+        }
+
+        private void catego_Click(object sender, EventArgs e)
+        {
+            ChoxiCategorie choix = new ChoxiCategorie();
+            ChoxiCategorie.Categorie = ado.Ds.Tables["categorie"];
+            choix.Show();
+            /*if(Catego_choix != null)
+            {
+                TabPage tabPage = new TabPage();
+                DifferentTache dt = new DifferentTache();
+                tabPage.Text = Catego_choix;
+                if (!testPage(tabPage.Text))
+                {
+                    dt.Dock = DockStyle.Fill;
+                    tabPage.Controls.Add(dt);
+                    tabControl1.TabPages.Add(tabPage);
+                }
+                else MessageBox.Show("deja existant");
+            }*/
         }
     }
 }

@@ -46,3 +46,7 @@ D:\projects\training\RNetApp\RNetApp\obj\Debug\net6.0-windows\RNetApp.important.
 D:\projects\training\RNetApp\RNetApp\obj\Debug\net6.0-windows\RNetApp.planifie.resources
 D:\projects\training\RNetApp\RNetApp\obj\Debug\net6.0-windows\RNetApp.termine.resources
 D:\projects\training\RNetApp\RNetApp\obj\Debug\net6.0-windows\RNetApp.ModifierEmploye.resources
+D:\projects\training\RNetApp\RNetApp\obj\Debug\net6.0-windows\RNetApp.ChoxiCategorie.resources
+D:\projects\training\RNetApp\RNetApp\obj\Debug\net6.0-windows\RNetApp.DifferentTache.resources
+D:\projects\training\RNetApp\RNetApp\obj\Debug\net6.0-windows\RNetApp.BlankUserControl.resources
+D:\projects\training\RNetApp\RNetApp\obj\Debug\net6.0-windows\RNetApp.DaysUserControl.resources
