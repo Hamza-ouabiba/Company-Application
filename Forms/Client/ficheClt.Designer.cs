@@ -28,79 +28,93 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.salaire = new System.Windows.Forms.Label();
+            this.nomCL = new System.Windows.Forms.TextBox();
+            this.salaire = new System.Windows.Forms.TextBox();
+            this.tel_cl = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.nomCL = new System.Windows.Forms.Label();
-            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // nomCL
+            // 
+            this.nomCL.Location = new System.Drawing.Point(54, 80);
+            this.nomCL.Name = "nomCL";
+            this.nomCL.Size = new System.Drawing.Size(239, 27);
+            this.nomCL.TabIndex = 53;
             // 
             // salaire
             // 
-            this.salaire.AutoSize = true;
-            this.salaire.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(29)))), ((int)(((byte)(30)))));
-            this.salaire.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(117)))), ((int)(((byte)(240)))));
-            this.salaire.Location = new System.Drawing.Point(199, 219);
+            this.salaire.Location = new System.Drawing.Point(54, 173);
             this.salaire.Name = "salaire";
-            this.salaire.Size = new System.Drawing.Size(52, 20);
-            this.salaire.TabIndex = 49;
-            this.salaire.Text = "salaire";
+            this.salaire.Size = new System.Drawing.Size(239, 27);
+            this.salaire.TabIndex = 54;
+            // 
+            // tel_cl
+            // 
+            this.tel_cl.Location = new System.Drawing.Point(54, 256);
+            this.tel_cl.Name = "tel_cl";
+            this.tel_cl.Size = new System.Drawing.Size(239, 27);
+            this.tel_cl.TabIndex = 55;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(54, 34);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(84, 20);
+            this.label1.TabIndex = 56;
+            this.label1.Text = "Nom Client";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(54, 131);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(127, 20);
+            this.label2.TabIndex = 57;
+            this.label2.Text = "Montant par mois";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label3.ForeColor = System.Drawing.Color.Silver;
-            this.label3.Location = new System.Drawing.Point(44, 218);
+            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.Location = new System.Drawing.Point(54, 222);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(144, 21);
-            this.label3.TabIndex = 40;
-            this.label3.Text = "Salaire par mois";
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.nomCL);
-            this.groupBox1.ForeColor = System.Drawing.Color.Gray;
-            this.groupBox1.Location = new System.Drawing.Point(24, 56);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(289, 94);
-            this.groupBox1.TabIndex = 52;
-            this.groupBox1.TabStop = false;
-            // 
-            // nomCL
-            // 
-            this.nomCL.AutoSize = true;
-            this.nomCL.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.nomCL.Location = new System.Drawing.Point(106, 37);
-            this.nomCL.Name = "nomCL";
-            this.nomCL.Size = new System.Drawing.Size(65, 28);
-            this.nomCL.TabIndex = 0;
-            this.nomCL.Text = "label1";
+            this.label3.Size = new System.Drawing.Size(78, 20);
+            this.label3.TabIndex = 58;
+            this.label3.Text = "Telephone";
             // 
             // ficheClt
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(29)))), ((int)(((byte)(30)))));
-            this.ClientSize = new System.Drawing.Size(344, 353);
-            this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.salaire);
+            this.ClientSize = new System.Drawing.Size(344, 401);
             this.Controls.Add(this.label3);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.tel_cl);
+            this.Controls.Add(this.salaire);
+            this.Controls.Add(this.nomCL);
             this.Name = "ficheClt";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ficheClt";
             this.Load += new System.EventHandler(this.ficheClt_Load);
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-        private Label salaire;
+
+        private TextBox nomCL;
+        private TextBox salaire;
+        private TextBox tel_cl;
+        private Label label1;
+        private Label label2;
         private Label label3;
-        private GroupBox groupBox1;
-        private Label nomCL;
     }
 }

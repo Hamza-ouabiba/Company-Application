@@ -1,34 +1,37 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Compile Update="BlankUserControl.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Update="ChoxiCategorie.cs">
+    <Compile Update="AjoutClient.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="DaysUserControl.cs">
+    <Compile Update="UserControl\Calendar\BlankUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Forms\Tache\ChoxiCategorie.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="UserControl\Calendar\DaysUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Update="DifferentTache.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Update="Forms\ChequeFacture.cs">
+    <Compile Update="Forms\Facture\ChequeFacture.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Forms\ficheClt.cs">
+    <Compile Update="Forms\Client\ficheClt.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Forms\FichierEmpl.cs">
+    <Compile Update="Forms\Employee\FichierEmpl.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Forms\ModifierClient.cs">
+    <Compile Update="Forms\Client\ModifierClient.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Forms\ReposCalcul.cs">
+    <Compile Update="Forms\Employee\ReposCalcul.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Forms\FactureForm.cs">
+    <Compile Update="Forms\Facture\FactureForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Forms\inscr.cs">
@@ -40,13 +43,13 @@
     <Compile Update="Forms\menu.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Forms\infoFacture.cs">
+    <Compile Update="Forms\Facture\infoFacture.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Forms\ModifierEmploye.cs">
+    <Compile Update="Forms\Employee\ModifierEmploye.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Forms\TacheAjout.cs">
+    <Compile Update="Forms\Tache\TacheAjout.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="UserControl\ArticleMod.cs">

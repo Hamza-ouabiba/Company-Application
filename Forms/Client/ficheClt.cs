@@ -23,6 +23,7 @@ namespace RNetApp
             ado.Adapter.Fill(ado.Dt);
             nomCL.Text = ado.Dt.Rows[0]["NOM"].ToString();
             salaire.Text = ado.Dt.Rows[0]["MONTANT"].ToString();
+            tel_cl.Text = ado.Dt.Rows[0]["tel_client"].ToString();
         }
 
         private void exitBtn_Click(object sender, EventArgs e)

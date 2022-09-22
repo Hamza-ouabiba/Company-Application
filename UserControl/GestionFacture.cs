@@ -32,20 +32,43 @@ namespace RNetApp
             }
             return total;
         }
+        private void fillCombo(ComboBox comb, string[] names,string value)
+        {
+            comb.Items.Clear();
+            names[0] = "Tous";
+            comb.Items.AddRange(names);
+            comb.ValueMember = value;
+        }
+        private string[] retrievingNum(DataTable dt)
+        {
+            string[] ret = new string[dt.Rows.Count+1];
+            for (int i = 1; i < ret.Length; i++)
+            {
+                ret[i] = dt.Rows[i - 1]["idfacture"].ToString();
+            }
+            return ret;
+        }
+        private string[] retrievingClients(DataTable dt)
+        {
+            string[] ret = new string[dt.Rows.Count+1];
+            for (int i = 1; i < ret.Length; i++)
+            {
+                ret[i] = dt.Rows[i - 1]["nom"].ToString();
+            }
+            return ret;
+        }
         void setDataGridView()
         {
-            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.None;
             dataGridView1.Columns["IDCLIENT"].Visible = false;
             dataGridView1.Columns["fac_n_o"].Visible = false;
-            dataGridView1.Columns["idfacture"].Width = 100;
-            dataGridView1.Columns["total_ttc"].Width = 300;
-            dataGridView1.Columns["total_ht"].Width = 300;
             dataGridView1.Columns["total_ht"].HeaderText = "Total hors taxe";
             dataGridView1.Columns["idfacture"].HeaderText = "N°Facture";
             dataGridView1.Columns["total_ttc"].HeaderText = "total ttc";
             dataGridView1.Columns["pay_o_n"].HeaderText = "etat de facture";
             dataGridView1.Columns["date_"].HeaderText = "Date de facture";
             dataGridView1.Columns["total_rest"].HeaderText = "Total restant";
+            Shared.addCol(dataGridView1, "facture", "facture", "ajout facture");
+            Shared.addCol(dataGridView1, "voir", "voir", "voir facture");
             dataGridView1.RowTemplate.Height = 40;
         }
         private void GestionFacture_Load(object sender, EventArgs e)
@@ -62,13 +85,13 @@ namespace RNetApp
             ado.Ds.Tables[4].TableName = "changer";
             dataGridView1.DataSource = ado.Ds.Tables["facture"];
             //fill the combobox : 
-            comboBox1.DisplayMember = ado.Ds.Tables["client"].Columns["nom"].ToString();
-            comboBox1.ValueMember = ado.Ds.Tables["client"].Columns["idclient"].ToString(); 
-            comboBox1.DataSource = ado.Ds.Tables["client"];
+            fillCombo(comboBox1, retrievingClients(ado.Ds.Tables["client"]),ado.Ds.Tables["client"].Columns["idclient"].ToString());
+            fillCombo(comboBox2, retrievingNum(ado.Ds.Tables["facture"]),"");
+            comboBox3.DisplayMember = ado.Ds.Tables["client"].Columns["nom"].ToString();
+            comboBox3.ValueMember = ado.Ds.Tables["client"].Columns["idclient"].ToString();
+            comboBox3.DataSource = ado.Ds.Tables["client"];
             setDataGridView();
-           
             nbrefac.Text = $"{ado.Ds.Tables["facture"].Rows.Count}";
-            
         }
         private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -87,24 +110,7 @@ namespace RNetApp
         }
         private void factureBtn_Click(object sender, EventArgs e)
         {
-            DateTime dt = DateTime.Now;
-            FactureForm form = new FactureForm();   
-            SqlCommandBuilder sql = new SqlCommandBuilder(ado.Adapter);
-            if (verificationClientPrix(Guid.Parse(comboBox1.SelectedValue.ToString())))
-            {
-                DataRow dr = ado.Ds.Tables["facture"].NewRow();
-                dr[1] = dt;
-                dr[4] = 0;
-                dr[7] = Guid.Parse(comboBox1.SelectedValue.ToString());
-                dr[6] = 0;
-                ado.Ds.Tables["facture"].Rows.Add(dr);
-                sql.GetInsertCommand();
-                ado.Adapter.Update(ado.Ds.Tables["facture"]);
-                form.IdClient = Guid.Parse(comboBox1.SelectedValue.ToString());
-                form.NameClient = comboBox1.Text;
-                form.Show();
-            }
-            else MessageBox.Show("voud devez d'abord fixer les prix pour ce client : ");
+            
         }
 
         private bool checkClient(string nomClt)
@@ -129,10 +135,6 @@ namespace RNetApp
             {
                 dataGridView1.DataSource = ado.Ds.Tables["facture"];
             }
-        }
-        private void dataGridView1_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
-        {
-            
         }
         private void groupBox1_Enter(object sender, EventArgs e)
         {
@@ -176,6 +178,85 @@ namespace RNetApp
                     ifa.Show();
                 }
             } 
+        }
+        private void dataGridView1_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            for (int i = 0; i < dataGridView1.Rows.Count; i++)
+            {
+                if (dataGridView1.Rows[i].Cells["pay_o_n"].Value.ToString() == "True")
+                {
+                    dataGridView1.Rows[i].Cells["pay_o_n"].Style.BackColor = Color.Lime;
+                }
+                else
+                {
+                    dataGridView1.Rows[i].Cells["pay_o_n"].Style.BackColor = Color.Red;
+                }
+            }
+        }
+
+        private void dataGridView1_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if(e.ColumnIndex != -1)
+            {
+                string colName = dataGridView1.Columns[e.ColumnIndex].Name;
+                if(colName == "facture")
+                {
+                    
+                } else if(colName == "voir")
+                {
+
+                }
+            }
+        }
+
+        private void comboBox1_SelectedValueChanged(object sender, EventArgs e)
+        {
+            DataView dv = new DataView(ado.Ds.Tables["facture"]);
+            if (comboBox1.Text != "Tous" && comboBox1.Text != "")
+            {
+                dv.RowFilter = $"idclient= '{comboBox1.SelectedValue}'";
+                dataGridView1.DataSource = dv;
+            }
+            else if (comboBox1.Text == "Tous" && comboBox1.Text != "")
+            {
+                dataGridView1.DataSource = ado.Ds.Tables["facture"];
+            }
+        }
+
+        private void comboBox2_SelectedValueChanged(object sender, EventArgs e)
+        {
+            DataView dv = new DataView(ado.Ds.Tables["facture"]);
+            if (comboBox2.Text != "Tous" && comboBox2.Text != "")
+            {
+                dv.RowFilter = $"idfacture = '{comboBox2.Text}'";
+                dataGridView1.DataSource = dv;
+            }
+            else
+            {
+                dataGridView1.DataSource = ado.Ds.Tables["facture"];
+            }
+        }
+
+        private void AjoutFac_Click(object sender, EventArgs e)
+        {
+            DateTime dt = DateTime.Now;
+            FactureForm form = new FactureForm();
+            SqlCommandBuilder sql = new SqlCommandBuilder(ado.Adapter);
+            if (verificationClientPrix(Guid.Parse(comboBox3.SelectedValue.ToString())))
+            {
+                DataRow dr = ado.Ds.Tables["facture"].NewRow();
+                dr[1] = dt;
+                dr[4] = 0;
+                dr[7] = Guid.Parse(comboBox3.SelectedValue.ToString());
+                dr[6] = 0;
+                ado.Ds.Tables["facture"].Rows.Add(dr);
+                sql.GetInsertCommand();
+                ado.Adapter.Update(ado.Ds.Tables["facture"]);
+                form.IdClient = Guid.Parse(comboBox3.SelectedValue.ToString());
+                form.NameClient = comboBox3.Text;
+                form.Show();
+            }
+            else MessageBox.Show("voud devez d'abord fixer les prix pour ce client : ");
         }
     }
 }

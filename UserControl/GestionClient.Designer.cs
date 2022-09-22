@@ -28,32 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.nbreClt = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.recherche = new System.Windows.Forms.TextBox();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.enregBtn = new System.Windows.Forms.Button();
-            this.Panel2 = new System.Windows.Forms.Panel();
-            this.Montant = new System.Windows.Forms.TextBox();
-            this.nomClt = new System.Windows.Forms.TextBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
-            this.rechercher = new FontAwesome.Sharp.IconButton();
             this.idClientT = new System.Windows.Forms.TextBox();
             this.error = new System.Windows.Forms.Label();
-            this.ficheBtn = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.videError = new System.Windows.Forms.Label();
+            this.clientCombo = new System.Windows.Forms.ComboBox();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.AjoutClient = new FontAwesome.Sharp.IconButton();
             this.groupBox3.SuspendLayout();
-            this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -88,145 +73,6 @@
             this.label2.TabIndex = 5;
             this.label2.Text = "nombre de client";
             // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(117)))), ((int)(((byte)(214)))));
-            this.panel1.Location = new System.Drawing.Point(777, 157);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(300, 1);
-            this.panel1.TabIndex = 67;
-            // 
-            // recherche
-            // 
-            this.recherche.BackColor = System.Drawing.SystemColors.Control;
-            this.recherche.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.recherche.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.recherche.Location = new System.Drawing.Point(777, 124);
-            this.recherche.Name = "recherche";
-            this.recherche.PlaceholderText = "Rechercher un client";
-            this.recherche.Size = new System.Drawing.Size(331, 27);
-            this.recherche.TabIndex = 66;
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.panel4);
-            this.groupBox1.Controls.Add(this.enregBtn);
-            this.groupBox1.Controls.Add(this.Panel2);
-            this.groupBox1.Controls.Add(this.Montant);
-            this.groupBox1.Controls.Add(this.nomClt);
-            this.groupBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.groupBox1.Location = new System.Drawing.Point(95, 194);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(406, 334);
-            this.groupBox1.TabIndex = 65;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(300, 124);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(43, 20);
-            this.label4.TabIndex = 65;
-            this.label4.Text = "MAD";
-            // 
-            // panel4
-            // 
-            this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(117)))), ((int)(((byte)(214)))));
-            this.panel4.Location = new System.Drawing.Point(92, 152);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(200, 1);
-            this.panel4.TabIndex = 60;
-            // 
-            // enregBtn
-            // 
-            this.enregBtn.BackColor = System.Drawing.Color.Lime;
-            this.enregBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.enregBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.enregBtn.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.enregBtn.Location = new System.Drawing.Point(41, 239);
-            this.enregBtn.Name = "enregBtn";
-            this.enregBtn.Size = new System.Drawing.Size(337, 46);
-            this.enregBtn.TabIndex = 6;
-            this.enregBtn.Text = "Enregistrer";
-            this.enregBtn.UseVisualStyleBackColor = false;
-            this.enregBtn.Click += new System.EventHandler(this.enregBtn_Click);
-            // 
-            // Panel2
-            // 
-            this.Panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(117)))), ((int)(((byte)(214)))));
-            this.Panel2.Location = new System.Drawing.Point(92, 88);
-            this.Panel2.Name = "Panel2";
-            this.Panel2.Size = new System.Drawing.Size(200, 1);
-            this.Panel2.TabIndex = 59;
-            // 
-            // Montant
-            // 
-            this.Montant.BackColor = System.Drawing.SystemColors.Control;
-            this.Montant.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.Montant.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.Montant.Location = new System.Drawing.Point(92, 121);
-            this.Montant.Name = "Montant";
-            this.Montant.PlaceholderText = "Montant Du mois";
-            this.Montant.Size = new System.Drawing.Size(176, 23);
-            this.Montant.TabIndex = 1;
-            // 
-            // nomClt
-            // 
-            this.nomClt.BackColor = System.Drawing.SystemColors.Control;
-            this.nomClt.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.nomClt.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.nomClt.Location = new System.Drawing.Point(92, 55);
-            this.nomClt.Name = "nomClt";
-            this.nomClt.PlaceholderText = "Nom client";
-            this.nomClt.Size = new System.Drawing.Size(251, 23);
-            this.nomClt.TabIndex = 0;
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.AllowUserToResizeColumns = false;
-            this.dataGridView1.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(117)))), ((int)(((byte)(240)))));
-            this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.Control;
-            this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dataGridView1.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(117)))), ((int)(((byte)(240)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
-            this.dataGridView1.EnableHeadersVisualStyles = false;
-            this.dataGridView1.Location = new System.Drawing.Point(612, 204);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.RowHeadersVisible = false;
-            this.dataGridView1.RowHeadersWidth = 51;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(117)))), ((int)(((byte)(240)))));
-            this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle3;
-            this.dataGridView1.Size = new System.Drawing.Size(1010, 457);
-            this.dataGridView1.TabIndex = 64;
-            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
-            this.dataGridView1.CellMouseEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellMouseEnter);
-            this.dataGridView1.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dataGridView1_DataBindingComplete);
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -237,27 +83,6 @@
             this.label1.Size = new System.Drawing.Size(216, 27);
             this.label1.TabIndex = 63;
             this.label1.Text = "Gestion de Clients";
-            // 
-            // rechercher
-            // 
-            this.rechercher.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(117)))), ((int)(((byte)(240)))));
-            this.rechercher.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.rechercher.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.rechercher.ForeColor = System.Drawing.Color.White;
-            this.rechercher.IconChar = FontAwesome.Sharp.IconChar.Search;
-            this.rechercher.IconColor = System.Drawing.Color.White;
-            this.rechercher.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.rechercher.IconSize = 27;
-            this.rechercher.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.rechercher.Location = new System.Drawing.Point(1103, 115);
-            this.rechercher.Name = "rechercher";
-            this.rechercher.Padding = new System.Windows.Forms.Padding(5);
-            this.rechercher.Size = new System.Drawing.Size(167, 43);
-            this.rechercher.TabIndex = 70;
-            this.rechercher.Text = "Rechercher";
-            this.rechercher.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.rechercher.UseVisualStyleBackColor = false;
-            this.rechercher.Click += new System.EventHandler(this.rechercher_Click);
             // 
             // idClientT
             // 
@@ -277,39 +102,6 @@
             this.error.TabIndex = 72;
             this.error.Visible = false;
             // 
-            // ficheBtn
-            // 
-            this.ficheBtn.BackColor = System.Drawing.Color.Yellow;
-            this.ficheBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ficheBtn.Enabled = false;
-            this.ficheBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ficheBtn.Location = new System.Drawing.Point(1442, 25);
-            this.ficheBtn.Name = "ficheBtn";
-            this.ficheBtn.Size = new System.Drawing.Size(136, 46);
-            this.ficheBtn.TabIndex = 81;
-            this.ficheBtn.Text = "Voir Fiche";
-            this.ficheBtn.UseVisualStyleBackColor = false;
-            this.ficheBtn.Click += new System.EventHandler(this.ficheBtn_Click);
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(889, 40);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(158, 20);
-            this.label3.TabIndex = 80;
-            this.label3.Text = "Fiche de chaque Client";
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(1103, 34);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(293, 28);
-            this.comboBox1.TabIndex = 79;
-            // 
             // videError
             // 
             this.videError.AutoSize = true;
@@ -322,30 +114,72 @@
             this.videError.Text = "label6";
             this.videError.Visible = false;
             // 
+            // clientCombo
+            // 
+            this.clientCombo.FormattingEnabled = true;
+            this.clientCombo.Location = new System.Drawing.Point(1146, 88);
+            this.clientCombo.Name = "clientCombo";
+            this.clientCombo.Size = new System.Drawing.Size(296, 28);
+            this.clientCombo.TabIndex = 83;
+            this.clientCombo.SelectedValueChanged += new System.EventHandler(this.clientCombo_SelectedValueChanged);
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.AllowUserToResizeColumns = false;
+            this.dataGridView1.AllowUserToResizeRows = false;
+            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.Control;
+            this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(95, 207);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.RowHeadersWidth = 51;
+            this.dataGridView1.RowTemplate.Height = 29;
+            this.dataGridView1.Size = new System.Drawing.Size(1560, 537);
+            this.dataGridView1.TabIndex = 86;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick_1);
+            this.dataGridView1.CellMouseEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellMouseEnter_1);
+            // 
+            // AjoutClient
+            // 
+            this.AjoutClient.BackColor = System.Drawing.Color.Lime;
+            this.AjoutClient.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.AjoutClient.IconChar = FontAwesome.Sharp.IconChar.PlusCircle;
+            this.AjoutClient.IconColor = System.Drawing.Color.Black;
+            this.AjoutClient.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.AjoutClient.IconSize = 30;
+            this.AjoutClient.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.AjoutClient.Location = new System.Drawing.Point(1482, 82);
+            this.AjoutClient.Name = "AjoutClient";
+            this.AjoutClient.Size = new System.Drawing.Size(146, 39);
+            this.AjoutClient.TabIndex = 87;
+            this.AjoutClient.Text = "Ajouter client";
+            this.AjoutClient.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.AjoutClient.UseVisualStyleBackColor = false;
+            this.AjoutClient.Click += new System.EventHandler(this.AjoutClient_Click);
+            // 
             // GestionClient
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.AjoutClient);
+            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.clientCombo);
             this.Controls.Add(this.videError);
-            this.Controls.Add(this.ficheBtn);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.error);
             this.Controls.Add(this.idClientT);
-            this.Controls.Add(this.rechercher);
             this.Controls.Add(this.groupBox3);
-            this.Controls.Add(this.panel1);
-            this.Controls.Add(this.recherche);
-            this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.label1);
             this.Name = "GestionClient";
             this.Size = new System.Drawing.Size(1702, 757);
             this.Load += new System.EventHandler(this.GestionClient_Load);
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -357,23 +191,12 @@
         private GroupBox groupBox3;
         private Label nbreClt;
         private Label label2;
-        internal Panel panel1;
-        private TextBox recherche;
-        private GroupBox groupBox1;
-        internal Panel panel4;
-        private Button enregBtn;
-        internal Panel Panel2;
-        private TextBox Montant;
-        private TextBox nomClt;
-        private DataGridView dataGridView1;
         private Label label1;
-        private Label label4;
-        private FontAwesome.Sharp.IconButton rechercher;
         private TextBox idClientT;
         private Label error;
-        private Button ficheBtn;
-        private Label label3;
-        private ComboBox comboBox1;
         private Label videError;
+        private ComboBox clientCombo;
+        private DataGridView dataGridView1;
+        private FontAwesome.Sharp.IconButton AjoutClient;
     }
 }

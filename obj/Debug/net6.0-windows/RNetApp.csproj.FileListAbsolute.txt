@@ -50,3 +50,4 @@ D:\projects\training\RNetApp\RNetApp\obj\Debug\net6.0-windows\RNetApp.ChoxiCateg
 D:\projects\training\RNetApp\RNetApp\obj\Debug\net6.0-windows\RNetApp.DifferentTache.resources
 D:\projects\training\RNetApp\RNetApp\obj\Debug\net6.0-windows\RNetApp.BlankUserControl.resources
 D:\projects\training\RNetApp\RNetApp\obj\Debug\net6.0-windows\RNetApp.DaysUserControl.resources
+D:\projects\training\RNetApp\RNetApp\obj\Debug\net6.0-windows\RNetApp.AjoutClient.resources

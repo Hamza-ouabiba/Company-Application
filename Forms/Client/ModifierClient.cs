@@ -81,6 +81,7 @@ namespace RNetApp.Forms
                 {
                         ado.Dt.Rows[0]["NOM"] = nomClt.Text;
                         ado.Dt.Rows[0]["MONTANT"] = decimal.Parse(Montant.Text);
+                        ado.Dt.Rows[0]["tel_client"] = telClient.Text;
                         scb.GetUpdateCommand();
                         ado.Adapter.Update(ado.Dt);
                         MessageBox.Show("modification avec succes");
