@@ -1,5 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using RNetApp.Forms;
+using System;
 using System.Data;
 using System.Data.SqlClient;
 using System.Text;
@@ -87,6 +87,10 @@ namespace RNetApp
             }
             return -1;
         }
+        private bool testSalaire(int position)
+        {
+            return decimal.Parse(salaire.Text) != decimal.Parse(ado.Dt.Rows[position]["salaire"].ToString());
+        }
         private void modifier_Click(object sender, EventArgs e)
         {
             int position = positionEmploye();
@@ -101,18 +105,57 @@ namespace RNetApp
                 else if (checkEmpWithId(prenom.Text, employe["idemploye"].ToString()) || !checkEmpl(prenom.Text))
                 {
                     ado.Dt.Rows[position]["prenom"] = prenom.Text;
-                    ado.Dt.Rows[position]["salaire"] = decimal.Parse(salaire.Text);
-                    if (decimal.Parse(avance.Text) <= decimal.Parse(SalaireRest.Text))
+                    if (decimal.Parse(SalaireRest.Text) == 0 && !testSalaire(position))
                     {
-                        ado.Dt.Rows[position]["salaire_restant"] = decimal.Parse(SalaireRest.Text) - decimal.Parse(avance.Text);
-                        ado.Dt.Rows[position]["avance"] = decimal.Parse(avance.Text);
+                            ado.Dt.Rows[position]["avance"] = decimal.Parse(avance.Text);
+                            ado.Dt.Rows[position]["date_depart"] = dateTimePicker1.Value;
+                            scb.GetUpdateCommand();
+                            ado.Adapter.Update(ado.Dt);
+                            MessageBox.Show("modification avec succes");
+                    } else if(decimal.Parse(SalaireRest.Text) == 0 && testSalaire(position))
+                    {
+                            ado.Dt.Rows[position]["salaire"] = decimal.Parse(salaire.Text);
+                            ado.Dt.Rows[position]["salaire_restant"] = decimal.Parse(salaire.Text) - decimal.Parse(avance.Text);
+                            ado.Dt.Rows[position]["avance"] = decimal.Parse(avance.Text);
+                            ado.Dt.Rows[position]["date_depart"] = dateTimePicker1.Value;
+                            scb.GetUpdateCommand();
+                            ado.Adapter.Update(ado.Dt);
+                            MessageBox.Show("modification avec succes");
                     }
-                    else MessageBox.Show("Reessayer car le montant donne est superieur au salaire restant ");
-                    scb.GetUpdateCommand();
-                    ado.Adapter.Update(ado.Dt);
-                    MessageBox.Show("modification avec succes");
+                   if(decimal.Parse(SalaireRest.Text) !=0 && !testSalaire(position))
+                    {
+                        if (decimal.Parse(avance.Text) <= decimal.Parse(SalaireRest.Text))
+                        {
+                            ado.Dt.Rows[position]["salaire_restant"] = decimal.Parse(SalaireRest.Text) - decimal.Parse(avance.Text);
+                            ado.Dt.Rows[position]["avance"] = decimal.Parse(avance.Text);
+                            ado.Dt.Rows[position]["date_depart"] = dateTimePicker1.Value;
+                            scb.GetUpdateCommand();
+                            ado.Adapter.Update(ado.Dt);
+                            MessageBox.Show("modification avec succes");
+                        }
+                        else MessageBox.Show("Reessayer car le montant donne est superieur au salaire restant ");
+                    } else if(decimal.Parse(SalaireRest.Text) != 0 && testSalaire(position))
+                    {
+                        if (decimal.Parse(avance.Text) <= decimal.Parse(salaire.Text))
+                        {
+                            ado.Dt.Rows[position]["salaire"] = decimal.Parse(salaire.Text);
+                            ado.Dt.Rows[position]["salaire_restant"] = decimal.Parse(salaire.Text) - decimal.Parse(avance.Text);
+                            ado.Dt.Rows[position]["avance"] = decimal.Parse(avance.Text);
+                            ado.Dt.Rows[position]["date_depart"] = dateTimePicker1.Value;
+                            scb.GetUpdateCommand();
+                            ado.Adapter.Update(ado.Dt);
+                            MessageBox.Show("modification avec succes");
+                        }
+                        else MessageBox.Show("Reessayer car le montant donne est superieur au salaire  ");
+                    }
                 }
             }
+        }
+        private void congerBtn_Click(object sender, EventArgs e)
+        {
+            int position = positionEmploye();
+            ReposCalcul repos_cal = new ReposCalcul();
+            ReposCalcul.IdEmploye = Guid.Parse(ado.Dt.Rows[position]["idemploye"].ToString());
         }
     }
 }

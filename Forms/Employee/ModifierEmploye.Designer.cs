@@ -34,7 +34,6 @@
             this.SalaireRest = new System.Windows.Forms.TextBox();
             this.abscence = new System.Windows.Forms.TextBox();
             this.modifier = new System.Windows.Forms.Button();
-            this.congerBtn = new FontAwesome.Sharp.IconButton();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -44,6 +43,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.repos = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.dateDebut = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -98,25 +98,6 @@
             this.modifier.Text = "Modifier";
             this.modifier.UseVisualStyleBackColor = false;
             this.modifier.Click += new System.EventHandler(this.modifier_Click);
-            // 
-            // congerBtn
-            // 
-            this.congerBtn.BackColor = System.Drawing.Color.Lime;
-            this.congerBtn.Enabled = false;
-            this.congerBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.congerBtn.IconChar = FontAwesome.Sharp.IconChar.Calendar;
-            this.congerBtn.IconColor = System.Drawing.Color.Black;
-            this.congerBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.congerBtn.IconSize = 27;
-            this.congerBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.congerBtn.Location = new System.Drawing.Point(479, 251);
-            this.congerBtn.Name = "congerBtn";
-            this.congerBtn.Padding = new System.Windows.Forms.Padding(3, 0, 0, 0);
-            this.congerBtn.Size = new System.Drawing.Size(160, 44);
-            this.congerBtn.TabIndex = 73;
-            this.congerBtn.Text = "Calcul de Repos";
-            this.congerBtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.congerBtn.UseVisualStyleBackColor = false;
             // 
             // dataGridView1
             // 
@@ -186,21 +167,29 @@
             // 
             this.repos.Location = new System.Drawing.Point(457, 203);
             this.repos.Name = "repos";
+            this.repos.ReadOnly = true;
             this.repos.Size = new System.Drawing.Size(203, 27);
             this.repos.TabIndex = 80;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(457, 320);
+            this.label6.Location = new System.Drawing.Point(457, 266);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(171, 20);
             this.label6.TabIndex = 83;
             this.label6.Text = "Date de debut de travail";
             // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Location = new System.Drawing.Point(443, 352);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(236, 27);
+            this.dateTimePicker1.TabIndex = 84;
+            // 
             // dateDebut
             // 
-            this.dateDebut.Location = new System.Drawing.Point(457, 352);
+            this.dateDebut.Location = new System.Drawing.Point(457, 298);
             this.dateDebut.Name = "dateDebut";
             this.dateDebut.Size = new System.Drawing.Size(203, 27);
             this.dateDebut.TabIndex = 82;
@@ -210,6 +199,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1639, 570);
+            this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.dateDebut);
             this.Controls.Add(this.label4);
@@ -220,7 +210,6 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.congerBtn);
             this.Controls.Add(this.modifier);
             this.Controls.Add(this.abscence);
             this.Controls.Add(this.SalaireRest);
@@ -243,7 +232,6 @@
         private TextBox SalaireRest;
         private TextBox textBox5;
         private Button modifier;
-        private FontAwesome.Sharp.IconButton congerBtn;
         private DataGridView dataGridView1;
         private Label label1;
         private Label label2;
@@ -257,6 +245,7 @@
         private TextBox repos;
         private TextBox prenom;
         private Label label6;
+        private DateTimePicker dateTimePicker1;
         private TextBox dateDebut;
     }
 }

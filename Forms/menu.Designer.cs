@@ -85,7 +85,7 @@
             this.GestionEspece.Location = new System.Drawing.Point(-8, 572);
             this.GestionEspece.Name = "GestionEspece";
             this.GestionEspece.Padding = new System.Windows.Forms.Padding(7, 0, 0, 0);
-            this.GestionEspece.Size = new System.Drawing.Size(229, 95);
+            this.GestionEspece.Size = new System.Drawing.Size(236, 95);
             this.GestionEspece.TabIndex = 8;
             this.GestionEspece.Text = "Gestion des éspèces";
             this.GestionEspece.UseVisualStyleBackColor = true;
@@ -205,7 +205,7 @@
             this.GestionEmp.Margin = new System.Windows.Forms.Padding(6, 3, 3, 3);
             this.GestionEmp.Name = "GestionEmp";
             this.GestionEmp.Padding = new System.Windows.Forms.Padding(6, 0, 0, 0);
-            this.GestionEmp.Size = new System.Drawing.Size(228, 95);
+            this.GestionEmp.Size = new System.Drawing.Size(235, 95);
             this.GestionEmp.TabIndex = 5;
             this.GestionEmp.Text = "      Gestion des Employées";
             this.GestionEmp.UseVisualStyleBackColor = true;

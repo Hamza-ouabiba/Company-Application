@@ -17,6 +17,20 @@ namespace RNetApp
         }
         AdoNet ado = new AdoNet();
         public static Guid IdChef { get => idChef; set => idChef = value; }
+        private void fillCombo(ComboBox com,string[] names)
+        {
+            names[0] = "Tous";
+            com.Items.AddRange(names);
+        }
+        private string[] retrievingEmployees(DataTable dt)
+        {
+            string[] ret = new string[dt.Rows.Count + 1];
+            for (int i = 1; i < ret.Length; i++)
+            {
+                ret[i] = dt.Rows[i - 1]["prenom"].ToString();
+            }
+            return ret;
+        }
         private void GestionEmploye_Load(object sender, EventArgs e)
         {
             ado.Cmd.CommandText = "Select * from EMPLOYE";
@@ -25,22 +39,15 @@ namespace RNetApp
             ado.Adapter.Fill(ado.Ds, "EMPLOYE");
             dataGridView1.DataSource = ado.Ds.Tables["EMPLOYE"];
             comboBox1.DataSource = ado.Ds.Tables["EMPLOYE"];
-            nbrEmp.Text = $"{ado.Ds.Tables["EMPLOYE"].Rows.Count}";
             comboBox1.DisplayMember = ado.Ds.Tables["EMPLOYE"].Columns["PRENOM"].ToString();
             comboBox1.ValueMember = ado.Ds.Tables["EMPLOYE"].Columns["IDEMPLOYE"].ToString();
+            fillCombo(comboEmp, retrievingEmployees(ado.Ds.Tables["employe"]));
             dataGridView1.Columns["IDEMPLOYE"].Visible = false;
             dataGridView1.Columns["IDCHEF"].Visible = false;
             dataGridView1.Columns["DATE_DEPART"].Visible = false;
             dataGridView1.Columns["DATE_FIN"].Visible = false;
             dataGridView1.Columns["AGE"].Visible = false;
-            dataGridView1.Columns["PRENOM"].Width = 100;
-            dataGridView1.Columns["PRENOM"].Width = 100;
-            dataGridView1.Columns["SALAIRE"].Width = 100;
-            dataGridView1.Columns["SALAIRE_RESTANT"].Width = 150;
-            dataGridView1.Columns["repos"].Width = 100;
-            dataGridView1.Columns["abscence"].Width = 100;
             dataGridView1.RowTemplate.Height = 50;
-            dataGridView1.RowHeadersVisible = false;
             Shared.addCol(dataGridView1, "delete", "delete","supprimer");
             Shared.addCol(dataGridView1, "edit", "edit","modifier");
             Shared.addCol(dataGridView1, "calendar", "repos","") ;
@@ -48,14 +55,7 @@ namespace RNetApp
             dataGridView1.Columns["SALAIRE"].HeaderText = "Salaire";
             dataGridView1.Columns["SALAIRE_RESTANT"].HeaderText = "Salaire Restant";
             dataGridView1.Columns["AVANCE"].HeaderText = "Avance";
-            for (int i = 0; i < dataGridView1.Rows.Count; i++)
-            {
-                if (decimal.Parse(dataGridView1.Rows[i].Cells["SALAIRE_RESTANT"].Value.ToString()) ==  0)
-                {
-                    dataGridView1.Rows[i].DefaultCellStyle.BackColor = Color.Lime;
-                }
-                else dataGridView1.Rows[i].DefaultCellStyle.BackColor = Color.Orange;
-            }
+            nbrEmp.Text = $"{ado.Ds.Tables["EMPLOYE"].Rows.Count}";
         }
         private void congerBtn_Click(object sender, EventArgs e)
         {
@@ -105,82 +105,47 @@ namespace RNetApp
             }
             return false;
         }
-        private bool checkInfo()
+        private void filtreBtn_Click(object sender, EventArgs e)
         {
-            return nom.Text != "" && prenom.Text != "" && age.Text != "" && salaire.Text != "";
+            DataView dv = new DataView(ado.Ds.Tables["EMPLOYE"]);
+            dv.RowFilter = $"salaire_restant = {0}";
+            dataGridView1.DataSource = dv;
         }
-        private void empBtn_Click(object sender, EventArgs e)
+        private void filtreNnPai_Click(object sender, EventArgs e)
         {
-            DataRow dr;
-            SqlCommandBuilder sql = new SqlCommandBuilder(ado.Adapter);
-            if(!checkEmpl(prenom.Text))
+            DataView dv = new DataView(ado.Ds.Tables["EMPLOYE"]);
+            dv.RowFilter = $"salaire_restant > {0}";
+            dataGridView1.DataSource = dv;
+        }
+        private void dataGridView1_DataBindingComplete_1(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            for (int i = 0; i < dataGridView1.Rows.Count; i++)
             {
-                try
+                if (decimal.Parse(dataGridView1.Rows[i].Cells["SALAIRE_RESTANT"].Value.ToString()) == 0)
                 {
-                   if(checkInfo())
-                    {
-                        affich.Visible = false;
-                        dr = ado.Ds.Tables["EMPLOYE"].NewRow();
-                        dr[1] = IdChef;
-                        dr[2] = nom.Text;
-                        dr[3] = prenom.Text;
-                        dr[4] = age.Text;
-                        dr[5] = dateTimePicker1.Value;
-                        dr[8] = decimal.Parse(avance.Text);
-                        dr[9] = decimal.Parse(salaire.Text);
-                        dr[10] = decimal.Parse(salaire.Text) - decimal.Parse(avance.Text);
-                        dr[11] = int.Parse(abscence.Text);
-                        //attendre les repos depuis le formulaire de calcule : 
-                        //
-                        ado.Ds.Tables["EMPLOYE"].Rows.Add(dr);
-                        sql.GetInsertCommand();
-                        ado.Adapter.Update(ado.Ds.Tables["EMPLOYE"]);
-                        ado.Ds.Tables["EMPLOYE"].Clear();
-                        ado.Cmd.CommandText = "Select * from EMPLOYE";
-                        ado.Cmd.Connection = ado.Connection;
-                        ado.Adapter.SelectCommand = ado.Cmd;
-                        ado.Adapter.Fill(ado.Ds, "EMPLOYE");
-                        dataGridView1.DataSource = ado.Ds.Tables["EMPLOYE"];
-                    }
-                    else
-                    {
-                        affich.Visible = true;
-                        affich.Text = "Veuillez remplir les champs requis";
-                    }
-                } catch(Exception ex)
-                {
-                    MessageBox.Show(ex.Message);
+                    dataGridView1.Rows[i].DefaultCellStyle.BackColor = Color.Lime;
                 }
-            } else
-            {
-                affich.Visible = true;
-                affich.Text = "Employée existe deja";
+                else dataGridView1.Rows[i].DefaultCellStyle.BackColor = Color.Orange;
             }
         }
-        private void rechercher_Click(object sender, EventArgs e)
+
+        private void dataGridView1_CellMouseEnter_1(object sender, DataGridViewCellEventArgs e)
         {
-            if (recherche.Text != "")
+            if (e.ColumnIndex != -1)
             {
-                DataView dv = new DataView(ado.Ds.Tables["EMPLOYE"]);
-                if (checkEmpl(recherche.Text.ToLower()))
+                string colName = dataGridView1.Columns[e.ColumnIndex].Name;
+                if (colName != "delete" && colName != "edit" && colName != "add")
                 {
-                    error.Visible = false;
-                    dv.RowFilter = $"PRENOM like '{recherche.Text}'";
-                    dataGridView1.DataSource = dv;
+                    dataGridView1.Cursor = Cursors.Default;
                 }
                 else
                 {
-                    error.Visible = true;
-                    error.Text = "Cet employé n'existe pas";
+                    dataGridView1.Cursor = Cursors.Hand;
                 }
             }
-            else
-            {
-                error.Visible = true;
-                error.Text = "Veuillez inserer quelque chose";
-            }
         }
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+
+        private void dataGridView1_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
         {
             if (e.ColumnIndex != -1)
             {
@@ -193,7 +158,7 @@ namespace RNetApp
                         SqlCommandBuilder scb = new SqlCommandBuilder(ado.Adapter);
                         scb.GetDeleteCommand();
                         ado.Ds.Tables["EMPLOYE"].Rows[e.RowIndex].Delete();
-                        ado.Adapter.Update(ado.Ds.Tables["EMPLOYE"]) ;
+                        ado.Adapter.Update(ado.Ds.Tables["EMPLOYE"]);
                         nbrEmp.Text = $"{ado.Ds.Tables["EMPLOYE"].Rows.Count}";
                     }
                 }
@@ -207,52 +172,50 @@ namespace RNetApp
                         me.Employe = dr;
                         me.Show();
                     }
-                } else if(colName == "calendar")
+                }
+                else if (colName == "calendar")
                 {
                     ReposCalcul rc = new ReposCalcul();
                     ReposCalcul.IdEmploye = Guid.Parse(dataGridView1.Rows[e.RowIndex].Cells["idemploye"].Value.ToString());
                     rc.Show();
+                } else if(colName == "add")
+                {
+                    AjoutEmploye ajoutEmploye = new AjoutEmploye();
+                    ajoutEmploye.Show();
                 }
             }
         }
-        private void dataGridView1_CellMouseEnter(object sender, DataGridViewCellEventArgs e)
+        private void refresh_Click(object sender, EventArgs e)
         {
-            if (e.ColumnIndex != -1)
+            //refreshing datagridview
+            ado.Ds.Tables["employe"].Clear();
+            ado.Cmd.CommandText = "Select * from EMPLOYE";
+            ado.Cmd.Connection = ado.Connection;
+            ado.Adapter.SelectCommand = ado.Cmd;
+            ado.Adapter.Fill(ado.Ds, "EMPLOYE");
+            dataGridView1.DataSource = ado.Ds.Tables["EMPLOYE"];
+            //refreshing combobox : 
+            comboEmp.Items.Clear();
+            fillCombo(comboEmp, retrievingEmployees(ado.Ds.Tables["employe"]));
+        }
+        private void comboEmp_SelectedValueChanged(object sender, EventArgs e)
+        {
+            DataView dv = new DataView(ado.Ds.Tables["employe"]);
+            if (comboEmp.Text != "Tous" && comboEmp.Text != "")
             {
-                string colName = dataGridView1.Columns[e.ColumnIndex].Name;
-                if (colName != "delete" && colName != "edit")
-                {
-                    dataGridView1.Cursor = Cursors.Default;
-                }
-                else
-                {
-                    dataGridView1.Cursor = Cursors.Hand;
-                }
+                dv.RowFilter = $"prenom = '{comboEmp.Text}'";
+                dataGridView1.DataSource = dv;
             }
-        }
-        private void filtreBtn_Click(object sender, EventArgs e)
-        {
-            DataView dv = new DataView(ado.Ds.Tables["EMPLOYE"]);
-            dv.RowFilter = $"salaire_restant = {0}";
-            dataGridView1.DataSource = dv;
-        }
-
-        private void dataGridView1_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
-        {
-            for(int i=0;i<dataGridView1.Rows.Count;i++)
+            else if (comboEmp.Text == "Tous" )
             {
-                if(decimal.Parse(dataGridView1.Rows[i].Cells["SALAIRE_RESTANT"].Value.ToString()) == 0)
-                {
-                    dataGridView1.Rows[i].DefaultCellStyle.BackColor = Color.Lime;
-                } else dataGridView1.Rows[i].DefaultCellStyle.BackColor = Color.Orange;
+                dataGridView1.DataSource = ado.Ds.Tables["employe"];
             }
         }
 
-        private void filtreNnPai_Click(object sender, EventArgs e)
+        private void AjoutEmp_Click(object sender, EventArgs e)
         {
-            DataView dv = new DataView(ado.Ds.Tables["EMPLOYE"]);
-            dv.RowFilter = $"salaire_restant > {0}";
-            dataGridView1.DataSource = dv;
+            AjoutEmploye ajoutEmploye = new AjoutEmploye();
+            ajoutEmploye.Show();
         }
     }
 }

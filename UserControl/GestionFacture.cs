@@ -80,7 +80,6 @@ namespace RNetApp
             dataGridView1.Columns["pay_o_n"].HeaderText = "etat de facture";
             dataGridView1.Columns["date_"].HeaderText = "Date de facture";
             dataGridView1.Columns["total_rest"].HeaderText = "Total restant";
-            Shared.addCol(dataGridView1, "facture", "facture", "ajout facture");
             Shared.addCol(dataGridView1, "voir", "voir", "voir facture");
             dataGridView1.RowTemplate.Height = 40;
         }
@@ -104,10 +103,6 @@ namespace RNetApp
             comboBox3.DataSource = ado.Ds.Tables["client"];
             setDataGridView();
             nbrefac.Text = $"{ado.Ds.Tables["facture"].Rows.Count}";
-        }
-        private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
-        {
-               
         }
         private bool verificationClientPrix(Guid idclient)
         {

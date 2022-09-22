@@ -51,3 +51,4 @@ D:\projects\training\RNetApp\RNetApp\obj\x64\Debug\net6.0-windows\RNetApp.Gestio
 D:\projects\training\RNetApp\RNetApp\obj\x64\Debug\net6.0-windows\RNetApp.important.resources
 D:\projects\training\RNetApp\RNetApp\obj\x64\Debug\net6.0-windows\RNetApp.planifie.resources
 D:\projects\training\RNetApp\RNetApp\obj\x64\Debug\net6.0-windows\RNetApp.termine.resources
+D:\projects\training\RNetApp\RNetApp\obj\x64\Debug\net6.0-windows\RNetApp.AjoutEmploye.resources

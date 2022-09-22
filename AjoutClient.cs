@@ -41,7 +41,7 @@ namespace RNetApp
                         dr = ado.Dt.NewRow();
                         dr[1] = nomClt.Text;
                         dr[2] = decimal.Parse(Montant.Text);
-                         dr[3] = telClient.Text;
+                        dr[3] = telClient.Text;
                         ado.Dt.Rows.Add(dr);
                         sql.GetInsertCommand();
                         ado.Adapter.Update(ado.Dt);

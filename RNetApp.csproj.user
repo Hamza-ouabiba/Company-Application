@@ -4,6 +4,9 @@
     <Compile Update="AjoutClient.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="AjoutEmploye.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="UserControl\Calendar\BlankUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
