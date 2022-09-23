@@ -24,26 +24,31 @@ namespace RNetApp.Forms
         {
             Application.Exit();
         }
-        private void FactureForm_Load(object sender, EventArgs e)
+        private void ajustementEcran()
         {
             this.MaximizedBounds = Screen.FromHandle(this.Handle).WorkingArea;
             this.WindowState = FormWindowState.Maximized;
-            DateTime date = DateTime.Now;
+        }
+        private void loadData()
+        {
             ado.Cmd.CommandText = $"Select * from FACTURE where idClient = '{IdClient}'";
             ado.Cmd.Connection = ado.Connection;
             ado.Adapter.SelectCommand = ado.Cmd;
             ado.Adapter.Fill(ado.Ds, "FACTURE");
+        }
+        private void FactureForm_Load(object sender, EventArgs e)
+        {
+            DateTime date = DateTime.Now;
+            ajustementEcran();
+            loadData();
             nomCl.Text = nameClient;
-            MessageBox.Show(ado.Ds.Tables["facture"].Rows.Count.ToString());
             for (int i = 0; i < ado.Ds.Tables["FACTURE"].Rows.Count; i++)
             {
-                MessageBox.Show(ado.Ds.Tables["FACTURE"].Rows[i]["fac_n_o"].ToString());
                 if (ado.Ds.Tables["FACTURE"].Rows[i]["fac_n_o"].ToString() == "0")
                 {
                     position = i;
                     idFacture = int.Parse(ado.Ds.Tables["FACTURE"].Rows[i]["idFacture"].ToString());
                     dateNow.Text = $"{date.Day}/{date.Month}/{date.Year}";
-                    MessageBox.Show(ado.Ds.Tables["FACTURE"].Rows[i]["idFacture"].ToString());
                     facturNum.Text = $"{ado.Ds.Tables["FACTURE"].Rows[i]["idFacture"].ToString()}/{date.Year}";
                     break;
                 }
@@ -66,7 +71,6 @@ namespace RNetApp.Forms
             SqlCommandBuilder sql = new SqlCommandBuilder(ado.Adapter);
             AdoNet ado2 = new AdoNet();
             decimal total = 0;
-            MessageBox.Show($"{IdClient}");
             try
             {
                 ado2.Cmd.CommandText = $"Select * from changer where IDCLIENT = '{IdClient}'";
@@ -293,22 +297,26 @@ namespace RNetApp.Forms
                 dr[1] = "lavette";
                 dr[2] = int.Parse(textBox35.Text);
                 total += int.Parse(textBox35.Text) * prix[34];
+
                 ado3.Ds.Tables["avoir"].Rows.Add(dr);
                 //mise a jour de la base de donnée : 
                 SqlCommandBuilder sql2 = new SqlCommandBuilder(ado3.Adapter);
                 sql2.GetInsertCommand();
                 ado3.Adapter.Update(ado3.Ds.Tables["avoir"]);
+
                 //mise a jour de la table facture : 
                 ado.Ds.Tables["FACTURE"].Rows[position]["fac_n_o"] = 1;
                 ado.Ds.Tables["FACTURE"].Rows[position]["total_ht"] = total;
                 ado.Ds.Tables["FACTURE"].Rows[position]["total_ttc"] = (total * tva_) + total;
                 ado.Ds.Tables["FACTURE"].Rows[position]["total_rest"] = (total * tva_) + total;
-                MessageBox.Show($"{total}");
+
                 ado.Adapter.Update(ado.Ds.Tables["FACTURE"]);
                 pht.Visible = tva.Visible = pttc.Visible = true;
+
                 pht.Text = $"{total}";
                 tva.Text = $"{total * tva_}";
                 pttc.Text = $"{(total * tva_) + total}";
+
             } catch (SqlException ex)
             {
                 if (ex.Number == 2627)

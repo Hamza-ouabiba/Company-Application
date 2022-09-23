@@ -49,6 +49,20 @@ namespace RNetApp
                 year++;
             } 
         }
+        //inserting tabpages using categories : 
+        private void insertTabPages()
+        {
+            //convert all categories to string : 
+            TabPage tabPage;
+            foreach(DataRow row in ado.Ds.Tables["categorie"].Rows)
+            {
+                //insert to tabcontro: 
+                tabPage = new TabPage();
+                tabControl1.Controls.Add(tabPage);
+                tabPage.Text = row["nomcategorie"].ToString();
+            }
+            MessageBox.Show(tabControl1.TabPages[3].Text);
+        }
         private void Tache_Load(object sender, EventArgs e)
         {
             DisplayDays();
@@ -59,6 +73,7 @@ namespace RNetApp
             ado.Adapter.Fill(ado.Ds);
             ado.Ds.Tables[0].TableName = "tache";
             ado.Ds.Tables[1].TableName = "categorie";
+            insertTabPages();
             important_Click(sender, e);
            
         }
@@ -76,7 +91,7 @@ namespace RNetApp
         private void important_Click(object sender, EventArgs e)
         {
                TabPage tabPage = new TabPage();
-               important ip = new important();
+               TacheVariante ip = new TacheVariante();
                tabPage.Text = "Important";
                 if (!testPage(tabPage.Text))
                 {
@@ -88,14 +103,14 @@ namespace RNetApp
         }
         private void ajouTache_Click(object sender, EventArgs e)
         {
-            TacheAjout tacheAjout = new TacheAjout();
-            tacheAjout.Show();
+            AjouTache ajouTache = new AjouTache();
+            ajouTache.Show();
         }
         
         private void planifie_Click(object sender, EventArgs e)
         {
             TabPage tabPage = new TabPage();
-            planifie p = new planifie();
+            TacheVariante p = new TacheVariante();
             tabPage.Text = "planifie";
             if (!testPage(tabPage.Text))
             {
@@ -184,6 +199,16 @@ namespace RNetApp
             }
         }
 
+        private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string currenCategoryName = tabControl1.TabPages[tabControl1.SelectedIndex].Text;
+            //set the datagridview for all each categorie : 
+            TacheVariante p = new TacheVariante();
+            TacheVariante.Name1 = currenCategoryName;
+            p.Dock = DockStyle.Fill;
+            tabControl1.SelectedTab.Controls.Add(p);
+        }
+
         private void previous_Click(object sender, EventArgs e)
         {
             month--;
@@ -222,8 +247,7 @@ namespace RNetApp
 
         private void catego_Click(object sender, EventArgs e)
         {
-            ChoxiCategorie choix = new ChoxiCategorie();
-            ChoxiCategorie.Categorie = ado.Ds.Tables["categorie"];
+            ChoixCategorie choix = new ChoixCategorie();
             choix.Show();
             /*if(Catego_choix != null)
             {

@@ -33,17 +33,18 @@ namespace RNetApp
             Shared.addCol(dataGridView1, "edit", "edit", "");
             Shared.addCol(dataGridView1, "delete", "delete", "");
         }
+        private void loadData(string dataSource)
+        {
+            ado.Cmd.CommandText = $"SELECT * FROM {dataSource}";
+            ado.Cmd.Connection = ado.Connection;
+            ado.Adapter.SelectCommand = ado.Cmd;
+            ado.Adapter.Fill(ado.Ds, dataSource);
+        }
         private void GestionCheque_Load(object sender, EventArgs e)
         {
-            ado.Cmd.CommandText = $"SELECT * FROM CHEQUE";
-            ado.Cmd.Connection = ado.Connection;
-            ado.Adapter.SelectCommand = ado.Cmd;
-            ado.Adapter.Fill(ado.Ds, "Cheque");
+            loadData("cheque");
             dataGridView1.DataSource = ado.Ds.Tables["Cheque"];
-            ado.Cmd.CommandText = $"SELECT * FROM client";
-            ado.Cmd.Connection = ado.Connection;
-            ado.Adapter.SelectCommand = ado.Cmd;
-            ado.Adapter.Fill(ado.Ds, "client");
+            loadData("client");
             fillCombo(comboBox1, retrievingEmployees(ado.Ds.Tables["client"]));
             setDataGrid();
         }

@@ -192,7 +192,11 @@
             this.Controls.Add(this.enrBtn);
             this.Controls.Add(this.montantEsp);
             this.Controls.Add(this.Panel2);
+            this.MaximizeBox = false;
+            this.MdiChildrenMinimizedAnchorBottom = false;
+            this.MinimizeBox = false;
             this.Name = "AjoutEspece";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AjoutEspece";
             this.Load += new System.EventHandler(this.AjoutEspece_Load);
             this.groupBox1.ResumeLayout(false);

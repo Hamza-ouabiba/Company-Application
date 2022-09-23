@@ -31,36 +31,53 @@ namespace RNetApp
             }
             return ret;
         }
-        private void GestionEmploye_Load(object sender, EventArgs e)
+        private void setDataGridViewIcons()
         {
-            ado.Cmd.CommandText = "Select * from EMPLOYE";
-            ado.Cmd.Connection = ado.Connection;
-            ado.Adapter.SelectCommand = ado.Cmd;
-            ado.Adapter.Fill(ado.Ds, "EMPLOYE");
-            dataGridView1.DataSource = ado.Ds.Tables["EMPLOYE"];
-            comboBox1.DataSource = ado.Ds.Tables["EMPLOYE"];
-            comboBox1.DisplayMember = ado.Ds.Tables["EMPLOYE"].Columns["PRENOM"].ToString();
-            comboBox1.ValueMember = ado.Ds.Tables["EMPLOYE"].Columns["IDEMPLOYE"].ToString();
-            fillCombo(comboEmp, retrievingEmployees(ado.Ds.Tables["employe"]));
+            Shared.addCol(dataGridView1, "delete", "delete", "supprimer");
+            Shared.addCol(dataGridView1, "edit", "edit", "modifier");
+            Shared.addCol(dataGridView1, "calendar", "repos", "");
+        }
+        private void setDataGridView()
+        {
             dataGridView1.Columns["IDEMPLOYE"].Visible = false;
             dataGridView1.Columns["IDCHEF"].Visible = false;
             dataGridView1.Columns["DATE_DEPART"].Visible = false;
             dataGridView1.Columns["DATE_FIN"].Visible = false;
             dataGridView1.Columns["AGE"].Visible = false;
-            dataGridView1.RowTemplate.Height = 50;
-            Shared.addCol(dataGridView1, "delete", "delete","supprimer");
-            Shared.addCol(dataGridView1, "edit", "edit","modifier");
-            Shared.addCol(dataGridView1, "calendar", "repos","") ;
             dataGridView1.Columns["PRENOM"].HeaderText = "Prénom";
             dataGridView1.Columns["SALAIRE"].HeaderText = "Salaire";
             dataGridView1.Columns["SALAIRE_RESTANT"].HeaderText = "Salaire Restant";
             dataGridView1.Columns["AVANCE"].HeaderText = "Avance";
-            nbrEmp.Text = $"{ado.Ds.Tables["EMPLOYE"].Rows.Count}";
+            setDataGridViewIcons();
+            dataGridView1.RowTemplate.Height = 50;
+        }
+        private void fillComboWithDataSource(ComboBox com)
+        {
+            com.DataSource = ado.Dt;
+            com.DisplayMember = ado.Dt.Columns["PRENOM"].ToString();
+            com.ValueMember = ado.Dt.Columns["IDEMPLOYE"].ToString();
+        }
+        private void GestionEmploye_Load(object sender, EventArgs e)
+        {
+            //fill the dataSet! 
+            ado.Cmd.CommandText = "Select * from EMPLOYE";
+            ado.Cmd.Connection = ado.Connection;
+            ado.Adapter.SelectCommand = ado.Cmd;
+            ado.Adapter.Fill(ado.Dt);
+            dataGridView1.DataSource = ado.Dt;
+
+            fillComboWithDataSource(comboBox1);
+
+            fillCombo(comboEmp, retrievingEmployees(ado.Dt));
+
+            setDataGridView();
+
+            nbrEmp.Text = $"{ado.Dt.Rows.Count}";
         }
         private void congerBtn_Click(object sender, EventArgs e)
         {
             ReposCalcul rc = new ReposCalcul();
-            ReposCalcul.IdEmploye = Guid.Parse(ado.Ds.Tables["EMPLOYE"].Rows[position][0].ToString());
+            ReposCalcul.IdEmploye = Guid.Parse(ado.Dt.Rows[position][0].ToString());
             rc.Show();
         }
        /* private bool checkEmpWithId(string nomEmp, string id)
@@ -96,7 +113,7 @@ namespace RNetApp
         }
         private bool checkEmpl(string prenom)
         {
-            foreach(DataRow row in ado.Ds.Tables["EMPLOYE"].Rows)
+            foreach(DataRow row in ado.Dt.Rows)
             {
                 if (row["PRENOM"].ToString().ToLower() == prenom.ToLower())
                 {
@@ -107,13 +124,13 @@ namespace RNetApp
         }
         private void filtreBtn_Click(object sender, EventArgs e)
         {
-            DataView dv = new DataView(ado.Ds.Tables["EMPLOYE"]);
+            DataView dv = new DataView(ado.Dt);
             dv.RowFilter = $"salaire_restant = {0}";
             dataGridView1.DataSource = dv;
         }
         private void filtreNnPai_Click(object sender, EventArgs e)
         {
-            DataView dv = new DataView(ado.Ds.Tables["EMPLOYE"]);
+            DataView dv = new DataView(ado.Dt);
             dv.RowFilter = $"salaire_restant > {0}";
             dataGridView1.DataSource = dv;
         }
@@ -157,9 +174,9 @@ namespace RNetApp
                     {
                         SqlCommandBuilder scb = new SqlCommandBuilder(ado.Adapter);
                         scb.GetDeleteCommand();
-                        ado.Ds.Tables["EMPLOYE"].Rows[e.RowIndex].Delete();
-                        ado.Adapter.Update(ado.Ds.Tables["EMPLOYE"]);
-                        nbrEmp.Text = $"{ado.Ds.Tables["EMPLOYE"].Rows.Count}";
+                        ado.Dt.Rows[e.RowIndex].Delete();
+                        ado.Adapter.Update(ado.Dt);
+                        nbrEmp.Text = $"{ado.Dt.Rows.Count}";
                     }
                 }
                 else if (colName == "edit")
@@ -168,7 +185,7 @@ namespace RNetApp
                     if (confirmation)
                     {
                         ModifierEmploye me = new ModifierEmploye();
-                        DataRow dr = ado.Ds.Tables["EMPLOYE"].Rows[e.RowIndex];
+                        DataRow dr = ado.Dt.Rows[e.RowIndex];
                         me.Employe = dr;
                         me.Show();
                     }
@@ -188,19 +205,21 @@ namespace RNetApp
         private void refresh_Click(object sender, EventArgs e)
         {
             //refreshing datagridview
-            ado.Ds.Tables["employe"].Clear();
+            ado.Dt.Clear();
             ado.Cmd.CommandText = "Select * from EMPLOYE";
             ado.Cmd.Connection = ado.Connection;
             ado.Adapter.SelectCommand = ado.Cmd;
-            ado.Adapter.Fill(ado.Ds, "EMPLOYE");
-            dataGridView1.DataSource = ado.Ds.Tables["EMPLOYE"];
+            ado.Adapter.Fill(ado.Dt);
+
+            dataGridView1.DataSource = ado.Dt;
             //refreshing combobox : 
+
             comboEmp.Items.Clear();
-            fillCombo(comboEmp, retrievingEmployees(ado.Ds.Tables["employe"]));
+            fillCombo(comboEmp, retrievingEmployees(ado.Dt));
         }
         private void comboEmp_SelectedValueChanged(object sender, EventArgs e)
         {
-            DataView dv = new DataView(ado.Ds.Tables["employe"]);
+            DataView dv = new DataView(ado.Dt);
             if (comboEmp.Text != "Tous" && comboEmp.Text != "")
             {
                 dv.RowFilter = $"prenom = '{comboEmp.Text}'";
@@ -208,7 +227,7 @@ namespace RNetApp
             }
             else if (comboEmp.Text == "Tous" )
             {
-                dataGridView1.DataSource = ado.Ds.Tables["employe"];
+                dataGridView1.DataSource = ado.Dt;
             }
         }
 

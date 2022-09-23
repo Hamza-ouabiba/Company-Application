@@ -99,6 +99,7 @@
             this.tabControl1.Size = new System.Drawing.Size(986, 526);
             this.tabControl1.TabIndex = 1;
             this.tabControl1.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.tabControl1_DrawItem);
+            this.tabControl1.SelectedIndexChanged += new System.EventHandler(this.tabControl1_SelectedIndexChanged);
             // 
             // ajouTache
             // 
@@ -277,7 +278,7 @@
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.important);
             this.Name = "Tache";
-            this.Size = new System.Drawing.Size(1504, 1065);
+            this.Size = new System.Drawing.Size(1504, 891);
             this.Load += new System.EventHandler(this.Tache_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -288,7 +289,6 @@
         private FontAwesome.Sharp.IconButton termine;
         private FontAwesome.Sharp.IconButton planifie;
         private FontAwesome.Sharp.IconButton important;
-        private Button ajouTache;
         private TextBox textBox1;
         private FontAwesome.Sharp.IconButton catego;
         public TabControl tabControl1;
@@ -304,5 +304,6 @@
         private Label Mois;
         private Button previous;
         private Button next;
+        private Button ajouTache;
     }
 }

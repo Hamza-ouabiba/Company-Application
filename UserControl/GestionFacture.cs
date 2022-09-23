@@ -20,12 +20,16 @@ namespace RNetApp
             decimal total = 0;
             DataRow[] dr_cheque;
             DataRow[] dr_montant;
+
             dr_cheque = ado.Ds.Tables["cheque"].Select($"idfacture = '{int.Parse(data.Cells["idfacture"].Value.ToString())}'");
             dr_montant = ado.Ds.Tables["espece"].Select($"idfacture = '{int.Parse(data.Cells["idfacture"].Value.ToString())}'");
+
+            //sum of all checks : 
             foreach(DataRow dr2 in dr_cheque)
             {
                     total += decimal.Parse(dr2["montant"].ToString());
             }
+            //sum of all in cash
             foreach (DataRow dr2 in dr_montant)
             {
                 total += decimal.Parse(dr2["montant"].ToString());
@@ -45,6 +49,7 @@ namespace RNetApp
             {
                 DataRow[] dataRows = dt.Select($"idclient = '{comboid}'");
                 string[] ret = new string[dataRows.Length + 1];
+
                 for (int i = 1; i < ret.Length; i++)
                 {
                     ret[i] = dataRows[i - 1]["idfacture"].ToString();
@@ -53,12 +58,16 @@ namespace RNetApp
             }
             else
             {
+                //when the Guid is not required : 
+
                 string[] ret = new string[dt.Rows.Count+ 1];
+
                 for (int i = 1; i < ret.Length; i++)
                 {
                     ret[i] = dt.Rows[i - 1]["idfacture"].ToString();
                 }
                 return ret;
+
             }
         }
         private string[] retrievingClients(DataTable dt)
@@ -70,7 +79,7 @@ namespace RNetApp
             }
             return ret;
         }
-        void setDataGridView()
+        private void setDataGridView()
         {
             dataGridView1.Columns["IDCLIENT"].Visible = false;
             dataGridView1.Columns["fac_n_o"].Visible = false;
@@ -83,7 +92,7 @@ namespace RNetApp
             Shared.addCol(dataGridView1, "voir", "voir", "voir facture");
             dataGridView1.RowTemplate.Height = 40;
         }
-        private void GestionFacture_Load(object sender, EventArgs e)
+        private void loadData()
         {
             ado.Cmd.CommandText = "GETTABLES";
             ado.Cmd.CommandType = CommandType.StoredProcedure;
@@ -95,12 +104,21 @@ namespace RNetApp
             ado.Ds.Tables[2].TableName = "cheque";
             ado.Ds.Tables[3].TableName = "espece";
             ado.Ds.Tables[4].TableName = "changer";
+        }
+        private void fillComboWithDataSource(ComboBox com)
+        {
+            com.DisplayMember = ado.Ds.Tables["client"].Columns["nom"].ToString();
+            com.ValueMember = ado.Ds.Tables["client"].Columns["idclient"].ToString();
+            com.DataSource = ado.Ds.Tables["client"];
+        }
+        private void GestionFacture_Load(object sender, EventArgs e)
+        {
+            loadData();
+            
             dataGridView1.DataSource = ado.Ds.Tables["facture"];
             //fill the combobox : 
             fillCombo(comboBox1, retrievingClients(ado.Ds.Tables["client"]));
-            comboBox3.DisplayMember = ado.Ds.Tables["client"].Columns["nom"].ToString();
-            comboBox3.ValueMember = ado.Ds.Tables["client"].Columns["idclient"].ToString();
-            comboBox3.DataSource = ado.Ds.Tables["client"];
+            fillComboWithDataSource(comboBox3);
             setDataGridView();
             nbrefac.Text = $"{ado.Ds.Tables["facture"].Rows.Count}";
         }
@@ -162,6 +180,7 @@ namespace RNetApp
         {
             if(e.RowIndex != -1)
             {
+                //setting the primary key of the 'facture' datatable 
                 ado.Ds.Tables["facture"].PrimaryKey = new DataColumn[] { ado.Ds.Tables["facture"].Columns["idfacture"] };
                 DataRow dr = ado.Ds.Tables["facture"].Rows.Find(int.Parse(dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString()));
                 DataRow[] cheque_facture= ado.Ds.Tables["cheque"].Select($"idfacture = {int.Parse(dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString())}");
@@ -226,14 +245,18 @@ namespace RNetApp
                 if(searchClientCombo(comboBox1.Text) != Guid.Empty)
                 {
                     fillCombo(comboBox2, retrievingNum(ado.Ds.Tables["facture"],searchClientCombo(comboBox1.Text)));
+
                     dv.RowFilter = $"idclient = '{searchClientCombo(comboBox1.Text)}'";
+
                     dataGridView1.DataSource = dv;
                 }
             }
             else if (comboBox1.Text == "Tous" && comboBox1.Text != "")
             {
                 comboBox2.Items.Clear();
+
                 fillCombo(comboBox2, retrievingNum(ado.Ds.Tables["facture"], searchClientCombo(comboBox1.Text)));
+
                 dataGridView1.DataSource = ado.Ds.Tables["facture"];
             }
         }
@@ -265,15 +288,20 @@ namespace RNetApp
             SqlCommandBuilder sql = new SqlCommandBuilder(ado.Adapter);
             if (verificationClientPrix(Guid.Parse(comboBox3.SelectedValue.ToString())))
             {
+                //creating new row : 
                 DataRow dr = ado.Ds.Tables["facture"].NewRow();
                 dr[1] = dt;
                 dr[4] = 0;
                 dr[7] = Guid.Parse(comboBox3.SelectedValue.ToString());
                 dr[6] = 0;
+
                 ado.Ds.Tables["facture"].Rows.Add(dr);
                 sql.GetInsertCommand();
+
                 ado.Adapter.Update(ado.Ds.Tables["facture"]);
+
                 form.IdClient = Guid.Parse(comboBox3.SelectedValue.ToString());
+
                 form.NameClient = comboBox3.Text;
                 form.Show();
             }

@@ -10,18 +10,25 @@ namespace RNetApp
         {
             InitializeComponent();
         }
+        private void fillCombo()
+        {
+            comboClt.DataSource = ado.Ds.Tables["client"];
+            comboClt.DisplayMember = ado.Ds.Tables["client"].Columns["nom"].ToString();
+            comboClt.ValueMember = ado.Ds.Tables["client"].Columns["idclient"].ToString();
+        }
         private void ArticleMod_Load(object sender, EventArgs e)
         {
+            //fill the dataset : 
             ado.Cmd.CommandText = "PrixMod";
             ado.Cmd.CommandType = CommandType.StoredProcedure;
             ado.Cmd.Connection = ado.Connection;
             ado.Adapter.SelectCommand = ado.Cmd;
             ado.Adapter.Fill(ado.Ds);
+            //name each datatable : 
             ado.Ds.Tables[0].TableName = "changer";
             ado.Ds.Tables[1].TableName = "client";
-            comboClt.DataSource = ado.Ds.Tables["client"];
-            comboClt.DisplayMember = ado.Ds.Tables["client"].Columns["nom"].ToString();
-            comboClt.ValueMember = ado.Ds.Tables["client"].Columns["idclient"].ToString();
+            //fill combo
+            fillCombo();
         }
         private bool chercherClientFature(Guid idclient)
         {

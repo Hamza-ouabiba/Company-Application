@@ -16,5 +16,10 @@ namespace RNetApp
         {
             InitializeComponent();
         }
+
+        private void DifferentTache_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

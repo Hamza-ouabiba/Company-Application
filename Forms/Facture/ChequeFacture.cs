@@ -13,6 +13,12 @@ namespace RNetApp
         {
             InitializeComponent();
         }
+        private void fillCombo(ComboBox com)
+        {
+            com.DisplayMember = ado.Ds.Tables["facture"].Columns["idfacture"].ToString();
+            com.ValueMember = ado.Ds.Tables["facture"].Columns["idclient"].ToString();
+            com.DataSource = ado.Ds.Tables["facture"];
+        }
         private void ChequeFacture_Load(object sender, EventArgs e)
         {
             ado.Cmd.CommandText = "gettables";
@@ -25,9 +31,7 @@ namespace RNetApp
             ado.Ds.Tables[1].TableName = "client";
             ado.Ds.Tables[2].TableName = "cheque";
             ado.Ds.Tables[3].TableName = "espece";
-            comboBox1.DisplayMember = ado.Ds.Tables["facture"].Columns["idfacture"].ToString();
-            comboBox1.ValueMember = ado.Ds.Tables["facture"].Columns["idclient"].ToString();
-            comboBox1.DataSource = ado.Ds.Tables["facture"];
+            fillCombo(comboBox1);
         }
         private bool chercherCheque(int numeroCheque)
         {
@@ -51,23 +55,29 @@ namespace RNetApp
                     {
                         if (decimal.Parse(montantChe.Text) <= decimal.Parse(factureActurel["total_rest"].ToString()))
                         {
-                            SqlDataAdapter adapter = new SqlDataAdapter("select * from facture", ado.Connection);
-                            SqlDataAdapter adapter2 = new SqlDataAdapter("select * from cheque", ado.Connection);
-                            SqlCommandBuilder scb = new SqlCommandBuilder(adapter);
-                            SqlCommandBuilder scb2 = new SqlCommandBuilder(adapter2);
+                            //(each datatable needs a dataAdapter)
+                            SqlDataAdapter facture_adapter = new SqlDataAdapter("select * from facture", ado.Connection);
+
+                            SqlDataAdapter cheque_adapter = new SqlDataAdapter("select * from cheque", ado.Connection);
+                            SqlCommandBuilder scb = new SqlCommandBuilder(facture_adapter);
+                            SqlCommandBuilder scb2 = new SqlCommandBuilder(cheque_adapter);
+
                             scb.GetUpdateCommand();
                             factureActurel.BeginEdit();
                             factureActurel["total_rest"] = decimal.Parse(factureActurel["total_rest"].ToString()) - decimal.Parse(montantChe.Text);
                             factureActurel.EndEdit();
-                            adapter.Update(ado.Ds.Tables["facture"]);
+                            facture_adapter.Update(ado.Ds.Tables["facture"]);
+
                             DataRow dr = ado.Ds.Tables["cheque"].NewRow();
                             dr[0] = int.Parse(numCheq.Text);
                             dr[1] = int.Parse(comboBox1.Text);
                             dr[2] = Guid.Parse(comboBox1.SelectedValue.ToString());
                             dr[3] = decimal.Parse(montantChe.Text);
                             ado.Ds.Tables["cheque"].Rows.Add(dr);
+
                             scb2.GetInsertCommand();
-                            adapter2.Update(ado.Ds.Tables["cheque"]);
+                            cheque_adapter.Update(ado.Ds.Tables["cheque"]);
+
                             //etat de la facture : 
                         }
                         else MessageBox.Show("Inserer un montant qui <= au montant de la facture");
@@ -108,9 +118,11 @@ namespace RNetApp
             {
                 if (comboBox1.SelectedIndex != -1)
                 {
+
                     ado.Ds.Tables["facture"].PrimaryKey = new DataColumn[] { ado.Ds.Tables["facture"].Columns["idfacture"] };
                     DataRow dr_facture = ado.Ds.Tables["facture"].Rows.Find(int.Parse(comboBox1.Text));
                     factureActurel = dr_facture;
+
                     //verifier la facture : 
                     if (dr_facture["pay_o_n"].ToString() == "True")
                     {
@@ -124,11 +136,13 @@ namespace RNetApp
                         enrBtn.Enabled = true;
                         error.Visible = false;
                         DataRow[] dr = ado.Ds.Tables["client"].Select($"idclient = '{Guid.Parse(comboBox1.SelectedValue.ToString())}'");
+
                         foreach (DataRow dr2 in dr)
                         {
                             nomClient.ReadOnly = true;
                             nomClient.Text = dr2["nom"].ToString();
                         }
+
                         montRest.Text = dr_facture["total_rest"].ToString();
                         if (decimal.Parse(factureActurel["total_rest"].ToString()) == 0)
                         {

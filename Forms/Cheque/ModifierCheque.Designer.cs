@@ -46,7 +46,7 @@
             this.Modifier.BackColor = System.Drawing.Color.Lime;
             this.Modifier.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Modifier.ForeColor = System.Drawing.Color.Black;
-            this.Modifier.Location = new System.Drawing.Point(53, 439);
+            this.Modifier.Location = new System.Drawing.Point(59, 439);
             this.Modifier.Name = "Modifier";
             this.Modifier.Size = new System.Drawing.Size(264, 45);
             this.Modifier.TabIndex = 129;

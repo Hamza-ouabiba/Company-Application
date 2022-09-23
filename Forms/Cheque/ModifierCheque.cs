@@ -4,7 +4,6 @@ using System.Data.SqlClient;
 using System.Windows.Forms;
 namespace RNetApp
 {
-    
     public partial class ModifierCheque : Form
     {
         private static int idcheque;
@@ -89,36 +88,53 @@ namespace RNetApp
         }
         private void Modifier_Click(object sender, EventArgs e)
         {
-            DataRow row = searchCheque();
             decimal montantVerifier;
             int idfacture;
-            decimal ancienMontantCheque = decimal.Parse(row["montant"].ToString());
+
             SqlCommandBuilder sql = new SqlCommandBuilder(ado.Adapter);
             SqlCommandBuilder factureBuilder = new SqlCommandBuilder(factureTable.Adapter);
+            
+
+            //déterminer la facture actuel 
             factureTable.Cmd.CommandText = $"select * from facture where idfacture = {int.Parse(row["idfacture"].ToString())}";
             factureTable.Cmd.Connection = factureTable.Connection;
             factureTable.Adapter.SelectCommand = factureTable.Cmd;
             factureTable.Adapter.Fill(factureTable.Dt);
+
             especeTable.Cmd.CommandText = $"select * from espece";
             especeTable.Cmd.Connection = especeTable.Connection;
             especeTable.Adapter.SelectCommand = especeTable.Cmd;
             especeTable.Adapter.Fill(especeTable.Dt);
+
             row["idcheque"] = int.Parse(numCheq.Text);
+
+
             //verifier si la facture n'est pas encore payé : 
             sql.GetUpdateCommand();
             ado.Adapter.Update(ado.Dt);
+
+
             idfacture = int.Parse(factureTable.Dt.Rows[0]["idfacture"].ToString());
+            //sum of all checks and including the new range : 
+
             montantVerifier = calculTotal(idfacture, int.Parse(row["idcheque"].ToString())) + decimal.Parse(montantChe.Text);
-            MessageBox.Show($"tous les valeur de cheque avec ce montant : {montantVerifier}");
+
+
+
             if (montantVerifier <= decimal.Parse(factureTable.Dt.Rows[0]["total_ttc"].ToString()))
             {
+
                 factureTable.Dt.Rows[0]["total_rest"] = decimal.Parse(factureTable.Dt.Rows[0]["total_ttc"].ToString()) - montantVerifier;
+
+                //if there is still some cash not given it will be an unpaid invoice: 
                 if (decimal.Parse(factureTable.Dt.Rows[0]["total_rest"].ToString()) != 0)
                 {
                     factureTable.Dt.Rows[0]["pay_o_n"] = 0;
-                }
-                else factureTable.Dt.Rows[0]["pay_o_n"] = 1;
+                }  else factureTable.Dt.Rows[0]["pay_o_n"] = 1;
+
+                //updating the amount 
                 row["montant"] = decimal.Parse(montantChe.Text);
+
                 sql.GetUpdateCommand();
                 factureBuilder.GetUpdateCommand();
                 ado.Adapter.Update(ado.Dt);

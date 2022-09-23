@@ -76,7 +76,7 @@
             this.numCheq.BackColor = System.Drawing.SystemColors.Control;
             this.numCheq.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.numCheq.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.numCheq.ForeColor = System.Drawing.Color.White;
+            this.numCheq.ForeColor = System.Drawing.Color.Black;
             this.numCheq.Location = new System.Drawing.Point(228, 195);
             this.numCheq.Name = "numCheq";
             this.numCheq.Size = new System.Drawing.Size(251, 23);
@@ -105,7 +105,7 @@
             this.montantChe.BackColor = System.Drawing.SystemColors.Control;
             this.montantChe.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.montantChe.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.montantChe.ForeColor = System.Drawing.Color.White;
+            this.montantChe.ForeColor = System.Drawing.Color.Black;
             this.montantChe.Location = new System.Drawing.Point(228, 276);
             this.montantChe.Name = "montantChe";
             this.montantChe.Size = new System.Drawing.Size(251, 23);
@@ -145,7 +145,7 @@
             this.nomClient.BackColor = System.Drawing.SystemColors.Control;
             this.nomClient.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.nomClient.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.nomClient.ForeColor = System.Drawing.Color.White;
+            this.nomClient.ForeColor = System.Drawing.Color.Black;
             this.nomClient.Location = new System.Drawing.Point(222, 122);
             this.nomClient.Name = "nomClient";
             this.nomClient.Size = new System.Drawing.Size(251, 23);
