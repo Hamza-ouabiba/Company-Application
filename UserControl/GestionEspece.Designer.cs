@@ -37,25 +37,11 @@
             this.nbrefac = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.montRes = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.numEsp = new System.Windows.Forms.TextBox();
-            this.error = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.Montant = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.enrBtn = new System.Windows.Forms.Button();
-            this.Panel2 = new System.Windows.Forms.Panel();
-            this.nomClt = new System.Windows.Forms.TextBox();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.lister = new System.Windows.Forms.Button();
+            this.ajoutEsp = new System.Windows.Forms.Button();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox2
@@ -134,7 +120,7 @@
             dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(117)))), ((int)(((byte)(240)))));
             this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle4;
-            this.dataGridView1.Size = new System.Drawing.Size(1349, 466);
+            this.dataGridView1.Size = new System.Drawing.Size(1580, 466);
             this.dataGridView1.TabIndex = 90;
             // 
             // label1
@@ -146,156 +132,6 @@
             this.label1.Size = new System.Drawing.Size(186, 27);
             this.label1.TabIndex = 89;
             this.label1.Text = "Gestion Espèce";
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.montRes);
-            this.groupBox1.Controls.Add(this.label5);
-            this.groupBox1.Controls.Add(this.panel3);
-            this.groupBox1.Controls.Add(this.numEsp);
-            this.groupBox1.Controls.Add(this.error);
-            this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.panel4);
-            this.groupBox1.Controls.Add(this.Montant);
-            this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.comboBox1);
-            this.groupBox1.Controls.Add(this.enrBtn);
-            this.groupBox1.Controls.Add(this.Panel2);
-            this.groupBox1.Controls.Add(this.nomClt);
-            this.groupBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.groupBox1.Location = new System.Drawing.Point(76, 978);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(406, 501);
-            this.groupBox1.TabIndex = 92;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
-            // 
-            // montRes
-            // 
-            this.montRes.AutoSize = true;
-            this.montRes.ForeColor = System.Drawing.Color.Red;
-            this.montRes.Location = new System.Drawing.Point(201, 356);
-            this.montRes.Name = "montRes";
-            this.montRes.Size = new System.Drawing.Size(29, 20);
-            this.montRes.TabIndex = 73;
-            this.montRes.Text = "DZ";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(65, 356);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(121, 20);
-            this.label5.TabIndex = 72;
-            this.label5.Text = "Montant restant :";
-            // 
-            // panel3
-            // 
-            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(117)))), ((int)(((byte)(214)))));
-            this.panel3.Location = new System.Drawing.Point(101, 310);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(200, 1);
-            this.panel3.TabIndex = 71;
-            // 
-            // numEsp
-            // 
-            this.numEsp.BackColor = System.Drawing.SystemColors.Control;
-            this.numEsp.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.numEsp.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.numEsp.Location = new System.Drawing.Point(101, 277);
-            this.numEsp.Name = "numEsp";
-            this.numEsp.PlaceholderText = "Numéro espèce";
-            this.numEsp.Size = new System.Drawing.Size(251, 23);
-            this.numEsp.TabIndex = 70;
-            // 
-            // error
-            // 
-            this.error.AutoSize = true;
-            this.error.ForeColor = System.Drawing.Color.Red;
-            this.error.Location = new System.Drawing.Point(64, 23);
-            this.error.Name = "error";
-            this.error.Size = new System.Drawing.Size(50, 20);
-            this.error.TabIndex = 69;
-            this.error.Text = "label5";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(317, 216);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(43, 20);
-            this.label4.TabIndex = 68;
-            this.label4.Text = "MAD";
-            // 
-            // panel4
-            // 
-            this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(117)))), ((int)(((byte)(214)))));
-            this.panel4.Location = new System.Drawing.Point(101, 244);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(200, 1);
-            this.panel4.TabIndex = 67;
-            // 
-            // Montant
-            // 
-            this.Montant.BackColor = System.Drawing.SystemColors.Control;
-            this.Montant.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.Montant.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.Montant.Location = new System.Drawing.Point(101, 213);
-            this.Montant.Name = "Montant";
-            this.Montant.PlaceholderText = "Montant Du mois";
-            this.Montant.Size = new System.Drawing.Size(176, 23);
-            this.Montant.TabIndex = 66;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(64, 55);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(138, 20);
-            this.label3.TabIndex = 61;
-            this.label3.Text = "Numéro  de facture";
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(64, 88);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(258, 28);
-            this.comboBox1.TabIndex = 60;
-            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
-            // 
-            // enrBtn
-            // 
-            this.enrBtn.BackColor = System.Drawing.Color.Lime;
-            this.enrBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.enrBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.enrBtn.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.enrBtn.Location = new System.Drawing.Point(52, 397);
-            this.enrBtn.Name = "enrBtn";
-            this.enrBtn.Size = new System.Drawing.Size(308, 46);
-            this.enrBtn.TabIndex = 6;
-            this.enrBtn.Text = "Enregistrer";
-            this.enrBtn.UseVisualStyleBackColor = false;
-            this.enrBtn.Click += new System.EventHandler(this.enrBtn_Click);
-            // 
-            // Panel2
-            // 
-            this.Panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(117)))), ((int)(((byte)(214)))));
-            this.Panel2.Location = new System.Drawing.Point(101, 179);
-            this.Panel2.Name = "Panel2";
-            this.Panel2.Size = new System.Drawing.Size(200, 1);
-            this.Panel2.TabIndex = 59;
-            // 
-            // nomClt
-            // 
-            this.nomClt.BackColor = System.Drawing.SystemColors.Control;
-            this.nomClt.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.nomClt.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.nomClt.Location = new System.Drawing.Point(101, 146);
-            this.nomClt.Name = "nomClt";
-            this.nomClt.PlaceholderText = "Nom client";
-            this.nomClt.Size = new System.Drawing.Size(251, 23);
-            this.nomClt.TabIndex = 0;
             // 
             // comboBox2
             // 
@@ -317,24 +153,32 @@
             this.lister.UseVisualStyleBackColor = false;
             this.lister.Click += new System.EventHandler(this.lister_Click);
             // 
+            // ajoutEsp
+            // 
+            this.ajoutEsp.Location = new System.Drawing.Point(905, 51);
+            this.ajoutEsp.Name = "ajoutEsp";
+            this.ajoutEsp.Size = new System.Drawing.Size(242, 33);
+            this.ajoutEsp.TabIndex = 95;
+            this.ajoutEsp.Text = "Ajouter un espece";
+            this.ajoutEsp.UseVisualStyleBackColor = true;
+            this.ajoutEsp.Click += new System.EventHandler(this.ajoutEsp_Click);
+            // 
             // GestionEspece
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.ajoutEsp);
             this.Controls.Add(this.lister);
             this.Controls.Add(this.comboBox2);
-            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.label1);
             this.Name = "GestionEspece";
-            this.Size = new System.Drawing.Size(1709, 769);
+            this.Size = new System.Drawing.Size(1709, 805);
             this.Load += new System.EventHandler(this.GestionEspece_Load);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -347,21 +191,8 @@
         private Label nbrefac;
         private DataGridView dataGridView1;
         private Label label1;
-        private GroupBox groupBox1;
-        private Button enrBtn;
-        private Label label3;
-        private ComboBox comboBox1;
-        internal Panel Panel2;
-        private TextBox nomClt;
-        private Label label4;
-        internal Panel panel4;
-        private TextBox Montant;
-        private Label error;
-        internal Panel panel3;
-        private TextBox numEsp;
-        private Label montRes;
-        private Label label5;
         private ComboBox comboBox2;
         private Button lister;
+        private Button ajoutEsp;
     }
 }

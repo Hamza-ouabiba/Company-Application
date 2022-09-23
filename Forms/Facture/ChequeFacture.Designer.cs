@@ -50,7 +50,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.ForeColor = System.Drawing.Color.Silver;
+            this.label1.ForeColor = System.Drawing.Color.Black;
             this.label1.Location = new System.Drawing.Point(222, 172);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(136, 20);
@@ -61,7 +61,8 @@
             // 
             this.enrBtn.BackColor = System.Drawing.Color.Red;
             this.enrBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.enrBtn.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.enrBtn.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.enrBtn.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.enrBtn.Location = new System.Drawing.Point(630, 369);
             this.enrBtn.Name = "enrBtn";
             this.enrBtn.Size = new System.Drawing.Size(225, 53);
@@ -72,7 +73,7 @@
             // 
             // numCheq
             // 
-            this.numCheq.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(29)))), ((int)(((byte)(30)))));
+            this.numCheq.BackColor = System.Drawing.SystemColors.Control;
             this.numCheq.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.numCheq.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.numCheq.ForeColor = System.Drawing.Color.White;
@@ -92,7 +93,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.ForeColor = System.Drawing.Color.Silver;
+            this.label3.ForeColor = System.Drawing.Color.Black;
             this.label3.Location = new System.Drawing.Point(222, 253);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(138, 20);
@@ -101,7 +102,7 @@
             // 
             // montantChe
             // 
-            this.montantChe.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(29)))), ((int)(((byte)(30)))));
+            this.montantChe.BackColor = System.Drawing.SystemColors.Control;
             this.montantChe.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.montantChe.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.montantChe.ForeColor = System.Drawing.Color.White;
@@ -122,7 +123,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label2.ForeColor = System.Drawing.Color.Silver;
+            this.label2.ForeColor = System.Drawing.Color.Black;
             this.label2.Location = new System.Drawing.Point(154, 49);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(130, 23);
@@ -132,7 +133,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.ForeColor = System.Drawing.Color.Silver;
+            this.label4.ForeColor = System.Drawing.Color.Black;
             this.label4.Location = new System.Drawing.Point(216, 99);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(47, 20);
@@ -141,7 +142,7 @@
             // 
             // nomClient
             // 
-            this.nomClient.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(29)))), ((int)(((byte)(30)))));
+            this.nomClient.BackColor = System.Drawing.SystemColors.Control;
             this.nomClient.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.nomClient.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.nomClient.ForeColor = System.Drawing.Color.White;
@@ -184,7 +185,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.label5.ForeColor = System.Drawing.Color.Black;
             this.label5.Location = new System.Drawing.Point(21, 20);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(125, 20);
@@ -195,6 +196,7 @@
             // 
             this.groupBox1.Controls.Add(this.montRest);
             this.groupBox1.Controls.Add(this.label5);
+            this.groupBox1.ForeColor = System.Drawing.Color.Black;
             this.groupBox1.Location = new System.Drawing.Point(99, 358);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(325, 52);
@@ -204,7 +206,7 @@
             // montRest
             // 
             this.montRest.AutoSize = true;
-            this.montRest.ForeColor = System.Drawing.Color.Cyan;
+            this.montRest.ForeColor = System.Drawing.Color.Red;
             this.montRest.Location = new System.Drawing.Point(173, 20);
             this.montRest.Name = "montRest";
             this.montRest.Size = new System.Drawing.Size(0, 20);
@@ -214,7 +216,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(29)))), ((int)(((byte)(30)))));
+            this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(914, 463);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.error);
@@ -230,6 +232,7 @@
             this.Controls.Add(this.enrBtn);
             this.Controls.Add(this.numCheq);
             this.Controls.Add(this.Panel2);
+            this.ForeColor = System.Drawing.SystemColors.Control;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
