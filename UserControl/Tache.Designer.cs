@@ -114,7 +114,7 @@
             // textBox1
             // 
             this.textBox1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox1.Location = new System.Drawing.Point(43, 474);
+            this.textBox1.Location = new System.Drawing.Point(45, 474);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
             this.textBox1.PlaceholderText = "Chercher une tache";
@@ -234,7 +234,7 @@
             // previous
             // 
             this.previous.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.previous.Location = new System.Drawing.Point(140, 3);
+            this.previous.Location = new System.Drawing.Point(104, 3);
             this.previous.Name = "previous";
             this.previous.Size = new System.Drawing.Size(34, 29);
             this.previous.TabIndex = 16;

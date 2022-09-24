@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Compile Update="AjouTache.cs">
+    <Compile Update="Forms\Tache\AjouTache.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Forms\Espece\AjoutEspece.cs">
@@ -19,7 +19,7 @@
     <Compile Update="Forms\Cheque\ModifierCheque.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="TacheVariante.cs">
+    <Compile Update="UserControl\TacheVariante.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Update="UserControl\Calendar\BlankUserControl.cs">
@@ -29,9 +29,6 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="UserControl\Calendar\DaysUserControl.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Update="UserControl\DifferentTache.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Update="Forms\Facture\ChequeFacture.cs">

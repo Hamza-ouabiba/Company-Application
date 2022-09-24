@@ -315,6 +315,7 @@
             // panelContent
             // 
             this.panelContent.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelContent.ForeColor = System.Drawing.Color.Black;
             this.panelContent.Location = new System.Drawing.Point(221, 44);
             this.panelContent.Margin = new System.Windows.Forms.Padding(7, 0, 0, 0);
             this.panelContent.Name = "panelContent";

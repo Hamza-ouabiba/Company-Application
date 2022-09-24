@@ -37,7 +37,6 @@ D:\projects\training\RNetApp\RNetApp\obj\x64\Debug\net6.0-windows\RNetApp.pdb
 D:\projects\training\RNetApp\RNetApp\obj\x64\Debug\net6.0-windows\RNetApp.genruntimeconfig.cache
 D:\projects\training\RNetApp\RNetApp\obj\x64\Debug\net6.0-windows\ref\RNetApp.dll
 D:\projects\training\RNetApp\RNetApp\obj\x64\Debug\net6.0-windows\RNetApp.AjoutClient.resources
-D:\projects\training\RNetApp\RNetApp\obj\x64\Debug\net6.0-windows\RNetApp.DifferentTache.resources
 D:\projects\training\RNetApp\RNetApp\obj\x64\Debug\net6.0-windows\RNetApp.Forms.ModifierClient.resources
 D:\projects\training\RNetApp\RNetApp\obj\x64\Debug\net6.0-windows\RNetApp.ModifierEmploye.resources
 D:\projects\training\RNetApp\RNetApp\obj\x64\Debug\net6.0-windows\RNetApp.ChequeFacture.resources
@@ -54,3 +53,4 @@ D:\projects\training\RNetApp\RNetApp\obj\x64\Debug\net6.0-windows\RNetApp.AjoutE
 D:\projects\training\RNetApp\RNetApp\obj\x64\Debug\net6.0-windows\RNetApp.ChoixCategorie.resources
 D:\projects\training\RNetApp\RNetApp\obj\x64\Debug\net6.0-windows\RNetApp.TacheVariante.resources
 D:\projects\training\RNetApp\RNetApp\obj\x64\Debug\net6.0-windows\RNetApp.AjouTache.resources
+D:\projects\training\RNetApp\RNetApp\obj\x64\Debug\net6.0-windows\RNetApp.UserControl.DifferentTache.resources

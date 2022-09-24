@@ -9,11 +9,15 @@ namespace RNetApp
     public partial class Tache : UserControl
     {
         AdoNet ado = new AdoNet();
+        TacheVariante p = new TacheVariante();
+        List<TacheVariante> list = new List<TacheVariante>();
         static string catego_choix = null;
         TabPage page;
-        int month, year,day;
+        static int month, year,day;
         public static string Catego_choix { get => catego_choix; set => catego_choix = value; }
         public  TabPage Page { get => page; set => page = value; }
+        public static int Month { get => month; set => month = value; }
+        public static int Year { get => year; set => year = value; }
         public Tache()
         {
             InitializeComponent();
@@ -21,14 +25,14 @@ namespace RNetApp
         private void DisplayDays()
         {
             DateTime now = DateTime.Now;
-            month = now.Month;
-            year = now.Year;
-            string nomMois = DateTimeFormatInfo.CurrentInfo.GetMonthName(month);
-            Mois.Text = nomMois + "" + year;
+            Month = now.Month;
+            Year = now.Year;
+            string nomMois = DateTimeFormatInfo.CurrentInfo.GetMonthName(Month);
+            Mois.Text = nomMois + "" + Year;
             //get the first day of the month : 
-            DateTime firstOfMonth = new DateTime(year, month, 1);
+            DateTime firstOfMonth = new DateTime(Year, Month, 1);
             //get the count of days in month : 
-            int days = DateTime.DaysInMonth(year,month);
+            int days = DateTime.DaysInMonth(Year,Month);
             //get the count of days in week : 
             int daysofWeek = Convert.ToInt32(firstOfMonth.DayOfWeek.ToString("d"))+1;
             for (int i = 1; i < daysofWeek; i++)
@@ -43,17 +47,19 @@ namespace RNetApp
                 day.Days(i);
                 dayContainer.Controls.Add(day);
             }
-            if (month == 12)
+            if (Month == 12)
             {
-                month = 1;
-                year++;
-            } 
+                Month = 1;
+                Year++;
+            }
+            MessageBox.Show($"day = {day}/month = {month}");
         }
         //inserting tabpages using categories : 
         private void insertTabPages()
         {
             //convert all categories to string : 
             TabPage tabPage;
+            tabControl1.TabPages.Clear();
             foreach(DataRow row in ado.Ds.Tables["categorie"].Rows)
             {
                 //insert to tabcontro: 
@@ -74,8 +80,6 @@ namespace RNetApp
             ado.Ds.Tables[0].TableName = "tache";
             ado.Ds.Tables[1].TableName = "categorie";
             insertTabPages();
-            important_Click(sender, e);
-           
         }
         public bool testPage(string namePage)
         {
@@ -90,16 +94,7 @@ namespace RNetApp
         }
         private void important_Click(object sender, EventArgs e)
         {
-               TabPage tabPage = new TabPage();
-               TacheVariante ip = new TacheVariante();
-               tabPage.Text = "Important";
-                if (!testPage(tabPage.Text))
-                {
-                    ip.Dock = DockStyle.Fill;
-                    tabPage.Controls.Add(ip);
-                    tabControl1.TabPages.Add(tabPage);
-                }
-                else MessageBox.Show("deja existant");
+               
         }
         private void ajouTache_Click(object sender, EventArgs e)
         {
@@ -109,16 +104,7 @@ namespace RNetApp
         
         private void planifie_Click(object sender, EventArgs e)
         {
-            TabPage tabPage = new TabPage();
-            TacheVariante p = new TacheVariante();
-            tabPage.Text = "planifie";
-            if (!testPage(tabPage.Text))
-            {
-                p.Dock = DockStyle.Fill;
-                tabPage.Controls.Add(p);
-                tabControl1.TabPages.Add(tabPage);
-            }
-            else MessageBox.Show("deja existant");
+          
         }
         private void tabControl1_DrawItem(object sender, DrawItemEventArgs e)
         {
@@ -159,26 +145,23 @@ namespace RNetApp
         }
         private void next_Click(object sender, EventArgs e)
         {
-            month++;
-
-            if (month == 13)
+            Month++;
+            if (Month == 13)
             {
-                month = 1;
-                year++;
-            } 
-            MessageBox.Show($"month = {month}");
+                Month = 1;
+                Year++;
+            }
             dayContainer.Controls.Clear();
-            DateTime firstOfMonth = new DateTime(year, month, 1);
-            int days = DateTime.DaysInMonth(year, month);
+            string nomMois = DateTimeFormatInfo.CurrentInfo.GetMonthName(Month);
+            DateTime firstOfMonth = new DateTime(Year, Month, 1);
+            int days = DateTime.DaysInMonth(Year, Month);
             //get the count of days in week : 
             int daysofWeek = Convert.ToInt32(firstOfMonth.DayOfWeek.ToString("d"));
             if(daysofWeek == 0)
             {
                 daysofWeek = 7;
             }
-            MessageBox.Show($"days of week {daysofWeek}");
-            string nomMois = DateTimeFormatInfo.CurrentInfo.GetMonthName(month);
-            Mois.Text = nomMois + "" + year;
+            Mois.Text = nomMois + "" + Year;
             for (int i = 1; i < daysofWeek; i++)
             {
                 BlankUserControl blank = new BlankUserControl();
@@ -192,39 +175,35 @@ namespace RNetApp
                 dayContainer.Controls.Add(day);
             }
             MessageBox.Show($"days {days}");
-            if (month == 12)
-            {
-                month = 0;
-                year++;
-            }
         }
 
-        private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
+        public void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
         {
             string currenCategoryName = tabControl1.TabPages[tabControl1.SelectedIndex].Text;
             //set the datagridview for all each categorie : 
-            TacheVariante p = new TacheVariante();
-            TacheVariante.Name1 = currenCategoryName;
+            p.Name1 = currenCategoryName;   
             p.Dock = DockStyle.Fill;
+            p.TacheVariante_Load(sender, e);
             tabControl1.SelectedTab.Controls.Add(p);
+            DaysUserControl.Variante = p;
         }
 
         private void previous_Click(object sender, EventArgs e)
         {
-            month--;
-            if (month == 0)
+            Month--;
+            if (Month == 0)
             {
-                month = 12;
-                year--;
+                Month = 12;
+                Year--;
             }
             dayContainer.Controls.Clear();
-            DateTime firstOfMonth = new DateTime(year, month, 1);
-            int days = DateTime.DaysInMonth(year, month);
+            DateTime firstOfMonth = new DateTime(Year, Month, 1);
+            int days = DateTime.DaysInMonth(Year, Month);
             //get the count of days in week : 
             int daysofWeek = Convert.ToInt32(firstOfMonth.DayOfWeek.ToString("d"));
-            MessageBox.Show($"days of week {daysofWeek}");
-            string nomMois = DateTimeFormatInfo.CurrentInfo.GetMonthName(month);
-            Mois.Text = nomMois + "" + year;
+           /* MessageBox.Show($"days of week {daysofWeek}");*/
+            string nomMois = DateTimeFormatInfo.CurrentInfo.GetMonthName(Month);
+            Mois.Text = nomMois + "" + Year;
             if (daysofWeek == 0)
             {
                 daysofWeek = 7;
