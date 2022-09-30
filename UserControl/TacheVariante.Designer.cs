@@ -30,7 +30,6 @@
         {
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.catego = new System.Windows.Forms.Label();
-            this.change = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -49,6 +48,7 @@
             this.dataGridView1.RowTemplate.Height = 29;
             this.dataGridView1.Size = new System.Drawing.Size(1020, 519);
             this.dataGridView1.TabIndex = 0;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // catego
             // 
@@ -59,14 +59,10 @@
             this.catego.TabIndex = 1;
             this.catego.Text = "label1";
             // 
-            // change
-            // 
-            // 
             // TacheVariante
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.change);
             this.Controls.Add(this.catego);
             this.Controls.Add(this.dataGridView1);
             this.Name = "TacheVariante";
@@ -81,6 +77,5 @@
         #endregion
         private Label catego;
         public DataGridView dataGridView1;
-        private Button change;
     }
 }

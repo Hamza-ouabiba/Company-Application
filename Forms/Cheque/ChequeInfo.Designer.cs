@@ -39,7 +39,9 @@
             this.label8 = new System.Windows.Forms.Label();
             this.numCheq = new System.Windows.Forms.TextBox();
             this.Panel2 = new System.Windows.Forms.Panel();
-            this.nvChequeBtn = new System.Windows.Forms.Button();
+            this.imprimer = new System.Windows.Forms.Button();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // label4
@@ -155,24 +157,36 @@
             this.Panel2.Size = new System.Drawing.Size(400, 1);
             this.Panel2.TabIndex = 109;
             // 
-            // nvChequeBtn
+            // imprimer
             // 
-            this.nvChequeBtn.BackColor = System.Drawing.Color.Cyan;
-            this.nvChequeBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.nvChequeBtn.ForeColor = System.Drawing.Color.Black;
-            this.nvChequeBtn.Location = new System.Drawing.Point(115, 447);
-            this.nvChequeBtn.Name = "nvChequeBtn";
-            this.nvChequeBtn.Size = new System.Drawing.Size(264, 45);
-            this.nvChequeBtn.TabIndex = 118;
-            this.nvChequeBtn.Text = "Revenir au Menu principal";
-            this.nvChequeBtn.UseVisualStyleBackColor = false;
+            this.imprimer.BackColor = System.Drawing.Color.Cyan;
+            this.imprimer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.imprimer.ForeColor = System.Drawing.Color.Black;
+            this.imprimer.Location = new System.Drawing.Point(115, 447);
+            this.imprimer.Name = "imprimer";
+            this.imprimer.Size = new System.Drawing.Size(264, 45);
+            this.imprimer.TabIndex = 118;
+            this.imprimer.Text = "Imprimer le chèque";
+            this.imprimer.UseVisualStyleBackColor = false;
+            this.imprimer.Click += new System.EventHandler(this.imprimer_Click);
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(24, 467);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowHeadersWidth = 51;
+            this.dataGridView1.RowTemplate.Height = 29;
+            this.dataGridView1.Size = new System.Drawing.Size(33, 38);
+            this.dataGridView1.TabIndex = 119;
             // 
             // ChequeInfo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(497, 537);
-            this.Controls.Add(this.nvChequeBtn);
+            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.imprimer);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.montantChe);
             this.Controls.Add(this.panel3);
@@ -190,6 +204,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ChequeInfo";
             this.Load += new System.EventHandler(this.ChequeInfo_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -208,6 +223,7 @@
         private Label label8;
         private TextBox numCheq;
         internal Panel Panel2;
-        private Button nvChequeBtn;
+        private Button imprimer;
+        private DataGridView dataGridView1;
     }
 }

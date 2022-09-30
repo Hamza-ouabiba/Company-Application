@@ -47,6 +47,7 @@
             this.Mois = new System.Windows.Forms.Label();
             this.previous = new System.Windows.Forms.Button();
             this.next = new System.Windows.Forms.Button();
+            this.tous = new FontAwesome.Sharp.IconButton();
             this.SuspendLayout();
             // 
             // termine
@@ -55,7 +56,7 @@
             this.termine.IconChar = FontAwesome.Sharp.IconChar.None;
             this.termine.IconColor = System.Drawing.Color.Black;
             this.termine.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.termine.Location = new System.Drawing.Point(28, 682);
+            this.termine.Location = new System.Drawing.Point(31, 774);
             this.termine.Name = "termine";
             this.termine.Size = new System.Drawing.Size(433, 68);
             this.termine.TabIndex = 2;
@@ -69,7 +70,7 @@
             this.planifie.IconChar = FontAwesome.Sharp.IconChar.None;
             this.planifie.IconColor = System.Drawing.Color.Black;
             this.planifie.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.planifie.Location = new System.Drawing.Point(28, 615);
+            this.planifie.Location = new System.Drawing.Point(31, 707);
             this.planifie.Name = "planifie";
             this.planifie.Size = new System.Drawing.Size(433, 68);
             this.planifie.TabIndex = 1;
@@ -83,7 +84,7 @@
             this.important.IconChar = FontAwesome.Sharp.IconChar.None;
             this.important.IconColor = System.Drawing.Color.Black;
             this.important.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.important.Location = new System.Drawing.Point(28, 551);
+            this.important.Location = new System.Drawing.Point(31, 643);
             this.important.Name = "important";
             this.important.Size = new System.Drawing.Size(433, 68);
             this.important.TabIndex = 0;
@@ -127,7 +128,7 @@
             this.catego.IconChar = FontAwesome.Sharp.IconChar.None;
             this.catego.IconColor = System.Drawing.Color.Black;
             this.catego.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.catego.Location = new System.Drawing.Point(28, 749);
+            this.catego.Location = new System.Drawing.Point(31, 841);
             this.catego.Name = "catego";
             this.catego.Size = new System.Drawing.Size(433, 68);
             this.catego.TabIndex = 5;
@@ -253,11 +254,27 @@
             this.next.UseVisualStyleBackColor = true;
             this.next.Click += new System.EventHandler(this.next_Click);
             // 
+            // tous
+            // 
+            this.tous.BackColor = System.Drawing.SystemColors.Control;
+            this.tous.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.tous.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.tous.IconColor = System.Drawing.Color.Black;
+            this.tous.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.tous.Location = new System.Drawing.Point(31, 578);
+            this.tous.Name = "tous";
+            this.tous.Size = new System.Drawing.Size(433, 68);
+            this.tous.TabIndex = 18;
+            this.tous.Text = "Tous les taches";
+            this.tous.UseVisualStyleBackColor = false;
+            this.tous.Click += new System.EventHandler(this.tous_Click);
+            // 
             // Tache
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.Controls.Add(this.tous);
             this.Controls.Add(this.next);
             this.Controls.Add(this.previous);
             this.Controls.Add(this.Mois);
@@ -278,7 +295,7 @@
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.important);
             this.Name = "Tache";
-            this.Size = new System.Drawing.Size(1504, 891);
+            this.Size = new System.Drawing.Size(1504, 951);
             this.Load += new System.EventHandler(this.Tache_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -305,5 +322,6 @@
         private Button previous;
         private Button next;
         private Button ajouTache;
+        private FontAwesome.Sharp.IconButton tous;
     }
 }

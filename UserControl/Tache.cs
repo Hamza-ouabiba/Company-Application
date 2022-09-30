@@ -13,11 +13,14 @@ namespace RNetApp
         List<TacheVariante> list = new List<TacheVariante>();
         static string catego_choix = null;
         TabPage page;
+        static string days_label;
+        private bool triggerTabPage = false;//if the user hit all tasks this will turn to true and the tabpage will automatically display the tasks
         static int month, year,day;
         public static string Catego_choix { get => catego_choix; set => catego_choix = value; }
         public  TabPage Page { get => page; set => page = value; }
         public static int Month { get => month; set => month = value; }
         public static int Year { get => year; set => year = value; }
+        public static string Days_Label { get => days_label; set => days_label = value; }   
         public Tache()
         {
             InitializeComponent();
@@ -28,7 +31,7 @@ namespace RNetApp
             Month = now.Month;
             Year = now.Year;
             string nomMois = DateTimeFormatInfo.CurrentInfo.GetMonthName(Month);
-            Mois.Text = nomMois + "" + Year;
+            Mois.Text = nomMois + "" + Year;//giving day and month :
             //get the first day of the month : 
             DateTime firstOfMonth = new DateTime(Year, Month, 1);
             //get the count of days in month : 
@@ -52,7 +55,6 @@ namespace RNetApp
                 Month = 1;
                 Year++;
             }
-            MessageBox.Show($"day = {day}/month = {month}");
         }
         //inserting tabpages using categories : 
         private void insertTabPages()
@@ -67,10 +69,10 @@ namespace RNetApp
                 tabControl1.Controls.Add(tabPage);
                 tabPage.Text = row["nomcategorie"].ToString();
             }
-            MessageBox.Show(tabControl1.TabPages[3].Text);
         }
         private void Tache_Load(object sender, EventArgs e)
         {
+            //set the datagridview for all each categorie : 
             DisplayDays();
             ado.Cmd.CommandText = "gestiontache";
             ado.Cmd.CommandType = CommandType.StoredProcedure;
@@ -80,6 +82,12 @@ namespace RNetApp
             ado.Ds.Tables[0].TableName = "tache";
             ado.Ds.Tables[1].TableName = "categorie";
             insertTabPages();
+            string currenCategoryName = tabControl1.TabPages[tabControl1.SelectedIndex].Text;
+            p.Dock = DockStyle.Fill;
+            p.Name1 = currenCategoryName;
+            tabControl1.SelectedTab.Controls.Add(p);
+            p.filterData();
+            DaysUserControl.Variante = p;
         }
         public bool testPage(string namePage)
         {
@@ -176,16 +184,21 @@ namespace RNetApp
             }
             MessageBox.Show($"days {days}");
         }
-
         public void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
         {
             string currenCategoryName = tabControl1.TabPages[tabControl1.SelectedIndex].Text;
             //set the datagridview for all each categorie : 
             p.Name1 = currenCategoryName;   
             p.Dock = DockStyle.Fill;
-            p.TacheVariante_Load(sender, e);
+            p.filterData();
             tabControl1.SelectedTab.Controls.Add(p);
             DaysUserControl.Variante = p;
+        }
+
+        private void tous_Click(object sender, EventArgs e)
+        {
+            triggerTabPage = true;
+            p.TacheVariante_Load(sender, e);
         }
 
         private void previous_Click(object sender, EventArgs e)
@@ -221,7 +234,6 @@ namespace RNetApp
                 dayContainer.Controls.Add(day);
             }
             MessageBox.Show($"days {days}");
-            
         }
 
         private void catego_Click(object sender, EventArgs e)

@@ -14,7 +14,6 @@ namespace RNetApp
         {
             InitializeComponent();
         }
-
         private void DaysUserControl_Load(object sender, EventArgs e)
         {
 
@@ -27,10 +26,11 @@ namespace RNetApp
         {
             //getting the current day/month/year : 
             Day = int.Parse(button1.Text);
+            Tache.Days_Label = button1.Text;
             TacheVariante.Day = Day;
             TacheVariante.Month = Tache.Month;
             TacheVariante.Year = Tache.Year;
-            variante.TacheVariante_Load(sender,e);
+            variante.filterData();
 ;        }
     }
 }

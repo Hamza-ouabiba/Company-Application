@@ -221,7 +221,10 @@ namespace RNetApp
                     
                 } else if(colName == "voir")
                 {
-
+                    //giving this row to the facturecheck form 
+                    FactureCheck factureCheck = new FactureCheck();
+                    factureCheck.Facture = ado.Ds.Tables["facture"].Rows[e.RowIndex];
+                    factureCheck.Show();
                 }
             }
         }

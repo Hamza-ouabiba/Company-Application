@@ -316,7 +316,6 @@ namespace RNetApp.Forms
                 pht.Text = $"{total}";
                 tva.Text = $"{total * tva_}";
                 pttc.Text = $"{(total * tva_) + total}";
-
             } catch (SqlException ex)
             {
                 if (ex.Number == 2627)
