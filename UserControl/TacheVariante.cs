@@ -1,5 +1,6 @@
 using System;
 using System.Data;
+using System.Data.SqlClient;
 using System.Windows.Forms;
 namespace RNetApp
 {
@@ -27,7 +28,7 @@ namespace RNetApp
             {
                 string date = $"{Month}/{Day}/{Year}";
                 ado.Dt.Clear();
-                ado.Cmd.CommandText = $"select * from tache where nomcategorie = '{Name1}' and date_depart = '{date}'";
+                ado.Cmd.CommandText = $"select * from tache where nomcategorie = '{Name1}' and date_depart = '{date}' and termine_o_n = {0}";
                 ado.Cmd.Connection = ado.Connection;
                 ado.Adapter.SelectCommand = ado.Cmd;
                 ado.Adapter.Fill(ado.Dt);
@@ -36,7 +37,7 @@ namespace RNetApp
             } else
             {
                 ado.Dt.Clear();
-                ado.Cmd.CommandText = $"select * from tache where nomcategorie = '{Name1}'";
+                ado.Cmd.CommandText = $"select * from tache where nomcategorie = '{Name1}' and termine_o_n = {0}";
                 ado.Cmd.Connection = ado.Connection;
                 ado.Adapter.SelectCommand = ado.Cmd;
                 ado.Adapter.Fill(ado.Dt);
@@ -48,16 +49,19 @@ namespace RNetApp
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             string colName = dataGridView1.Columns[e.ColumnIndex].Name;
-            if(colName == "finish")
+            SqlCommandBuilder sql = new SqlCommandBuilder(ado.Adapter);
+            if(colName == "termine_o_n")
             {
-                MessageBox.Show($"datagrid : {dataGridView1.Rows[e.RowIndex].Cells["desription"].Value.ToString()} ");
-                MessageBox.Show($"datarow {ado.Dt.Rows[e.RowIndex]["desription"].ToString()}");
+                sql.GetUpdateCommand();
+                ado.Dt.Rows[e.RowIndex]["termine_o_n"] = 1;
+                ado.Adapter.Update(ado.Dt);
+                filterData();
             }
         }
 
         public void loadData()
         {
-            ado.Cmd.CommandText = $"select * from tache where nomcategorie = '{Name1}'";
+            ado.Cmd.CommandText = $"select * from tache where nomcategorie = '{Name1}' and termine_o_n = {0}";
             ado.Cmd.Connection = ado.Connection;
             ado.Adapter.SelectCommand = ado.Cmd;
             ado.Adapter.Fill(ado.Dt);

@@ -162,6 +162,7 @@
             this.Controls.Add(this.description);
             this.Controls.Add(this.Panel2);
             this.Controls.Add(this.label4);
+            this.MaximizeBox = false;
             this.Name = "AjouTache";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AjouTache";

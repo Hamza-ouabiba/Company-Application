@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.actualiser = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -46,10 +47,21 @@
             this.dataGridView1.Size = new System.Drawing.Size(1052, 490);
             this.dataGridView1.TabIndex = 0;
             // 
+            // actualiser
+            // 
+            this.actualiser.Location = new System.Drawing.Point(28, 13);
+            this.actualiser.Name = "actualiser";
+            this.actualiser.Size = new System.Drawing.Size(290, 36);
+            this.actualiser.TabIndex = 1;
+            this.actualiser.Text = "Actualiser";
+            this.actualiser.UseVisualStyleBackColor = true;
+            this.actualiser.Click += new System.EventHandler(this.actualiser_Click);
+            // 
             // termine
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.actualiser);
             this.Controls.Add(this.dataGridView1);
             this.Name = "termine";
             this.Size = new System.Drawing.Size(1255, 616);
@@ -62,5 +74,6 @@
         #endregion
 
         private DataGridView dataGridView1;
+        private Button actualiser;
     }
 }

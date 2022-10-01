@@ -147,6 +147,7 @@
             // 
             // dayContainer
             // 
+            this.dayContainer.BackColor = System.Drawing.SystemColors.Control;
             this.dayContainer.Location = new System.Drawing.Point(45, 71);
             this.dayContainer.Name = "dayContainer";
             this.dayContainer.Size = new System.Drawing.Size(395, 350);
@@ -226,7 +227,7 @@
             // 
             this.Mois.AutoSize = true;
             this.Mois.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.Mois.Location = new System.Drawing.Point(189, 9);
+            this.Mois.Location = new System.Drawing.Point(183, 9);
             this.Mois.Name = "Mois";
             this.Mois.Size = new System.Drawing.Size(43, 17);
             this.Mois.TabIndex = 15;

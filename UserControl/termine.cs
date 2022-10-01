@@ -17,9 +17,9 @@ namespace RNetApp
         {
             InitializeComponent();
         }
-        void filterData(DataTable dt)
+        public void filterData()
         {
-            DataView dv = new DataView(dt);
+            DataView dv = new DataView(ado.Ds.Tables["tache"]);
             dv.RowFilter = $"termine_o_n = {1}";
             dataGridView1.DataSource = dv;
         }
@@ -33,8 +33,15 @@ namespace RNetApp
             ado.Ds.Tables[0].TableName = "tache";
             ado.Ds.Tables[1].TableName = "categorie";
             dataGridView1.DataSource = ado.Ds.Tables["tache"];
-            filterData(ado.Ds.Tables["tache"]);
+            filterData();
             Shared.addCol(dataGridView1, "delete", "delete", "supprimer");
+        }
+
+        private void actualiser_Click(object sender, EventArgs e)
+        {
+            ado.Ds.Tables.Clear();
+            dataGridView1.Columns.Clear();
+            termine_Load(sender, e);
         }
     }
 }
