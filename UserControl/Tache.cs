@@ -13,14 +13,14 @@ namespace RNetApp
         List<TacheVariante> list = new List<TacheVariante>();
         static string catego_choix = null;
         TabPage page;
-        static string days_label;
+        string days_label = $"{DateTime.Today.Day}";
         private bool triggerTabPage = false;//if the user hit all tasks this will turn to true and the tabpage will automatically display the tasks
         static int month, year,day;
         public static string Catego_choix { get => catego_choix; set => catego_choix = value; }
         public  TabPage Page { get => page; set => page = value; }
         public static int Month { get => month; set => month = value; }
         public static int Year { get => year; set => year = value; }
-        public static string Days_Label { get => days_label; set => days_label = value; }   
+        public  string Days_Label { get => days_label; set => days_label = value; }   
         public Tache()
         {
             InitializeComponent();
@@ -31,7 +31,7 @@ namespace RNetApp
             Month = now.Month;
             Year = now.Year;
             string nomMois = DateTimeFormatInfo.CurrentInfo.GetMonthName(Month);
-            Mois.Text = nomMois + "" + Year;//giving day and month :
+            Mois.Text = days_label + " " +  nomMois + "" + Year;//giving day and month :
             //get the first day of the month : 
             DateTime firstOfMonth = new DateTime(Year, Month, 1);
             //get the count of days in month : 
@@ -55,6 +55,11 @@ namespace RNetApp
                 Month = 1;
                 Year++;
             }
+        }
+        public void displayDate()//o kat3iyt 3la had methode a chaque fois kadir button click : 
+        {
+            string nomMois = DateTimeFormatInfo.CurrentInfo.GetMonthName(Month);
+            Mois.Text = days_label + " " + nomMois + "" + Year;//giving day and month :
         }
         //inserting tabpages using categories : 
         private void insertTabPages()
@@ -87,6 +92,7 @@ namespace RNetApp
             p.Name1 = currenCategoryName;
             tabControl1.SelectedTab.Controls.Add(p);
             p.filterData();
+            DaysUserControl.tache = this;//kat3tiha had l instance l dayuser controle 
             DaysUserControl.Variante = p;
         }
         public bool testPage(string namePage)
@@ -169,7 +175,7 @@ namespace RNetApp
             {
                 daysofWeek = 7;
             }
-            Mois.Text = nomMois + "" + Year;
+            Mois.Text = days_label + nomMois + "" + Year;
             for (int i = 1; i < daysofWeek; i++)
             {
                 BlankUserControl blank = new BlankUserControl();
@@ -216,7 +222,7 @@ namespace RNetApp
             int daysofWeek = Convert.ToInt32(firstOfMonth.DayOfWeek.ToString("d"));
            /* MessageBox.Show($"days of week {daysofWeek}");*/
             string nomMois = DateTimeFormatInfo.CurrentInfo.GetMonthName(Month);
-            Mois.Text = nomMois + "" + Year;
+            Mois.Text = days_label + nomMois + "" + Year;
             if (daysofWeek == 0)
             {
                 daysofWeek = 7;

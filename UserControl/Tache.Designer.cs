@@ -226,7 +226,7 @@
             // 
             this.Mois.AutoSize = true;
             this.Mois.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.Mois.Location = new System.Drawing.Point(200, 9);
+            this.Mois.Location = new System.Drawing.Point(189, 9);
             this.Mois.Name = "Mois";
             this.Mois.Size = new System.Drawing.Size(43, 17);
             this.Mois.TabIndex = 15;
@@ -246,7 +246,7 @@
             // next
             // 
             this.next.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.next.Location = new System.Drawing.Point(308, 3);
+            this.next.Location = new System.Drawing.Point(307, 2);
             this.next.Name = "next";
             this.next.Size = new System.Drawing.Size(34, 29);
             this.next.TabIndex = 17;
@@ -318,10 +318,10 @@
         private Label label5;
         private Label label6;
         private Label label7;
-        private Label Mois;
         private Button previous;
         private Button next;
         private Button ajouTache;
         private FontAwesome.Sharp.IconButton tous;
+        private Label Mois;
     }
 }

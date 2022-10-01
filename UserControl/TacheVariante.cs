@@ -6,10 +6,7 @@ namespace RNetApp
     public partial class TacheVariante : UserControl
     {
         static string name;
-<<<<<<< HEAD
         public  TacheVariante hadi;
-=======
->>>>>>> f1509c9006a391d855507a5208af36d775aa8f21
         AdoNet ado = new AdoNet();
         private static int day = 0, month = 0, year = 0;
         public TacheVariante()
