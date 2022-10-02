@@ -61,5 +61,16 @@ namespace RNetApp
             AjoutEspece ajout_espece = new AjoutEspece();
             ajout_espece.Show();
         }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            string colName = dataGridView1.Columns[e.ColumnIndex].Name;
+            if(colName == "edit")
+            {
+                ModifierEspece modifierEspece = new ModifierEspece();
+                modifierEspece.IdEspece = int.Parse(dataGridView1.Rows[e.RowIndex].Cells["idespece"].Value.ToString());
+                modifierEspece.Show();
+            }
+        }
     }
 }

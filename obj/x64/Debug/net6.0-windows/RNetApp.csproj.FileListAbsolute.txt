@@ -113,3 +113,4 @@ D:\projects\training\RNetApp\RNetApp\bin\x64\Debug\net6.0-windows\th\CrystalDeci
 D:\projects\training\RNetApp\RNetApp\bin\x64\Debug\net6.0-windows\tr\CrystalDecisions.Windows.Forms.resources.dll
 D:\projects\training\RNetApp\RNetApp\bin\x64\Debug\net6.0-windows\zh-CHS\CrystalDecisions.Windows.Forms.resources.dll
 D:\projects\training\RNetApp\RNetApp\bin\x64\Debug\net6.0-windows\zh-CHT\CrystalDecisions.Windows.Forms.resources.dll
+D:\projects\training\RNetApp\RNetApp\obj\x64\Debug\net6.0-windows\RNetApp.ModifierEspece.resources

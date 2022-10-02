@@ -22,6 +22,9 @@
     <Compile Update="Forms\Cheque\ModifierCheque.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="ModifierEspece.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="UserControl\TacheVariante.cs">
       <SubType>UserControl</SubType>
     </Compile>

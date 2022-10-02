@@ -17,7 +17,7 @@ namespace RNetApp
             names[0] = "Tous";
             comb.Items.AddRange(names);
         }
-        private string[] retrievingEmployees(DataTable dt)
+        private string[] retrievingClients(DataTable dt)
         {
             string[] ret = new string[dt.Rows.Count + 1];
             for (int i = 1; i < ret.Length; i++)
@@ -50,7 +50,7 @@ namespace RNetApp
             loadData("cheque");
             dataGridView1.DataSource = ado.Ds.Tables["Cheque"];
             loadData("client");
-            fillCombo(comboBox1, retrievingEmployees(ado.Ds.Tables["client"]));
+            fillCombo(comboBox1, retrievingClients(ado.Ds.Tables["client"]));
             setDataGrid();
         }
         private void nvChequeBtn_Click_1(object sender, EventArgs e)
@@ -131,7 +131,12 @@ namespace RNetApp
 
                                 dt_cheque.Rows[0]["total_rest"] = decimal.Parse(dt_cheque.Rows[0]["total_rest"].ToString()) + decimal.Parse(dataGridView1.Rows[e.RowIndex].Cells["montant"].Value.ToString());
                                 MessageBox.Show("apres" + dt_cheque.Rows[0]["total_rest"].ToString());
-
+                                //verify if the invoice has a true status : 
+                                //if so changing the status to false status : 
+                                if (dt_cheque.Rows[0]["pay_o_n"].ToString() == "True")
+                                {
+                                    dt_cheque.Rows[0]["pay_o_n"] = 0;
+                                }
                                 sqlCommandBuilder1.GetUpdateCommand();
 
                                 factureAdapter.Update(dt_cheque);
