@@ -310,5 +310,10 @@ namespace RNetApp
             }
             else MessageBox.Show("voud devez d'abord fixer les prix pour ce client : ");
         }
+
+        private void actuaNu_Click(object sender, EventArgs e)
+        {
+            
+        }
     }
 }

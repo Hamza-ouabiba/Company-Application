@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Data;
+using System.Data.SqlClient;
 using System.Windows.Forms;
 namespace RNetApp
 {
@@ -35,10 +36,14 @@ namespace RNetApp
         }
         private void loadData(string dataSource)
         {
-            ado.Cmd.CommandText = $"SELECT * FROM {dataSource}";
+            ado.Cmd.CommandText = "GETTABLES";
+            ado.Cmd.CommandType = CommandType.StoredProcedure;
             ado.Cmd.Connection = ado.Connection;
             ado.Adapter.SelectCommand = ado.Cmd;
-            ado.Adapter.Fill(ado.Ds, dataSource);
+            ado.Adapter.Fill(ado.Ds);
+            ado.Ds.Tables[0].TableName = "facture";
+            ado.Ds.Tables[1].TableName = "client";
+            ado.Ds.Tables[2].TableName = "cheque";
         }
         private void GestionCheque_Load(object sender, EventArgs e)
         {
@@ -67,49 +72,117 @@ namespace RNetApp
         }
         private void comboBox1_SelectedValueChanged(object sender, EventArgs e)
         {
-            DataView dv = new DataView(ado.Ds.Tables["cheque"]);
-            dv.RowFilter = $"idclient = '{searchClientCombo(comboBox1.Text)}'";
-            if (comboBox1.Text != "Tous")
+           try
             {
-                dataGridView1.DataSource = dv;
-            }
-            else
+                DataView dv = new DataView(ado.Ds.Tables["cheque"]);
+                dv.RowFilter = $"idclient = '{searchClientCombo(comboBox1.Text)}'";
+                if (comboBox1.Text != "Tous")
+                {
+                    dataGridView1.DataSource = dv;
+                }
+                else
+                {
+                    dataGridView1.DataSource = ado.Ds.Tables["cheque"];
+                }
+            } catch (Exception ex)
             {
-                dataGridView1.DataSource = ado.Ds.Tables["cheque"];
+                MessageBox.Show(ex.Message);
             }
         }
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
-            if (e.ColumnIndex != -1)
+            try
             {
-                string colName = dataGridView1.Columns[e.ColumnIndex].Name;
-                if (colName == "voir")
+                if (e.ColumnIndex != -1)
                 {
-                    ChequeInfo cheque = new ChequeInfo();
-                    ChequeInfo.Idcheque = int.Parse(dataGridView1.Rows[e.RowIndex].Cells["idcheque"].Value.ToString());
-                    cheque.Show();
-                } else if(colName == "edit")
-                {
-                    ModifierCheque modifier_cheque = new ModifierCheque();
-                    ModifierCheque.Idcheque = int.Parse(dataGridView1.Rows[e.RowIndex].Cells["idcheque"].Value.ToString());
-                    modifier_cheque.Show();
+                    string colName = dataGridView1.Columns[e.ColumnIndex].Name;
+                    if (colName == "voir")
+                    {
+                        ChequeInfo cheque = new ChequeInfo();
+                        ChequeInfo.Idcheque = int.Parse(dataGridView1.Rows[e.RowIndex].Cells["idcheque"].Value.ToString());
+                        cheque.Show();
+                    }
+                    else if (colName == "edit")
+                    {
+                        ModifierCheque modifier_cheque = new ModifierCheque();
+                        ModifierCheque.Idcheque = int.Parse(dataGridView1.Rows[e.RowIndex].Cells["idcheque"].Value.ToString());
+                        modifier_cheque.Show();
+                    }
+                    else if (colName == "delete")
+                    {
+                        //asking the user if he wants to change the amount left according to the invoice : 
+                        string idFactureDataGrid = dataGridView1.Rows[e.RowIndex].Cells["idfacture"].Value.ToString();
+                        SqlDataAdapter adapter = new SqlDataAdapter("select * from cheque",ado.Connection);  
+                        SqlCommandBuilder sqlCommandBuilder = new SqlCommandBuilder(adapter);
+                        if (Shared.showMessage("Voulez vous vraiment supprimer le chèque ?", "confirmation de suppression"))
+                        {
+                            if (Shared.showMessage($"Changer le total restant de la facture numero : {idFactureDataGrid}", "Confirmation de changement de montant restant"))
+                            {
+                                //substract the amount of the check to the invoice : 
+                                DataTable dt_cheque = new DataTable();
+
+                                SqlDataAdapter factureAdapter = new SqlDataAdapter($"select * from facture where idfacture = {int.Parse(idFactureDataGrid)}", ado.Connection);
+                                SqlCommandBuilder sqlCommandBuilder1 = new SqlCommandBuilder(factureAdapter);
+
+                                factureAdapter.Fill(dt_cheque);
+
+                                MessageBox.Show("avant" + dt_cheque.Rows[0]["total_rest"].ToString());
+
+                                dt_cheque.Rows[0]["total_rest"] = decimal.Parse(dt_cheque.Rows[0]["total_rest"].ToString()) + decimal.Parse(dataGridView1.Rows[e.RowIndex].Cells["montant"].Value.ToString());
+                                MessageBox.Show("apres" + dt_cheque.Rows[0]["total_rest"].ToString());
+
+                                sqlCommandBuilder1.GetUpdateCommand();
+
+                                factureAdapter.Update(dt_cheque);
+                                sqlCommandBuilder.GetDeleteCommand();
+
+                                ado.Ds.Tables["cheque"].Rows[e.RowIndex].Delete();
+
+                                adapter.Update(ado.Ds.Tables["cheque"]);
+
+                                MessageBox.Show("Supprimer avec succes avec changement de montant");
+
+                            }
+                            else
+                            {
+                                sqlCommandBuilder.GetDeleteCommand();
+
+                                ado.Ds.Tables["cheque"].Rows[e.RowIndex].Delete();
+
+                                adapter.Update(ado.Ds.Tables["cheque"]);
+
+                                MessageBox.Show("Supprimer avec succes");
+
+                            }
+                        }
+                    }
                 }
+            } catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);    
             }
-        }
+        } 
 
         private void dataGridView1_CellMouseEnter(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.ColumnIndex != -1)
+            try
             {
-                string colName = dataGridView1.Columns[e.ColumnIndex].Name;
-                if (colName == "voir" || colName == "edit" || colName == "delete")
+                if (e.ColumnIndex != -1)
                 {
-                    dataGridView1.Cursor = Cursors.Hand;
-                } else
-                {
-                    dataGridView1.Cursor = Cursors.Default;
+                    string colName = dataGridView1.Columns[e.ColumnIndex].Name;
+                    if (colName == "voir" || colName == "edit" || colName == "delete")
+                    {
+                        dataGridView1.Cursor = Cursors.Hand;
+                    }
+                    else
+                    {
+                        dataGridView1.Cursor = Cursors.Default;
+                    }
                 }
+            } catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
         }
     }

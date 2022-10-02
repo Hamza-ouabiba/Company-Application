@@ -56,9 +56,8 @@ namespace RNetApp
                 ado.Dt.Rows[e.RowIndex]["termine_o_n"] = 1;
                 ado.Adapter.Update(ado.Dt);
                 filterData();
-            }
+            } 
         }
-
         public void loadData()
         {
             ado.Cmd.CommandText = $"select * from tache where nomcategorie = '{Name1}' and termine_o_n = {0}";

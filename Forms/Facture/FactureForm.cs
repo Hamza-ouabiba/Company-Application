@@ -297,7 +297,6 @@ namespace RNetApp.Forms
                 dr[1] = "lavette";
                 dr[2] = int.Parse(textBox35.Text);
                 total += int.Parse(textBox35.Text) * prix[34];
-
                 ado3.Ds.Tables["avoir"].Rows.Add(dr);
                 //mise a jour de la base de donnée : 
                 SqlCommandBuilder sql2 = new SqlCommandBuilder(ado3.Adapter);

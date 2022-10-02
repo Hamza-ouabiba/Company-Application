@@ -37,7 +37,9 @@ namespace RNetApp
             dataGridView1.Columns["IDCLIENT"].Visible = false;
             dataGridView1.RowTemplate.Height = 50;
             dataGridView1.RowHeadersVisible = false;
-            Shared.addCol(dataGridView1, "but", "voir", "");
+            Shared.addCol(dataGridView1, "voir", "voir", "");
+            Shared.addCol(dataGridView1, "edit", "edit", "");
+            Shared.addCol(dataGridView1, "delete", "delete", "");
         }
         private void lister_Click(object sender, EventArgs e)
         {

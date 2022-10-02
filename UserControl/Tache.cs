@@ -4,6 +4,7 @@ using System.Data;
 using System.Globalization;
 using System.Resources;
 using System.Windows.Forms;
+using RNetApp;
 namespace RNetApp
 {
     public partial class Tache : UserControl
@@ -206,7 +207,6 @@ namespace RNetApp
             triggerTabPage = true;
             p.TacheVariante_Load(sender, e);
         }
-
         private void previous_Click(object sender, EventArgs e)
         {
             Month--;

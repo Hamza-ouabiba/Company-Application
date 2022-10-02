@@ -39,6 +39,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.AjoutFac = new FontAwesome.Sharp.IconButton();
             this.comboBox3 = new System.Windows.Forms.ComboBox();
+            this.actuaNu = new FontAwesome.Sharp.IconButton();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -173,10 +174,25 @@
             this.comboBox3.Size = new System.Drawing.Size(293, 28);
             this.comboBox3.TabIndex = 90;
             // 
+            // actuaNu
+            // 
+            this.actuaNu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.actuaNu.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.actuaNu.IconColor = System.Drawing.Color.Black;
+            this.actuaNu.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.actuaNu.Location = new System.Drawing.Point(95, 42);
+            this.actuaNu.Name = "actuaNu";
+            this.actuaNu.Size = new System.Drawing.Size(242, 41);
+            this.actuaNu.TabIndex = 91;
+            this.actuaNu.Text = "Actualiser les numéros de facture ";
+            this.actuaNu.UseVisualStyleBackColor = true;
+            this.actuaNu.Click += new System.EventHandler(this.actuaNu_Click);
+            // 
             // GestionFacture
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.actuaNu);
             this.Controls.Add(this.comboBox3);
             this.Controls.Add(this.AjoutFac);
             this.Controls.Add(this.label4);
@@ -210,5 +226,6 @@
         private Label label4;
         private FontAwesome.Sharp.IconButton AjoutFac;
         private ComboBox comboBox3;
+        private FontAwesome.Sharp.IconButton actuaNu;
     }
 }
