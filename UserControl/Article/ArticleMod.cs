@@ -231,11 +231,23 @@ namespace RNetApp
                     ado.Adapter.Update(ado.Ds.Tables["changer"]);
                     MessageBox.Show("Prix Insérée avec succées");
                 }
-                else MessageBox.Show("vous avez deja fixé les prix pour ce client");
+                else
+                {
+                    if(Shared.showMessage("vous avez deja fixé les prix pour ce client Souhaitez Vous changer les anciens prix de ce client", ""))
+                    {
+                        foreach(DataRow row in ado.Ds.Tables["changer"].Rows)
+                        {
+                            row.Delete();
+                        }
+                        //update database : 
+                        ado.Adapter.Update(ado.Ds.Tables["changer"]);
+                        MessageBox.Show("Vous pouvez maintenant inserez des nouveau prix : ");
+                    }
+                }
             }
             catch (SqlException ex)
             {
-                
+                MessageBox.Show(ex.Message);
             }
             catch (Exception ex)
             {

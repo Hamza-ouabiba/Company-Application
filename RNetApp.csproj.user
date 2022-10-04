@@ -25,7 +25,10 @@
     <Compile Update="ModifierEspece.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="UserControl\TacheVariante.cs">
+    <Compile Update="ModifierFacture.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="UserControl\Tache\TacheVariante.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Update="UserControl\Calendar\BlankUserControl.cs">
@@ -70,33 +73,37 @@
     <Compile Update="Forms\Employee\ModifierEmploye.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="UserControl\ArticleMod.cs">
+    <Compile Update="UserControl\Article\ArticleMod.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Update="UserControl\GestionCheque.cs">
+    <Compile Update="UserControl\ChequeUserControl\GestionCheque.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Update="UserControl\GestionClient.cs">
+    <Compile Update="UserControl\Client\GestionClient.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Update="UserControl\GestionEmploye.cs">
+    <Compile Update="UserControl\Employee\GestionEmploye.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Update="UserControl\GestionEspece.cs">
+    <Compile Update="UserControl\Paiement\GestionEspece.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Update="UserControl\GestionFacture.cs">
+    <Compile Update="UserControl\Paiement\GestionFacture.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Update="UserControl\Tache.cs">
+    <Compile Update="UserControl\Tache\Tache.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Update="UserControl\termine.cs">
+    <Compile Update="UserControl\Tache\termine.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Update="viewer.cs">
       <SubType>Form</SubType>
     </Compile>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Update="factureDs.xsd">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
 </Project>

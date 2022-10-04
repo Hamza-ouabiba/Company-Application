@@ -44,12 +44,13 @@
             this.Modifier.BackColor = System.Drawing.Color.Lime;
             this.Modifier.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Modifier.ForeColor = System.Drawing.Color.Black;
-            this.Modifier.Location = new System.Drawing.Point(51, 393);
+            this.Modifier.Location = new System.Drawing.Point(60, 398);
             this.Modifier.Name = "Modifier";
             this.Modifier.Size = new System.Drawing.Size(264, 45);
             this.Modifier.TabIndex = 140;
             this.Modifier.Text = "Modifier";
             this.Modifier.UseVisualStyleBackColor = false;
+            this.Modifier.Click += new System.EventHandler(this.Modifier_Click);
             // 
             // label5
             // 

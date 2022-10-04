@@ -35,7 +35,7 @@
             this.ajouTache = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.catego = new FontAwesome.Sharp.IconButton();
-            this.button1 = new System.Windows.Forms.Button();
+            this.recherche = new System.Windows.Forms.Button();
             this.dayContainer = new System.Windows.Forms.FlowLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -48,6 +48,8 @@
             this.previous = new System.Windows.Forms.Button();
             this.next = new System.Windows.Forms.Button();
             this.tous = new FontAwesome.Sharp.IconButton();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // termine
@@ -121,6 +123,8 @@
             this.textBox1.PlaceholderText = "Chercher une tache";
             this.textBox1.Size = new System.Drawing.Size(308, 39);
             this.textBox1.TabIndex = 4;
+            this.textBox1.ModifiedChanged += new System.EventHandler(this.textBox1_ModifiedChanged);
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // catego
             // 
@@ -136,14 +140,14 @@
             this.catego.UseVisualStyleBackColor = true;
             this.catego.Click += new System.EventHandler(this.catego_Click);
             // 
-            // button1
+            // recherche
             // 
-            this.button1.Location = new System.Drawing.Point(375, 475);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(100, 39);
-            this.button1.TabIndex = 6;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
+            this.recherche.Location = new System.Drawing.Point(375, 475);
+            this.recherche.Name = "recherche";
+            this.recherche.Size = new System.Drawing.Size(100, 39);
+            this.recherche.TabIndex = 6;
+            this.recherche.Text = "button1";
+            this.recherche.UseVisualStyleBackColor = true;
             // 
             // dayContainer
             // 
@@ -270,11 +274,22 @@
             this.tous.UseVisualStyleBackColor = false;
             this.tous.Click += new System.EventHandler(this.tous_Click);
             // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(547, 765);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowHeadersWidth = 51;
+            this.dataGridView1.RowTemplate.Height = 29;
+            this.dataGridView1.Size = new System.Drawing.Size(667, 170);
+            this.dataGridView1.TabIndex = 19;
+            // 
             // Tache
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.tous);
             this.Controls.Add(this.next);
             this.Controls.Add(this.previous);
@@ -287,7 +302,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dayContainer);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.recherche);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.catego);
             this.Controls.Add(this.planifie);
@@ -298,6 +313,7 @@
             this.Name = "Tache";
             this.Size = new System.Drawing.Size(1504, 951);
             this.Load += new System.EventHandler(this.Tache_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -310,7 +326,7 @@
         private TextBox textBox1;
         private FontAwesome.Sharp.IconButton catego;
         public TabControl tabControl1;
-        private Button button1;
+        private Button recherche;
         private FlowLayoutPanel dayContainer;
         private Label label1;
         private Label label2;
@@ -324,5 +340,6 @@
         private Button ajouTache;
         private FontAwesome.Sharp.IconButton tous;
         private Label Mois;
+        private DataGridView dataGridView1;
     }
 }

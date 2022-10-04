@@ -35,5 +35,10 @@ namespace RNetApp
             montantEsp.Text = $"{ado.Dt.Rows[0]["montant"].ToString()}";
             factuNu.Text = ado.Dt.Rows[0]["idfacture"].ToString();
         }
+
+        private void Modifier_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

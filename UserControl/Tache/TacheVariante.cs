@@ -7,7 +7,6 @@ namespace RNetApp
     public partial class TacheVariante : UserControl
     {
         static string name;
-        public  TacheVariante hadi;
         AdoNet ado = new AdoNet();
         private static int day = 0, month = 0, year = 0;
         public TacheVariante()
@@ -22,6 +21,7 @@ namespace RNetApp
         public static int Day { get => day; set => day = value; }
         public static int Month { get => month; set => month = value; }
         public static int Year { get => year; set => year = value; }
+
         public void filterData()
         {
             if(Day != 0 && Month != 0 && year != 0)
@@ -32,7 +32,6 @@ namespace RNetApp
                 ado.Cmd.Connection = ado.Connection;
                 ado.Adapter.SelectCommand = ado.Cmd;
                 ado.Adapter.Fill(ado.Dt);
-                catego.Text = Name1;
                 this.dataGridView1.DataSource = ado.Dt;
             } else
             {
@@ -41,11 +40,13 @@ namespace RNetApp
                 ado.Cmd.Connection = ado.Connection;
                 ado.Adapter.SelectCommand = ado.Cmd;
                 ado.Adapter.Fill(ado.Dt);
-                catego.Text = Name1;
                 this.dataGridView1.DataSource = ado.Dt;
             }
         }
-
+        public void filterDataTable(DataTable dataTable)
+        {
+            dataGridView1.DataSource = dataTable; 
+        }
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             string colName = dataGridView1.Columns[e.ColumnIndex].Name;

@@ -5,6 +5,8 @@ using System.Globalization;
 using System.Resources;
 using System.Windows.Forms;
 using RNetApp;
+using System.Data.SqlClient;
+
 namespace RNetApp
 {
     public partial class Tache : UserControl
@@ -189,7 +191,6 @@ namespace RNetApp
                 day.Days(i);
                 dayContainer.Controls.Add(day);
             }
-            MessageBox.Show($"days {days}");
         }
         public void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -207,6 +208,25 @@ namespace RNetApp
             triggerTabPage = true;
             p.TacheVariante_Load(sender, e);
         }
+
+        private void textBox1_ModifiedChanged(object sender, EventArgs e)
+        {
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            DataTable tache = new DataTable();
+            TextBox search = sender as TextBox;
+            string searchText = search.Text;
+            SqlDataAdapter adapter_tache = new SqlDataAdapter($"select * from tache where desription like '{searchText}%' or nomcategorie like '{searchText}%'", ado.Connection);
+            //identify wether the user search for task or category: :
+            adapter_tache.Fill(tache);
+            if(tache.Rows.Count > 0)
+            {
+                p.filterDataTable(tache);
+            } 
+        }
+
         private void previous_Click(object sender, EventArgs e)
         {
             Month--;
@@ -239,7 +259,6 @@ namespace RNetApp
                 day.Days(i);
                 dayContainer.Controls.Add(day);
             }
-            MessageBox.Show($"days {days}");
         }
 
         private void catego_Click(object sender, EventArgs e)

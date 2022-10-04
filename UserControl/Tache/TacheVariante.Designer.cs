@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.catego = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -50,32 +49,20 @@
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
-            // catego
-            // 
-            this.catego.AutoSize = true;
-            this.catego.Location = new System.Drawing.Point(90, 22);
-            this.catego.Name = "catego";
-            this.catego.Size = new System.Drawing.Size(50, 20);
-            this.catego.TabIndex = 1;
-            this.catego.Text = "label1";
-            // 
             // TacheVariante
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.catego);
             this.Controls.Add(this.dataGridView1);
             this.Name = "TacheVariante";
             this.Size = new System.Drawing.Size(1142, 658);
             this.Load += new System.EventHandler(this.TacheVariante_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
-        private Label catego;
         public DataGridView dataGridView1;
     }
 }

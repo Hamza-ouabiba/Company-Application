@@ -87,7 +87,6 @@ D:\projects\training\RNetApp\RNetApp\bin\x64\Debug\net6.0-windows\tr\Microsoft.C
 D:\projects\training\RNetApp\RNetApp\bin\x64\Debug\net6.0-windows\zh-Hans\Microsoft.CodeAnalysis.VisualBasic.resources.dll
 D:\projects\training\RNetApp\RNetApp\bin\x64\Debug\net6.0-windows\zh-Hant\Microsoft.CodeAnalysis.VisualBasic.resources.dll
 D:\projects\training\RNetApp\RNetApp\obj\x64\Debug\net6.0-windows\RNetApp.viewer.resources
-D:\projects\training\RNetApp\RNetApp\bin\x64\Debug\net6.0-windows\reports\Report1.rdlc
 D:\projects\training\RNetApp\RNetApp\bin\x64\Debug\net6.0-windows\CrystalDecisions.CrystalReports.Engine.dll
 D:\projects\training\RNetApp\RNetApp\bin\x64\Debug\net6.0-windows\CrystalDecisions.Shared.dll
 D:\projects\training\RNetApp\RNetApp\bin\x64\Debug\net6.0-windows\CrystalDecisions.Windows.Forms.dll
@@ -114,3 +113,5 @@ D:\projects\training\RNetApp\RNetApp\bin\x64\Debug\net6.0-windows\tr\CrystalDeci
 D:\projects\training\RNetApp\RNetApp\bin\x64\Debug\net6.0-windows\zh-CHS\CrystalDecisions.Windows.Forms.resources.dll
 D:\projects\training\RNetApp\RNetApp\bin\x64\Debug\net6.0-windows\zh-CHT\CrystalDecisions.Windows.Forms.resources.dll
 D:\projects\training\RNetApp\RNetApp\obj\x64\Debug\net6.0-windows\RNetApp.ModifierEspece.resources
+D:\projects\training\RNetApp\RNetApp\obj\x64\Debug\net6.0-windows\RNetApp.ModifierFacture.resources
+D:\projects\training\RNetApp\RNetApp\bin\x64\Debug\net6.0-windows\reports\Report1.rdlc
