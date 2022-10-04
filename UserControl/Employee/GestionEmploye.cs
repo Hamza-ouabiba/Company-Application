@@ -7,7 +7,7 @@ namespace RNetApp
 {
     public partial class GestionEmploye : UserControl
     {
-        //récupération de l'id chef depuis le login page: 
+        //Getting the chef's id 
         private static Guid idChef;
         private string idEmp;
         private int position;
