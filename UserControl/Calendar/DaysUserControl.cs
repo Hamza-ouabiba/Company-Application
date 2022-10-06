@@ -1,26 +1,29 @@
 ﻿using System;
+using System.ComponentModel;
 using System.Data;
 using System.Windows.Forms;
 namespace RNetApp
 {
     public partial class DaysUserControl : UserControl
     {
+        private int numDay;
         private static int day;
         private static TacheVariante variante;
         public static int Day { get => day; set => day = value; }
         public static TacheVariante Variante { get => variante; set => variante = value; }
         public static Tache tache;
-        public DaysUserControl()
+        public DaysUserControl(int day)
         {
             InitializeComponent();
+            this.numDay = day;
+            button1.Text = day + "";
+        }
+        public void Days(int numday)
+        {
         }
         private void DaysUserControl_Load(object sender, EventArgs e)
         {
 
-        }
-        public void Days(int numday)
-        {
-            button1.Text = numday + "";
         }
         private void button1_Click(object sender, EventArgs e)
         {

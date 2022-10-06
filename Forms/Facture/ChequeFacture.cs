@@ -118,7 +118,6 @@ namespace RNetApp
             {
                 if (comboBox1.SelectedIndex != -1)
                 {
-
                     ado.Ds.Tables["facture"].PrimaryKey = new DataColumn[] { ado.Ds.Tables["facture"].Columns["idfacture"] };
                     DataRow dr_facture = ado.Ds.Tables["facture"].Rows.Find(int.Parse(comboBox1.Text));
                     factureActurel = dr_facture;

@@ -6,21 +6,21 @@
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>5.64522cm</Width>
+              <Width>7.11101cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>5.64522cm</Width>
+              <Width>4.27468cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>5.64522cm</Width>
+              <Width>5.16368cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>4.10867cm</Width>
+              <Width>4.02929cm</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
             <TablixRow>
-              <Height>0.74817cm</Height>
+              <Height>0.64234cm</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
@@ -171,7 +171,7 @@
               </TablixCells>
             </TablixRow>
             <TablixRow>
-              <Height>0.70583cm</Height>
+              <Height>0.81166cm</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
@@ -271,14 +271,14 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="Textbox15">
+                    <Textbox Name="MontantLettre1">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value />
+                              <Value>=Fields!quantite.Value * Fields!prix_unitaire.Value</Value>
                               <Style />
                             </TextRun>
                           </TextRuns>
@@ -287,7 +287,7 @@
                           </Style>
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>Textbox15</rd:DefaultName>
+                      <rd:DefaultName>MontantLettre1</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
@@ -324,56 +324,86 @@
           </TablixMembers>
         </TablixRowHierarchy>
         <DataSetName>Facture</DataSetName>
-        <Top>1.87537cm</Top>
-        <Left>2.59503cm</Left>
+        <Top>0.5715cm</Top>
+        <Left>0.83819cm</Left>
         <Height>1.454cm</Height>
-        <Width>21.04433cm</Width>
+        <Width>20.57866cm</Width>
         <Style>
           <Border>
             <Style>None</Style>
           </Border>
         </Style>
       </Tablix>
+      <Textbox Name="MontantLettre">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>=First(Fields!MontantLettre.Value, "Facture")</Value>
+                <Style>
+                  <Color>Red</Color>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>MontantLettre</rd:DefaultName>
+        <Top>3.19644cm</Top>
+        <Left>12.62837cm</Left>
+        <Height>0.6cm</Height>
+        <Width>8.78848cm</Width>
+        <ZIndex>1</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
     </ReportItems>
-    <Height>9.45834in</Height>
-    <Style />
+    <Height>1.63911in</Height>
+    <Style>
+      <Border>
+        <Style>None</Style>
+      </Border>
+    </Style>
   </Body>
-  <Width>9.86667in</Width>
+  <Width>8.6735in</Width>
   <Page>
     <PageHeader>
-      <Height>2.54cm</Height>
-      <PrintOnFirstPage>true</PrintOnFirstPage>
-      <PrintOnLastPage>true</PrintOnLastPage>
-      <Style>
-        <Border>
-          <Style>None</Style>
-        </Border>
-      </Style>
-    </PageHeader>
-    <PageFooter>
-      <Height>9.271cm</Height>
+      <Height>1.82562cm</Height>
       <PrintOnFirstPage>true</PrintOnFirstPage>
       <PrintOnLastPage>true</PrintOnLastPage>
       <ReportItems>
-        <Textbox Name="MontantLettre1">
+        <Textbox Name="Textbox3">
           <CanGrow>true</CanGrow>
           <KeepTogether>true</KeepTogether>
           <Paragraphs>
             <Paragraph>
               <TextRuns>
                 <TextRun>
-                  <Value>=First(Fields!MontantLettre.Value, "Facture")</Value>
-                  <Style />
+                  <Value>PRESSING R-NET PLUS</Value>
+                  <Style>
+                    <FontSize>20pt</FontSize>
+                  </Style>
                 </TextRun>
               </TextRuns>
-              <Style />
+              <Style>
+                <TextAlign>Center</TextAlign>
+              </Style>
             </Paragraph>
           </Paragraphs>
-          <rd:DefaultName>MontantLettre1</rd:DefaultName>
-          <Top>1.51553cm</Top>
-          <Left>13.55937cm</Left>
-          <Height>0.6cm</Height>
-          <Width>2.5cm</Width>
+          <rd:DefaultName>Textbox3</rd:DefaultName>
+          <Top>0.56303cm</Top>
+          <Left>6.5532cm</Left>
+          <Height>0.87517cm</Height>
+          <Width>9.358cm</Width>
           <Style>
             <Border>
               <Style>None</Style>
@@ -390,9 +420,19 @@
           <Style>None</Style>
         </Border>
       </Style>
+    </PageHeader>
+    <PageFooter>
+      <Height>1.1842cm</Height>
+      <PrintOnFirstPage>true</PrintOnFirstPage>
+      <PrintOnLastPage>true</PrintOnLastPage>
+      <Style>
+        <Border>
+          <Style>None</Style>
+        </Border>
+      </Style>
     </PageFooter>
-    <PageHeight>29.7cm</PageHeight>
-    <PageWidth>21cm</PageWidth>
+    <PageHeight>46cm</PageHeight>
+    <PageWidth>29.7cm</PageWidth>
     <LeftMargin>2cm</LeftMargin>
     <RightMargin>2cm</RightMargin>
     <TopMargin>2cm</TopMargin>

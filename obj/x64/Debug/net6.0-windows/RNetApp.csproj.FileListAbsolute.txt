@@ -115,3 +115,4 @@ D:\projects\training\RNetApp\RNetApp\bin\x64\Debug\net6.0-windows\zh-CHT\Crystal
 D:\projects\training\RNetApp\RNetApp\obj\x64\Debug\net6.0-windows\RNetApp.ModifierEspece.resources
 D:\projects\training\RNetApp\RNetApp\obj\x64\Debug\net6.0-windows\RNetApp.ModifierFacture.resources
 D:\projects\training\RNetApp\RNetApp\bin\x64\Debug\net6.0-windows\reports\Report1.rdlc
+D:\projects\training\RNetApp\RNetApp\obj\x64\Debug\net6.0-windows\RNetApp.FacturePaimentSeul.resources

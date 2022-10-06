@@ -49,8 +49,7 @@ namespace RNetApp
             //display days : 
             for (int i = 1; i <= days; i++)
             {
-                DaysUserControl day = new DaysUserControl();
-                day.Days(i);
+                DaysUserControl day = new DaysUserControl(i);
                 dayContainer.Controls.Add(day);
             }
             if (Month == 12)
@@ -187,8 +186,7 @@ namespace RNetApp
             //display days : 
             for (int i = 1; i <= days; i++)
             {
-                DaysUserControl day = new DaysUserControl();
-                day.Days(i);
+                DaysUserControl day = new DaysUserControl(i);
                 dayContainer.Controls.Add(day);
             }
         }
@@ -255,8 +253,7 @@ namespace RNetApp
             //display days : 
             for (int i = 1; i <= days; i++)
             {
-                DaysUserControl day = new DaysUserControl();
-                day.Days(i);
+                DaysUserControl day = new DaysUserControl(i);
                 dayContainer.Controls.Add(day);
             }
         }

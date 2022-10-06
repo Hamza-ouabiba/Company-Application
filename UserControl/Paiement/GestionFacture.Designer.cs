@@ -40,6 +40,10 @@
             this.AjoutFac = new FontAwesome.Sharp.IconButton();
             this.comboBox3 = new System.Windows.Forms.ComboBox();
             this.actuaNu = new FontAwesome.Sharp.IconButton();
+            this.label5 = new System.Windows.Forms.Label();
+            this.regler = new System.Windows.Forms.Label();
+            this.nnregler = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -89,7 +93,7 @@
             // 
             this.comboBox1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(1237, 144);
+            this.comboBox1.Location = new System.Drawing.Point(1237, 229);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(293, 28);
             this.comboBox1.TabIndex = 82;
@@ -108,7 +112,7 @@
             this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(95, 204);
+            this.dataGridView1.Location = new System.Drawing.Point(95, 310);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersWidth = 51;
@@ -123,7 +127,7 @@
             // comboBox2
             // 
             this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(880, 145);
+            this.comboBox2.Location = new System.Drawing.Point(880, 230);
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(293, 28);
             this.comboBox2.TabIndex = 86;
@@ -133,7 +137,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(880, 111);
+            this.label3.Location = new System.Drawing.Point(880, 196);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(162, 20);
             this.label3.TabIndex = 87;
@@ -142,7 +146,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(1237, 111);
+            this.label4.Location = new System.Drawing.Point(1237, 196);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(96, 20);
             this.label4.TabIndex = 88;
@@ -178,22 +182,68 @@
             // 
             // actuaNu
             // 
+            this.actuaNu.BackColor = System.Drawing.Color.Red;
             this.actuaNu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.actuaNu.ForeColor = System.Drawing.Color.White;
             this.actuaNu.IconChar = FontAwesome.Sharp.IconChar.None;
             this.actuaNu.IconColor = System.Drawing.Color.Black;
             this.actuaNu.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.actuaNu.Location = new System.Drawing.Point(95, 42);
+            this.actuaNu.Location = new System.Drawing.Point(1251, 123);
             this.actuaNu.Name = "actuaNu";
-            this.actuaNu.Size = new System.Drawing.Size(242, 41);
+            this.actuaNu.Size = new System.Drawing.Size(279, 41);
             this.actuaNu.TabIndex = 91;
             this.actuaNu.Text = "Actualiser les numéros de facture ";
-            this.actuaNu.UseVisualStyleBackColor = true;
+            this.actuaNu.UseVisualStyleBackColor = false;
             this.actuaNu.Click += new System.EventHandler(this.actuaNu_Click);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.ForeColor = System.Drawing.Color.ForestGreen;
+            this.label5.Location = new System.Drawing.Point(605, 103);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(64, 20);
+            this.label5.TabIndex = 92;
+            this.label5.Text = " RÉGLER";
+            // 
+            // regler
+            // 
+            this.regler.AutoSize = true;
+            this.regler.ForeColor = System.Drawing.Color.ForestGreen;
+            this.regler.Location = new System.Drawing.Point(614, 145);
+            this.regler.Name = "regler";
+            this.regler.Size = new System.Drawing.Size(50, 20);
+            this.regler.TabIndex = 93;
+            this.regler.Text = "label6";
+            // 
+            // nnregler
+            // 
+            this.nnregler.AutoSize = true;
+            this.nnregler.ForeColor = System.Drawing.Color.IndianRed;
+            this.nnregler.Location = new System.Drawing.Point(789, 144);
+            this.nnregler.Name = "nnregler";
+            this.nnregler.Size = new System.Drawing.Size(50, 20);
+            this.nnregler.TabIndex = 95;
+            this.nnregler.Text = "label7";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.ForeColor = System.Drawing.Color.IndianRed;
+            this.label8.Location = new System.Drawing.Point(769, 102);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(97, 20);
+            this.label8.TabIndex = 94;
+            this.label8.Text = "NON RÉGLER";
             // 
             // GestionFacture
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.nnregler);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.regler);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.actuaNu);
             this.Controls.Add(this.comboBox3);
             this.Controls.Add(this.AjoutFac);
@@ -229,5 +279,9 @@
         private FontAwesome.Sharp.IconButton AjoutFac;
         private ComboBox comboBox3;
         private FontAwesome.Sharp.IconButton actuaNu;
+        private Label label5;
+        private Label regler;
+        private Label nnregler;
+        private Label label8;
     }
 }

@@ -4,6 +4,9 @@
     <Compile Update="FactureCheck.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="FacturePaimentSeul.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Forms\Tache\AjouTache.cs">
       <SubType>Form</SubType>
     </Compile>

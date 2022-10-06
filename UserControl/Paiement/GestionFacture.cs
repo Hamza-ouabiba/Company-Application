@@ -15,6 +15,30 @@ namespace RNetApp
         {
             InitializeComponent();
         }
+        private decimal calculSommeRegler()
+        {
+            decimal somme = 0;
+            foreach (DataRow row in ado.Ds.Tables["facture"].Rows)
+            {
+                if (int.Parse(row["pay_o_n"].ToString()) == 1 && row["total_ttc"].ToString() != "" )
+                {
+                    somme += decimal.Parse(row["total_ttc"].ToString());
+                }
+            }
+            return somme;
+        }
+        private decimal calculSommeNonRegler()
+        {
+            decimal somme = 0;
+            foreach (DataRow row in ado.Ds.Tables["facture"].Rows)
+            {
+                if (int.Parse(row["pay_o_n"].ToString()) == 0 && row["total_ttc"].ToString() != "")
+                {
+                    somme += decimal.Parse(row["total_ttc"].ToString());
+                }
+            }
+            return somme;
+        }
         private decimal calculTotal(DataGridViewRow data)
         {
 
@@ -93,6 +117,7 @@ namespace RNetApp
             Shared.addCol(dataGridView1, "delete", "delete", "supprimer");
             Shared.addCol(dataGridView1, "edit", "edit", "modifier");
             Shared.addCol(dataGridView1, "voir", "voir", "voir facture");
+            Shared.addCol(dataGridView1, "add", "add", "Ajouter une méthode de paiment");
 
             dataGridView1.RowTemplate.Height = 40;
         }
@@ -135,6 +160,8 @@ namespace RNetApp
             fillComboWithDataSource(comboBox3);
             setDataGridView();
             nbrefac.Text = $"{ado.Ds.Tables["facture"].Rows.Count}";
+            regler.Text = calculSommeRegler() + "";
+            nnregler.Text = calculSommeNonRegler() + "";
         }
         private bool verificationClientPrix(Guid idclient)
         {
@@ -202,23 +229,27 @@ namespace RNetApp
             if(e.RowIndex != -1)
             {
                 //setting the primary key of the 'facture' datatable 
-                ado.Ds.Tables["facture"].PrimaryKey = new DataColumn[] { ado.Ds.Tables["facture"].Columns["idfacture"] };
-                DataRow dr = ado.Ds.Tables["facture"].Rows.Find(int.Parse(dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString()));
-                DataRow[] cheque_facture= ado.Ds.Tables["cheque"].Select($"idfacture = {int.Parse(dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString())}");
-                DataRow[] espece_facture = ado.Ds.Tables["espece"].Select($"idfacture = {int.Parse(dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString())}");
-                if (dr != null)
+                string colName = dataGridView1.Columns[e.ColumnIndex].Name;
+               if(colName == "see")
                 {
-                    infoFacture ifa = new infoFacture();
+                    ado.Ds.Tables["facture"].PrimaryKey = new DataColumn[] { ado.Ds.Tables["facture"].Columns["idfacture"] };
+                    DataRow dr = ado.Ds.Tables["facture"].Rows.Find(int.Parse(dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString()));
+                    DataRow[] cheque_facture = ado.Ds.Tables["cheque"].Select($"idfacture = {int.Parse(dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString())}");
+                    DataRow[] espece_facture = ado.Ds.Tables["espece"].Select($"idfacture = {int.Parse(dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString())}");
+                    if (dr != null)
+                    {
+                        infoFacture ifa = new infoFacture();
 
-                    infoFacture.Facture = dr;
+                        infoFacture.Facture = dr;
 
-                    infoFacture.Client = ado.Ds.Tables["client"];
+                        infoFacture.Client = ado.Ds.Tables["client"];
 
-                    infoFacture.NombreCheque = cheque_facture.Length;
+                        infoFacture.NombreCheque = cheque_facture.Length;
 
-                    infoFacture.NombreEspece = espece_facture.Length;
+                        infoFacture.NombreEspece = espece_facture.Length;
 
-                    ifa.Show();
+                        ifa.Show();
+                    }
                 }
             } 
         }
@@ -267,6 +298,10 @@ namespace RNetApp
                         modifierFacture.Idfacture = int.Parse(ado.Ds.Tables["facture"].Rows[e.RowIndex]["idfacture"].ToString());
                         modifierFacture.Show();
                     }
+                } else if(colName == "add")
+                {
+                    FacturePaimentSeul facturePaimentSeul = new FacturePaimentSeul();
+                    facturePaimentSeul.Show();
                 }
             }
         }
@@ -400,7 +435,7 @@ namespace RNetApp
                 }
             }
         }
-
+        
         private void comboBox1_TextChanged(object sender, EventArgs e)
         {
             if (comboBox1.Text != "")

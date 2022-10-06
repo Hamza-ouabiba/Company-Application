@@ -48,8 +48,6 @@
             this.previous = new System.Windows.Forms.Button();
             this.next = new System.Windows.Forms.Button();
             this.tous = new FontAwesome.Sharp.IconButton();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // termine
@@ -274,22 +272,11 @@
             this.tous.UseVisualStyleBackColor = false;
             this.tous.Click += new System.EventHandler(this.tous_Click);
             // 
-            // dataGridView1
-            // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(547, 765);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 29;
-            this.dataGridView1.Size = new System.Drawing.Size(667, 170);
-            this.dataGridView1.TabIndex = 19;
-            // 
             // Tache
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.tous);
             this.Controls.Add(this.next);
             this.Controls.Add(this.previous);
@@ -313,7 +300,6 @@
             this.Name = "Tache";
             this.Size = new System.Drawing.Size(1504, 951);
             this.Load += new System.EventHandler(this.Tache_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -340,6 +326,5 @@
         private Button ajouTache;
         private FontAwesome.Sharp.IconButton tous;
         private Label Mois;
-        private DataGridView dataGridView1;
     }
 }
