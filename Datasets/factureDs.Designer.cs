@@ -10,7 +10,7 @@
 
 #pragma warning disable 1591
 
-namespace RNetApp {
+namespace RNetApp.Datasets {
     
     
     /// <summary>
@@ -6606,7 +6606,7 @@ namespace RNetApp {
         }
     }
 }
-namespace RNetApp.factureDsTableAdapters {
+namespace RNetApp.Datasets.factureDsTableAdapters {
     
     
     /// <summary>

@@ -86,7 +86,6 @@ D:\projects\training\RNetApp\RNetApp\bin\x64\Debug\net6.0-windows\ru\Microsoft.C
 D:\projects\training\RNetApp\RNetApp\bin\x64\Debug\net6.0-windows\tr\Microsoft.CodeAnalysis.VisualBasic.resources.dll
 D:\projects\training\RNetApp\RNetApp\bin\x64\Debug\net6.0-windows\zh-Hans\Microsoft.CodeAnalysis.VisualBasic.resources.dll
 D:\projects\training\RNetApp\RNetApp\bin\x64\Debug\net6.0-windows\zh-Hant\Microsoft.CodeAnalysis.VisualBasic.resources.dll
-D:\projects\training\RNetApp\RNetApp\obj\x64\Debug\net6.0-windows\RNetApp.viewer.resources
 D:\projects\training\RNetApp\RNetApp\bin\x64\Debug\net6.0-windows\CrystalDecisions.CrystalReports.Engine.dll
 D:\projects\training\RNetApp\RNetApp\bin\x64\Debug\net6.0-windows\CrystalDecisions.Shared.dll
 D:\projects\training\RNetApp\RNetApp\bin\x64\Debug\net6.0-windows\CrystalDecisions.Windows.Forms.dll

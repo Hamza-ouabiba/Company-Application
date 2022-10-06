@@ -1,10 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Compile Update="FactureCheck.cs">
+    <Compile Update="Forms\Facture\FactureCheck.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="FacturePaimentSeul.cs">
+    <Compile Update="Forms\Facture\FacturePaimentSeul.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Forms\Tache\AjouTache.cs">
@@ -25,10 +25,10 @@
     <Compile Update="Forms\Cheque\ModifierCheque.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="ModifierEspece.cs">
+    <Compile Update="Forms\Espece\ModifierEspece.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="ModifierFacture.cs">
+    <Compile Update="Forms\Facture\ModifierFacture.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="UserControl\Tache\TacheVariante.cs">
@@ -100,12 +100,9 @@
     <Compile Update="UserControl\Tache\termine.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Update="viewer.cs">
-      <SubType>Form</SubType>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Update="factureDs.xsd">
+    <None Update="Datasets\factureDs.xsd">
       <SubType>Designer</SubType>
     </None>
   </ItemGroup>

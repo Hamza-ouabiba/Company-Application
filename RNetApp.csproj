@@ -26,7 +26,7 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Facturedds.xsd</DependentUpon>
     </Compile>
-    <Compile Update="factureDs.Designer.cs">
+    <Compile Update="Datasets\factureDs.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
       <DependentUpon>factureDs.xsd</DependentUpon>
@@ -54,7 +54,7 @@
       <Generator>MSDataSetGenerator</Generator>
       <LastGenOutput>Facturedds.Designer.cs</LastGenOutput>
     </None>
-    <None Update="factureDs.xsd">
+    <None Update="Datasets\factureDs.xsd">
       <Generator>MSDataSetGenerator</Generator>
       <LastGenOutput>factureDs.Designer.cs</LastGenOutput>
     </None>

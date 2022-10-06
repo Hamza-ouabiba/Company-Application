@@ -2,6 +2,7 @@
 using System.Data;
 using System.Windows.Forms;
 using CrystalDecisions.CrystalReports;
+using RNetApp.Datasets;
 namespace RNetApp
 {
     public partial class FactureCheck : Form
