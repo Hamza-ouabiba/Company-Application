@@ -13,7 +13,7 @@ namespace RNetApp.Forms
         private int position;
         private string nameClient;
         decimal total = 0;
-        List<TextBox> list;
+        List<TextBox> list = new List<TextBox>();
         public FactureForm()
         {
             InitializeComponent();
