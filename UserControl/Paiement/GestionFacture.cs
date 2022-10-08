@@ -162,6 +162,7 @@ namespace RNetApp
             nbrefac.Text = $"{ado.Ds.Tables["facture"].Rows.Count}";
             regler.Text = calculSommeRegler() + "";
             nnregler.Text = calculSommeNonRegler() + "";
+            comboBox1.Text = "Tous";
         }
         private bool verificationClientPrix(Guid idclient)
         {
@@ -301,6 +302,7 @@ namespace RNetApp
                 } else if(colName == "add")
                 {
                     FacturePaimentSeul facturePaimentSeul = new FacturePaimentSeul();
+                    facturePaimentSeul.IdFacture = int.Parse(dataGridView1.Rows[e.RowIndex].Cells["idfacture"].Value.ToString());  
                     facturePaimentSeul.Show();
                 }
             }
@@ -402,7 +404,7 @@ namespace RNetApp
 
         private void comboBox2_TextChanged(object sender, EventArgs e)
         {
-            if (comboBox2.Text != "")
+            if (comboBox2.Text != "" && comboBox2.Text != "Tous")
             {
                 DataView data = new DataView(ado.Ds.Tables["facture"]);
                 data.RowFilter = $"idfacture = '{int.Parse(comboBox2.Text)}'";

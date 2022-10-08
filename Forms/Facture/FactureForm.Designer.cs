@@ -91,7 +91,7 @@
             this.totalRem = new System.Windows.Forms.TextBox();
             this.remise = new System.Windows.Forms.TextBox();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.textBox36 = new System.Windows.Forms.TextBox();
+            this.Note = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.pttc = new System.Windows.Forms.Label();
             this.tva_ = new System.Windows.Forms.Label();
@@ -559,8 +559,9 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox1.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(29)))), ((int)(((byte)(30)))));
             this.groupBox1.Controls.Add(this.Enregistrement);
             this.groupBox1.Controls.Add(this.panel5);
             this.groupBox1.Controls.Add(this.panel4);
@@ -568,7 +569,7 @@
             this.groupBox1.Controls.Add(this.panel2);
             this.groupBox1.Location = new System.Drawing.Point(1295, 41);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(501, 963);
+            this.groupBox1.Size = new System.Drawing.Size(501, 988);
             this.groupBox1.TabIndex = 152;
             this.groupBox1.TabStop = false;
             // 
@@ -694,20 +695,20 @@
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.White;
-            this.panel3.Controls.Add(this.textBox36);
+            this.panel3.Controls.Add(this.Note);
             this.panel3.Location = new System.Drawing.Point(33, 419);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(415, 181);
             this.panel3.TabIndex = 7;
             // 
-            // textBox36
+            // Note
             // 
-            this.textBox36.Location = new System.Drawing.Point(39, 23);
-            this.textBox36.Multiline = true;
-            this.textBox36.Name = "textBox36";
-            this.textBox36.PlaceholderText = "Note pour la facture";
-            this.textBox36.Size = new System.Drawing.Size(352, 135);
-            this.textBox36.TabIndex = 0;
+            this.Note.Location = new System.Drawing.Point(39, 23);
+            this.Note.Multiline = true;
+            this.Note.Name = "Note";
+            this.Note.PlaceholderText = "Note pour la facture";
+            this.Note.Size = new System.Drawing.Size(352, 135);
+            this.Note.TabIndex = 0;
             // 
             // panel2
             // 
@@ -913,7 +914,7 @@
         private TextBox totalRem;
         private TextBox remise;
         private Panel panel3;
-        private TextBox textBox36;
+        private TextBox Note;
         private Panel panel2;
         private Button Enregistrement;
         private Panel panel5;

@@ -181,5 +181,16 @@ namespace RNetApp
             AjoutClient form_client = new AjoutClient();
             form_client.Show();
         }
+
+        private void dataGridView1_DataBindingComplete_1(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            for(int i = 0; i < dataGridView1.Rows.Count; i++)
+            {
+                if(i%2 == 0)
+                {
+                    dataGridView1.Rows[i].DefaultCellStyle.BackColor = Color.FromArgb(224);
+                }
+            }
+        }
     }
 }

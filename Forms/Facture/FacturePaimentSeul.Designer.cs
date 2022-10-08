@@ -31,27 +31,22 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.montRest = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.nomClient = new System.Windows.Forms.TextBox();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.label3 = new System.Windows.Forms.Label();
-            this.montantChe = new System.Windows.Forms.TextBox();
-            this.panel3 = new System.Windows.Forms.Panel();
             this.enrBtn = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.label6 = new System.Windows.Forms.Label();
-            this.numChe = new System.Windows.Forms.TextBox();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.label7 = new System.Windows.Forms.Label();
-            this.panel6 = new System.Windows.Forms.Panel();
             this.button1 = new System.Windows.Forms.Button();
-            this.dateEnc = new System.Windows.Forms.DateTimePicker();
+            this.nomClt = new System.Windows.Forms.TextBox();
+            this.facNum = new System.Windows.Forms.TextBox();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.Mnt = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.textBox6 = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -60,7 +55,7 @@
             this.groupBox1.Controls.Add(this.montRest);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.ForeColor = System.Drawing.Color.Black;
-            this.groupBox1.Location = new System.Drawing.Point(80, 491);
+            this.groupBox1.Location = new System.Drawing.Point(35, 447);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(325, 52);
             this.groupBox1.TabIndex = 118;
@@ -85,105 +80,101 @@
             this.label5.TabIndex = 103;
             this.label5.Text = "Montant Restant :";
             // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.ForeColor = System.Drawing.Color.Black;
-            this.label4.Location = new System.Drawing.Point(65, 106);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(47, 20);
-            this.label4.TabIndex = 115;
-            this.label4.Text = "Client";
-            // 
-            // nomClient
-            // 
-            this.nomClient.BackColor = System.Drawing.SystemColors.Control;
-            this.nomClient.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.nomClient.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.nomClient.ForeColor = System.Drawing.Color.Black;
-            this.nomClient.Location = new System.Drawing.Point(71, 129);
-            this.nomClient.Name = "nomClient";
-            this.nomClient.Size = new System.Drawing.Size(251, 23);
-            this.nomClient.TabIndex = 113;
-            // 
-            // panel4
-            // 
-            this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(117)))), ((int)(((byte)(214)))));
-            this.panel4.Location = new System.Drawing.Point(71, 162);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(400, 1);
-            this.panel4.TabIndex = 114;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.ForeColor = System.Drawing.Color.Black;
-            this.label3.Location = new System.Drawing.Point(65, 190);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(65, 20);
-            this.label3.TabIndex = 112;
-            this.label3.Text = "Montant";
-            // 
-            // montantChe
-            // 
-            this.montantChe.BackColor = System.Drawing.SystemColors.Control;
-            this.montantChe.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.montantChe.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.montantChe.ForeColor = System.Drawing.Color.Black;
-            this.montantChe.Location = new System.Drawing.Point(71, 213);
-            this.montantChe.Name = "montantChe";
-            this.montantChe.Size = new System.Drawing.Size(251, 23);
-            this.montantChe.TabIndex = 110;
-            // 
-            // panel3
-            // 
-            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(117)))), ((int)(((byte)(214)))));
-            this.panel3.Location = new System.Drawing.Point(71, 246);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(400, 1);
-            this.panel3.TabIndex = 111;
-            // 
             // enrBtn
             // 
             this.enrBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(117)))), ((int)(((byte)(240)))));
             this.enrBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.enrBtn.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.enrBtn.ForeColor = System.Drawing.Color.White;
-            this.enrBtn.Location = new System.Drawing.Point(841, 511);
+            this.enrBtn.Location = new System.Drawing.Point(621, 504);
             this.enrBtn.Name = "enrBtn";
             this.enrBtn.Size = new System.Drawing.Size(191, 43);
             this.enrBtn.TabIndex = 106;
             this.enrBtn.Text = "Enregistrer";
             this.enrBtn.UseVisualStyleBackColor = false;
             // 
+            // button1
+            // 
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Location = new System.Drawing.Point(494, 504);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(121, 43);
+            this.button1.TabIndex = 138;
+            this.button1.Text = "Annuler";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // nomClt
+            // 
+            this.nomClt.Location = new System.Drawing.Point(66, 72);
+            this.nomClt.Name = "nomClt";
+            this.nomClt.Size = new System.Drawing.Size(311, 27);
+            this.nomClt.TabIndex = 139;
+            // 
+            // facNum
+            // 
+            this.facNum.Location = new System.Drawing.Point(66, 164);
+            this.facNum.Name = "facNum";
+            this.facNum.Size = new System.Drawing.Size(311, 27);
+            this.facNum.TabIndex = 140;
+            // 
+            // textBox3
+            // 
+            this.textBox3.Location = new System.Drawing.Point(66, 253);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(311, 27);
+            this.textBox3.TabIndex = 141;
+            // 
+            // Mnt
+            // 
+            this.Mnt.Location = new System.Drawing.Point(474, 72);
+            this.Mnt.Name = "Mnt";
+            this.Mnt.Size = new System.Drawing.Size(311, 27);
+            this.Mnt.TabIndex = 142;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(66, 36);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(47, 20);
+            this.label1.TabIndex = 144;
+            this.label1.Text = "Client";
+            // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(587, 117);
+            this.label2.Location = new System.Drawing.Point(66, 131);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(136, 20);
-            this.label2.TabIndex = 127;
-            this.label2.Text = "Notes de paiement";
+            this.label2.Size = new System.Drawing.Size(56, 20);
+            this.label2.TabIndex = 145;
+            this.label2.Text = "Facture";
             // 
-            // textBox1
+            // label3
             // 
-            this.textBox1.BackColor = System.Drawing.SystemColors.Control;
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox1.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.textBox1.ForeColor = System.Drawing.Color.Black;
-            this.textBox1.Location = new System.Drawing.Point(593, 140);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(251, 23);
-            this.textBox1.TabIndex = 125;
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(66, 217);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(122, 20);
+            this.label3.TabIndex = 146;
+            this.label3.Text = "Date d\'opération";
             // 
-            // panel1
+            // label4
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(117)))), ((int)(((byte)(214)))));
-            this.panel1.Location = new System.Drawing.Point(593, 173);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(400, 1);
-            this.panel1.TabIndex = 126;
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(474, 131);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(128, 20);
+            this.label4.TabIndex = 147;
+            this.label4.Text = "Type de paiement";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(474, 36);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(65, 20);
+            this.label6.TabIndex = 148;
+            this.label6.Text = "Montant";
             // 
             // comboBox1
             // 
@@ -191,132 +182,64 @@
             this.comboBox1.Items.AddRange(new object[] {
             "Espèce",
             "Chèque"});
-            this.comboBox1.Location = new System.Drawing.Point(587, 219);
+            this.comboBox1.Location = new System.Drawing.Point(474, 163);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(406, 28);
-            this.comboBox1.TabIndex = 128;
-            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(65, 289);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(122, 20);
-            this.label1.TabIndex = 131;
-            this.label1.Text = "Date d\'opération";
-            // 
-            // textBox2
-            // 
-            this.textBox2.BackColor = System.Drawing.SystemColors.Control;
-            this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox2.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.textBox2.ForeColor = System.Drawing.Color.Black;
-            this.textBox2.Location = new System.Drawing.Point(71, 312);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(251, 23);
-            this.textBox2.TabIndex = 129;
-            // 
-            // panel2
-            // 
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(117)))), ((int)(((byte)(214)))));
-            this.panel2.Location = new System.Drawing.Point(71, 345);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(400, 1);
-            this.panel2.TabIndex = 130;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.ForeColor = System.Drawing.Color.Black;
-            this.label6.Location = new System.Drawing.Point(587, 352);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(136, 20);
-            this.label6.TabIndex = 134;
-            this.label6.Text = "Numéro de chèque";
-            // 
-            // numChe
-            // 
-            this.numChe.BackColor = System.Drawing.SystemColors.Control;
-            this.numChe.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.numChe.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.numChe.ForeColor = System.Drawing.Color.Black;
-            this.numChe.Location = new System.Drawing.Point(593, 375);
-            this.numChe.Name = "numChe";
-            this.numChe.Size = new System.Drawing.Size(251, 23);
-            this.numChe.TabIndex = 132;
-            this.numChe.TextChanged += new System.EventHandler(this.numChe_TextChanged);
-            // 
-            // panel5
-            // 
-            this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(117)))), ((int)(((byte)(214)))));
-            this.panel5.Location = new System.Drawing.Point(593, 408);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(400, 1);
-            this.panel5.TabIndex = 133;
+            this.comboBox1.Size = new System.Drawing.Size(141, 28);
+            this.comboBox1.TabIndex = 149;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.ForeColor = System.Drawing.Color.Black;
-            this.label7.Location = new System.Drawing.Point(593, 434);
+            this.label7.Location = new System.Drawing.Point(474, 333);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(146, 20);
-            this.label7.TabIndex = 137;
+            this.label7.TabIndex = 153;
             this.label7.Text = "Date d\'encaissement";
             // 
-            // panel6
+            // label8
             // 
-            this.panel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(117)))), ((int)(((byte)(214)))));
-            this.panel6.Location = new System.Drawing.Point(593, 499);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(400, 1);
-            this.panel6.TabIndex = 136;
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(474, 247);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(136, 20);
+            this.label8.TabIndex = 152;
+            this.label8.Text = "Numéro du chèque";
             // 
-            // button1
+            // textBox5
             // 
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Location = new System.Drawing.Point(714, 511);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(121, 43);
-            this.button1.TabIndex = 138;
-            this.button1.Text = "Annuler";
-            this.button1.UseVisualStyleBackColor = true;
+            this.textBox5.Location = new System.Drawing.Point(474, 369);
+            this.textBox5.Name = "textBox5";
+            this.textBox5.Size = new System.Drawing.Size(311, 27);
+            this.textBox5.TabIndex = 151;
             // 
-            // dateEnc
+            // textBox6
             // 
-            this.dateEnc.Location = new System.Drawing.Point(587, 457);
-            this.dateEnc.Name = "dateEnc";
-            this.dateEnc.Size = new System.Drawing.Size(406, 27);
-            this.dateEnc.TabIndex = 139;
+            this.textBox6.Location = new System.Drawing.Point(474, 280);
+            this.textBox6.Name = "textBox6";
+            this.textBox6.Size = new System.Drawing.Size(311, 27);
+            this.textBox6.TabIndex = 150;
             // 
             // FacturePaimentSeul
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1089, 605);
-            this.Controls.Add(this.dateEnc);
-            this.Controls.Add(this.button1);
+            this.ClientSize = new System.Drawing.Size(824, 585);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.panel6);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.numChe);
-            this.Controls.Add(this.panel5);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.panel2);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.textBox5);
+            this.Controls.Add(this.textBox6);
             this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.panel1);
-            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.nomClient);
-            this.Controls.Add(this.panel4);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.montantChe);
-            this.Controls.Add(this.panel3);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.Mnt);
+            this.Controls.Add(this.textBox3);
+            this.Controls.Add(this.facNum);
+            this.Controls.Add(this.nomClt);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.enrBtn);
             this.Name = "FacturePaimentSeul";
             this.Text = "FacturePaimentSeul";
@@ -333,26 +256,21 @@
         private GroupBox groupBox1;
         private Label montRest;
         private Label label5;
-        private Label label4;
-        private TextBox nomClient;
-        internal Panel panel4;
-        private Label label3;
-        private TextBox montantChe;
-        internal Panel panel3;
         private Button enrBtn;
-        private Label label2;
-        private TextBox textBox1;
-        internal Panel panel1;
-        private ComboBox comboBox1;
-        private Label label1;
-        private TextBox textBox2;
-        internal Panel panel2;
-        private Label label6;
-        private TextBox numChe;
-        internal Panel panel5;
-        private Label label7;
-        internal Panel panel6;
         private Button button1;
-        private DateTimePicker dateEnc;
+        private TextBox nomClt;
+        private TextBox facNum;
+        private TextBox textBox3;
+        private TextBox Mnt;
+        private Label label1;
+        private Label label2;
+        private Label label3;
+        private Label label4;
+        private Label label6;
+        private ComboBox comboBox1;
+        private Label label7;
+        private Label label8;
+        private TextBox textBox5;
+        private TextBox textBox6;
     }
 }

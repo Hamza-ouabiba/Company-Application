@@ -41,6 +41,7 @@
             this.comboEmp = new System.Windows.Forms.ComboBox();
             this.refresh = new System.Windows.Forms.Button();
             this.AjoutEmp = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -179,12 +180,12 @@
             this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(95, 205);
+            this.dataGridView1.Location = new System.Drawing.Point(0, 238);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 29;
-            this.dataGridView1.Size = new System.Drawing.Size(1452, 485);
+            this.dataGridView1.Size = new System.Drawing.Size(1605, 485);
             this.dataGridView1.TabIndex = 86;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick_1);
             this.dataGridView1.CellMouseEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellMouseEnter_1);
@@ -224,10 +225,22 @@
             this.AjoutEmp.UseVisualStyleBackColor = false;
             this.AjoutEmp.Click += new System.EventHandler(this.AjoutEmp_Click);
             // 
+            // panel1
+            // 
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel1.BackColor = System.Drawing.Color.DarkGray;
+            this.panel1.ForeColor = System.Drawing.Color.DarkGray;
+            this.panel1.Location = new System.Drawing.Point(0, 208);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1585, 1);
+            this.panel1.TabIndex = 97;
+            // 
             // GestionEmploye
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.AjoutEmp);
             this.Controls.Add(this.refresh);
             this.Controls.Add(this.comboEmp);
@@ -265,5 +278,6 @@
         private ComboBox comboEmp;
         private Button refresh;
         private Button AjoutEmp;
+        private Panel panel1;
     }
 }

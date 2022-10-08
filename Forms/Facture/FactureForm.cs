@@ -13,6 +13,7 @@ namespace RNetApp.Forms
         private int position;
         private string nameClient;
         decimal total = 0;
+        List<TextBox> list;
         public FactureForm()
         {
             InitializeComponent();
@@ -31,16 +32,32 @@ namespace RNetApp.Forms
         }
         private void loadData()
         {
-            ado.Cmd.CommandText = $"Select * from FACTURE where idClient = '{IdClient}'";
+            ado.Cmd.CommandText = $"Select * from FACTURE where idClient = '{IdClient}';select * from article";
             ado.Cmd.Connection = ado.Connection;
             ado.Adapter.SelectCommand = ado.Cmd;
-            ado.Adapter.Fill(ado.Ds, "FACTURE");
+            ado.Adapter.Fill(ado.Ds);
+            ado.Ds.Tables[0].TableName = "Facture";
+            ado.Ds.Tables[1].TableName = "Article";
+        }
+        List<TextBox> GetTextBoxes()
+        {
+            List<TextBox> list = new List<TextBox>();
+            foreach (Control control in this.Controls)
+            {
+                if(control is TextBox)
+                {
+                    list.Add((TextBox)control);
+                }
+            }
+            return list;
         }
         private void FactureForm_Load(object sender, EventArgs e)
         {
             DateTime date = DateTime.Now;
+            int nombre = 0;
             ajustementEcran();
             loadData();
+            list = GetTextBoxes();
             nomCl.Text = nameClient;
             for (int i = 0; i < ado.Ds.Tables["FACTURE"].Rows.Count; i++)
             {
@@ -51,6 +68,14 @@ namespace RNetApp.Forms
                     dateNow.Text = $"{date.Day}/{date.Month}/{date.Year}";
                     facturNum.Text = $"{ado.Ds.Tables["FACTURE"].Rows[i]["idFacture"].ToString()}/{date.Year}";
                     break;
+                }
+            }
+            while(nombre != 35)
+            {
+                foreach (var te in list)
+                {
+                    te.PlaceholderText = ado.Ds.Tables["article"].Rows[nombre]["designation"].ToString();
+                    nombre++;
                 }
             }
             tva.Text = $"{20}";
@@ -88,246 +113,44 @@ namespace RNetApp.Forms
                 ado2.Cmd.Connection = ado2.Connection;
                 ado2.Adapter.SelectCommand = ado2.Cmd;
                 ado2.Adapter.Fill(ado2.Ds, "changer");
-                for (int i = 0; i < ado2.Ds.Tables["changer"].Rows.Count; i++)
-                {
-                    prix[i] = decimal.Parse(ado2.Ds.Tables["changer"].Rows[i][2].ToString());
-                }
+                
                 AdoNet ado3 = new AdoNet();
+
                 ado3.Cmd.CommandText = $"Select * from AVOIR";
                 ado3.Cmd.Connection = ado3.Connection;
                 ado3.Adapter.SelectCommand = ado3.Cmd;
                 ado3.Adapter.Fill(ado3.Ds, "avoir");
-                if (!testFacture(ado3.Ds.Tables["avoir"],idFacture))
+                /*decimal.Parse(ado2.Ds.Tables["changer"].Rows[i][2].ToString());*/
+                
+                if (!testFacture(ado3.Ds.Tables["avoir"], idFacture))
                 {
-                    DataRow dr = ado3.Ds.Tables["avoir"].NewRow();
-                    dr[0] = idFacture;
-                    dr[1] = "draps_double";
-                    dr[2] = int.Parse(textBox1.Text);
-                    ado3.Ds.Tables["avoir"].Rows.Add(dr);
-                    total += int.Parse(textBox1.Text) * prix[0];
-                    dr = ado3.Ds.Tables["avoir"].NewRow();
-                    dr[0] = idFacture;
-                    dr[1] = "housse_couette_pm";
-                    dr[2] = int.Parse(textBox2.Text);
-                    total += int.Parse(textBox2.Text) * prix[1];
-                    ado3.Ds.Tables["avoir"].Rows.Add(dr);
-                    dr = ado3.Ds.Tables["avoir"].NewRow();
-                    dr[0] = idFacture;
-                    dr[1] = "housse_couette_gm";
-                    dr[2] = int.Parse(textBox3.Text);
-                    total += int.Parse(textBox3.Text) * prix[2];
-                    ado3.Ds.Tables["avoir"].Rows.Add(dr);
-                    dr = ado3.Ds.Tables["avoir"].NewRow();
-                    dr[0] = idFacture;
-                    dr[1] = "draps_housse_pm";
-                    dr[2] = int.Parse(textBox4.Text);
-                    total += int.Parse(textBox4.Text) * prix[3];
-                    ado3.Ds.Tables["avoir"].Rows.Add(dr);
-                    dr = ado3.Ds.Tables["avoir"].NewRow();
-                    dr[0] = idFacture;
-                    dr[1] = "draps_housse_gm";
-                    dr[2] = int.Parse(textBox5.Text);
-                    total += int.Parse(textBox5.Text) * prix[4];
-                    ado3.Ds.Tables["avoir"].Rows.Add(dr);
-                    dr = ado3.Ds.Tables["avoir"].NewRow();
-                    dr[0] = idFacture;
-                    dr[1] = "taie_oreiller_pm";
-                    dr[2] = int.Parse(textBox6.Text);
-                    total += int.Parse(textBox6.Text) * prix[5];
-                    ado3.Ds.Tables["avoir"].Rows.Add(dr);
-                    dr = ado3.Ds.Tables["avoir"].NewRow();
-                    dr[0] = idFacture;
-                    dr[1] = "taie_oreiller_gm";
-                    dr[2] = int.Parse(textBox7.Text);
-                    total += int.Parse(textBox7.Text) * prix[6];
-                    ado3.Ds.Tables["avoir"].Rows.Add(dr);
-                    dr = ado3.Ds.Tables["avoir"].NewRow();
-                    dr[0] = idFacture;
-                    dr[1] = "serviette_eponge";
-                    dr[2] = int.Parse(textBox8.Text);
-                    total += int.Parse(textBox8.Text) * prix[7];
-                    ado3.Ds.Tables["avoir"].Rows.Add(dr);
-                    dr = ado3.Ds.Tables["avoir"].NewRow();
-                    dr[0] = idFacture;
-                    dr[1] = "draps_bain";
-                    dr[2] = int.Parse(textBox9.Text);
-                    total += int.Parse(textBox9.Text) * prix[8];
-                    ado3.Ds.Tables["avoir"].Rows.Add(dr);
-                    dr = ado3.Ds.Tables["avoir"].NewRow();
-                    dr[0] = idFacture;
-                    dr[1] = "serviette_piscine";
-                    dr[2] = int.Parse(textBox10.Text);
-                    total += int.Parse(textBox10.Text) * prix[9];
-                    ado3.Ds.Tables["avoir"].Rows.Add(dr);
-                    dr = ado3.Ds.Tables["avoir"].NewRow();
-                    dr[0] = idFacture;
-                    dr[1] = "tapis_sol";
-                    dr[2] = int.Parse(textBox11.Text);
-                    total += int.Parse(textBox11.Text) * prix[10];
-                    ado3.Ds.Tables["avoir"].Rows.Add(dr);
-                    dr = ado3.Ds.Tables["avoir"].NewRow();
-                    dr[0] = idFacture;
-                    dr[1] = "draps_simple";
-                    dr[2] = int.Parse(textBox12.Text);
-                    total += int.Parse(textBox12.Text) * prix[11];
-                    ado3.Ds.Tables["avoir"].Rows.Add(dr);
-                    dr = ado3.Ds.Tables["avoir"].NewRow();
-                    dr[0] = idFacture;
-                    dr[1] = "tapis_bain";
-                    dr[2] = int.Parse(textBox13.Text);
-                    total += int.Parse(textBox13.Text) * prix[12];
-                    ado3.Ds.Tables["avoir"].Rows.Add(dr);
-                    dr = ado3.Ds.Tables["avoir"].NewRow();
-                    dr[0] = idFacture;
-                    dr[1] = "peignoir";
-                    dr[2] = int.Parse(textBox14.Text);
-                    total += int.Parse(textBox14.Text) * prix[13];
-                    ado3.Ds.Tables["avoir"].Rows.Add(dr);
-                    dr = ado3.Ds.Tables["avoir"].NewRow();
-                    dr[0] = idFacture;
-                    dr[1] = "oreiller";
-                    dr[2] = int.Parse(textBox15.Text);
-                    total += int.Parse(textBox15.Text) * prix[14];
-                    ado3.Ds.Tables["avoir"].Rows.Add(dr);
-                    dr = ado3.Ds.Tables["avoir"].NewRow();
-                    dr[0] = idFacture;
-                    dr[1] = "serviette_toilette_spa";
-                    dr[2] = int.Parse(textBox16.Text);
-                    total += int.Parse(textBox16.Text) * prix[15];
-                    ado3.Ds.Tables["avoir"].Rows.Add(dr);
-                    dr = ado3.Ds.Tables["avoir"].NewRow();
-                    dr[0] = idFacture;
-                    dr[1] = "aleze";
-                    dr[2] = int.Parse(textBox17.Text);
-                    total += int.Parse(textBox17.Text) * prix[16];
-                    ado3.Ds.Tables["avoir"].Rows.Add(dr);
-                    dr = ado3.Ds.Tables["avoir"].NewRow();
-                    dr[0] = idFacture;
-                    dr[1] = "draps_bain_spa";
-                    dr[2] = int.Parse(textBox18.Text);
-                    total += int.Parse(textBox18.Text) * prix[17];
-                    ado3.Ds.Tables["avoir"].Rows.Add(dr);
-                    dr = ado3.Ds.Tables["avoir"].NewRow();
-                    dr[0] = idFacture;
-                    dr[1] = "tapis_m2";
-                    dr[2] = int.Parse(textBox19.Text);
-                    total += int.Parse(textBox19.Text) * prix[18];
-                    ado3.Ds.Tables["avoir"].Rows.Add(dr);
-                    dr = ado3.Ds.Tables["avoir"].NewRow();
-                    dr[0] = idFacture;
-                    dr[1] = "serviette_table";
-                    dr[2] = int.Parse(textBox20.Text);
-                    total += int.Parse(textBox20.Text) * prix[19];
-                    ado3.Ds.Tables["avoir"].Rows.Add(dr);
-                    dr = ado3.Ds.Tables["avoir"].NewRow();
-                    dr[0] = idFacture;
-                    dr[1] = "rideau_gm_m2";
-                    dr[2] = int.Parse(textBox21.Text);
-                    total += int.Parse(textBox21.Text) * prix[20];
-                    ado3.Ds.Tables["avoir"].Rows.Add(dr);
-                    dr = ado3.Ds.Tables["avoir"].NewRow();
-                    dr[0] = idFacture;
-                    dr[1] = "housse_coussin_pm";
-                    dr[2] = int.Parse(textBox22.Text);
-                    total += int.Parse(textBox22.Text) * prix[21];
-                    ado3.Ds.Tables["avoir"].Rows.Add(dr);
-                    dr = ado3.Ds.Tables["avoir"].NewRow();
-                    dr[0] = idFacture;
-                    dr[1] = "housse_coussin_gm";
-                    dr[2] = int.Parse(textBox23.Text);
-                    total += int.Parse(textBox23.Text) * prix[22];
-                    ado3.Ds.Tables["avoir"].Rows.Add(dr);
-                    dr = ado3.Ds.Tables["avoir"].NewRow();
-                    dr[0] = idFacture;
-                    dr[1] = "taie_kiria";
-                    dr[2] = int.Parse(textBox24.Text);
-                    total += int.Parse(textBox24.Text) * prix[23];
-                    ado3.Ds.Tables["avoir"].Rows.Add(dr);
-                    dr = ado3.Ds.Tables["avoir"].NewRow();
-                    dr[0] = idFacture;
-                    dr[1] = "housse_canape";
-                    dr[2] = int.Parse(textBox25.Text);
-                    total += int.Parse(textBox25.Text) * prix[24];
-                    ado3.Ds.Tables["avoir"].Rows.Add(dr);
-                    dr = ado3.Ds.Tables["avoir"].NewRow();
-                    dr[0] = idFacture;
-                    dr[1] = "devant";
-                    dr[2] = int.Parse(textBox26.Text);
-                    total += int.Parse(textBox26.Text) * prix[25];
-                    ado3.Ds.Tables["avoir"].Rows.Add(dr);
-                    dr = ado3.Ds.Tables["avoir"].NewRow();
-                    dr[0] = idFacture;
-                    dr[1] = "chemin_table";
-                    dr[2] = int.Parse(textBox27.Text);
-                    total += int.Parse(textBox27.Text) * prix[26];
-                    ado3.Ds.Tables["avoir"].Rows.Add(dr);
-                    dr = ado3.Ds.Tables["avoir"].NewRow();
-                    dr[0] = idFacture;
-                    dr[1] = "nappe";
-                    dr[2] = int.Parse(textBox28.Text);
-                    total += int.Parse(textBox28.Text) * prix[27];
-                    ado3.Ds.Tables["avoir"].Rows.Add(dr);
-                    dr = ado3.Ds.Tables["avoir"].NewRow();
-                    dr[0] = idFacture;
-                    dr[1] = "chemin_lit";
-                    dr[2] = int.Parse(textBox29.Text);
-                    total += int.Parse(textBox29.Text) * prix[28];
-                    ado3.Ds.Tables["avoir"].Rows.Add(dr);
-                    dr = ado3.Ds.Tables["avoir"].NewRow();
-                    dr[0] = idFacture;
-                    dr[1] = "fouteille";
-                    dr[2] = int.Parse(textBox30.Text);
-                    total += int.Parse(textBox30.Text) * prix[29];
-                    ado3.Ds.Tables["avoir"].Rows.Add(dr);
-                    dr = ado3.Ds.Tables["avoir"].NewRow();
-                    dr[0] = idFacture;
-                    dr[1] = "matlant";
-                    dr[2] = int.Parse(textBox31.Text);
-                    total += int.Parse(textBox31.Text) * prix[30];
-                    ado3.Ds.Tables["avoir"].Rows.Add(dr);
-                    dr = ado3.Ds.Tables["avoir"].NewRow();
-                    dr[0] = idFacture;
-                    dr[1] = "torchon";
-                    dr[2] = int.Parse(textBox32.Text);
-                    total += int.Parse(textBox32.Text) * prix[31];
-                    ado3.Ds.Tables["avoir"].Rows.Add(dr);
-                    dr = ado3.Ds.Tables["avoir"].NewRow();
-                    dr[0] = idFacture;
-                    dr[1] = "couverture";
-                    dr[2] = int.Parse(textBox33.Text);
-                    total += int.Parse(textBox33.Text) * prix[33];
-                    ado3.Ds.Tables["avoir"].Rows.Add(dr);
-                    dr = ado3.Ds.Tables["avoir"].NewRow();
-                    dr[0] = idFacture;
-                    dr[1] = "couette";
-                    dr[2] = int.Parse(textBox34.Text);
-                    total += int.Parse(textBox34.Text) * prix[33];
-                    ado3.Ds.Tables["avoir"].Rows.Add(dr);
-                    dr = ado3.Ds.Tables["avoir"].NewRow();
-                    dr[0] = idFacture;
-                    dr[1] = "lavette";
-                    dr[2] = int.Parse(textBox35.Text);
-                    total += int.Parse(textBox35.Text) * prix[34];
-                    ado3.Ds.Tables["avoir"].Rows.Add(dr);
-                    //mise a jour de la base de donnée : 
-                    SqlCommandBuilder sql2 = new SqlCommandBuilder(ado3.Adapter);
-                    sql2.GetInsertCommand();
-                    ado3.Adapter.Update(ado3.Ds.Tables["avoir"]);
-
+                    for (int i = 0; i < ado2.Ds.Tables["changer"].Rows.Count; i++)
+                    {
+                        if (ado2.Ds.Tables["changer"].Rows[i]["designation"].ToString() == list[i].PlaceholderText)
+                        {
+                            DataRow dr = ado3.Ds.Tables["avoir"].NewRow();
+                            dr[0] = idFacture;
+                            dr[1] = list[i].PlaceholderText;
+                            dr[2] = int.Parse(list[i].Text);
+                            ado3.Ds.Tables["avoir"].Rows.Add(dr);
+                            total += decimal.Parse(list[i].Text) * decimal.Parse(ado2.Ds.Tables["changer"].Rows[i]["prix_unitaire"].ToString());
+                        }
+                    }
                     //mise a jour de la table facture : 
                     decimal tvaCal = (decimal.Parse(tva.Text) / 100);
                     pht.Visible = tva_.Visible = pttc.Visible = true;
                     pht.Text = $"{total}";
                     tva_.Text = $"{total * tvaCal}";
                     pttc.Text = $"{total + (total * tvaCal)}";
-                } else
+                }
+                else
                 {
                     SqlCommandBuilder sqlCommandBuilder = new SqlCommandBuilder(ado3.Adapter);
-                    if(Shared.showMessage("Facture deja faite pour ce client souhaitez vous la remodifier ?",""))
+                    if (Shared.showMessage("Facture deja faite pour ce client souhaitez vous la remodifier ?", ""))
                     {
-                        foreach(DataRow dataRow in ado3.Ds.Tables["avoir"].Rows)
+                        foreach (DataRow dataRow in ado3.Ds.Tables["avoir"].Rows)
                         {
-                            if(int.Parse(dataRow["idfacture"].ToString()) == idFacture)
+                            if (int.Parse(dataRow["idfacture"].ToString()) == idFacture)
                             {
                                 dataRow.Delete();
                             }
@@ -336,7 +159,8 @@ namespace RNetApp.Forms
                         ado3.Adapter.Update(ado3.Ds.Tables["avoir"]);
                     }
                 }
-            } catch (SqlException ex)
+            }
+            catch (SqlException ex)
             {
                     MessageBox.Show(ex.Message);
             } catch(Exception ex)

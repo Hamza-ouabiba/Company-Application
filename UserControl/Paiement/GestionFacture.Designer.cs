@@ -40,19 +40,22 @@
             this.AjoutFac = new FontAwesome.Sharp.IconButton();
             this.comboBox3 = new System.Windows.Forms.ComboBox();
             this.actuaNu = new FontAwesome.Sharp.IconButton();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.label5 = new System.Windows.Forms.Label();
             this.regler = new System.Windows.Forms.Label();
-            this.nnregler = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
+            this.nnregler = new System.Windows.Forms.Label();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.label2);
             this.groupBox2.Controls.Add(this.nbrefac);
-            this.groupBox2.Location = new System.Drawing.Point(95, 126);
+            this.groupBox2.Location = new System.Drawing.Point(31, 102);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(330, 52);
             this.groupBox2.TabIndex = 14;
@@ -83,7 +86,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(95, 96);
+            this.label1.Location = new System.Drawing.Point(31, 43);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(224, 27);
             this.label1.TabIndex = 11;
@@ -93,7 +96,7 @@
             // 
             this.comboBox1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(1237, 229);
+            this.comboBox1.Location = new System.Drawing.Point(715, 49);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(293, 28);
             this.comboBox1.TabIndex = 82;
@@ -112,12 +115,12 @@
             this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(95, 310);
+            this.dataGridView1.Location = new System.Drawing.Point(0, 310);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 29;
-            this.dataGridView1.Size = new System.Drawing.Size(1452, 537);
+            this.dataGridView1.Size = new System.Drawing.Size(1566, 537);
             this.dataGridView1.TabIndex = 85;
             this.dataGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellDoubleClick_1);
             this.dataGridView1.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dataGridView1_CellFormatting);
@@ -127,7 +130,7 @@
             // comboBox2
             // 
             this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(880, 230);
+            this.comboBox2.Location = new System.Drawing.Point(358, 50);
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(293, 28);
             this.comboBox2.TabIndex = 86;
@@ -137,7 +140,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(880, 196);
+            this.label3.Location = new System.Drawing.Point(358, 16);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(162, 20);
             this.label3.TabIndex = 87;
@@ -146,7 +149,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(1237, 196);
+            this.label4.Location = new System.Drawing.Point(715, 16);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(96, 20);
             this.label4.TabIndex = 88;
@@ -175,7 +178,7 @@
             this.comboBox3.Cursor = System.Windows.Forms.Cursors.Hand;
             this.comboBox3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(1040, 49);
+            this.comboBox3.Location = new System.Drawing.Point(1051, 49);
             this.comboBox3.Name = "comboBox3";
             this.comboBox3.Size = new System.Drawing.Size(293, 28);
             this.comboBox3.TabIndex = 90;
@@ -196,11 +199,22 @@
             this.actuaNu.UseVisualStyleBackColor = false;
             this.actuaNu.Click += new System.EventHandler(this.actuaNu_Click);
             // 
+            // panel1
+            // 
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel1.BackColor = System.Drawing.Color.DarkGray;
+            this.panel1.ForeColor = System.Drawing.Color.DarkGray;
+            this.panel1.Location = new System.Drawing.Point(3, 282);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1579, 1);
+            this.panel1.TabIndex = 96;
+            // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.ForeColor = System.Drawing.Color.ForestGreen;
-            this.label5.Location = new System.Drawing.Point(605, 103);
+            this.label5.Location = new System.Drawing.Point(16, 18);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(64, 20);
             this.label5.TabIndex = 92;
@@ -210,40 +224,50 @@
             // 
             this.regler.AutoSize = true;
             this.regler.ForeColor = System.Drawing.Color.ForestGreen;
-            this.regler.Location = new System.Drawing.Point(614, 145);
+            this.regler.Location = new System.Drawing.Point(30, 59);
             this.regler.Name = "regler";
             this.regler.Size = new System.Drawing.Size(50, 20);
             this.regler.TabIndex = 93;
             this.regler.Text = "label6";
             // 
-            // nnregler
-            // 
-            this.nnregler.AutoSize = true;
-            this.nnregler.ForeColor = System.Drawing.Color.IndianRed;
-            this.nnregler.Location = new System.Drawing.Point(789, 144);
-            this.nnregler.Name = "nnregler";
-            this.nnregler.Size = new System.Drawing.Size(50, 20);
-            this.nnregler.TabIndex = 95;
-            this.nnregler.Text = "label7";
-            // 
             // label8
             // 
             this.label8.AutoSize = true;
             this.label8.ForeColor = System.Drawing.Color.IndianRed;
-            this.label8.Location = new System.Drawing.Point(769, 102);
+            this.label8.Location = new System.Drawing.Point(180, 17);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(97, 20);
             this.label8.TabIndex = 94;
             this.label8.Text = "NON RÉGLER";
             // 
+            // nnregler
+            // 
+            this.nnregler.AutoSize = true;
+            this.nnregler.ForeColor = System.Drawing.Color.IndianRed;
+            this.nnregler.Location = new System.Drawing.Point(200, 59);
+            this.nnregler.Name = "nnregler";
+            this.nnregler.Size = new System.Drawing.Size(50, 20);
+            this.nnregler.TabIndex = 95;
+            this.nnregler.Text = "label7";
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.nnregler);
+            this.groupBox1.Controls.Add(this.label8);
+            this.groupBox1.Controls.Add(this.regler);
+            this.groupBox1.Controls.Add(this.label5);
+            this.groupBox1.Location = new System.Drawing.Point(522, 141);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(289, 103);
+            this.groupBox1.TabIndex = 97;
+            this.groupBox1.TabStop = false;
+            // 
             // GestionFacture
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.nnregler);
-            this.Controls.Add(this.label8);
-            this.Controls.Add(this.regler);
-            this.Controls.Add(this.label5);
+            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.actuaNu);
             this.Controls.Add(this.comboBox3);
             this.Controls.Add(this.AjoutFac);
@@ -260,6 +284,8 @@
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -279,9 +305,11 @@
         private FontAwesome.Sharp.IconButton AjoutFac;
         private ComboBox comboBox3;
         private FontAwesome.Sharp.IconButton actuaNu;
+        private Panel panel1;
         private Label label5;
         private Label regler;
-        private Label nnregler;
         private Label label8;
+        private Label nnregler;
+        private GroupBox groupBox1;
     }
 }

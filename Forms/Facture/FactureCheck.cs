@@ -22,49 +22,16 @@ namespace RNetApp
         }
         private void loadData()
         {
-            ado.Cmd.CommandText = "FactureCheck";
-            ado.Cmd.CommandType = CommandType.StoredProcedure;
+            ado.Cmd.CommandText = $"select a.idFacture,d.DESIGNATION,d.quantite,c.prix_unitaire from facture a join client b on a.idclient = b.IDCLIENT join changer c on c.IDCLIENT = b.IDCLIENT join avoir d on a.idFacture = d.IDFACTURE and a.idfacture = {int.Parse(facture["idfacture"].ToString())} and c.Designation = d.DESIGNATION";
             ado.Cmd.Connection = ado.Connection;
             ado.Adapter.SelectCommand = ado.Cmd;
-            ado.Adapter.Fill(ado.Ds);
-            ado.Ds.Tables[0].TableName = "facture";
-            ado.Ds.Tables[1].TableName = "client";
-            ado.Ds.Tables[2].TableName = "avoir";
-        }
-        private string seachClientName()
-        {
-            foreach(DataRow dataRow in ado.Ds.Tables["client"].Rows)
-            {
-                if (Guid.Parse(facture["idclient"].ToString()) == Guid.Parse(dataRow["idclient"].ToString()))
-                    return dataRow["nom"].ToString();
-            }
-            return null;
-        }
-        private void textBoxValues()
-        {
-            foreach(Control control in this.Controls)
-            {
-                if(control is TextBox )
-                {
-                    foreach(DataRow dataRow in ado.Ds.Tables["avoir"].Rows)
-                    {
-                        if(dataRow["designation"].ToString() == control.Name && dataRow["idfacture"].ToString() == facture["idfacture"].ToString())
-                        {
-                            control.Text = dataRow["quantite"].ToString();
-                        }
-                    }
-                }
-            }
+            ado.Adapter.Fill(ado.Dt);
+            dataGridView1.DataSource = ado.Dt;
         }
         private void FactureCheck_Load(object sender, EventArgs e)
         {
             ajustementEcran();
             loadData();
-            string nomClient = seachClientName();
-            dateNow.Text = facture["date_"].ToString();
-            nomCl.Text = nomClient;
-            facturNum.Text = facture["idfacture"].ToString();
-            textBoxValues();
         }
         private void print_Click_1(object sender, EventArgs e)
         {
