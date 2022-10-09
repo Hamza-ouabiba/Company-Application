@@ -120,6 +120,7 @@
             // 
             // textBox35
             // 
+            this.textBox35.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.textBox35.Location = new System.Drawing.Point(949, 424);
             this.textBox35.Name = "textBox35";
             this.textBox35.PlaceholderText = "Lavette";
@@ -128,6 +129,7 @@
             // 
             // textBox34
             // 
+            this.textBox34.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.textBox34.Location = new System.Drawing.Point(949, 374);
             this.textBox34.Name = "textBox34";
             this.textBox34.PlaceholderText = "couette";
@@ -136,6 +138,7 @@
             // 
             // textBox33
             // 
+            this.textBox33.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.textBox33.Location = new System.Drawing.Point(949, 317);
             this.textBox33.Name = "textBox33";
             this.textBox33.PlaceholderText = "Couverture/courvre Lit";
@@ -144,6 +147,7 @@
             // 
             // textBox32
             // 
+            this.textBox32.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.textBox32.Location = new System.Drawing.Point(949, 265);
             this.textBox32.Name = "textBox32";
             this.textBox32.PlaceholderText = "Torchon";
@@ -152,6 +156,7 @@
             // 
             // textBox31
             // 
+            this.textBox31.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.textBox31.Location = new System.Drawing.Point(949, 217);
             this.textBox31.Name = "textBox31";
             this.textBox31.PlaceholderText = "Matlant";
@@ -160,6 +165,7 @@
             // 
             // textBox30
             // 
+            this.textBox30.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.textBox30.Location = new System.Drawing.Point(702, 692);
             this.textBox30.Name = "textBox30";
             this.textBox30.PlaceholderText = "fouteille";
@@ -168,6 +174,7 @@
             // 
             // textBox29
             // 
+            this.textBox29.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.textBox29.Location = new System.Drawing.Point(702, 643);
             this.textBox29.Name = "textBox29";
             this.textBox29.PlaceholderText = "chemin de lit";
@@ -176,6 +183,7 @@
             // 
             // textBox28
             // 
+            this.textBox28.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.textBox28.Location = new System.Drawing.Point(702, 586);
             this.textBox28.Name = "textBox28";
             this.textBox28.PlaceholderText = "nappe";
@@ -184,6 +192,7 @@
             // 
             // textBox27
             // 
+            this.textBox27.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.textBox27.Location = new System.Drawing.Point(702, 527);
             this.textBox27.Name = "textBox27";
             this.textBox27.PlaceholderText = "chemin de table";
@@ -192,6 +201,7 @@
             // 
             // textBox26
             // 
+            this.textBox26.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.textBox26.Location = new System.Drawing.Point(702, 481);
             this.textBox26.Name = "textBox26";
             this.textBox26.PlaceholderText = "devant";
@@ -200,6 +210,7 @@
             // 
             // textBox25
             // 
+            this.textBox25.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.textBox25.Location = new System.Drawing.Point(702, 424);
             this.textBox25.Name = "textBox25";
             this.textBox25.PlaceholderText = "Housse canape";
@@ -208,6 +219,7 @@
             // 
             // textBox24
             // 
+            this.textBox24.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.textBox24.Location = new System.Drawing.Point(702, 374);
             this.textBox24.Name = "textBox24";
             this.textBox24.PlaceholderText = "taie kiria";
@@ -216,6 +228,7 @@
             // 
             // textBox23
             // 
+            this.textBox23.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.textBox23.Location = new System.Drawing.Point(702, 317);
             this.textBox23.Name = "textBox23";
             this.textBox23.PlaceholderText = "Housse coussin GM";
@@ -224,6 +237,7 @@
             // 
             // textBox22
             // 
+            this.textBox22.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.textBox22.Location = new System.Drawing.Point(702, 265);
             this.textBox22.Name = "textBox22";
             this.textBox22.PlaceholderText = "Housse coussin PM";
@@ -232,6 +246,7 @@
             // 
             // textBox21
             // 
+            this.textBox21.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.textBox21.Location = new System.Drawing.Point(702, 217);
             this.textBox21.Name = "textBox21";
             this.textBox21.PlaceholderText = "Rideau GM/M2";
@@ -240,6 +255,7 @@
             // 
             // textBox20
             // 
+            this.textBox20.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.textBox20.Location = new System.Drawing.Point(450, 692);
             this.textBox20.Name = "textBox20";
             this.textBox20.PlaceholderText = "serviette de table";
@@ -248,6 +264,7 @@
             // 
             // textBox19
             // 
+            this.textBox19.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.textBox19.Location = new System.Drawing.Point(450, 643);
             this.textBox19.Name = "textBox19";
             this.textBox19.PlaceholderText = "Tapis M2";
@@ -256,6 +273,7 @@
             // 
             // textBox18
             // 
+            this.textBox18.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.textBox18.Location = new System.Drawing.Point(450, 586);
             this.textBox18.Name = "textBox18";
             this.textBox18.PlaceholderText = "draps de bain spa";
@@ -264,6 +282,7 @@
             // 
             // textBox17
             // 
+            this.textBox17.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.textBox17.Location = new System.Drawing.Point(450, 527);
             this.textBox17.Name = "textBox17";
             this.textBox17.PlaceholderText = "aleze";
@@ -272,6 +291,7 @@
             // 
             // textBox16
             // 
+            this.textBox16.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.textBox16.Location = new System.Drawing.Point(450, 481);
             this.textBox16.Name = "textBox16";
             this.textBox16.PlaceholderText = "serviette de toilette spa";
@@ -280,6 +300,7 @@
             // 
             // textBox15
             // 
+            this.textBox15.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.textBox15.Location = new System.Drawing.Point(450, 424);
             this.textBox15.Name = "textBox15";
             this.textBox15.PlaceholderText = "oreiller";
@@ -288,6 +309,7 @@
             // 
             // textBox14
             // 
+            this.textBox14.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.textBox14.Location = new System.Drawing.Point(450, 374);
             this.textBox14.Name = "textBox14";
             this.textBox14.PlaceholderText = "peignoir";
@@ -296,6 +318,7 @@
             // 
             // textBox13
             // 
+            this.textBox13.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.textBox13.Location = new System.Drawing.Point(450, 317);
             this.textBox13.Name = "textBox13";
             this.textBox13.PlaceholderText = "tapis de bain";
@@ -304,6 +327,7 @@
             // 
             // textBox12
             // 
+            this.textBox12.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.textBox12.Location = new System.Drawing.Point(450, 265);
             this.textBox12.Name = "textBox12";
             this.textBox12.PlaceholderText = "Draps simple";
@@ -312,6 +336,7 @@
             // 
             // textBox11
             // 
+            this.textBox11.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.textBox11.Location = new System.Drawing.Point(450, 217);
             this.textBox11.Name = "textBox11";
             this.textBox11.PlaceholderText = "tapis sol";
@@ -320,6 +345,7 @@
             // 
             // textBox10
             // 
+            this.textBox10.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.textBox10.Location = new System.Drawing.Point(195, 692);
             this.textBox10.Name = "textBox10";
             this.textBox10.PlaceholderText = "serviette piscine";
@@ -328,6 +354,7 @@
             // 
             // textBox9
             // 
+            this.textBox9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.textBox9.Location = new System.Drawing.Point(195, 643);
             this.textBox9.Name = "textBox9";
             this.textBox9.PlaceholderText = "Draps de bain";
@@ -336,6 +363,7 @@
             // 
             // textBox8
             // 
+            this.textBox8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.textBox8.Location = new System.Drawing.Point(195, 586);
             this.textBox8.Name = "textBox8";
             this.textBox8.PlaceholderText = "serviette eponge";
@@ -344,6 +372,7 @@
             // 
             // textBox7
             // 
+            this.textBox7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.textBox7.Location = new System.Drawing.Point(195, 527);
             this.textBox7.Name = "textBox7";
             this.textBox7.PlaceholderText = "taie d\'oreiller GM";
@@ -352,6 +381,7 @@
             // 
             // textBox6
             // 
+            this.textBox6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.textBox6.Location = new System.Drawing.Point(195, 474);
             this.textBox6.Name = "textBox6";
             this.textBox6.PlaceholderText = "Taie d\'oreiller PM";
@@ -360,6 +390,7 @@
             // 
             // textBox5
             // 
+            this.textBox5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.textBox5.Location = new System.Drawing.Point(195, 424);
             this.textBox5.Name = "textBox5";
             this.textBox5.PlaceholderText = "Draps de housse GM";
@@ -368,6 +399,7 @@
             // 
             // textBox4
             // 
+            this.textBox4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.textBox4.Location = new System.Drawing.Point(195, 374);
             this.textBox4.Name = "textBox4";
             this.textBox4.PlaceholderText = "Draps de housse PM";
@@ -376,6 +408,7 @@
             // 
             // textBox3
             // 
+            this.textBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.textBox3.Location = new System.Drawing.Point(195, 317);
             this.textBox3.Name = "textBox3";
             this.textBox3.PlaceholderText = "Housse couette GM";
@@ -384,6 +417,7 @@
             // 
             // textBox2
             // 
+            this.textBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.textBox2.Location = new System.Drawing.Point(195, 265);
             this.textBox2.Name = "textBox2";
             this.textBox2.PlaceholderText = "Housse couette PM";
@@ -392,6 +426,7 @@
             // 
             // textBox1
             // 
+            this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.textBox1.Location = new System.Drawing.Point(195, 217);
             this.textBox1.Name = "textBox1";
             this.textBox1.PlaceholderText = "Draps Double";

@@ -48,10 +48,6 @@ namespace RNetApp
             Application.Exit();
         }
 
-        private void login_Load(object sender, EventArgs e)
-        {
-        }
-
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
             if(checkBox1.Checked)

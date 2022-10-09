@@ -262,9 +262,12 @@ namespace RNetApp
                 {
                     dataGridView1.Rows[i].Cells["pay_o_n"].Style.BackColor = Color.Lime;
                 }
-                else
+                else if (dataGridView1.Rows[i].Cells["pay_o_n"].Value.ToString() == "0")
                 {
                     dataGridView1.Rows[i].Cells["pay_o_n"].Style.BackColor = Color.Red;
+                } else
+                {
+                    dataGridView1.Rows[i].Cells["pay_o_n"].Style.BackColor = Color.Orange;
                 }
             }
         }
@@ -428,12 +431,16 @@ namespace RNetApp
                     e.Value = "non payée";
                     e.FormattingApplied = true;
 
-                } else
+                } else if(e.Value.ToString() == "1")
                 {
 
                     e.Value = " payée";
                     e.FormattingApplied = true;
 
+                } else
+                {
+                    e.Value = " En cours";
+                    e.FormattingApplied = true;
                 }
             }
         }

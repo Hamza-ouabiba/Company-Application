@@ -7,7 +7,6 @@ namespace RNetApp.Forms
 {
     public partial class FactureForm : Form
     {
-        private decimal[] prix = new decimal[35];
         private Guid idClient;
         private int idFacture;
         private int position;
@@ -169,10 +168,7 @@ namespace RNetApp.Forms
             this.Close();
         }
 
-        private void label4_Click(object sender, EventArgs e)
-        {
-
-        }
+       
 
         private void remise_TextChanged(object sender, EventArgs e)
         {

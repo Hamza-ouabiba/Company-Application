@@ -167,9 +167,6 @@
             this.comboBox1.Size = new System.Drawing.Size(345, 28);
             this.comboBox1.TabIndex = 101;
             this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
-            this.comboBox1.CausesValidationChanged += new System.EventHandler(this.comboBox1_CausesValidationChanged);
-            this.comboBox1.TextChanged += new System.EventHandler(this.comboBox1_TextChanged);
-            this.comboBox1.Validating += new System.ComponentModel.CancelEventHandler(this.comboBox1_Validating);
             // 
             // error
             // 

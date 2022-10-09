@@ -65,6 +65,7 @@ namespace RNetApp
                             scb.GetUpdateCommand();
                             factureActurel.BeginEdit();
                             factureActurel["total_rest"] = decimal.Parse(factureActurel["total_rest"].ToString()) - decimal.Parse(montantChe.Text);
+                            factureActurel["pay_o_n"] = 2;
                             factureActurel.EndEdit();
                             facture_adapter.Update(ado.Ds.Tables["facture"]);
 
@@ -80,7 +81,7 @@ namespace RNetApp
 
                             //etat de la facture : 
                         }
-                        else MessageBox.Show("Inserer un montant qui <= au montant de la facture");
+                        else MessageBox.Show("Inserer un montant qui inférieur ou égale au montant de la facture");
                     }
                     else
                     {
@@ -123,7 +124,7 @@ namespace RNetApp
                     factureActurel = dr_facture;
 
                     //verifier la facture : 
-                    if (dr_facture["pay_o_n"].ToString() == "True")
+                    if (dr_facture["pay_o_n"].ToString() == "1")
                     {
                         error.Visible = true;
                         error.Text = "Facture deja payée";
@@ -158,17 +159,6 @@ namespace RNetApp
             }
         }
 
-        private void comboBox1_Validating(object sender, System.ComponentModel.CancelEventArgs e)
-        {
-        }
-
-        private void comboBox1_TextChanged(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void comboBox1_CausesValidationChanged(object sender, EventArgs e)
-        {
-        }
+        
     }
 }

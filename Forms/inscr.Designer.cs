@@ -67,6 +67,7 @@
             this.button3.TabIndex = 41;
             this.button3.Text = "Menu Principal";
             this.button3.UseVisualStyleBackColor = false;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // iconButton2
             // 
