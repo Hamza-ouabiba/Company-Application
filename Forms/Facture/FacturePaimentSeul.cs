@@ -64,27 +64,47 @@ namespace RNetApp
 
         private void enrBtn_Click(object sender, EventArgs e)
         {
-            if(comboBox1.Text == "Chèque")
+            SqlDataAdapter adapterFacture = new SqlDataAdapter("select * from facture", ado.Connection);
+            SqlCommandBuilder sqlFacture = new SqlCommandBuilder(adapterFacture);
+            if (comboBox1.Text == "Chèque")
             {
                 SqlDataAdapter adapterCheque = new SqlDataAdapter("select * from cheque",ado.Connection);
-                SqlDataAdapter adapterFacture = new SqlDataAdapter("select * from facture", ado.Connection);
                 SqlCommandBuilder sql = new SqlCommandBuilder(adapterCheque);
-                SqlCommandBuilder sqlFacture = new SqlCommandBuilder(adapterFacture);
-                DataRow data = ado.Ds.Tables["cheque"].NewRow();
-                data[0] = int.Parse(numCh.Text);
-                data[1] = int.Parse(facNum.Text);
-                data[2] = Guid.Parse(row["idclient"].ToString());
-                data[3] = decimal.Parse(Mnt.Text);
+                    if (decimal.Parse(row["total_rest"].ToString()) > 0)
+                    {
+                        DataRow data = ado.Ds.Tables["cheque"].NewRow();
+                        data[0] = int.Parse(numCh.Text);
+                        data[1] = int.Parse(facNum.Text);
+                        data[2] = Guid.Parse(row["idclient"].ToString());
+                        data[3] = decimal.Parse(Mnt.Text);
 
-                sql.GetInsertCommand();
-                ado.Ds.Tables["cheque"].Rows.Add(data);
-                adapterCheque.Update(ado.Ds.Tables["cheque"]);
-                sqlFacture.GetUpdateCommand();
-                if(decimal.Parse(row["total_rest"].ToString()) > 0)
+                        sql.GetInsertCommand();
+                        ado.Ds.Tables["cheque"].Rows.Add(data);
+                        adapterCheque.Update(ado.Ds.Tables["cheque"]);
+                        sqlFacture.GetUpdateCommand();
+                
+                        row["total_rest"] = decimal.Parse(row["total_rest"].ToString()) - decimal.Parse(Mnt.Text);
+                        adapterFacture.Update(ado.Ds.Tables["facture"]);
+
+                    }
+            } else
+            {
+                SqlDataAdapter adapterEspece= new SqlDataAdapter("select * from espece", ado.Connection);
+                SqlCommandBuilder sql = new SqlCommandBuilder(adapterEspece);
+                if (decimal.Parse(row["total_rest"].ToString()) > 0)
                 {
+                    DataRow data = ado.Ds.Tables["espece"].NewRow();
+                    data[1] = int.Parse(facNum.Text);
+                    data[2] = Guid.Parse(row["idclient"].ToString());
+                    data[3] = decimal.Parse(Mnt.Text);
+                    sql.GetInsertCommand();
+                    ado.Ds.Tables["espece"].Rows.Add(data);
+                    adapterEspece.Update(ado.Ds.Tables["espece"]);
+                    sqlFacture.GetUpdateCommand();
+
                     row["total_rest"] = decimal.Parse(row["total_rest"].ToString()) - decimal.Parse(Mnt.Text);
+                    adapterFacture.Update(ado.Ds.Tables["facture"]);
                 }
-                adapterFacture.Update(ado.Ds.Tables["facture"]);
             }
         }
     }
