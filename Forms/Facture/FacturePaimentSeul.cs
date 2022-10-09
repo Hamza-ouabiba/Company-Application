@@ -70,7 +70,7 @@ namespace RNetApp
             {
                 SqlDataAdapter adapterCheque = new SqlDataAdapter("select * from cheque",ado.Connection);
                 SqlCommandBuilder sql = new SqlCommandBuilder(adapterCheque);
-                    if (decimal.Parse(row["total_rest"].ToString()) > 0)
+                    if (decimal.Parse(row["total_rest"].ToString()) > 0 && decimal.Parse(Mnt.Text) <= decimal.Parse(row["total_rest"].ToString()) && (decimal.Parse(row["total_rest"].ToString()) - decimal.Parse(Mnt.Text)) > 0)
                     {
                         DataRow data = ado.Ds.Tables["cheque"].NewRow();
                         data[0] = int.Parse(numCh.Text);
@@ -84,14 +84,31 @@ namespace RNetApp
                         sqlFacture.GetUpdateCommand();
                 
                         row["total_rest"] = decimal.Parse(row["total_rest"].ToString()) - decimal.Parse(Mnt.Text);
+                         row["pay_o_n"] = 2;
                         adapterFacture.Update(ado.Ds.Tables["facture"]);
 
+                    } else if ((decimal.Parse(row["total_rest"].ToString())== 0))
+                    {
+                        MessageBox.Show("facture  payée");
+                        sqlFacture.GetUpdateCommand();
+                        row["pay_o_n"] = 1;
+                        adapterFacture.Update(ado.Ds.Tables["facture"]);
+                    } else if (decimal.Parse(Mnt.Text) > decimal.Parse(row["total_rest"].ToString()))
+                    {
+                        MessageBox.Show("Montant très supérieur au montant de la facture !!!");
+                    }
+                    else if ((decimal.Parse(row["total_rest"].ToString()) - decimal.Parse(Mnt.Text) == 0))
+                    {
+                        MessageBox.Show("facture  payée");
+                        sqlFacture.GetUpdateCommand();
+                        row["pay_o_n"] = 1;
+                        adapterFacture.Update(ado.Ds.Tables["facture"]);
                     }
             } else
             {
                 SqlDataAdapter adapterEspece= new SqlDataAdapter("select * from espece", ado.Connection);
                 SqlCommandBuilder sql = new SqlCommandBuilder(adapterEspece);
-                if (decimal.Parse(row["total_rest"].ToString()) > 0)
+                if (decimal.Parse(row["total_rest"].ToString()) > 0 && decimal.Parse(Mnt.Text) <= decimal.Parse(row["total_rest"].ToString()) && (decimal.Parse(row["total_rest"].ToString()) - decimal.Parse(Mnt.Text)) > 0)
                 {
                     DataRow data = ado.Ds.Tables["espece"].NewRow();
                     data[1] = int.Parse(facNum.Text);
@@ -103,8 +120,25 @@ namespace RNetApp
                     sqlFacture.GetUpdateCommand();
 
                     row["total_rest"] = decimal.Parse(row["total_rest"].ToString()) - decimal.Parse(Mnt.Text);
+                    row["pay_o_n"] = 2;
+                    adapterFacture.Update(ado.Ds.Tables["facture"]);
+                } else if(decimal.Parse(row["total_rest"].ToString()) == 0)
+                {
+                    MessageBox.Show("facture  payée");
+                    sqlFacture.GetUpdateCommand();
+                    row["pay_o_n"] = 1;
+                    adapterFacture.Update(ado.Ds.Tables["facture"]);
+                } else if(decimal.Parse(Mnt.Text) > decimal.Parse(row["total_rest"].ToString()))
+                {
+                    MessageBox.Show("Montant très supérieur au montant de la facture !!!");
+                } else if((decimal.Parse(row["total_rest"].ToString()) - decimal.Parse(Mnt.Text) == 0))
+                {
+                    MessageBox.Show("facture  payée");
+                    sqlFacture.GetUpdateCommand();
+                    row["pay_o_n"] = 1;
                     adapterFacture.Update(ado.Ds.Tables["facture"]);
                 }
+                    
             }
         }
     }
