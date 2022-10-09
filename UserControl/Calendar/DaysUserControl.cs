@@ -18,13 +18,6 @@ namespace RNetApp
             this.numDay = day;
             button1.Text = day + "";
         }
-        public void Days(int numday)
-        {
-        }
-        private void DaysUserControl_Load(object sender, EventArgs e)
-        {
-
-        }
         private void button1_Click(object sender, EventArgs e)
         {
             //getting the current day/month/year : 
