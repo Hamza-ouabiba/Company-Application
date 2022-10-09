@@ -89,13 +89,16 @@ namespace RNetApp
             ado.Ds.Tables[0].TableName = "tache";
             ado.Ds.Tables[1].TableName = "categorie";
             insertTabPages();
-            string currenCategoryName = tabControl1.TabPages[tabControl1.SelectedIndex].Text;
-            p.Dock = DockStyle.Fill;
-            p.Name1 = currenCategoryName;
-            tabControl1.SelectedTab.Controls.Add(p);
-            p.filterData();
-            DaysUserControl.tache = this;//kat3tiha had l instance l dayuser controle 
-            DaysUserControl.Variante = p;
+            if(tabControl1.SelectedIndex != -1)
+            {
+                string currenCategoryName = tabControl1.TabPages[tabControl1.SelectedIndex].Text;
+                p.Dock = DockStyle.Fill;
+                p.Name1 = currenCategoryName;
+                tabControl1.SelectedTab.Controls.Add(p);
+                p.filterData();
+                DaysUserControl.tache = this;//kat3tiha had l instance l dayuser controle 
+                DaysUserControl.Variante = p;
+            }
         }
         public bool testPage(string namePage)
         {

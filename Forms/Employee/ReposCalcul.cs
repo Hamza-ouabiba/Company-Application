@@ -34,7 +34,6 @@ namespace RNetApp.Forms
             ado.Cmd.Connection = ado.Connection;
             ado.Adapter.SelectCommand = ado.Cmd;
             ado.Adapter.Fill(ado.Ds, "EMPLOYE");
-            MessageBox.Show($"{ado.Ds.Tables["EMPLOYE"].Rows.Count}");
             nomEmp.Text = ado.Ds.Tables["EMPLOYE"].Rows[0]["NOM"].ToString();
             PrenoEmp.Text = ado.Ds.Tables["EMPLOYE"].Rows[0]["PRENOM"].ToString();
         }

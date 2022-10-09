@@ -63,7 +63,6 @@ namespace RNetApp
             dataGridView1.Columns["edit"].Width = 40;
             dataGridView1.Columns["delete"].Width = 40;
             dataGridView1.Columns["voir"].Width = 50;
-            dataGridView1.RowTemplate.Height = 30;
         }
         private bool checkClient(string nomClt)
         {

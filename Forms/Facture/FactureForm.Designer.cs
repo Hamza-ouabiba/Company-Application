@@ -31,7 +31,6 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.menuPrBtn = new System.Windows.Forms.Button();
             this.exitBtn = new FontAwesome.Sharp.IconButton();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.ice = new System.Windows.Forms.Label();
             this.nomCl = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
@@ -99,8 +98,11 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -152,31 +154,12 @@
             this.exitBtn.UseVisualStyleBackColor = false;
             this.exitBtn.Click += new System.EventHandler(this.exitBtn_Click);
             // 
-            // groupBox2
-            // 
-            this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox2.BackColor = System.Drawing.SystemColors.Control;
-            this.groupBox2.Controls.Add(this.ice);
-            this.groupBox2.Controls.Add(this.nomCl);
-            this.groupBox2.Controls.Add(this.label7);
-            this.groupBox2.Controls.Add(this.dateNow);
-            this.groupBox2.Controls.Add(this.label6);
-            this.groupBox2.Controls.Add(this.label);
-            this.groupBox2.Controls.Add(this.label1);
-            this.groupBox2.Controls.Add(this.facturNum);
-            this.groupBox2.Location = new System.Drawing.Point(541, 74);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(553, 205);
-            this.groupBox2.TabIndex = 115;
-            this.groupBox2.TabStop = false;
-            // 
             // ice
             // 
             this.ice.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.ice.AutoSize = true;
-            this.ice.Location = new System.Drawing.Point(350, 168);
+            this.ice.Location = new System.Drawing.Point(1088, 98);
             this.ice.Name = "ice";
             this.ice.Size = new System.Drawing.Size(24, 20);
             this.ice.TabIndex = 79;
@@ -187,7 +170,7 @@
             this.nomCl.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.nomCl.AutoSize = true;
-            this.nomCl.Location = new System.Drawing.Point(350, 77);
+            this.nomCl.Location = new System.Drawing.Point(619, 96);
             this.nomCl.Name = "nomCl";
             this.nomCl.Size = new System.Drawing.Size(50, 20);
             this.nomCl.TabIndex = 78;
@@ -199,7 +182,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label7.Location = new System.Drawing.Point(165, 168);
+            this.label7.Location = new System.Drawing.Point(1014, 98);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(44, 18);
             this.label7.TabIndex = 77;
@@ -210,7 +193,7 @@
             this.dateNow.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dateNow.AutoSize = true;
-            this.dateNow.Location = new System.Drawing.Point(350, 33);
+            this.dateNow.Location = new System.Drawing.Point(373, 98);
             this.dateNow.Name = "dateNow";
             this.dateNow.Size = new System.Drawing.Size(50, 20);
             this.dateNow.TabIndex = 3;
@@ -222,7 +205,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label6.Location = new System.Drawing.Point(165, 33);
+            this.label6.Location = new System.Drawing.Point(188, 98);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(123, 18);
             this.label6.TabIndex = 1;
@@ -234,7 +217,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label.AutoSize = true;
             this.label.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label.Location = new System.Drawing.Point(165, 78);
+            this.label.Location = new System.Drawing.Point(484, 98);
             this.label.Name = "label";
             this.label.Size = new System.Drawing.Size(98, 18);
             this.label.TabIndex = 0;
@@ -246,7 +229,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(165, 126);
+            this.label1.Location = new System.Drawing.Point(729, 98);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(121, 18);
             this.label1.TabIndex = 76;
@@ -257,7 +240,7 @@
             this.facturNum.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.facturNum.AutoSize = true;
-            this.facturNum.Location = new System.Drawing.Point(350, 126);
+            this.facturNum.Location = new System.Drawing.Point(914, 98);
             this.facturNum.Name = "facturNum";
             this.facturNum.Size = new System.Drawing.Size(50, 20);
             this.facturNum.TabIndex = 75;
@@ -265,7 +248,7 @@
             // 
             // textBox35
             // 
-            this.textBox35.Location = new System.Drawing.Point(1019, 530);
+            this.textBox35.Location = new System.Drawing.Point(993, 446);
             this.textBox35.Name = "textBox35";
             this.textBox35.PlaceholderText = "Lavette";
             this.textBox35.Size = new System.Drawing.Size(223, 27);
@@ -273,7 +256,7 @@
             // 
             // textBox34
             // 
-            this.textBox34.Location = new System.Drawing.Point(1019, 480);
+            this.textBox34.Location = new System.Drawing.Point(993, 396);
             this.textBox34.Name = "textBox34";
             this.textBox34.PlaceholderText = "couette";
             this.textBox34.Size = new System.Drawing.Size(223, 27);
@@ -281,7 +264,7 @@
             // 
             // textBox33
             // 
-            this.textBox33.Location = new System.Drawing.Point(1019, 423);
+            this.textBox33.Location = new System.Drawing.Point(993, 339);
             this.textBox33.Name = "textBox33";
             this.textBox33.PlaceholderText = "Couverture/courvre Lit";
             this.textBox33.Size = new System.Drawing.Size(223, 27);
@@ -289,7 +272,7 @@
             // 
             // textBox32
             // 
-            this.textBox32.Location = new System.Drawing.Point(1019, 371);
+            this.textBox32.Location = new System.Drawing.Point(993, 287);
             this.textBox32.Name = "textBox32";
             this.textBox32.PlaceholderText = "Torchon";
             this.textBox32.Size = new System.Drawing.Size(223, 27);
@@ -297,7 +280,7 @@
             // 
             // textBox31
             // 
-            this.textBox31.Location = new System.Drawing.Point(1019, 323);
+            this.textBox31.Location = new System.Drawing.Point(993, 239);
             this.textBox31.Name = "textBox31";
             this.textBox31.PlaceholderText = "Matlant";
             this.textBox31.Size = new System.Drawing.Size(223, 27);
@@ -305,7 +288,7 @@
             // 
             // textBox30
             // 
-            this.textBox30.Location = new System.Drawing.Point(745, 798);
+            this.textBox30.Location = new System.Drawing.Point(719, 735);
             this.textBox30.Name = "textBox30";
             this.textBox30.PlaceholderText = "fouteille";
             this.textBox30.Size = new System.Drawing.Size(223, 27);
@@ -313,7 +296,7 @@
             // 
             // textBox29
             // 
-            this.textBox29.Location = new System.Drawing.Point(745, 749);
+            this.textBox29.Location = new System.Drawing.Point(719, 665);
             this.textBox29.Name = "textBox29";
             this.textBox29.PlaceholderText = "chemin de lit";
             this.textBox29.Size = new System.Drawing.Size(223, 27);
@@ -321,7 +304,7 @@
             // 
             // textBox28
             // 
-            this.textBox28.Location = new System.Drawing.Point(745, 692);
+            this.textBox28.Location = new System.Drawing.Point(719, 608);
             this.textBox28.Name = "textBox28";
             this.textBox28.PlaceholderText = "nappe";
             this.textBox28.Size = new System.Drawing.Size(223, 27);
@@ -329,7 +312,7 @@
             // 
             // textBox27
             // 
-            this.textBox27.Location = new System.Drawing.Point(745, 633);
+            this.textBox27.Location = new System.Drawing.Point(719, 549);
             this.textBox27.Name = "textBox27";
             this.textBox27.PlaceholderText = "chemin de table";
             this.textBox27.Size = new System.Drawing.Size(223, 27);
@@ -337,7 +320,7 @@
             // 
             // textBox26
             // 
-            this.textBox26.Location = new System.Drawing.Point(745, 587);
+            this.textBox26.Location = new System.Drawing.Point(719, 503);
             this.textBox26.Name = "textBox26";
             this.textBox26.PlaceholderText = "devant";
             this.textBox26.Size = new System.Drawing.Size(223, 27);
@@ -345,7 +328,7 @@
             // 
             // textBox25
             // 
-            this.textBox25.Location = new System.Drawing.Point(745, 530);
+            this.textBox25.Location = new System.Drawing.Point(719, 446);
             this.textBox25.Name = "textBox25";
             this.textBox25.PlaceholderText = "Housse canape";
             this.textBox25.Size = new System.Drawing.Size(223, 27);
@@ -353,7 +336,7 @@
             // 
             // textBox24
             // 
-            this.textBox24.Location = new System.Drawing.Point(745, 480);
+            this.textBox24.Location = new System.Drawing.Point(719, 396);
             this.textBox24.Name = "textBox24";
             this.textBox24.PlaceholderText = "taie kiria";
             this.textBox24.Size = new System.Drawing.Size(223, 27);
@@ -361,7 +344,7 @@
             // 
             // textBox23
             // 
-            this.textBox23.Location = new System.Drawing.Point(745, 423);
+            this.textBox23.Location = new System.Drawing.Point(719, 339);
             this.textBox23.Name = "textBox23";
             this.textBox23.PlaceholderText = "Housse coussin GM";
             this.textBox23.Size = new System.Drawing.Size(223, 27);
@@ -369,7 +352,7 @@
             // 
             // textBox22
             // 
-            this.textBox22.Location = new System.Drawing.Point(745, 371);
+            this.textBox22.Location = new System.Drawing.Point(719, 287);
             this.textBox22.Name = "textBox22";
             this.textBox22.PlaceholderText = "Housse coussin PM";
             this.textBox22.Size = new System.Drawing.Size(223, 27);
@@ -377,7 +360,7 @@
             // 
             // textBox21
             // 
-            this.textBox21.Location = new System.Drawing.Point(745, 323);
+            this.textBox21.Location = new System.Drawing.Point(719, 239);
             this.textBox21.Name = "textBox21";
             this.textBox21.PlaceholderText = "Rideau GM/M2";
             this.textBox21.Size = new System.Drawing.Size(223, 27);
@@ -385,7 +368,7 @@
             // 
             // textBox20
             // 
-            this.textBox20.Location = new System.Drawing.Point(480, 798);
+            this.textBox20.Location = new System.Drawing.Point(454, 735);
             this.textBox20.Name = "textBox20";
             this.textBox20.PlaceholderText = "serviette de table";
             this.textBox20.Size = new System.Drawing.Size(223, 27);
@@ -393,7 +376,7 @@
             // 
             // textBox19
             // 
-            this.textBox19.Location = new System.Drawing.Point(480, 749);
+            this.textBox19.Location = new System.Drawing.Point(454, 665);
             this.textBox19.Name = "textBox19";
             this.textBox19.PlaceholderText = "Tapis M2";
             this.textBox19.Size = new System.Drawing.Size(223, 27);
@@ -401,7 +384,7 @@
             // 
             // textBox18
             // 
-            this.textBox18.Location = new System.Drawing.Point(480, 692);
+            this.textBox18.Location = new System.Drawing.Point(454, 608);
             this.textBox18.Name = "textBox18";
             this.textBox18.PlaceholderText = "draps de bain spa";
             this.textBox18.Size = new System.Drawing.Size(223, 27);
@@ -409,7 +392,7 @@
             // 
             // textBox17
             // 
-            this.textBox17.Location = new System.Drawing.Point(480, 633);
+            this.textBox17.Location = new System.Drawing.Point(454, 549);
             this.textBox17.Name = "textBox17";
             this.textBox17.PlaceholderText = "aleze";
             this.textBox17.Size = new System.Drawing.Size(223, 27);
@@ -417,7 +400,7 @@
             // 
             // textBox16
             // 
-            this.textBox16.Location = new System.Drawing.Point(480, 587);
+            this.textBox16.Location = new System.Drawing.Point(454, 503);
             this.textBox16.Name = "textBox16";
             this.textBox16.PlaceholderText = "serviette de toilette spa";
             this.textBox16.Size = new System.Drawing.Size(223, 27);
@@ -425,7 +408,7 @@
             // 
             // textBox15
             // 
-            this.textBox15.Location = new System.Drawing.Point(480, 530);
+            this.textBox15.Location = new System.Drawing.Point(454, 446);
             this.textBox15.Name = "textBox15";
             this.textBox15.PlaceholderText = "oreiller";
             this.textBox15.Size = new System.Drawing.Size(223, 27);
@@ -433,7 +416,7 @@
             // 
             // textBox14
             // 
-            this.textBox14.Location = new System.Drawing.Point(480, 480);
+            this.textBox14.Location = new System.Drawing.Point(454, 396);
             this.textBox14.Name = "textBox14";
             this.textBox14.PlaceholderText = "peignoir";
             this.textBox14.Size = new System.Drawing.Size(223, 27);
@@ -441,7 +424,7 @@
             // 
             // textBox13
             // 
-            this.textBox13.Location = new System.Drawing.Point(480, 423);
+            this.textBox13.Location = new System.Drawing.Point(454, 339);
             this.textBox13.Name = "textBox13";
             this.textBox13.PlaceholderText = "tapis de bain";
             this.textBox13.Size = new System.Drawing.Size(223, 27);
@@ -449,7 +432,7 @@
             // 
             // textBox12
             // 
-            this.textBox12.Location = new System.Drawing.Point(480, 371);
+            this.textBox12.Location = new System.Drawing.Point(454, 287);
             this.textBox12.Name = "textBox12";
             this.textBox12.PlaceholderText = "Draps simple";
             this.textBox12.Size = new System.Drawing.Size(223, 27);
@@ -457,7 +440,7 @@
             // 
             // textBox11
             // 
-            this.textBox11.Location = new System.Drawing.Point(480, 323);
+            this.textBox11.Location = new System.Drawing.Point(454, 239);
             this.textBox11.Name = "textBox11";
             this.textBox11.PlaceholderText = "tapis sol";
             this.textBox11.Size = new System.Drawing.Size(223, 27);
@@ -465,7 +448,7 @@
             // 
             // textBox10
             // 
-            this.textBox10.Location = new System.Drawing.Point(191, 798);
+            this.textBox10.Location = new System.Drawing.Point(165, 735);
             this.textBox10.Name = "textBox10";
             this.textBox10.PlaceholderText = "serviette piscine";
             this.textBox10.Size = new System.Drawing.Size(223, 27);
@@ -473,7 +456,7 @@
             // 
             // textBox9
             // 
-            this.textBox9.Location = new System.Drawing.Point(191, 749);
+            this.textBox9.Location = new System.Drawing.Point(165, 665);
             this.textBox9.Name = "textBox9";
             this.textBox9.PlaceholderText = "Draps de bain";
             this.textBox9.Size = new System.Drawing.Size(223, 27);
@@ -481,7 +464,7 @@
             // 
             // textBox8
             // 
-            this.textBox8.Location = new System.Drawing.Point(191, 692);
+            this.textBox8.Location = new System.Drawing.Point(165, 608);
             this.textBox8.Name = "textBox8";
             this.textBox8.PlaceholderText = "serviette eponge";
             this.textBox8.Size = new System.Drawing.Size(223, 27);
@@ -489,7 +472,7 @@
             // 
             // textBox7
             // 
-            this.textBox7.Location = new System.Drawing.Point(191, 633);
+            this.textBox7.Location = new System.Drawing.Point(165, 549);
             this.textBox7.Name = "textBox7";
             this.textBox7.PlaceholderText = "taie d\'oreiller GM";
             this.textBox7.Size = new System.Drawing.Size(223, 27);
@@ -497,7 +480,7 @@
             // 
             // textBox6
             // 
-            this.textBox6.Location = new System.Drawing.Point(191, 580);
+            this.textBox6.Location = new System.Drawing.Point(165, 496);
             this.textBox6.Name = "textBox6";
             this.textBox6.PlaceholderText = "Taie d\'oreiller PM";
             this.textBox6.Size = new System.Drawing.Size(223, 27);
@@ -505,7 +488,7 @@
             // 
             // textBox5
             // 
-            this.textBox5.Location = new System.Drawing.Point(191, 530);
+            this.textBox5.Location = new System.Drawing.Point(165, 446);
             this.textBox5.Name = "textBox5";
             this.textBox5.PlaceholderText = "Draps de housse GM";
             this.textBox5.Size = new System.Drawing.Size(223, 27);
@@ -513,7 +496,7 @@
             // 
             // textBox4
             // 
-            this.textBox4.Location = new System.Drawing.Point(191, 480);
+            this.textBox4.Location = new System.Drawing.Point(165, 396);
             this.textBox4.Name = "textBox4";
             this.textBox4.PlaceholderText = "Draps de housse PM";
             this.textBox4.Size = new System.Drawing.Size(223, 27);
@@ -521,7 +504,7 @@
             // 
             // textBox3
             // 
-            this.textBox3.Location = new System.Drawing.Point(191, 423);
+            this.textBox3.Location = new System.Drawing.Point(165, 339);
             this.textBox3.Name = "textBox3";
             this.textBox3.PlaceholderText = "Housse couette GM";
             this.textBox3.Size = new System.Drawing.Size(223, 27);
@@ -529,7 +512,7 @@
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(191, 371);
+            this.textBox2.Location = new System.Drawing.Point(165, 287);
             this.textBox2.Name = "textBox2";
             this.textBox2.PlaceholderText = "Housse couette PM";
             this.textBox2.Size = new System.Drawing.Size(223, 27);
@@ -537,7 +520,7 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(191, 323);
+            this.textBox1.Location = new System.Drawing.Point(165, 239);
             this.textBox1.Name = "textBox1";
             this.textBox1.PlaceholderText = "Draps Double";
             this.textBox1.Size = new System.Drawing.Size(223, 27);
@@ -561,7 +544,10 @@
             // 
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(29)))), ((int)(((byte)(30)))));
+            this.groupBox1.BackColor = System.Drawing.Color.White;
+            this.groupBox1.Controls.Add(this.label15);
+            this.groupBox1.Controls.Add(this.label13);
+            this.groupBox1.Controls.Add(this.label12);
             this.groupBox1.Controls.Add(this.Enregistrement);
             this.groupBox1.Controls.Add(this.panel5);
             this.groupBox1.Controls.Add(this.panel4);
@@ -695,6 +681,7 @@
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.White;
+            this.panel3.Controls.Add(this.label14);
             this.panel3.Controls.Add(this.Note);
             this.panel3.Location = new System.Drawing.Point(33, 419);
             this.panel3.Name = "panel3";
@@ -703,7 +690,7 @@
             // 
             // Note
             // 
-            this.Note.Location = new System.Drawing.Point(39, 23);
+            this.Note.Location = new System.Drawing.Point(26, 23);
             this.Note.Multiline = true;
             this.Note.Name = "Note";
             this.Note.PlaceholderText = "Note pour la facture";
@@ -762,9 +749,9 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(67, 69);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(73, 20);
+            this.label4.Size = new System.Drawing.Size(35, 20);
             this.label4.TabIndex = 2;
-            this.label4.Text = "TVA(20%)";
+            this.label4.Text = "TVA";
             // 
             // label3
             // 
@@ -784,15 +771,59 @@
             this.label2.TabIndex = 0;
             this.label2.Text = "PHT";
             // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(33, 23);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(91, 20);
+            this.label12.TabIndex = 11;
+            this.label12.Text = "Fixation TVA";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(33, 152);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(113, 20);
+            this.label13.TabIndex = 12;
+            this.label13.Text = "Fixation Remise";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(26, 0);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(46, 20);
+            this.label14.TabIndex = 12;
+            this.label14.Text = "Note ";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(33, 624);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(164, 20);
+            this.label15.TabIndex = 13;
+            this.label15.Text = "Total Final de la facture";
+            // 
             // FactureForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1765, 1016);
+            this.Controls.Add(this.ice);
+            this.Controls.Add(this.label7);
             this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.nomCl);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.enregistrer);
+            this.Controls.Add(this.facturNum);
             this.Controls.Add(this.textBox35);
+            this.Controls.Add(this.label);
+            this.Controls.Add(this.dateNow);
             this.Controls.Add(this.textBox34);
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.textBox33);
             this.Controls.Add(this.textBox32);
             this.Controls.Add(this.textBox31);
@@ -826,16 +857,14 @@
             this.Controls.Add(this.textBox3);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FactureForm";
             this.Text = "FactureForm";
             this.Load += new System.EventHandler(this.FactureForm_Load);
             this.panel1.ResumeLayout(false);
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
             this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
             this.panel4.ResumeLayout(false);
@@ -853,7 +882,6 @@
 
         private Panel panel1;
         private FontAwesome.Sharp.IconButton exitBtn;
-        private GroupBox groupBox2;
         private Label ice;
         private Label nomCl;
         private Label label7;
@@ -922,5 +950,9 @@
         private Label label9;
         private Label label11;
         private TextBox totalTtc;
+        private Label label15;
+        private Label label13;
+        private Label label12;
+        private Label label14;
     }
 }

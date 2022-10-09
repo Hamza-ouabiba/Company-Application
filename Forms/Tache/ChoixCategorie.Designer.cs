@@ -36,7 +36,7 @@
             // 
             // Enre
             // 
-            this.Enre.Location = new System.Drawing.Point(315, 22);
+            this.Enre.Location = new System.Drawing.Point(431, 24);
             this.Enre.Name = "Enre";
             this.Enre.Size = new System.Drawing.Size(195, 29);
             this.Enre.TabIndex = 1;
@@ -52,15 +52,18 @@
             this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.Control;
+            this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.NomCategorie});
-            this.dataGridView1.Location = new System.Drawing.Point(15, 69);
+            this.dataGridView1.Location = new System.Drawing.Point(15, 73);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 29;
-            this.dataGridView1.Size = new System.Drawing.Size(495, 369);
+            this.dataGridView1.Size = new System.Drawing.Size(643, 369);
             this.dataGridView1.TabIndex = 2;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             this.dataGridView1.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellEndEdit);
             // 
             // NomCategorie
@@ -68,13 +71,13 @@
             this.NomCategorie.HeaderText = "Nom categorie";
             this.NomCategorie.MinimumWidth = 6;
             this.NomCategorie.Name = "NomCategorie";
-            this.NomCategorie.Width = 380;
+            this.NomCategorie.Width = 470;
             // 
             // ChoixCategorie
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(522, 454);
+            this.ClientSize = new System.Drawing.Size(670, 454);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.Enre);
             this.Name = "ChoixCategorie";

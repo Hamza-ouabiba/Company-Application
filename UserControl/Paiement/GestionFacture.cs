@@ -163,6 +163,7 @@ namespace RNetApp
             regler.Text = calculSommeRegler() + "";
             nnregler.Text = calculSommeNonRegler() + "";
             comboBox1.Text = "Tous";
+            comboBox2.Text = "Tous";
         }
         private bool verificationClientPrix(Guid idclient)
         {

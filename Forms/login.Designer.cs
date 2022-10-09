@@ -47,9 +47,9 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(117)))), ((int)(((byte)(240)))));
-            this.label2.Location = new System.Drawing.Point(72, 59);
+            this.label2.Location = new System.Drawing.Point(82, 79);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(187, 41);
+            this.label2.Size = new System.Drawing.Size(231, 50);
             this.label2.TabIndex = 29;
             this.label2.Text = "R-NET PLUS";
             // 
@@ -58,10 +58,9 @@
             this.checkBox1.AutoSize = true;
             this.checkBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.checkBox1.ForeColor = System.Drawing.Color.Silver;
-            this.checkBox1.Location = new System.Drawing.Point(61, 319);
-            this.checkBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.checkBox1.Location = new System.Drawing.Point(68, 391);
             this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(150, 19);
+            this.checkBox1.Size = new System.Drawing.Size(188, 24);
             this.checkBox1.TabIndex = 28;
             this.checkBox1.Text = "Afficher le mot de passe";
             this.checkBox1.UseVisualStyleBackColor = true;
@@ -70,20 +69,18 @@
             // Panel3
             // 
             this.Panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(117)))), ((int)(((byte)(214)))));
-            this.Panel3.Location = new System.Drawing.Point(55, 269);
-            this.Panel3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Panel3.Location = new System.Drawing.Point(61, 325);
             this.Panel3.Name = "Panel3";
-            this.Panel3.Size = new System.Drawing.Size(228, 1);
+            this.Panel3.Size = new System.Drawing.Size(261, 1);
             this.Panel3.TabIndex = 27;
             // 
             // Panel2
             // 
             this.Panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(117)))), ((int)(((byte)(214)))));
             this.Panel2.ImeMode = System.Windows.Forms.ImeMode.On;
-            this.Panel2.Location = new System.Drawing.Point(55, 200);
-            this.Panel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Panel2.Location = new System.Drawing.Point(61, 233);
             this.Panel2.Name = "Panel2";
-            this.Panel2.Size = new System.Drawing.Size(228, 1);
+            this.Panel2.Size = new System.Drawing.Size(261, 1);
             this.Panel2.TabIndex = 26;
             // 
             // cnxBtn
@@ -91,10 +88,9 @@
             this.cnxBtn.BackColor = System.Drawing.Color.CornflowerBlue;
             this.cnxBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cnxBtn.ForeColor = System.Drawing.Color.Black;
-            this.cnxBtn.Location = new System.Drawing.Point(173, 415);
-            this.cnxBtn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cnxBtn.Location = new System.Drawing.Point(196, 519);
             this.cnxBtn.Name = "cnxBtn";
-            this.cnxBtn.Size = new System.Drawing.Size(127, 36);
+            this.cnxBtn.Size = new System.Drawing.Size(145, 48);
             this.cnxBtn.TabIndex = 25;
             this.cnxBtn.Text = "Connexion";
             this.cnxBtn.UseVisualStyleBackColor = false;
@@ -105,10 +101,9 @@
             this.inscrBtn.BackColor = System.Drawing.Color.Coral;
             this.inscrBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.inscrBtn.ForeColor = System.Drawing.Color.Black;
-            this.inscrBtn.Location = new System.Drawing.Point(37, 415);
-            this.inscrBtn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.inscrBtn.Location = new System.Drawing.Point(40, 519);
             this.inscrBtn.Name = "inscrBtn";
-            this.inscrBtn.Size = new System.Drawing.Size(121, 36);
+            this.inscrBtn.Size = new System.Drawing.Size(138, 48);
             this.inscrBtn.TabIndex = 24;
             this.inscrBtn.Text = "inscription";
             this.inscrBtn.UseVisualStyleBackColor = false;
@@ -120,11 +115,10 @@
             this.pass.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.pass.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.pass.ForeColor = System.Drawing.SystemColors.Control;
-            this.pass.Location = new System.Drawing.Point(78, 248);
-            this.pass.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pass.Location = new System.Drawing.Point(87, 297);
             this.pass.Name = "pass";
             this.pass.PlaceholderText = "Mot de Passe";
-            this.pass.Size = new System.Drawing.Size(181, 16);
+            this.pass.Size = new System.Drawing.Size(207, 20);
             this.pass.TabIndex = 23;
             this.pass.UseSystemPasswordChar = true;
             // 
@@ -134,11 +128,10 @@
             this.userName.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.userName.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.userName.ForeColor = System.Drawing.SystemColors.Control;
-            this.userName.Location = new System.Drawing.Point(78, 177);
-            this.userName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.userName.Location = new System.Drawing.Point(87, 202);
             this.userName.Name = "userName";
             this.userName.PlaceholderText = "Nom Utilisateur";
-            this.userName.Size = new System.Drawing.Size(181, 16);
+            this.userName.Size = new System.Drawing.Size(207, 20);
             this.userName.TabIndex = 22;
             // 
             // iconPictureBox1
@@ -148,11 +141,10 @@
             this.iconPictureBox1.IconChar = FontAwesome.Sharp.IconChar.UserAlt;
             this.iconPictureBox1.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(117)))), ((int)(((byte)(240)))));
             this.iconPictureBox1.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconPictureBox1.IconSize = 19;
-            this.iconPictureBox1.Location = new System.Drawing.Point(52, 177);
-            this.iconPictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.iconPictureBox1.IconSize = 23;
+            this.iconPictureBox1.Location = new System.Drawing.Point(57, 202);
             this.iconPictureBox1.Name = "iconPictureBox1";
-            this.iconPictureBox1.Size = new System.Drawing.Size(20, 19);
+            this.iconPictureBox1.Size = new System.Drawing.Size(23, 25);
             this.iconPictureBox1.TabIndex = 30;
             this.iconPictureBox1.TabStop = false;
             // 
@@ -163,20 +155,19 @@
             this.iconPictureBox2.IconChar = FontAwesome.Sharp.IconChar.Lock;
             this.iconPictureBox2.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(117)))), ((int)(((byte)(240)))));
             this.iconPictureBox2.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconPictureBox2.IconSize = 16;
-            this.iconPictureBox2.Location = new System.Drawing.Point(52, 248);
-            this.iconPictureBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.iconPictureBox2.IconSize = 21;
+            this.iconPictureBox2.Location = new System.Drawing.Point(57, 297);
             this.iconPictureBox2.Name = "iconPictureBox2";
-            this.iconPictureBox2.Size = new System.Drawing.Size(20, 16);
+            this.iconPictureBox2.Size = new System.Drawing.Size(23, 21);
             this.iconPictureBox2.TabIndex = 31;
             this.iconPictureBox2.TabStop = false;
             // 
             // login
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(29)))), ((int)(((byte)(30)))));
-            this.ClientSize = new System.Drawing.Size(326, 526);
+            this.ClientSize = new System.Drawing.Size(373, 649);
             this.Controls.Add(this.iconPictureBox2);
             this.Controls.Add(this.iconPictureBox1);
             this.Controls.Add(this.label2);
@@ -188,7 +179,6 @@
             this.Controls.Add(this.pass);
             this.Controls.Add(this.userName);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.MaximizeBox = false;
             this.Name = "login";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

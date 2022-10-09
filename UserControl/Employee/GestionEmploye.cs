@@ -49,7 +49,7 @@ namespace RNetApp
             dataGridView1.Columns["SALAIRE_RESTANT"].HeaderText = "Salaire Restant";
             dataGridView1.Columns["AVANCE"].HeaderText = "Avance";
             setDataGridViewIcons();
-            dataGridView1.RowTemplate.Height = 50;
+            dataGridView1.RowTemplate.Height = 40;
         }
         private void fillComboWithDataSource(ComboBox com)
         {
@@ -72,6 +72,7 @@ namespace RNetApp
 
             setDataGridView();
 
+            comboEmp.Text = "Tous";
             nbrEmp.Text = $"{ado.Dt.Rows.Count}";
         }
         private void congerBtn_Click(object sender, EventArgs e)

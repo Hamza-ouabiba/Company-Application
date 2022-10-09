@@ -28,7 +28,6 @@ namespace RNetApp
         }
         private void setDataGrid()
         {
-            dataGridView1.RowTemplate.Height = 50;
             dataGridView1.Columns["IDCLIENT"].Visible = false;
             Shared.addCol(dataGridView1, "voir", "voir", "");
             Shared.addCol(dataGridView1, "edit", "edit", "");

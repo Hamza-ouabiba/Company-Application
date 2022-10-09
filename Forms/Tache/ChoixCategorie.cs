@@ -14,6 +14,7 @@ namespace RNetApp
         private void setDataGridView(List<string> categories)
         {
             Shared.addCol(dataGridView1, "edit", "edit", "Modifier");
+            Shared.addCol(dataGridView1, "delete", "delete", "Supprimer");
             foreach (string category in categories)
             {
                 dataGridView1.Rows.Add(category);
@@ -65,6 +66,23 @@ namespace RNetApp
             } catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            string colName = dataGridView1.Columns[e.ColumnIndex].Name;
+            SqlCommandBuilder categoryCommandBuilder = new SqlCommandBuilder(ado.Adapter);
+            if (colName == "delete")
+            {
+                categoryCommandBuilder.GetDeleteCommand();
+                ado.Dt.Rows[e.RowIndex].Delete();
+                ado.Adapter.Update(ado.Dt);
+            } else if(colName == "edit")
+            {
+                categoryCommandBuilder.GetUpdateCommand();
+                ado.Dt.Rows[e.RowIndex]["nomcategorie"] = dataGridView1.Rows[e.RowIndex].Cells["nomcategorie"].Value.ToString();
+                ado.Adapter.Update(ado.Dt);
             }
         }
     }
