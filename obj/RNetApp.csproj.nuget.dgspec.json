@@ -1,25 +1,27 @@
 {
   "format": 1,
   "restore": {
-    "D:\\projects\\training\\RNetApp\\RNetApp\\RNetApp.csproj": {}
+    "C:\\projects\\training\\RNetApp\\RNetApp.csproj": {}
   },
   "projects": {
-    "D:\\projects\\training\\RNetApp\\RNetApp\\RNetApp.csproj": {
+    "C:\\projects\\training\\RNetApp\\RNetApp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\projects\\training\\RNetApp\\RNetApp\\RNetApp.csproj",
+        "projectUniqueName": "C:\\projects\\training\\RNetApp\\RNetApp.csproj",
         "projectName": "RNetApp",
-        "projectPath": "D:\\projects\\training\\RNetApp\\RNetApp\\RNetApp.csproj",
+        "projectPath": "C:\\projects\\training\\RNetApp\\RNetApp.csproj",
         "packagesPath": "C:\\Users\\hamza\\.nuget\\packages\\",
-        "outputPath": "D:\\projects\\training\\RNetApp\\RNetApp\\obj\\",
+        "outputPath": "C:\\projects\\training\\RNetApp\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\hamza\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\hamza\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
-          "net6.0-windows7.0"
+          "net6.0-windows"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -73,7 +75,8 @@
             "net47",
             "net471",
             "net472",
-            "net48"
+            "net48",
+            "net481"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -85,7 +88,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.202\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.401\\RuntimeIdentifierGraph.json"
         }
       }
     }

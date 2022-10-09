@@ -40,6 +40,7 @@ namespace RNetApp
             dataGridView1.Columns.Clear();
             dataGridView1.DataSource = ado.Dt;
             fillCombo(clientCombo,retrievingNames(ado.Dt));
+            clientCombo.Text = "Tous";
             affichageGrid();
         }
         private void videBase()
@@ -62,7 +63,7 @@ namespace RNetApp
             dataGridView1.Columns["edit"].Width = 40;
             dataGridView1.Columns["delete"].Width = 40;
             dataGridView1.Columns["voir"].Width = 50;
-            dataGridView1.RowTemplate.Height = 50;
+            dataGridView1.RowTemplate.Height = 30;
         }
         private bool checkClient(string nomClt)
         {
@@ -184,11 +185,11 @@ namespace RNetApp
 
         private void dataGridView1_DataBindingComplete_1(object sender, DataGridViewBindingCompleteEventArgs e)
         {
-            for(int i = 0; i < dataGridView1.Rows.Count; i++)
+            for (int i = 0; i < dataGridView1.Rows.Count; i++)
             {
-                if(i%2 == 0)
+                if (i%2 == 0)
                 {
-                    dataGridView1.Rows[i].DefaultCellStyle.BackColor = Color.FromArgb(224);
+                    dataGridView1.Rows[i].DefaultCellStyle.BackColor = Color.Silver;
                 }
             }
         }

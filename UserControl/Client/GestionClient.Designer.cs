@@ -46,9 +46,11 @@
             // 
             this.groupBox3.Controls.Add(this.nbreClt);
             this.groupBox3.Controls.Add(this.label2);
-            this.groupBox3.Location = new System.Drawing.Point(95, 126);
+            this.groupBox3.Location = new System.Drawing.Point(27, 95);
+            this.groupBox3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(330, 52);
+            this.groupBox3.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBox3.Size = new System.Drawing.Size(289, 39);
             this.groupBox3.TabIndex = 69;
             this.groupBox3.TabStop = false;
             // 
@@ -57,19 +59,19 @@
             this.nbreClt.AutoSize = true;
             this.nbreClt.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.nbreClt.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(117)))), ((int)(((byte)(240)))));
-            this.nbreClt.Location = new System.Drawing.Point(232, 15);
+            this.nbreClt.Location = new System.Drawing.Point(203, 11);
             this.nbreClt.Name = "nbreClt";
-            this.nbreClt.Size = new System.Drawing.Size(65, 28);
+            this.nbreClt.Size = new System.Drawing.Size(52, 21);
             this.nbreClt.TabIndex = 6;
             this.nbreClt.Text = "label3";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(17, 19);
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label2.Location = new System.Drawing.Point(15, 14);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(179, 23);
+            this.label2.Size = new System.Drawing.Size(126, 20);
             this.label2.TabIndex = 5;
             this.label2.Text = "nombre de client";
             // 
@@ -77,18 +79,19 @@
             // 
             this.label1.AutoSize = true;
             this.label1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.label1.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(95, 96);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label1.Location = new System.Drawing.Point(27, 32);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(216, 27);
+            this.label1.Size = new System.Drawing.Size(180, 24);
             this.label1.TabIndex = 63;
             this.label1.Text = "Gestion de Clients";
             // 
             // idClientT
             // 
-            this.idClientT.Location = new System.Drawing.Point(112, 33);
+            this.idClientT.Location = new System.Drawing.Point(334, 12);
+            this.idClientT.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.idClientT.Name = "idClientT";
-            this.idClientT.Size = new System.Drawing.Size(125, 27);
+            this.idClientT.Size = new System.Drawing.Size(110, 23);
             this.idClientT.TabIndex = 71;
             this.idClientT.Visible = false;
             // 
@@ -96,9 +99,9 @@
             // 
             this.error.AutoSize = true;
             this.error.ForeColor = System.Drawing.Color.Red;
-            this.error.Location = new System.Drawing.Point(777, 96);
+            this.error.Location = new System.Drawing.Point(680, 72);
             this.error.Name = "error";
-            this.error.Size = new System.Drawing.Size(0, 20);
+            this.error.Size = new System.Drawing.Size(0, 15);
             this.error.TabIndex = 72;
             this.error.Visible = false;
             // 
@@ -107,9 +110,9 @@
             this.videError.AutoSize = true;
             this.videError.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.videError.ForeColor = System.Drawing.Color.Red;
-            this.videError.Location = new System.Drawing.Point(612, 170);
+            this.videError.Location = new System.Drawing.Point(536, 128);
             this.videError.Name = "videError";
-            this.videError.Size = new System.Drawing.Size(59, 25);
+            this.videError.Size = new System.Drawing.Size(50, 20);
             this.videError.TabIndex = 82;
             this.videError.Text = "label6";
             this.videError.Visible = false;
@@ -117,9 +120,10 @@
             // clientCombo
             // 
             this.clientCombo.FormattingEnabled = true;
-            this.clientCombo.Location = new System.Drawing.Point(1146, 88);
+            this.clientCombo.Location = new System.Drawing.Point(955, 68);
+            this.clientCombo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.clientCombo.Name = "clientCombo";
-            this.clientCombo.Size = new System.Drawing.Size(296, 28);
+            this.clientCombo.Size = new System.Drawing.Size(260, 23);
             this.clientCombo.TabIndex = 83;
             this.clientCombo.SelectedValueChanged += new System.EventHandler(this.clientCombo_SelectedValueChanged);
             // 
@@ -136,12 +140,13 @@
             this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 207);
+            this.dataGridView1.Location = new System.Drawing.Point(0, 155);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 29;
-            this.dataGridView1.Size = new System.Drawing.Size(1702, 537);
+            this.dataGridView1.Size = new System.Drawing.Size(1489, 403);
             this.dataGridView1.TabIndex = 86;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick_1);
             this.dataGridView1.CellMouseEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellMouseEnter_1);
@@ -156,9 +161,10 @@
             this.AjoutClient.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.AjoutClient.IconSize = 30;
             this.AjoutClient.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.AjoutClient.Location = new System.Drawing.Point(1482, 82);
+            this.AjoutClient.Location = new System.Drawing.Point(1239, 64);
+            this.AjoutClient.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.AjoutClient.Name = "AjoutClient";
-            this.AjoutClient.Size = new System.Drawing.Size(146, 39);
+            this.AjoutClient.Size = new System.Drawing.Size(128, 29);
             this.AjoutClient.TabIndex = 87;
             this.AjoutClient.Text = "Ajouter client";
             this.AjoutClient.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -167,7 +173,7 @@
             // 
             // GestionClient
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.AjoutClient);
             this.Controls.Add(this.dataGridView1);
@@ -177,8 +183,9 @@
             this.Controls.Add(this.idClientT);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.label1);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "GestionClient";
-            this.Size = new System.Drawing.Size(1702, 757);
+            this.Size = new System.Drawing.Size(1489, 568);
             this.Load += new System.EventHandler(this.GestionClient_Load);
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();

@@ -274,41 +274,7 @@ namespace RNetApp
 
         private void dataGridView1_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            if(e.ColumnIndex != -1)
-            {
-                string colName = dataGridView1.Columns[e.ColumnIndex].Name;
-                if(colName == "delete")
-                {
-
-                    if(Shared.showMessage("Voulez-vous vraiment supprimer la facture ?(cette opération va causer la suppression des chèques et des epèces de cette facture!!)",""))
-                    {
-                        SqlCommandBuilder scb = new SqlCommandBuilder(ado.Adapter);
-                        scb.GetDeleteCommand();
-                        ado.Ds.Tables["facture"].Rows[e.RowIndex].Delete();
-                        ado.Adapter.Update(ado.Ds.Tables["facture"]);
-                    }
-
-                } else if(colName == "voir")
-                {
-                    //giving this row to the facturecheck form 
-                    FactureCheck factureCheck = new FactureCheck();
-                    factureCheck.Facture = ado.Ds.Tables["facture"].Rows[e.RowIndex];
-                    factureCheck.Show();
-                } else if(colName == "edit")
-                {
-                    if (Shared.showMessage("Voulez-vous vraiment modifier la facture?", ""))
-                    {
-                        ModifierFacture modifierFacture = new ModifierFacture();
-                        modifierFacture.Idfacture = int.Parse(ado.Ds.Tables["facture"].Rows[e.RowIndex]["idfacture"].ToString());
-                        modifierFacture.Show();
-                    }
-                } else if(colName == "add")
-                {
-                    FacturePaimentSeul facturePaimentSeul = new FacturePaimentSeul();
-                    facturePaimentSeul.IdFacture = int.Parse(dataGridView1.Rows[e.RowIndex].Cells["idfacture"].Value.ToString());  
-                    facturePaimentSeul.Show();
-                }
-            }
+            
         }
         //search for client with name and return its id :
         private Guid searchClientCombo(string nom)
@@ -462,5 +428,46 @@ namespace RNetApp
             }
         }
 
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex != -1 && e.RowIndex != -1)
+            {
+                string colName = dataGridView1.Columns[e.ColumnIndex].Name;
+                if (colName == "delete")
+                {
+
+                    if (Shared.showMessage("Voulez-vous vraiment supprimer la facture ?(cette opération va causer la suppression des chèques et des epèces de cette facture!!)", ""))
+                    {
+                        SqlCommandBuilder scb = new SqlCommandBuilder(ado.Adapter);
+                        scb.GetDeleteCommand();
+                        ado.Ds.Tables["facture"].Rows[e.RowIndex].Delete();
+                        ado.Adapter.Update(ado.Ds.Tables["facture"]);
+                    }
+
+                }
+                else if (colName == "voir")
+                {
+                    //giving this row to the facturecheck form 
+                    FactureCheck factureCheck = new FactureCheck();
+                    factureCheck.Facture = ado.Ds.Tables["facture"].Rows[e.RowIndex];
+                    factureCheck.Show();
+                }
+                else if (colName == "edit")
+                {
+                    if (Shared.showMessage("Voulez-vous vraiment modifier la facture?", ""))
+                    {
+                        ModifierFacture modifierFacture = new ModifierFacture();
+                        modifierFacture.Idfacture = int.Parse(ado.Ds.Tables["facture"].Rows[e.RowIndex]["idfacture"].ToString());
+                        modifierFacture.Show();
+                    }
+                }
+                else if (colName == "add")
+                {
+                    FacturePaimentSeul facturePaimentSeul = new FacturePaimentSeul();
+                    facturePaimentSeul.IdFacture = int.Parse(dataGridView1.Rows[e.RowIndex].Cells["idfacture"].Value.ToString());
+                    facturePaimentSeul.Show();
+                }
+            }
+        }
     }
 }

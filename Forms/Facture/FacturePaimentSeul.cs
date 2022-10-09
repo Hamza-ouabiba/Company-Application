@@ -62,6 +62,17 @@ namespace RNetApp
             } else numCh.ReadOnly = true;
         }
 
+        bool searchChequeNumber(int numCheque)
+        {
+            foreach(DataRow dataRow in ado.Ds.Tables["cheque"].Rows)
+            {
+                if(numCheque == int.Parse(dataRow["idcheque"].ToString()))
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
         private void enrBtn_Click(object sender, EventArgs e)
         {
             SqlDataAdapter adapterFacture = new SqlDataAdapter("select * from facture", ado.Connection);
@@ -71,6 +82,8 @@ namespace RNetApp
                 SqlDataAdapter adapterCheque = new SqlDataAdapter("select * from cheque",ado.Connection);
                 SqlCommandBuilder sql = new SqlCommandBuilder(adapterCheque);
                     if (decimal.Parse(row["total_rest"].ToString()) > 0 && decimal.Parse(Mnt.Text) <= decimal.Parse(row["total_rest"].ToString()) && (decimal.Parse(row["total_rest"].ToString()) - decimal.Parse(Mnt.Text)) > 0)
+                    {
+                    if (!searchChequeNumber(int.Parse(numCh.Text)))
                     {
                         DataRow data = ado.Ds.Tables["cheque"].NewRow();
                         data[0] = int.Parse(numCh.Text);
@@ -82,10 +95,12 @@ namespace RNetApp
                         ado.Ds.Tables["cheque"].Rows.Add(data);
                         adapterCheque.Update(ado.Ds.Tables["cheque"]);
                         sqlFacture.GetUpdateCommand();
-                
+
                         row["total_rest"] = decimal.Parse(row["total_rest"].ToString()) - decimal.Parse(Mnt.Text);
-                         row["pay_o_n"] = 2;
+                        row["pay_o_n"] = 2;
                         adapterFacture.Update(ado.Ds.Tables["facture"]);
+                    }
+                    else MessageBox.Show("Numéro de chèque déja existant");
 
                     } else if ((decimal.Parse(row["total_rest"].ToString())== 0))
                     {
