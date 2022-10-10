@@ -183,8 +183,8 @@
             this.GestionChequeBtn.Location = new System.Drawing.Point(-8, 477);
             this.GestionChequeBtn.Margin = new System.Windows.Forms.Padding(6, 3, 3, 3);
             this.GestionChequeBtn.Name = "GestionChequeBtn";
-            this.GestionChequeBtn.Padding = new System.Windows.Forms.Padding(5);
-            this.GestionChequeBtn.Size = new System.Drawing.Size(265, 95);
+            this.GestionChequeBtn.Padding = new System.Windows.Forms.Padding(9, 5, 5, 5);
+            this.GestionChequeBtn.Size = new System.Drawing.Size(258, 95);
             this.GestionChequeBtn.TabIndex = 6;
             this.GestionChequeBtn.Text = "Gestion Des Chèques";
             this.GestionChequeBtn.UseVisualStyleBackColor = true;

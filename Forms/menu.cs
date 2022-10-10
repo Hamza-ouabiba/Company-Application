@@ -55,6 +55,7 @@ namespace RNetApp.Forms
             panelContent.Controls.Clear();
             client.Dock = DockStyle.Fill;
             panelContent.Controls.Add(client);
+            
         }
 
         private void FactureBtn_Click(object sender, EventArgs e)
@@ -64,6 +65,7 @@ namespace RNetApp.Forms
             panelContent.Controls.Clear();
             facture.Dock = DockStyle.Fill;
             panelContent.Controls.Add(facture);
+            
         }
 
         private void prixModBtn_Click(object sender, EventArgs e)
@@ -73,6 +75,7 @@ namespace RNetApp.Forms
             panelContent.Controls.Clear();
             article.Dock = DockStyle.Fill;
             panelContent.Controls.Add(article);
+            
         }
         private void GestionEmp_Click(object sender, EventArgs e)
         {
@@ -81,6 +84,7 @@ namespace RNetApp.Forms
             panelContent.Controls.Clear();
             ge.Dock = DockStyle.Fill;
             panelContent.Controls.Add(ge);
+            
         }
 
         private void tacheBtn_Click(object sender, EventArgs e)
@@ -89,6 +93,7 @@ namespace RNetApp.Forms
             panelContent.Controls.Clear();
             t.Dock = DockStyle.Fill;    
             panelContent.Controls.Add(t);
+            
         }
 
         private void GestionChequeBtn_Click(object sender, EventArgs e)
@@ -97,6 +102,7 @@ namespace RNetApp.Forms
             panelContent.Controls.Clear();
             gc.Dock = DockStyle.Fill;
             panelContent.Controls.Add(gc);
+           
         }
 
         private void GestionEspece_Click(object sender, EventArgs e)
@@ -105,6 +111,12 @@ namespace RNetApp.Forms
             panelContent.Controls.Clear();
             ge.Dock = DockStyle.Fill;
             panelContent.Controls.Add(ge);
+            
+        }
+
+        private void ClientBtn_MouseClick_1(object sender, MouseEventArgs e)
+        {
+
         }
     }
 }

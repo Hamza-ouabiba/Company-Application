@@ -195,13 +195,16 @@ namespace RNetApp
         }
         public void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string currenCategoryName = tabControl1.TabPages[tabControl1.SelectedIndex].Text;
-            //set the datagridview for all each categorie : 
-            p.Name1 = currenCategoryName;   
-            p.Dock = DockStyle.Fill;
-            p.filterData();
-            tabControl1.SelectedTab.Controls.Add(p);
-            DaysUserControl.Variante = p;
+            if(tabControl1.SelectedIndex != -1)
+            {
+                string currenCategoryName = tabControl1.TabPages[tabControl1.SelectedIndex].Text;
+                //set the datagridview for all each categorie : 
+                p.Name1 = currenCategoryName;
+                p.Dock = DockStyle.Fill;
+                p.filterData();
+                tabControl1.SelectedTab.Controls.Add(p);
+                DaysUserControl.Variante = p;
+            }
         }
 
         private void tous_Click(object sender, EventArgs e)
@@ -264,6 +267,7 @@ namespace RNetApp
         private void catego_Click(object sender, EventArgs e)
         {
             ChoixCategorie choix = new ChoixCategorie();
+            ChoixCategorie.tab = this.tabControl1;
             choix.Show();
             /*if(Catego_choix != null)
             {

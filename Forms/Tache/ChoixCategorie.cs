@@ -7,13 +7,14 @@ namespace RNetApp
     public partial class ChoixCategorie : Form
     {
         AdoNet ado = new AdoNet();
+        bool ButtonTrigger = false;
+        public static TabControl tab;
         public ChoixCategorie()
         {
             InitializeComponent();
         }
         private void setDataGridView(List<string> categories)
         {
-            Shared.addCol(dataGridView1, "edit", "edit", "Modifier");
             Shared.addCol(dataGridView1, "delete", "delete", "Supprimer");
             foreach (string category in categories)
             {
@@ -38,6 +39,7 @@ namespace RNetApp
         {
             //adding a row to the datagrid : 
             dataGridView1.Rows.Add();
+            ButtonTrigger = true;
         }
 
         private void dataGridView1_CellEndEdit(object sender, DataGridViewCellEventArgs e)
@@ -45,21 +47,34 @@ namespace RNetApp
             try
             {
                 SqlCommandBuilder categoryCommandBuilder = new SqlCommandBuilder(ado.Adapter);
-                string categorieValue = null;
-                DataRow categorieRow;
-                if (dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null)
+                if(ButtonTrigger == true)
                 {
-                    categorieValue = dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString();
-                    //adding new row to the category datatable :
-                    categorieRow = ado.Dt.NewRow();
-                    categorieRow["nomcategorie"] = categorieValue;
-                    ado.Dt.Rows.Add(categorieRow);
+                    string categorieValue = null;
+                    DataRow categorieRow;
+                    if (dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null)
+                    {
+                        categorieValue = dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString();
+                        //adding new row to the category datatable :
+                        categorieRow = ado.Dt.NewRow();
+                        categorieRow["nomcategorie"] = categorieValue;
+                        ado.Dt.Rows.Add(categorieRow);
 
-                    //updating dataBase : 
-                    categoryCommandBuilder.GetInsertCommand();
+                        //updating dataBase : 
+                        categoryCommandBuilder.GetInsertCommand();
+                        ado.Adapter.Update(ado.Dt);
+                        TabPage tabPage = new TabPage();
+                        tabPage.Text = categorieValue;
+                        tab.TabPages.Add(tabPage);
+                    }
+                    else MessageBox.Show("enter something");
+                } else if(ButtonTrigger == false)
+                {
+                    categoryCommandBuilder.GetUpdateCommand();
+                    tab.TabPages[e.RowIndex].Text = dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString();
+                    ado.Dt.Rows[e.RowIndex]["nomcategorie"] = dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString();
                     ado.Adapter.Update(ado.Dt);
                 }
-                else MessageBox.Show("enter something");
+                ButtonTrigger = false;
             } catch(SqlException ex)
             {
                 MessageBox.Show(ex.Message);
@@ -78,12 +93,9 @@ namespace RNetApp
                 categoryCommandBuilder.GetDeleteCommand();
                 ado.Dt.Rows[e.RowIndex].Delete();
                 ado.Adapter.Update(ado.Dt);
-            } else if(colName == "edit")
-            {
-                categoryCommandBuilder.GetUpdateCommand();
-                ado.Dt.Rows[e.RowIndex]["nomcategorie"] = dataGridView1.Rows[e.RowIndex].Cells["nomcategorie"].Value.ToString();
-                ado.Adapter.Update(ado.Dt);
-            }
+                dataGridView1.Rows.RemoveAt(e.RowIndex);
+                tab.TabPages.RemoveAt(e.RowIndex);
+            } 
         }
     }
 }

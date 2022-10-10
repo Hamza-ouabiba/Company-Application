@@ -50,7 +50,6 @@
             this.Controls.Add(this.button1);
             this.Name = "DaysUserControl";
             this.Size = new System.Drawing.Size(45, 40);
-            this.Load += new System.EventHandler(this.DaysUserControl_Load);
             this.ResumeLayout(false);
 
         }

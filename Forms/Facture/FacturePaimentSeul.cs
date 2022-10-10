@@ -99,6 +99,7 @@ namespace RNetApp
                         row["total_rest"] = decimal.Parse(row["total_rest"].ToString()) - decimal.Parse(Mnt.Text);
                         row["pay_o_n"] = 2;
                         adapterFacture.Update(ado.Ds.Tables["facture"]);
+                        MessageBox.Show("Paiement Ajoutée avec succés", "", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                     }
                     else MessageBox.Show("Numéro de chèque déja existant");
 
@@ -137,6 +138,7 @@ namespace RNetApp
                     row["total_rest"] = decimal.Parse(row["total_rest"].ToString()) - decimal.Parse(Mnt.Text);
                     row["pay_o_n"] = 2;
                     adapterFacture.Update(ado.Ds.Tables["facture"]);
+                    MessageBox.Show("Paiement Ajoutée avec succés", "", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                 } else if(decimal.Parse(row["total_rest"].ToString()) == 0)
                 {
                     MessageBox.Show("facture  payée");
