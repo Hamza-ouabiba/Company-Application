@@ -28,24 +28,35 @@ namespace RNetApp
             }
             return retrievingNames;
         }
-        private void GestionClient_Load(object sender, EventArgs e)
+        private void loadData()
         {
-            ado.Cmd.CommandText = $"SELECT * from client";
+            ado.Cmd.CommandText = "GETTABLES";
+            ado.Cmd.CommandType = CommandType.StoredProcedure;
             ado.Cmd.Connection = ado.Connection;
             ado.Adapter.SelectCommand = ado.Cmd;
-            ado.Adapter.Fill(ado.Dt);
+            ado.Adapter.Fill(ado.Ds);
+
+            ado.Ds.Tables[0].TableName = "facture";
+            ado.Ds.Tables[1].TableName = "client";
+            ado.Ds.Tables[2].TableName = "cheque";
+            ado.Ds.Tables[3].TableName = "espece";
+            ado.Ds.Tables[4].TableName = "changer";
+        }
+        private void GestionClient_Load(object sender, EventArgs e)
+        {
+            loadData();
             videError.Visible = false;
             videBase();
-            nbreClt.Text = ado.Dt.Rows.Count.ToString();
+            nbreClt.Text = ado.Ds.Tables["client"].Rows.Count.ToString();
             dataGridView1.Columns.Clear();
-            dataGridView1.DataSource = ado.Dt;
-            fillCombo(clientCombo,retrievingNames(ado.Dt));
+            dataGridView1.DataSource = ado.Ds.Tables["client"];
+            fillCombo(clientCombo,retrievingNames(ado.Ds.Tables["client"]));
             clientCombo.Text = "Tous";
             affichageGrid();
         }
         private void videBase()
         {
-            if (ado.Dt.Rows.Count == 0)
+            if (ado.Ds.Tables["client"].Rows.Count == 0)
             {
                 videError.Visible = true;
                 videError.Text = "Base de donnée vide veuillez insérer un client";
@@ -60,13 +71,11 @@ namespace RNetApp
             Shared.addCol(dataGridView1, "delete", "delete", "supprimer");
             Shared.addCol(dataGridView1, "edit", "edit", "modifier");
             Shared.addCol(dataGridView1, "voir", "voir", "voir client");
-            dataGridView1.Columns["edit"].Width = 40;
-            dataGridView1.Columns["delete"].Width = 40;
-            dataGridView1.Columns["voir"].Width = 50;
+            Shared.addCol(dataGridView1, "add", "add", "Facture");
         }
         private bool checkClient(string nomClt)
         {
-            foreach (DataRow row in ado.Dt.Rows)
+            foreach (DataRow row in ado.Ds.Tables["client"].Rows)
             {
                 if (row["NOM"].ToString().ToLower() == nomClt.ToLower())
                 {
@@ -77,7 +86,7 @@ namespace RNetApp
         }
         private bool checkClientWithId(string nomClt, string id)
         {
-            foreach (DataRow row in ado.Dt.Rows)
+            foreach (DataRow row in ado.Ds.Tables["client"].Rows)
             {
                 if (row["IDCLIENT"].ToString().ToLower() == id.ToLower() && row["NOM"].ToString().ToLower() == nomClt.ToLower())
                 {
@@ -88,7 +97,7 @@ namespace RNetApp
         }
         private bool checkClientWithNoId(string nomClt, string id)
         {
-            foreach (DataRow row in ado.Dt.Rows)
+            foreach (DataRow row in ado.Ds.Tables["client"].Rows)
             {
                 if (row["IDCLIENT"].ToString().ToLower() != id.ToLower() && row["NOM"].ToString().ToLower() == nomClt.ToLower())
                 {
@@ -109,7 +118,7 @@ namespace RNetApp
         }
         private void clientCombo_SelectedValueChanged(object sender, EventArgs e)
         {
-            DataView dv = new DataView(ado.Dt);
+            DataView dv = new DataView(ado.Ds.Tables["client"]);
             if (clientCombo.Text != "" && clientCombo.Text != "Tous")
             {
                 if (checkClient(clientCombo.Text))
@@ -124,6 +133,17 @@ namespace RNetApp
                 dataGridView1.DataSource = dv;
             }
         }
+        private bool verificationClientPrix(Guid idclient)
+        {
+            foreach (DataRow row in ado.Ds.Tables["changer"].Rows)
+            {
+                if (Guid.Parse(row["idclient"].ToString()) == idclient)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
         private void dataGridView1_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
         {
             if (e.ColumnIndex != -1)
@@ -134,11 +154,12 @@ namespace RNetApp
                     bool confirmation = Shared.showMessage("Voulez vous vraiment supprimer le client ?", "Confirmation de suppression");
                     if (confirmation)
                     {
-                        SqlCommandBuilder scb = new SqlCommandBuilder(ado.Adapter);
+                        SqlDataAdapter sqlDataAdapterClient = new SqlDataAdapter("select * from client",ado.Connection);
+                        SqlCommandBuilder scb = new SqlCommandBuilder(sqlDataAdapterClient);
                         scb.GetDeleteCommand();
-                        ado.Dt.Rows[e.RowIndex].Delete();
-                        ado.Adapter.Update(ado.Dt);
-                        nbreClt.Text = $"{ado.Dt.Rows.Count}";
+                        ado.Ds.Tables["client"].Rows[e.RowIndex].Delete();
+                        sqlDataAdapterClient.Update(ado.Ds.Tables["client"]);
+                        nbreClt.Text = $"{ado.Ds.Tables["client"].Rows.Count}";
                         videBase();
                     }
                 }
@@ -157,6 +178,30 @@ namespace RNetApp
                     ficheClt clt = new ficheClt();
                     ficheClt.IdClient = Guid.Parse(dataGridView1.Rows[e.RowIndex].Cells["IDCLIENT"].Value.ToString());
                     clt.Show();
+                } else if(colName == "add")
+                {
+                    DateTime dt = DateTime.Now;
+                    SqlDataAdapter sqlDataAdapterFacture = new SqlDataAdapter("select * from facture", ado.Connection);
+                    SqlCommandBuilder sql = new SqlCommandBuilder(sqlDataAdapterFacture);
+                    if (verificationClientPrix(Guid.Parse(dataGridView1.Rows[e.RowIndex].Cells["idclient"].Value.ToString())))
+                    {
+                        //creating new row : 
+                        DataRow dr = ado.Ds.Tables["facture"].NewRow();
+                        dr[1] = dt;
+                        dr[5] = 0;
+                        dr[6] = Guid.Parse(dataGridView1.Rows[e.RowIndex].Cells["idclient"].Value.ToString());
+                        dr[7] = 0;
+
+                        ado.Ds.Tables["facture"].Rows.Add(dr);
+                        sql.GetInsertCommand();
+
+                        sqlDataAdapterFacture.Update(ado.Ds.Tables["facture"]);
+                        FactureForm factureForm = new FactureForm();
+                        factureForm.IdClient = Guid.Parse(dataGridView1.Rows[e.RowIndex].Cells["idclient"].Value.ToString());
+                        factureForm.NameClient = dataGridView1.Rows[e.RowIndex].Cells["nom"].Value.ToString();
+                        factureForm.Show();
+                    }
+                    else MessageBox.Show("veuillez d'avoir fixer les prix");
                 }
             }
         }

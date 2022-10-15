@@ -9,7 +9,6 @@ namespace RNetApp.Forms
     {
         private Guid idClient;
         private int idFacture;
-        private int position;
         private string nameClient;
         decimal total = 0;
         List<TextBox> list = new List<TextBox>();
