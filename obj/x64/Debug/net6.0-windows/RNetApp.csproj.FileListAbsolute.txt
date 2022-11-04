@@ -21,7 +21,6 @@ D:\projects\training\RNetApp\RNetApp\obj\x64\Debug\net6.0-windows\RNetApp.Forms.
 D:\projects\training\RNetApp\RNetApp\obj\x64\Debug\net6.0-windows\RNetApp.Forms.ReposCalcul.resources
 D:\projects\training\RNetApp\RNetApp\obj\x64\Debug\net6.0-windows\RNetApp.Properties.Resources.resources
 D:\projects\training\RNetApp\RNetApp\obj\x64\Debug\net6.0-windows\RNetApp.Tache.resources
-D:\projects\training\RNetApp\RNetApp\obj\x64\Debug\net6.0-windows\RNetApp.ArticleMod.resources
 D:\projects\training\RNetApp\RNetApp\obj\x64\Debug\net6.0-windows\RNetApp.GestionClient.resources
 D:\projects\training\RNetApp\RNetApp\obj\x64\Debug\net6.0-windows\RNetApp.GestionEmploye.resources
 D:\projects\training\RNetApp\RNetApp\obj\x64\Debug\net6.0-windows\RNetApp.GestionFacture.resources
@@ -115,3 +114,5 @@ D:\projects\training\RNetApp\RNetApp\obj\x64\Debug\net6.0-windows\RNetApp.Modifi
 D:\projects\training\RNetApp\RNetApp\obj\x64\Debug\net6.0-windows\RNetApp.ModifierFacture.resources
 D:\projects\training\RNetApp\RNetApp\bin\x64\Debug\net6.0-windows\reports\Report1.rdlc
 D:\projects\training\RNetApp\RNetApp\obj\x64\Debug\net6.0-windows\RNetApp.FacturePaimentSeul.resources
+D:\projects\training\RNetApp\RNetApp\obj\x64\Debug\net6.0-windows\RNetApp.ModificationPrixArticle.resources
+D:\projects\training\RNetApp\RNetApp\bin\x64\Debug\net6.0-windows\System.Windows.Forms.DataVisualization.dll

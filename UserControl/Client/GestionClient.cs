@@ -146,63 +146,71 @@ namespace RNetApp
         }
         private void dataGridView1_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.ColumnIndex != -1)
+            try
             {
-                string colName = dataGridView1.Columns[e.ColumnIndex].Name;
-                if (colName == "delete")
+                if (e.ColumnIndex != -1)
                 {
-                    bool confirmation = Shared.showMessage("Voulez vous vraiment supprimer le client ?", "Confirmation de suppression");
-                    if (confirmation)
+                    string colName = dataGridView1.Columns[e.ColumnIndex].Name;
+                    if (colName == "delete")
                     {
-                        SqlDataAdapter sqlDataAdapterClient = new SqlDataAdapter("select * from client",ado.Connection);
-                        SqlCommandBuilder scb = new SqlCommandBuilder(sqlDataAdapterClient);
-                        scb.GetDeleteCommand();
-                        ado.Ds.Tables["client"].Rows[e.RowIndex].Delete();
-                        sqlDataAdapterClient.Update(ado.Ds.Tables["client"]);
-                        nbreClt.Text = $"{ado.Ds.Tables["client"].Rows.Count}";
-                        videBase();
+                        bool confirmation = Shared.showMessage("Voulez vous vraiment supprimer le client ?", "Confirmation de suppression");
+                        if (confirmation)
+                        {
+                            SqlDataAdapter sqlDataAdapterClient = new SqlDataAdapter("select * from client", ado.Connection);
+                            SqlCommandBuilder scb = new SqlCommandBuilder(sqlDataAdapterClient);
+                            scb.GetDeleteCommand();
+                            ado.Ds.Tables["client"].Rows[e.RowIndex].Delete();
+                            sqlDataAdapterClient.Update(ado.Ds.Tables["client"]);
+                            nbreClt.Text = $"{ado.Ds.Tables["client"].Rows.Count}";
+                            videBase();
+                        }
+                    }
+                    else if (colName == "edit")
+                    {
+                        bool confirmation = Shared.showMessage("Voulez vous vraiment modifier le client ?", "Confirmation de modification");
+                        if (confirmation)
+                        {
+                            ModifierClient mc = new ModifierClient();
+                            MessageBox.Show(dataGridView1.Rows[e.RowIndex].Cells["IDCLIENT"].Value.ToString());
+                            ModifierClient.IdClient = Guid.Parse(dataGridView1.Rows[e.RowIndex].Cells["IDCLIENT"].Value.ToString());
+                            mc.Show();
+                        }
+                    }
+                    else if (colName == "voir")
+                    {
+                        ficheClt clt = new ficheClt();
+                        ficheClt.IdClient = Guid.Parse(dataGridView1.Rows[e.RowIndex].Cells["IDCLIENT"].Value.ToString());
+                        clt.Show();
+                    }
+                    else if (colName == "add")
+                    {
+                        DateTime dt = DateTime.Now;
+                        SqlDataAdapter sqlDataAdapterFacture = new SqlDataAdapter("select * from facture", ado.Connection);
+                        SqlCommandBuilder sql = new SqlCommandBuilder(sqlDataAdapterFacture);
+                        if (verificationClientPrix(Guid.Parse(dataGridView1.Rows[e.RowIndex].Cells["idclient"].Value.ToString())))
+                        {
+                            //creating new row : 
+                            DataRow dr = ado.Ds.Tables["facture"].NewRow();
+                            dr[1] = dt;
+                            dr[5] = 0;
+                            dr[6] = Guid.Parse(dataGridView1.Rows[e.RowIndex].Cells["idclient"].Value.ToString());
+                            dr[7] = 0;
+
+                            ado.Ds.Tables["facture"].Rows.Add(dr);
+                            sql.GetInsertCommand();
+
+                            sqlDataAdapterFacture.Update(ado.Ds.Tables["facture"]);
+                            FactureForm factureForm = new FactureForm();
+                            factureForm.IdClient = Guid.Parse(dataGridView1.Rows[e.RowIndex].Cells["idclient"].Value.ToString());
+                            factureForm.NameClient = dataGridView1.Rows[e.RowIndex].Cells["nom"].Value.ToString();
+                            factureForm.Show();
+                        }
+                        else MessageBox.Show("veuillez d'avoir fixer les prix");
                     }
                 }
-                else if (colName == "edit")
-                {
-                    bool confirmation = Shared.showMessage("Voulez vous vraiment modifier le client ?", "Confirmation de modification");
-                    if (confirmation)
-                    {
-                        ModifierClient mc = new ModifierClient();
-                        MessageBox.Show(dataGridView1.Rows[e.RowIndex].Cells["IDCLIENT"].Value.ToString());
-                        ModifierClient.IdClient = Guid.Parse(dataGridView1.Rows[e.RowIndex].Cells["IDCLIENT"].Value.ToString());
-                        mc.Show();
-                    }
-                } else if(colName == "voir")
-                {
-                    ficheClt clt = new ficheClt();
-                    ficheClt.IdClient = Guid.Parse(dataGridView1.Rows[e.RowIndex].Cells["IDCLIENT"].Value.ToString());
-                    clt.Show();
-                } else if(colName == "add")
-                {
-                    DateTime dt = DateTime.Now;
-                    SqlDataAdapter sqlDataAdapterFacture = new SqlDataAdapter("select * from facture", ado.Connection);
-                    SqlCommandBuilder sql = new SqlCommandBuilder(sqlDataAdapterFacture);
-                    if (verificationClientPrix(Guid.Parse(dataGridView1.Rows[e.RowIndex].Cells["idclient"].Value.ToString())))
-                    {
-                        //creating new row : 
-                        DataRow dr = ado.Ds.Tables["facture"].NewRow();
-                        dr[1] = dt;
-                        dr[5] = 0;
-                        dr[6] = Guid.Parse(dataGridView1.Rows[e.RowIndex].Cells["idclient"].Value.ToString());
-                        dr[7] = 0;
-
-                        ado.Ds.Tables["facture"].Rows.Add(dr);
-                        sql.GetInsertCommand();
-
-                        sqlDataAdapterFacture.Update(ado.Ds.Tables["facture"]);
-                        FactureForm factureForm = new FactureForm();
-                        factureForm.IdClient = Guid.Parse(dataGridView1.Rows[e.RowIndex].Cells["idclient"].Value.ToString());
-                        factureForm.NameClient = dataGridView1.Rows[e.RowIndex].Cells["nom"].Value.ToString();
-                        factureForm.Show();
-                    }
-                    else MessageBox.Show("veuillez d'avoir fixer les prix");
-                }
+            } catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
         }
 
@@ -236,6 +244,12 @@ namespace RNetApp
                     dataGridView1.Rows[i].DefaultCellStyle.BackColor = Color.Silver;
                 }
             }
+        }
+
+        private void articleMod_Click(object sender, EventArgs e)
+        {
+            ModificationPrixArticle modificationPrixArticle =  new ModificationPrixArticle();
+            modificationPrixArticle.Show();
         }
     }
 }

@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "uldLjk1KgvNEZgV2+3iPAE1+FLBpAKcKupG5woPrBQ5Yrz2PJ9MhQj3uISFUfKZHhVN9ntk4EiRN7r51NaJ/5w==",
+  "dgSpecHash": "R+BueSBwzyETgvxZYB21E3iv15AtVGojVzQyZflBAqHnsaCy65Bm08wmQOdjm8IfBPio2rGIaDy8UyqSlRpwjQ==",
   "success": true,
   "projectFilePath": "D:\\projects\\training\\RNetApp\\RNetApp\\RNetApp.csproj",
   "expectedPackageFiles": [
@@ -41,7 +41,8 @@
     "C:\\Users\\hamza\\.nuget\\packages\\system.text.encoding.codepages\\4.5.1\\system.text.encoding.codepages.4.5.1.nupkg.sha512",
     "C:\\Users\\hamza\\.nuget\\packages\\system.threading.tasks\\4.3.0\\system.threading.tasks.4.3.0.nupkg.sha512",
     "C:\\Users\\hamza\\.nuget\\packages\\system.threading.tasks.extensions\\4.5.4\\system.threading.tasks.extensions.4.5.4.nupkg.sha512",
-    "C:\\Users\\hamza\\.nuget\\packages\\system.windows.extensions\\4.7.0\\system.windows.extensions.4.7.0.nupkg.sha512"
+    "C:\\Users\\hamza\\.nuget\\packages\\system.windows.extensions\\4.7.0\\system.windows.extensions.4.7.0.nupkg.sha512",
+    "C:\\Users\\hamza\\.nuget\\packages\\system.windows.forms.datavisualization\\1.0.0-prerelease.20110.1\\system.windows.forms.datavisualization.1.0.0-prerelease.20110.1.nupkg.sha512"
   ],
   "logs": [
     {

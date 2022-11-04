@@ -192,6 +192,7 @@
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>DESIGNATION</rd:DefaultName>
+                      <ZIndex>5</ZIndex>
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
@@ -324,8 +325,8 @@
           </TablixMembers>
         </TablixRowHierarchy>
         <DataSetName>Facture</DataSetName>
-        <Top>0.5715cm</Top>
-        <Left>0.83819cm</Left>
+        <Top>2.37771cm</Top>
+        <Left>0.49952cm</Left>
         <Height>1.454cm</Height>
         <Width>21.1925cm</Width>
         <Style>
@@ -351,7 +352,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>MontantLettre</rd:DefaultName>
-        <Top>3.19644cm</Top>
+        <Top>4.08544cm</Top>
         <Left>12.62837cm</Left>
         <Height>0.6cm</Height>
         <Width>8.78848cm</Width>
@@ -366,8 +367,173 @@
           <PaddingBottom>2pt</PaddingBottom>
         </Style>
       </Textbox>
+      <Line Name="Line2">
+        <Top>0.31774cm</Top>
+        <Left>7.61053cm</Left>
+        <Height>3.51397cm</Height>
+        <Width>0cm</Width>
+        <ZIndex>2</ZIndex>
+        <Style>
+          <Border>
+            <Style>Solid</Style>
+          </Border>
+        </Style>
+      </Line>
+      <Line Name="Line3">
+        <Top>0.31774cm</Top>
+        <Left>21.64807cm</Left>
+        <Height>0cm</Height>
+        <Width>-13.95287cm</Width>
+        <ZIndex>3</ZIndex>
+        <Style>
+          <Border>
+            <Style>Solid</Style>
+          </Border>
+        </Style>
+      </Line>
+      <Line Name="Line4">
+        <Top>0.49413cm</Top>
+        <Left>21.64807cm</Left>
+        <Height>2.52592cm</Height>
+        <Width>0cm</Width>
+        <ZIndex>4</ZIndex>
+        <Style>
+          <Border>
+            <Style>Solid</Style>
+          </Border>
+        </Style>
+      </Line>
+      <Textbox Name="Textbox5">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>MARRAKECH LE  : </Value>
+                <Style />
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>FACTURE N°</Value>
+                <Style />
+              </TextRun>
+              <TextRun>
+                <Value>=Fields!idFacture.Value</Value>
+                <Style />
+              </TextRun>
+              <TextRun>
+                <Value>/</Value>
+                <Style />
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>CLIENT : </Value>
+                <Style />
+              </TextRun>
+              <TextRun>
+                <Value>=Fields!NOM.Value</Value>
+                <Style />
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value />
+                <Style />
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox5</rd:DefaultName>
+        <Top>0.49413cm</Top>
+        <Left>7.71637cm</Left>
+        <Height>1.70719cm</Height>
+        <Width>13.70048cm</Width>
+        <ZIndex>5</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="Textbox6">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>=Day()/Month()/Year()</Value>
+                <Style />
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox6</rd:DefaultName>
+        <Top>0.49413cm</Top>
+        <Left>3.84387cm</Left>
+        <Height>0.51533cm</Height>
+        <Width>2.5cm</Width>
+        <ZIndex>6</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="Textbox7">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>=Year()</Value>
+                <Style />
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox7</rd:DefaultName>
+        <Top>0.98108cm</Top>
+        <Left>11.88521cm</Left>
+        <Height>0.6cm</Height>
+        <Width>2.246cm</Width>
+        <ZIndex>7</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
     </ReportItems>
-    <Height>1.63911in</Height>
+    <Height>2.14744in</Height>
     <Style>
       <Border>
         <Style>None</Style>

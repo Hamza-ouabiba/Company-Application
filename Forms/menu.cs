@@ -14,25 +14,31 @@ namespace RNetApp.Forms
         public static Guid IdChef { get => idChef; set => idChef = value; }
         private void menu_Load(object sender, EventArgs e)
         {
-            DateTime now = DateTime.Now;
-            DataRow dr;
-            GestionEmploye employe = new GestionEmploye();
-            //afficher Le controleur d'utilisateur client : 
-            panelContent.Controls.Clear();
-            employe.Dock = DockStyle.Fill;
-            panelContent.Controls.Add(employe);
-            //
-            this.MaximizedBounds = Screen.FromHandle(this.Handle).WorkingArea;
-            this.WindowState = FormWindowState.Maximized;
-            //chercher le nom et le prenom de l'utilisateur connecter actuellement : 
-            ado.Cmd.CommandText = $"Select NOM,PRENOM from CHEF where IDCHEF = '{IdChef}'";
-            ado.Cmd.Connection = ado.Connection;
-            ado.Adapter.SelectCommand = ado.Cmd;
-            ado.Adapter.Fill(ado.Dt);
-            ado.Dt.TableName = "CHEF";
-            dr = ado.Dt.Rows[0];
-            utilisateurEn.Text = dr["NOM"].ToString() + "-" + dr["PRENOM"].ToString();
-            date.Text = now.Date.ToString("dddd dd MMMM yyyy");
+           try
+            {
+                DateTime now = DateTime.Now;
+                DataRow dr;
+                GestionEmploye employe = new GestionEmploye();
+                //afficher Le controleur d'utilisateur client : 
+                panelContent.Controls.Clear();
+                employe.Dock = DockStyle.Fill;
+                panelContent.Controls.Add(employe);
+                //
+                this.MaximizedBounds = Screen.FromHandle(this.Handle).WorkingArea;
+                this.WindowState = FormWindowState.Maximized;
+                //chercher le nom et le prenom de l'utilisateur connecter actuellement : 
+                ado.Cmd.CommandText = $"Select NOM,PRENOM from CHEF where IDCHEF = '{IdChef}'";
+                ado.Cmd.Connection = ado.Connection;
+                ado.Adapter.SelectCommand = ado.Cmd;
+                ado.Adapter.Fill(ado.Dt);
+                ado.Dt.TableName = "CHEF";
+                dr = ado.Dt.Rows[0];
+                utilisateurEn.Text = dr["NOM"].ToString() + "-" + dr["PRENOM"].ToString();
+                date.Text = now.Date.ToString("dddd dd MMMM yyyy");
+            } catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
         private void DeconBtn_Click(object sender, EventArgs e)
         {
@@ -70,11 +76,7 @@ namespace RNetApp.Forms
 
         private void prixModBtn_Click(object sender, EventArgs e)
         {
-            ArticleMod article = new ArticleMod();
-            //afficher Le controleur d'utilisateur client : 
-            panelContent.Controls.Clear();
-            article.Dock = DockStyle.Fill;
-            panelContent.Controls.Add(article);
+            
             
         }
         private void GestionEmp_Click(object sender, EventArgs e)

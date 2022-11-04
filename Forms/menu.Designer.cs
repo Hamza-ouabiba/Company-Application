@@ -166,7 +166,7 @@
             this.prixModBtn.Padding = new System.Windows.Forms.Padding(7, 0, 0, 0);
             this.prixModBtn.Size = new System.Drawing.Size(229, 95);
             this.prixModBtn.TabIndex = 7;
-            this.prixModBtn.Text = "Modification Prix";
+            this.prixModBtn.Text = "Paramètre";
             this.prixModBtn.UseVisualStyleBackColor = true;
             this.prixModBtn.Click += new System.EventHandler(this.prixModBtn_Click);
             // 
@@ -268,7 +268,7 @@
             this.panelTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelTop.Location = new System.Drawing.Point(221, 0);
             this.panelTop.Name = "panelTop";
-            this.panelTop.Size = new System.Drawing.Size(1091, 53);
+            this.panelTop.Size = new System.Drawing.Size(1252, 53);
             this.panelTop.TabIndex = 2;
             // 
             // DeconBtn
@@ -283,7 +283,7 @@
             this.DeconBtn.IconFont = FontAwesome.Sharp.IconFont.Solid;
             this.DeconBtn.IconSize = 25;
             this.DeconBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.DeconBtn.Location = new System.Drawing.Point(842, 7);
+            this.DeconBtn.Location = new System.Drawing.Point(1003, 7);
             this.DeconBtn.Name = "DeconBtn";
             this.DeconBtn.Padding = new System.Windows.Forms.Padding(3, 0, 0, 0);
             this.DeconBtn.Size = new System.Drawing.Size(165, 36);
@@ -301,20 +301,21 @@
             this.panelContent.Margin = new System.Windows.Forms.Padding(7, 0, 0, 0);
             this.panelContent.Name = "panelContent";
             this.panelContent.Padding = new System.Windows.Forms.Padding(7, 0, 0, 0);
-            this.panelContent.Size = new System.Drawing.Size(1091, 867);
+            this.panelContent.Size = new System.Drawing.Size(1252, 867);
             this.panelContent.TabIndex = 3;
             // 
             // menu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1312, 920);
+            this.ClientSize = new System.Drawing.Size(1473, 920);
             this.Controls.Add(this.panelContent);
             this.Controls.Add(this.panelTop);
             this.Controls.Add(this.panelLeft);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MaximizeBox = false;
             this.Name = "menu";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "menu";
             this.Load += new System.EventHandler(this.menu_Load);
             this.panelLeft.ResumeLayout(false);

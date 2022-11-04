@@ -38,7 +38,7 @@
             this.clientCombo = new System.Windows.Forms.ComboBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.AjoutClient = new FontAwesome.Sharp.IconButton();
-            this.button1 = new System.Windows.Forms.Button();
+            this.articleMod = new System.Windows.Forms.Button();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -166,22 +166,23 @@
             this.AjoutClient.UseVisualStyleBackColor = false;
             this.AjoutClient.Click += new System.EventHandler(this.AjoutClient_Click);
             // 
-            // button1
+            // articleMod
             // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Location = new System.Drawing.Point(1443, 82);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(227, 39);
-            this.button1.TabIndex = 88;
-            this.button1.Text = "Changement de prix de client";
-            this.button1.UseVisualStyleBackColor = false;
+            this.articleMod.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.articleMod.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.articleMod.Location = new System.Drawing.Point(1443, 82);
+            this.articleMod.Name = "articleMod";
+            this.articleMod.Size = new System.Drawing.Size(227, 39);
+            this.articleMod.TabIndex = 88;
+            this.articleMod.Text = "Changement de prix de client";
+            this.articleMod.UseVisualStyleBackColor = false;
+            this.articleMod.Click += new System.EventHandler(this.articleMod_Click);
             // 
             // GestionClient
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.articleMod);
             this.Controls.Add(this.AjoutClient);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.clientCombo);
@@ -213,6 +214,6 @@
         private ComboBox clientCombo;
         private DataGridView dataGridView1;
         private FontAwesome.Sharp.IconButton AjoutClient;
-        private Button button1;
+        private Button articleMod;
     }
 }

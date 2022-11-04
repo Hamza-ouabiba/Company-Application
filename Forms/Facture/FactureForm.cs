@@ -115,6 +115,7 @@ namespace RNetApp.Forms
                 
                 if (!testFacture(ado3.Ds.Tables["avoir"], idFacture))
                 {
+                    total = 0;
                     for (int i = 0; i < ado2.Ds.Tables["changer"].Rows.Count; i++)
                     {
                         if (ado2.Ds.Tables["changer"].Rows[i]["designation"].ToString() == list[i].PlaceholderText)

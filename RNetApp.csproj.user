@@ -31,6 +31,9 @@
     <Compile Update="Forms\Facture\ModifierFacture.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="ModificationPrixArticle.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="UserControl\Tache\TacheVariante.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -75,9 +78,6 @@
     </Compile>
     <Compile Update="Forms\Employee\ModifierEmploye.cs">
       <SubType>Form</SubType>
-    </Compile>
-    <Compile Update="UserControl\Article\ArticleMod.cs">
-      <SubType>UserControl</SubType>
     </Compile>
     <Compile Update="UserControl\ChequeUserControl\GestionCheque.cs">
       <SubType>UserControl</SubType>
