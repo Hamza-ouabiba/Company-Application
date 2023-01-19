@@ -28,7 +28,7 @@
 <ol>
   <li>Clone the repository to your local machine
     <pre>
-    <code>git clone https://github.com/Hamza-ouabiba/Desktop-Application.git</code>
+    <code>git clone https://github.com/Hamza-ouabiba/Company-Application.git</code>
     </pre>
   </li>
   <li>Create a new SQL Server database and import the provided SQL file to create the necessary tables</li>
